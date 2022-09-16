@@ -1,0 +1,272 @@
+#search-component {
+  background-color: var(--v2-background);
+  border-radius: 10px;
+  display: flex;
+  position: relative;
+  border: 2px solid transparent;
+  &:hover {
+    border: 2px solid var(--v2-pink-gradient-start);
+  }
+  @media screen and (max-width: 1023px) {
+
+  }
+  input {
+    background-color: transparent;
+    border: 0;
+    color: var(--v2-card-headline-color);
+    padding: 0.6rem;
+    font-size: 1rem;
+    max-width: 100%;
+    width: 200px;
+    outline: 0;
+  }
+  button {
+    background-color: transparent;
+    border: 0;
+    padding: 0.4rem;
+  }
+  .icon {
+    margin-right: 0;
+    width: 20px;
+    height: 20px;
+  }
+  display: flex;
+  @media screen and (max-width: 1023px) {
+    border-radius: 0;
+    display: flex;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid hsl(200deg 4% 24% / 88%);
+    display: none;
+    input {
+      width: 100%;
+    }
+    &:hover {
+      border: 0;
+      border-bottom: 1px solid hsl(200deg 4% 24% / 88%);
+    }
+    &.active {
+      display: flex;
+    }
+  }
+}
+
+// overrides
+#nav-top ul li.search {
+  padding: 0.6rem;
+  display: flex;
+}
+
+#article-search-results {
+  position: absolute;
+  top: 46px;
+  width: 600px;
+  max-height: calc(100vh - 92px);
+  right: 0;
+  background-color: var(--v2-card-background);
+  padding: 0;
+  max-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--v2-card-background-level-2);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  @media screen and (max-width: 1023px) {
+    top: 37px;
+    right: auto;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 92px);
+    height: calc(100vh - 92px);
+  }
+  ul {
+    flex-direction: column;
+    padding: 0;
+    li {
+    }
+    @media screen and (max-width: 1023px) {
+      padding-bottom: 1.25rem;
+    }
+  }
+  #article-search-header {
+    margin-top: 0;
+    color: var(--v2-card-headline-color);
+    padding: 1.25rem 1.25rem 0 1.25rem;
+    @media screen and (max-width: 1023px) {
+      font-size: 1rem;
+      padding: 0.6rem 0.6rem 0 0.6rem;
+    }
+  }
+  &:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 54px;
+    width: 100vw;
+    height: 100vh;
+    background-color: hsl(0deg 0% 0% / 75%);
+    z-index: -1;
+    pointer-events: none;
+    @media screen and (max-width: 1023px) {
+      top: 92px;
+    }
+  }
+  .article-preview-text {
+    width: 100%;
+  }
+  .preview {
+    padding: 1.25rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--v2-card-background-level-2);
+    @media screen and (max-width: 1023px) {
+      padding: 0.6rem;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    .headline {
+      font-size: 1rem;
+      margin-bottom: 0.6rem;
+      @media screen and (max-width: 1023px) {
+        font-size: 0.8rem;
+      }
+    }
+    .byline-row {
+      margin-top: 0;
+    }
+    time {
+      margin-bottom: 1rem;
+      display: inline-block;
+      padding: 0.4rem;
+      float: right;
+      font-size: 0.8rem;
+      border-radius: 10px;
+      background-color: var(--v2-card-background-level-2);
+    }
+    figure {
+      flex: 0 0 100px;
+    }
+    a {
+      padding: 0;
+      @media screen and (max-width: 1023px) {
+        flex-direction: row;
+        align-items: top;
+      }
+    }
+    .byline-info {
+      @media screen and (max-width: 1023px) {
+        font-size: 0.6rem;
+
+      }
+    }
+    .byline-profile-image {
+      @media screen and (max-width: 1023px) {
+        flex: 0 0 30px;
+        height: 30px;
+      }
+    }
+  }
+  p {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    color: var(--v2-card-paragraph-color);
+    margin: 0;
+    @media screen and (max-width: 1023px) {
+      padding: 0 0.6rem 0.6rem 0.6rem;
+    }
+  }
+}
+
+
+/** Code for the dummies used by loader **/
+
+#search-results-list-dummy a {
+  width: 100%;
+}
+
+#search-results-list-dummy .preview:hover {
+  background-color: var(--v2-card-background);
+}
+#search-results-list-dummy figure {
+  height: 100px;
+  background-color: var(--v2-card-background-level-2);
+}
+#search-results-list-dummy .article-preview-text {
+  width: 100%;
+}
+
+#search-results-list-dummy .article-preview-text .headline {
+  background-color: var(--v2-card-background-level-2);
+  height: 2rem;
+  border-radius: 10px;
+}
+
+#search-results-list-dummy .article-preview-text time {
+  height: 1.4rem;
+  width: 100px;
+}
+
+#search-results-list-dummy .article-preview-text .byline-profile-image {
+  background-color: var(--v2-card-background-level-2);
+}
+
+#search-results-list-dummy .article-preview-text .byline-name {
+  background-color: var(--v2-card-background-level-2);
+  width: 200px;
+  height: 1rem;
+  border-radius: 10px;
+}
+
+#search-results-list-dummy .article-preview-text .byline-bio {
+  background-color: var(--v2-card-background-level-2);
+  width: 140px;
+  height: 1rem;
+  border-radius: 10px;
+  margin-top: 0.4rem;
+}
+#search-results-list-dummy figure,
+#search-results-list-dummy .article-preview-text .headline,
+#search-results-list-dummy .article-preview-text .byline-profile-image,
+#search-results-list-dummy .article-preview-text .byline-name,
+#search-results-list-dummy .article-preview-text time,
+#search-results-list-dummy .article-preview-text .byline-bio {
+  animation: flashBackground 2s linear infinite;
+}
+
+// loader used in search
+.loader {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+  display: inline-block;
+  margin-left: 0.4rem;
+}
+.loader::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0px;
+  border-radius: 50%;
+  border: 5px solid #FFF;
+  animation: prixClipFix 2s linear infinite ;
+}
+
+@keyframes rotate {
+  100%   {transform: rotate(360deg)}
+}
+
+@keyframes flashBackground {
+  0%   {opacity: 1}
+  50%  {opacity: 0.2}
+}
+
+@keyframes prixClipFix {
+    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
+    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
+    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
+    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
+    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+}

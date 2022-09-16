@@ -1,0 +1,43 @@
+#lab-modalContainer {
+  color: v(v2-card-always-black);
+  .section-title {
+    color: v(v2-card-always-black);
+  }
+  label {
+    color: v(v2-card-always-black);
+  }
+}
+
+.bodytext-content-box {
+  position: relative;
+}
+
+.labFn-empty-placeholder {
+  width: 100%;
+}
+
+.full-bleed {
+  .labFn-empty-placeholder {
+    min-height: 500px;
+    padding-top: 100px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+  }
+}
+
+.labFn-edit {
+  blockquote {
+    -webkit-text-fill-color: unset;
+  }
+  .article-entity {
+    header {
+      .full-bleed {
+        .text-left,
+        .text-center,
+        .text-right {
+          bottom: 52px;
+        }
+      }
+    }
+  }
+}

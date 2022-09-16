@@ -1,0 +1,156 @@
+/**
+    This row is shown at the base of all article tiles.
+    Lists number of comments, reactions and tags
+**/
+
+.frontpage article.preview .article-social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0.6rem 0.6rem 1.25rem;
+  background-color: var(--v2-card-background-hover);
+  @media screen and (max-width: 700px) {
+    padding: 0.6rem 0.8rem 0.6rem 0.8rem;
+  }
+  .reaction-button {
+    margin-right: 1rem;
+    background-color: transparent;
+    color: var(--v2-card-paragraph-color);
+    font-size: 0.9rem;
+    border: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.6rem;
+    border-radius: 4px;
+    &:hover {
+      background-color: var(--v2-background);
+    }
+    &:before {
+      content: "";
+      display: inline-block;
+
+      background-repeat: no-repeat;
+      background-size: 100%;
+      color: white;
+      pointer-events: none;
+      z-index: 1;
+      width: 17px;
+      height: 17px;
+      filter: invert(1);
+      opacity: 0.4;
+      margin-right: 0.6rem;
+    }
+    &.reaction {
+      &:before {
+        background-image: url(https://www.kode24.no/files/2022/05/31/kode24-heart-square.png);
+      }
+    }
+    &.comment {
+      &:before {
+        background-image: url(https://www.kode24.no/files/2022/02/04/kode24-message-square.png);
+      }
+    }
+    @media screen and (max-width: 700px) {
+      margin-right: 0;
+    }
+  }
+  .social-buttons {
+    display: flex;
+  }
+
+  .article-social-tags {
+    display: flex;
+    .social-tag {
+      display: block;
+      padding: 0.6rem;
+      background-color: var(--v2-card-background);
+      border-radius: 4px;
+      margin-left: 0.6rem;
+      color: v(v2-card-always-white);
+      &:hover {
+        background-color: var(--v2-background);
+      }
+      @media screen and (max-width: 700px) {
+        &:not(:first-child) {
+          display: none;
+        }
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.frontpage .row:not(.added):nth-child(8n + 0) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-teal);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-teal-darker);
+    }
+  }
+}
+.frontpage .row:not(.added):nth-child(8n + 1) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-pink);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-pink-darker);
+    }
+  }
+}
+.frontpage .row:not(.added):nth-child(8n + 2) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-purple);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-purple-darker);
+    }
+  }
+}
+
+.frontpage .row:not(.added):nth-child(8n + 3) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-blue);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-blue-darker);
+    }
+  }
+}
+.frontpage .row:not(.added):nth-child(8n + 4) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-yellow);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-yellow-darker);
+    }
+  }
+}
+.frontpage .row:not(.added):nth-child(8n + 5) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-orange);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-orange-darker);
+    }
+  }
+}
+.frontpage .row:not(.added):nth-child(8n + 6) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-midnight);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-midnight-darker);
+    }
+  }
+}
+.frontpage .row:not(.added):nth-child(8n + 7) article.preview .article-social {
+  .social-tag {
+    background-color: v(v2-label-color-grey);
+    &:not(:first-child) {
+      background-color: v(v2-label-color-grey-darker);
+    }
+  }
+}
+
+
+.light .frontpage article.preview .article-social {
+  .reaction-button {  
+    &:before {
+      filter: invert(0);
+    }
+  }
+}

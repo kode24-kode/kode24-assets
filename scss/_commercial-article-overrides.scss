@@ -1,0 +1,20 @@
+.article-entity {
+    &.annonse,
+    &.content {
+        .top-profile,
+        .in-article-listing,
+        .aside-desktop {
+            display: none;
+        }
+        .body-copy {
+            margin: 0 auto;
+        }
+    }
+    &.jobb {
+        .top-profile,
+        .in-article-listing {
+            display: none;
+        }
+    }   
+}
+

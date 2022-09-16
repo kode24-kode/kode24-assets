@@ -1,0 +1,35 @@
+// Ad styling overrides for kode24
+.adunit {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 26px;
+  border-radius: 10px;
+  overflow: hidden;
+  iframe {
+    margin-top: 0 !important;
+  }
+  &:before {
+    top: 0;
+  }
+  .settings-alt-2 {
+    top: 0 !important;
+    background-color: transparent !important;
+    color: v(v2-card-headline-color) !important;
+  }
+}
+.adunit-wrapper {
+  display: flex;
+}
+
+.adunit.small-320x250,
+.adunit.medium-320x250,
+.adunit.large-320x250 {
+  height: calc(250px + 26px);
+  min-width: 320px;
+  display: inline-block;
+}
+.adunit.large-980x300 {
+  @media only screen and (min-width: 1025px) {
+    height: calc(300px + 26px);
+  }
+}

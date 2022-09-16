@@ -1,0 +1,196 @@
+.event-front-card-container {
+  width: 100%;
+  div:nth-child(2) {
+    margin-bottom: -10px;
+  }
+}
+
+.event-front-card {
+  --card-highlight-gradient-left: #351c6a;
+  --card-highlight-gradient-right: #77138b;
+  --card-background-hover: #111111;
+  --text-color: white;
+  --text-color-fade: rgb(160, 160, 160);
+  --text-color-more-fade: rgb(119, 119, 119);
+  --text-color-always-white: white;
+  width: 100%;
+  transition: all 0.25s ease-in-out;
+  margin-bottom: 20px;
+
+  &:hover {
+    transform: scale(1.01);
+    .event-front-card-link {
+    }
+    filter: brightness(1.2);
+  }
+  &.premium {
+    .event-front-card-link {
+      background: linear-gradient(
+        45deg,
+        var(--card-highlight-gradient-left),
+        var(--card-highlight-gradient-right)
+      );
+    }
+  }
+  .event-front-card-info {
+    display: flex;
+    .event-front-card-pill {
+      font-size: 12px;
+      width: auto;
+    }
+    &.top {
+      margin-bottom: -10px;
+      margin-top: 20px;
+    }
+    &.bottom {
+      margin-top: 10px;
+      margin-bottom: 20px;
+      justify-content: flex-end;
+    }
+  }
+  .event-front-card-link {
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background: v(v2-card-background);
+    border-radius: 10px;
+    text-decoration: none;
+  }
+  .event-front-card-listing-info {
+    width: 100%;
+  }
+  .event-front-card-listing-company-image {
+    background-color: black;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin-right: 20px;
+    flex: 0 0 70px;
+    background-image: url(https://drive.google.com/thumbnail?authuser=0&sz=w320&id=17XcmDtm5JgxgOBhhgFH1uOZaf9d8_YDs);
+    background-size: cover;
+    border-radius: 10px;
+    display: block;
+    @media (min-width: 700px) {
+      width: 100px;
+      height: 100px;
+      flex: 0 0 100px;
+    }
+  }
+  .event-front-card-arranged-by,
+  .event-front-card-description {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+    opacity: 0.8;
+    padding-bottom: 1px;
+    color: var(--text-color-fade);
+    @media (min-width: 700px) {
+      font-size: 15px;
+      display: block;
+    }
+  }
+  .event-front-card-description {
+    color: var(--text-color-fade);
+  }
+  .event-front-card-name {
+    margin: 0px 0px 4px;
+    padding: 0px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    font-size: 1.1em;
+    color: var(--text-color);
+    @media (min-width: 700px) {
+      font-size: 19px;
+      letter-spacing: 1px;
+    }
+  }
+  .event-front-card-date-and-format {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    justify-content: space-between;
+    flex-direction: column;
+    a {
+      width: 100%;
+    }
+    @media (min-width: 700px) {
+      flex-direction: row;
+      a {
+        width: auto;
+      }
+    }
+  }
+  .event-front-card-time-wrapper {
+    width: 100%;
+    display: flex;
+    .event-front-card-pill {
+      flex: 1 1;
+      text-align: center;
+      @media (min-width: 700px) {
+        flex: none;
+      }
+    }
+  }
+  .event-front-card-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 5px;
+    transform: translateY(2px);
+  }
+  .event-front-card-time {
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-color-fade);
+    text-align: left;
+    @media (min-width: 700px) {
+      font-size: 1rem;
+    }
+  }
+
+  .event-front-card-pill {
+    border-radius: 20px;
+    background-color: black;
+    padding: 4px 14px;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    display: inline-block;
+    color: var(--text-color-always-white) !important;
+
+    &.physical {
+      background-color: var(--kode24-pink-dark);
+    }
+  }
+  .event-front-card-button {
+    padding: 4px 16px;
+    border-radius: 10px;
+
+    font-size: 12px;
+    background-color: var(--kode24-pink-dark);
+    color: var(--text-color-always-white);
+    margin-top: 10px;
+    text-align: center;
+    @media (min-width: 700px) {
+      margin-top: -3px;
+    }
+  }
+}
+
+.light .event-front-card {
+  --card-highlight-gradient-left: #d7c4ff;
+  --card-highlight-gradient-right: #f0a6fc;
+  --card-background-hover: #eae2e2;
+  --text-color: black;
+  --text-color-fade: rgb(82 82 82);
+  --text-color-more-fade: #4b4b4b;
+}
+
+.frontpage .event-front-card-description {
+  display: none;
+}

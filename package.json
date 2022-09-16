@@ -1,0 +1,19 @@
+{
+  "name": "kode24-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^3.0.7"
+  },
+  "dependencies": {
+    "highlight.js": "^11.6.0",
+    "hljs": "^6.2.3",
+    "sass": "^1.54.9"
+  }
+}

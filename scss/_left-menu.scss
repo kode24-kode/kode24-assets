@@ -1,0 +1,138 @@
+#left-menu {
+  display: block;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+  background-color: var(--v2-background);
+  height: calc(100vh - 50px);
+  overflow: auto;
+  padding: 0 1.25rem 0 1.25rem;
+  width: 100%;
+  display: none;
+  &.active {
+    display: block;
+  }
+  @media screen and (min-width: 1023px) {
+    display: none;
+  }
+  @media screen and (min-width: 1226px) {
+      position: relative;
+      left: auto;
+      top: auto;
+      overflow: visible;
+      display: block;
+      flex: 0 0 230px;
+      padding: 0 1.25rem 0 1.25rem;
+  }
+  h3 {
+    color: v(v2-card-paragraph-color);
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
+    font-family: v(fontRegular);
+    font-weight: normal;
+  }
+  nav {
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid v(v2-card-background-level-2);
+  }
+  .icon {
+    margin-right: 0.6rem;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      @media screen and (max-width: 1023px) {
+        display: inline-block;
+      }
+      a {
+        padding: 1rem 0.6rem;
+        font-size: 1.1rem;
+        display: flex;
+        img {
+          width: 25px;
+          margin-right: 0.6rem;
+        }
+      }
+      &:hover {
+        background-color: v(v2-card-background-sidebar);
+        border-radius: 10px;
+        .icon {
+          path,
+          circle,
+          line {
+            stroke: v(v2-card-headline-color);
+          }
+        }
+        a {
+          color: v(v2-card-headline-color);
+        }
+      }
+    }
+  }
+}
+
+
+
+    
+
+#company-sponsors-list {
+  img {
+    display: block;
+    padding: 4px;
+    background-color: v(v2-background-always-dark);
+    border-radius: 4px;
+  }
+  .silver {
+    padding: 0.4rem;
+    &.preview {
+      display: block;
+      background-color: transparent;
+      margin-bottom: 0.6rem;
+      @media screen and (max-width: 1023px) {
+        width: calc(50% - 10px);
+        display: inline-block;
+      }
+      a {
+        padding: 0.6rem;
+        display: block;
+        img {
+          width: 100%;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .gold {
+    &.preview {
+      margin-bottom: 0.6rem;
+      background-color: transparent;
+      a {
+        padding: 0.6rem;
+      }
+    }
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        width: 100%;
+        margin-right: 0;
+      }
+      p {
+        color: v(v2-card-paragraph-color);
+        font-size: 0.7rem;
+        font-style: italic;
+      }
+    }
+  }
+  .gold,
+  .silver {
+    box-shadow: none;
+    border-bottom: 1px solid v(v2-card-background-level-2);
+    border-radius: 0;
+
+  }
+}

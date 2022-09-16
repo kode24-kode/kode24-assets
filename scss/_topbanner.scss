@@ -1,0 +1,108 @@
+.article-entity .top-profile {
+  .top-banner {
+    background-image: none;
+    background-position: 0;
+    background-size: 0;
+    padding-bottom: 0;
+    figure {
+      margin: 0;
+    }
+    margin-bottom: 1.25rem;
+  }
+  padding: 0.8rem;
+  @media screen and (min-width: $vp-tablet) {
+    margin-bottom: 1.25rem;
+    padding: 0;
+  }
+}
+.top-profile {
+  margin-bottom: 0.625em;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+  position: relative;
+  @media screen and (min-width: $vp-tablet) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: calc(#{v(gutter)} * 4);
+  }
+  .kicker {
+    color: v(v2-card-headline-color);
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+    font-size: 0.6em;
+    background: v(v2-card-background);
+    position: relative;
+    width: auto !important;
+    padding: 4px 10px;
+    border-radius: 10px 10px 0 0;
+  }
+  figure {
+    margin: 0;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    img {
+      display: block;
+    }
+  }
+  .desktop {
+    display: none;
+    @media screen and (min-width: $vp-tablet) {
+      display: block;
+    }
+  }
+
+  .mobile {
+    display: block;
+    img {
+      width: 100%;
+    }
+    @media screen and (min-width: $vp-tablet) {
+      display: none;
+    }
+  }
+}
+
+.top-listing {
+  .company-information {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    .image-contain {
+      overflow: hidden;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 10px;
+      img {
+        width: 50px;
+        position: relative;
+      }
+    }
+    color: v(v2-card-always-white);
+    span {
+      text-shadow: 0 0 4px v(v2-card-always-black);
+    }
+  }
+  a {
+    text-decoration: none;
+  }
+  .kicker {
+    background: linear-gradient(
+      45deg,
+      v(kode24-pink),
+      v(v2-commercial-orange-stop)
+    );
+    text-align: center;
+    color: v(v2-card-always-white);
+    padding: 0.8em;
+    font-size: 0.85em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+  }
+}

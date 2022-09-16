@@ -1,0 +1,212 @@
+.preview {
+  font-family: v(fontMono);
+  position: relative;
+  display: block;
+  width: 100%;
+  background-color: v(v2-card-background);
+  border-radius: 10px;
+  transition: background-color 0.1s ease-in-out;
+  overflow: hidden;
+  box-shadow: 0 0 14px 2px rgba(0, 0, 0, 0.03);
+
+  &:hover {
+    background-color: v(v2-card-background-hover);
+  }
+  a {
+    position: relative;
+    padding: 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    text-decoration: none;
+    @media screen and (max-width: 1023px) {
+      padding: 0.8rem;
+    }
+  }
+  time {
+    display: none;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .article-preview-text {
+    padding-left: 1.25rem;
+    @media screen and (max-width: 1023px) {
+      padding-left: 0.8rem;
+    }
+  }
+
+  .labels .label,
+  .deck,
+  .kicker {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: v(v2-card-always-white);
+    background-color: v(v2-card-always-black);
+    padding: 0.5em 0.5em;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+    border-radius: 10px;
+    display: inline-block;
+    font-weight: 400;
+    @media screen and (max-width: 1023px) {
+      font-size: 0.6rem;
+      margin-bottom: 0.6rem;
+    }
+    &.calendar {
+      background-image: linear-gradient(
+        45deg,
+        v(v2-calendar-gradient-start),
+        v(v2-calendar-gradient-stop)
+      );
+    }
+    &.job {
+      background: linear-gradient(
+        45deg,
+        v(v2-label-color-pink),
+        v(v2-commercial-orange-stop)
+      );
+    }
+    &.purple {
+      background-color: v(v2-label-color-purple);
+    }
+    &.blue {
+      background-color: v(v2-label-color-blue);
+    }
+    &.pink {
+      background-color: v(v2-label-color-pink);
+      color: v(v2-card-always-white);
+    }
+    &.yellow {
+      background-color: v(v2-label-color-teal);
+      color: v(v2-card-always-white);
+    }
+    &.white {
+      background-color: v(v2-card-always-white);
+      color: v(v2-card-always-black);
+    }
+    &.black {
+      background-color: v(v2-card-always-black);
+    }
+  }
+  .headline {
+    display: block;
+    margin: 0;
+    margin-bottom: 1rem;
+    font-family: v(fontMono);
+    font-weight: 500;
+    font-size: 2rem;
+    position: relative;
+    line-height: 1.3;
+    color: v(v2-card-headline-color);
+    @media screen and (max-width: 1023px) {
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
+    }
+    .headline-title-wrapper {
+      color: v(v2-card-headline-color);
+      .yellow {
+        color: v(v2-label-color-teal);
+      }
+      .pink {
+        color: v(v2-label-color-pink);
+      }
+      .purple {
+        color: v(v2-label-color-purple);
+      }
+      .blue {
+        color: v(v2-label-color-blue);
+      }
+      .black {
+        color: v(v2-card-always-black);
+      }
+      .white {
+        color: v(v2-card-always-white);
+      }
+    }
+  }
+  .standfirst {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    color: v(v2-card-paragraph-color);
+    position: relative;
+    font-family: v(fontRegular);
+    font-size: 1.1rem;
+    @media screen and (max-width: 1023px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  figure {
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    width: 245px;
+    flex: 0 0 245px;
+    padding-bottom: 0 !important;
+    @media screen and (max-width: 1023px) {
+      flex: 0 0 128px;
+    }
+
+    position: relative;
+    img {
+      display: block;
+      width: 100%;
+      &.lazyload {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}
+
+.frontpage .row:not(.added):nth-child(6n + 0) {
+  .label,
+  .deck {
+    background-color: v(v2-label-color-pink);
+  }
+}
+.frontpage .row:not(.added):nth-child(6n + 1) {
+  .label,
+  .deck {
+    background-color: v(v2-label-color-purple);
+    color: v(v2-card-always-white);
+  }
+}
+.frontpage .row:not(.added):nth-child(6n + 2) {
+  .label,
+  .deck {
+    background-color: v(v2-label-color-blue);
+    color: v(v2-card-always-white);
+  }
+}
+
+.frontpage .row:not(.added):nth-child(6n + 3) {
+  .label,
+  .deck {
+    background-color: v(v2-label-color-teal);
+    color: v(v2-card-always-white);
+  }
+}
+.frontpage .row:not(.added):nth-child(6n + 4) {
+  .label,
+  .deck {
+    background-color: v(v2-card-always-white);
+    color: v(v2-card-always-black);
+  }
+}
+.frontpage .row:not(.added):nth-child(6n + 5) {
+  .label,
+  .deck {
+    background-color: v(v2-card-always-black);
+  }
+}

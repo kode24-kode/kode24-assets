@@ -1,0 +1,514 @@
+.article-entity,
+.facebook-comments {
+  max-width: 980px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.facebook-comments {
+  display: none;
+  padding: 0.8rem;
+  @media screen and (min-width: $vp-desktop) {
+    padding: 0;
+  }
+  p {
+    color: v(v2-card-paragraph-color);
+  }
+}
+
+.facebook-comments h4,
+.footer-content h3 {
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  position: relative;
+  background: linear-gradient(45deg, v(kode24-pink), v(kode24-red));
+  text-transform: uppercase;
+  font-size: 20px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
+
+.article-entity {
+  color: v(v2-card-paragraph-color);
+  > div {
+    &.row {
+      @media screen and (min-width: $vp-tablet) {
+        justify-content: center;
+      }
+    }
+  }
+  .aside-desktop {
+    @media screen and (min-width: $vp-tablet) {
+      flex: 0 0 280px;
+    }
+  }
+
+  .preview-list {
+    @media screen and (min-width: $vp-tablet) {
+      display: none;
+    }
+  }
+
+  header.row {
+    margin: 0 -0.6rem 2.5rem -0.6rem !important;
+    padding: 1.25rem;
+    width: calc(100% + 1.2rem);
+    @media screen and (min-width: $vp-tablet) {
+      width: 100%;
+      margin: 0 0 2.5rem 0 !important;
+    }
+
+    .row h1.headline,
+    h1.headline {
+      line-height: 1.1;
+      padding: 0;
+      margin: 1.25rem 0 0.6rem 0;
+      color: v(v2-card-headline-color);
+      margin-bottom: 0.8rem;
+      font-family: v(fontMono);
+      font-weight: 500;
+      font-size: 1.6rem !important;
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 2rem !important;
+
+        width: calc(100%);
+      }
+      @media screen and (min-width: $vp-desktop) {
+        font-size: 3.5rem !important;
+
+        padding: 0;
+        width: calc(100%);
+      }
+    }
+    .row h1.headline {
+      margin-top: 0;
+    }
+
+    .standfirst {
+      color: v(v2-card-paragraph-color);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+      font-size: 0.9rem;
+      @media screen and (min-width: $vp-tablet) {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+      }
+    }
+    h1 {
+    }
+    p {
+    }
+    .row {
+      margin: 0 auto;
+    }
+    @media screen and (min-width: $vp-tablet) {
+      margin-bottom: 4rem;
+      padding: 1.25rem;
+      border-radius: 10px;
+      h1 {
+        margin: 0 0 1.25rem 0;
+      }
+    }
+    figure {
+      margin: 0 -1.25rem 0 -1.25rem;
+      @media screen and (min-width: $vp-desktop) {
+        margin: 0;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .toggle {
+        display: none;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .columns {
+      width: 100%;
+    }
+    .caption {
+      background-color: v(v2-card-background);
+    }
+    .standfirst {
+      padding: 0;
+      margin: 0 0 1.25rem 0;
+
+      @media screen and (min-width: $vp-desktop) {
+        margin: 0 0 1.25rem 0;
+      }
+    }
+    .full-bleed {
+      position: relative;
+      margin-top: -6.5rem;
+      overflow: visible !important;
+      margin-left: calc(50% - 50vw);
+      width: 100vw;
+      overflow: hidden;
+      margin-bottom: 4em;
+      float: none;
+      .text-center {
+        position: relative;
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(
+            0deg,
+            v(v2-card-always-black),
+            transparent
+          );
+        }
+      }
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 1.5rem;
+        margin-top: -4.3rem;
+      }
+      > .columns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        h1 {
+          max-width: 980px;
+          margin: 0 auto 2rem auto;
+          position: relative;
+        }
+      }
+      .row {
+        position: relative;
+        width: 100%;
+        display: block;
+        max-width: 980px;
+        margin: 0 auto;
+      }
+    }
+  }
+  .caption {
+    padding: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .meta {
+    padding: 1rem 1rem;
+    text-transform: uppercase;
+    &:before {
+      content: "Publisert: ";
+    }
+    &:after {
+      content: " siden";
+    }
+    font-size: 0.8rem;
+    opacity: 0.5;
+  }
+  .byline {
+    .firstname,
+    .lastname {
+      font-weight: bold;
+    }
+    &.columns {
+      min-height: 60px;
+    }
+    .bio {
+      margin-top: 0.4rem;
+    }
+
+    .byline {
+      position: relative;
+      display: flex;
+      align-items: center;
+      &.columns {
+        padding: 0.8rem !important;
+        @media screen and (min-width: $vp-desktop) {
+          padding: 0;
+        }
+      }
+      img {
+        display: inline-block;
+        width: auto;
+        height: 70px;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+    }
+    .premium-ad {
+      background-image: none;
+      display: block;
+      .ad-image {
+        display: none;
+      }
+    }
+  }
+  .byline a,
+  p a,
+  ul a,
+  ol a {
+    text-decoration: none;
+    cursor: pointer;
+    background-image: linear-gradient(
+      90deg,
+      v(v2-pink-gradient-start),
+      v(v2-pink-gradient-stop)
+    );
+    background-position: 0px 22px;
+    background-repeat: repeat-x;
+    background-size: 100% 1px;
+    overflow: visible;
+    padding-bottom: 6px;
+    color: v(v2-card-paragraph-color);
+  }
+  .row:not(header) {
+    display: flex;
+  }
+
+  .body-copy {
+    padding: 0.8rem !important;
+
+    width: 100%;
+
+    > figure {
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      background-color: v(v2-card-background);
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 1.9rem;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      figcaption {
+        .toggle {
+          display: none;
+        }
+      }
+
+      &[data-image-lightbox] {
+        cursor: zoom-in;
+        &:before {
+          content: "🔎";
+          display: block;
+          width: 2.4rem;
+          height: 2.4rem;
+          position: absolute;
+          background-color: v(v2-card-always-black);
+          text-align: center;
+          line-height: 2.4rem;
+          right: 0;
+        }
+      }
+
+      &[data-image-lightbox].active {
+        cursor: zoom-out;
+        position: fixed;
+        z-index: 1100;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0 !important;
+        background-color: v(v2-card-always-black);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin: 0;
+        &:before {
+          content: "✖";
+          background: v(kode24-purple);
+        }
+        img {
+          display: none;
+        }
+
+        figcaption {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          padding: 0.8rem;
+          width: 100%;
+        }
+      }
+    }
+
+    p {
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      margin: 0;
+      margin-bottom: calc(#{v(gutter)} * 2);
+    }
+    @media screen and (min-width: $vp-tablet) {
+      flex: 0 0 670px;
+      max-width: 670px;
+      margin: 0 auto;
+      p {
+        font-size: 1.125rem;
+      }
+    }
+    @media screen and (min-width: $vp-desktop) {
+      margin: unset;
+    }
+  }
+  ul,
+  ol {
+    margin: 0;
+    margin-left: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: calc(#{v(gutter)} * 2);
+    list-style-position: outside;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0;
+
+    @media screen and (min-width: $vp-tablet) {
+      font-size: 1.125rem;
+    }
+    li {
+      margin-bottom: 0.8rem;
+    }
+  }
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    margin-top: 2.5rem;
+    font-family: v(fontMono);
+    font-weight: 500;
+    a {
+      background-position: 0 40px;
+    }
+    @media screen and (min-width: $vp-tablet) {
+      font-size: 1.9rem;
+    }
+  }
+
+  .quotebox {
+    position: relative;
+    blockquote {
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin: 0;
+      margin-top: 1.875rem;
+      margin-bottom: 1.875rem;
+      line-height: 1.4;
+      font-family: "IBM Plex Mono", monospace;
+      background: linear-gradient(
+        45deg,
+        v(v2-pink-gradient-start),
+        v(v2-pink-gradient-stop)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      transition: all 0.2s ease-in-out;
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 1.9rem;
+      }
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: v(v2-card-headline-color);
+    word-break: break-word;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  iframe {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  twitter-widget {
+    margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+
+  figure {
+    iframe {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .flex-video {
+    iframe {
+      width: 100%;
+      min-height: 362px;
+    }
+  }
+
+  code.hljs {
+    background-color: v(v2-card-background);
+    border-radius: 10px;
+    padding: 1.25rem;
+    @media screen and (max-width: 1023px) {
+      margin: 0 -1.25rem 0 -1.25rem;
+      border-radius: 0;
+      padding: 0.8rem;
+    }
+  }
+
+  .body-copy .preview {
+    background: v(v2-card-background);
+    transition: all 0.1s ease-in-out;
+    margin-left: -1.25rem;
+    margin-right: -1.25rem;
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    display: block;
+    border-radius: 0;
+    width: calc(100% + 2.5rem);
+    padding: 1.25rem;
+    a {
+      padding: 0;
+    }
+    &:not(.native-advertisement) {
+      .standfirst {
+        display: none;
+      }
+    }
+    @media screen and (min-width: $vp-desktop) {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+      padding: 1.25rem;
+      border-radius: 10px;
+    }
+    a {
+      align-items: center;
+    }
+
+    img {
+      border-radius: 0;
+      @media screen and (min-width: $vp-desktop) {
+        border-radius: 10px;
+        max-width: 245px;
+      }
+    }
+    .headline {
+      font-size: 1rem;
+      padding-left: 1.25rem;
+      @media screen and (min-width: $vp-desktop) {
+        margin-left: 1.25rem;
+        font-size: 1.4rem;
+        padding: 0;
+      }
+    }
+  }
+}

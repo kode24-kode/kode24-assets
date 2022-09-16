@@ -1,0 +1,179 @@
+.preview-list {
+  width: 100%;
+  padding: 1.25rem;
+  @media screen and (max-width: 1023px) {
+    padding: 0.8rem;
+  }
+  &:hover {
+    background-color: v(v2-card-background);
+    .preview {
+      background-color: v(v2-card-background);
+    }
+  }
+
+  > .article-preview-text {
+    margin-bottom: 0rem;
+    padding-left: 0;
+    @media screen and (max-width: 1023px) {
+      margin-bottom: 0;
+      .label {
+        margin-bottom: 0 !important;
+      }
+    }
+    .standfirst {
+      @media screen and (max-width: 1023px) {
+        display: none;
+      }
+    }
+  }
+  .preview-listings-button {
+    position: absolute;
+    width: auto;
+    display: inline-block;
+    right: 1.25rem;
+    top: 1.25rem;
+    padding: 0.6rem;
+    font-weight: normal;
+    font-size: 0.8rem;
+    @media screen and (max-width: 1023px) {
+      right: 0.8rem;
+      top: 0.8rem;
+    }
+  }
+  .preview {
+    width: 100%;
+    position: relative;
+    box-shadow: none;
+    &:hover {
+      background-color: v(v2-card-background-hover);
+      a {
+        &:after {
+          display: none;
+        }
+      }
+    }
+    &.calendar {
+      &.premium {
+        @media screen and (min-width: 1023px) {
+          margin-bottom: 0.6rem;
+        }
+        .article-preview-text .labels .label,
+        .article-preview-text .standfirst {
+          color: v(v2-card-always-white-paragraph-color);
+        }
+      }
+      .button {
+        color: v(v2-card-headline-color);
+        background: v(v2-calendar-button-background);
+        border: 1px solid v(v2-calendar-button-outline);
+      }
+    }
+    &.job {
+      .button {
+        color: v(v2-card-headline-color);
+        background: v(v2-job-button-background);
+        border: 1px solid v(v2-job-button-outline);
+      }
+    }
+    @media screen and (max-width: 1023px) {
+      padding: 0.8rem;
+      margin: 0 -0.8rem 0 -0.8rem;
+      width: calc(100% + 1.6rem);
+    }
+    &.premium {
+      @media screen and (max-width: 1023px) {
+        border-radius: 0;
+      }
+      .headline,
+      .headline .headline-title-wrapper {
+        color: v(v2-card-always-white);
+      }
+      &.calendar {
+        background-image: linear-gradient(
+          45deg,
+          v(v2-calendar-gradient-start),
+          v(v2-calendar-gradient-stop)
+        );
+      }
+      a {
+        &:after {
+          display: none;
+        }
+      }
+      .button {
+        color: white;
+        background-color: v(v2-calendar-gradient-start);
+      }
+    }
+
+    figure {
+      flex: 0 0 75px;
+      @media screen and (max-width: 1023px) {
+        flex: 0 0 50px;
+      }
+    }
+    a {
+      position: relative;
+      align-items: center;
+      @media screen and (max-width: 1023px) {
+        padding: 0;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        width: calc(100% - (75px - 1.25rem - 1.2rem));
+        left: calc(75px + 1.25rem);
+        bottom: 0;
+        height: 1px;
+        border-bottom: 1px solid v(v2-card-background-level-2);
+        @media screen and (max-width: 1023px) {
+          display: none;
+        }
+      }
+    }
+    .call-to-action {
+      flex: 0 0 100px;
+      display: flex;
+      @media screen and (max-width: 1023px) {
+        flex: 0 0 90px;
+      }
+    }
+    .call-to-action-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-bottom: 0;
+    }
+    .article-preview-text {
+      position: relative;
+      .labels {
+        line-height: 1;
+      }
+      .labels .label {
+        background-color: transparent;
+        padding: 0;
+        margin-bottom: 0.2rem;
+        color: v(v2-card-paragraph-color);
+      }
+      .headline {
+        font-family: v(fontRegular);
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        padding-right: 0.6rem;
+        @media screen and (max-width: 1023px) {
+          font-size: 1rem;
+        }
+      }
+      .standfirst {
+        margin-top: 0.2rem;
+        margin-bottom: 0;
+        font-size: 0.9rem;
+        @media screen and (max-width: 1023px) {
+          font-size: 0.7rem;
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,102 @@
+#desktop-sidemenu-front {
+  display: none;
+}
+
+// dummy styling
+#desktop-sidemenu-front .dummy-aside-content {
+  h3 {
+    background-color: var(--v2-card-background);
+    height: 2rem;
+    border-radius: 10px;
+    margin-top: 0;
+  }
+  .preview {
+    .article-preview-text {
+      width: 100%;
+      .labels {
+        display: block;
+        .label {
+          height: 1rem;
+          background-color: var(--v2-card-background);
+          display: inline-block;
+          width: 50%;
+        }
+      }
+      .headline {
+        height: 2rem;
+        background-color: var(--v2-card-background);
+        border-radius: 10px;
+      }
+    }
+    a {
+      align-items: stretch;
+    }
+    
+    figure {
+      width: 50px;
+      height: 50px;
+      background-color: var(--v2-card-background);
+    }
+  }
+  h3,
+  .label,
+  .headline,
+  figure {
+    animation: flashBackground 2s linear infinite;
+  }
+}
+
+@media screen and (min-width: 1439px) {
+  #desktop-sidemenu-front {
+    display: flex;
+    flex-direction: column;
+    font-family: v(fontMono);
+    padding: 0 0.8rem 0 0.8rem;
+    flex: 0 0 230px;
+    h3 {
+      color: v(v2-card-paragraph-color);
+      margin-bottom: 1.25rem;
+      font-size: 0.8rem;
+      font-family: v(fontRegular);
+    }
+    .preview {
+      margin-bottom: 0.6rem;
+      max-width: calc(230px - 1.6rem);
+      background-color: transparent;
+      border-bottom: 1px solid v(v2-card-background-level-2);
+      border-radius: 0;
+      box-shadow: none;
+      &:hover {
+        background-color: v(v2-card-background-hover);
+      }
+      a {
+        padding: 0.6rem 0;
+        align-items: center;
+      }
+      figure {
+        flex: 0 0 50px;
+        image {
+          width: 100%;
+        }
+      }
+      .article-preview-text {
+        padding-left: 0.6rem;
+        .labels {
+          .label {
+            color: v(v2-card-paragraph-color);
+            background-color: transparent;
+            padding: 0;
+            margin-bottom: 0.2rem;
+            font-size: 0.6rem;
+          }
+        }
+        .headline {
+          color: v(v2-card-headline-color);
+          font-size: 1rem;
+          font-family: v(fontRegular);
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
