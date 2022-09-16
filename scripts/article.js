@@ -1,32 +1,21 @@
-import { initInlineSearch } from './components/inlineSearch';
-import { initAsideLoading } from './components/asideLoading';
+import { initCommon } from './common';
 import { initQuickJobApplicationForm } from './components/quickJobApplicationForm';
 import { initInArticleAds } from './components/inArticleAds';
-import { initPremiumJobComponent } from './components/premiumJobComponent';
-import { initAdElementsInRightColumn } from './components/adElementsInRightColumn';
-import { initSponsors } from './components/sponsorListingInLeftMenu';
+
 import {
   getAdsForFrontFromApi,
   getArticleFromApi,
   getEventsFromApi,
   getContentAdsFromApi,
 } from './API/api';
-import { hideSidebarForCommercialPages } from './functions/hideSidebarForCommercialPages';
-import { convertTagFeedURL } from './functions/convertTagFeedURL';
-import { upScaleImages } from './functions/upScaleImages';
-import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu';
-import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu';
 import { isArticleEditorial } from './functions/isArticleEditorial';
 import { listenToOutboundAdClicks } from './functions/listenToOutboundAdClicks';
 import { trackJobView } from './functions/trackJobView';
 import { findDataInSpecialTag } from './functions/findDataInSpecialTag';
-import { convertLazyLoadImages } from './functions/convertLazyLoadImages';
 import { initRelatedArticles } from './components/relatedArticles';
 import { getArticleId } from './functions/getArticleId';
 import { addRibbonClassToTop } from './functions/addRibbonClassToTop';
-import { handleLightSwitchToggle } from './functions/handleLightSwitchToggle';
-import { handleImageExpansionClick } from './functions/handleImageExpansionClick';
-import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick';
+
 import hljs from 'highlight.js/lib/core';
 import 'highlight.js/styles/github.css';
 /**
@@ -35,22 +24,8 @@ import 'highlight.js/styles/github.css';
  * Separate it into functions and call them from here.
  */
 export async function initArticle() {
-  // if user presses hamburger menu button in mobile view
-  handleHamburgerMenuClick();
-  // if user presses light switch on top right of page
-  handleLightSwitchToggle();
-  // if user clicks on image in article that is exapndable
-  handleImageExpansionClick();
-  // upscale all images in front feed
-  upScaleImages();
-  // convert all labrador images to browser based lazy load
-  convertLazyLoadImages();
-
-  // fixes bug with image url in labrador auto-rows
-  convertTagFeedURL();
-  // init inline search handler for top menu bar
-  initInlineSearch();
-
+  // all functions that need to run on every page
+  const commonFunctions = initCommon();
   // fetch data for job listings
   const { listings, premiumIds } = await getAdsForFrontFromApi();
   // filter list of premium ads
@@ -70,8 +45,9 @@ export async function initArticle() {
   // if it is not editiorial render quick signup form
   if (isArticleEditorial()) {
     // init loading animation for right aside
-    initAsideLoading('desktop-sidemenu-front');
-    // Do all this if page is commercial
+    commonFunctions.initAsideLoading('desktop-sidemenu-front');
+
+    // render commercial ads in the article
     let inArticleAds = initInArticleAds(
       '.body-copy h2',
       premiumAds,
@@ -80,14 +56,19 @@ export async function initArticle() {
 
     // initialise the right menu with ads
     // asideElements are displayed in the right sidebar
-    const asideElements = await initAdElementsInRightColumn(
-      '#desktop-sidemenu-front',
-      premiumAds,
-      nonPremiumAds
-    );
+    const asideElements =
+      await commonFunctions.initAdElementsInRightColumn(
+        '#desktop-sidemenu-front',
+        premiumAds,
+        nonPremiumAds
+      );
 
     // draws the listing of ads under the article body
-    initPremiumJobComponent(premiumAds, '.article-entity', true);
+    commonFunctions.initPremiumJobComponent(
+      premiumAds,
+      '.article-entity',
+      true
+    );
 
     // draws related articles based on first article tag from API
     initRelatedArticles(
@@ -95,8 +76,10 @@ export async function initArticle() {
       '.article-entity',
       articleData.id
     );
+
+    // track impressions for all ads in article
+    commonFunctions.trackInScreenImpressions([...asideElements]);
   } else {
-    console.log('not editorial');
     // add ribbon class to top of page
     addRibbonClassToTop();
     // initiate view tracking
@@ -117,12 +100,15 @@ export async function initArticle() {
     }
   }
   // update job listings count in top menu
-  addNumberToJobCounterInTopMenu(listings.length);
+  commonFunctions.addNumberToJobCounterInTopMenu(listings.length);
   // fetch events data for top menu
-  addNumberToEventCounterInTopMenu(
+  commonFunctions.addNumberToEventCounterInTopMenu(
     await getEventsFromApi().then((events) => events.eventsCount)
   );
 
   // init sponsors in left sidebar
-  initSponsors('#company-sponsors-list ul');
+  commonFunctions.initSponsors('#company-sponsors-list ul');
+
+  // track impressions for all ads in article
+  commonFunctions.trackInScreenImpressions([...asideElements]);
 }
