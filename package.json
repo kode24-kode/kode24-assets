@@ -6,14 +6,23 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "buildProd": "vite build --config vite.config.front.js && vite build --config vite.config.article.js"
   },
   "devDependencies": {
     "vite": "^3.0.7"
   },
   "dependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/runtime": "^7.19.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@vitejs/plugin-legacy": "^2.1.0",
+    "babel": "^6.23.0",
+    "core-js": "^3.25.1",
     "highlight.js": "^11.6.0",
     "hljs": "^6.2.3",
-    "sass": "^1.54.9"
+    "sass": "^1.54.9",
+    "vite-plugin-legacy": "^2.1.0"
   }
 }

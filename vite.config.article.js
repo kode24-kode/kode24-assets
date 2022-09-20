@@ -1,6 +1,4 @@
-/**
- * This Vite config is only used for dev purposes
- */
+// vite.config.js
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 import legacy from '@vitejs/plugin-legacy';
@@ -8,12 +6,15 @@ import legacy from '@vitejs/plugin-legacy';
 export default defineConfig({
   base: '',
   build: {
+    outDir: 'dist/article',
     rollupOptions: {
       input: {
-        front: resolve(__dirname, 'index.html'),
         article: resolve(__dirname, 'article/index.html'),
-        content: resolve(__dirname, 'content/index.html'),
-        jobb: resolve(__dirname, 'jobb/index.html'),
+      },
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`,
       },
     },
   },
