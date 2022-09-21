@@ -51,7 +51,7 @@ export async function initArticle() {
     let inArticleAds = initInArticleAds(
       '.body-copy h2',
       premiumAds,
-      contentAds[0]
+      contentAds.length && contentAds[0] ? contentAds[0] : []
     );
 
     // initialise the right menu with ads

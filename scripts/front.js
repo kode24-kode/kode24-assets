@@ -49,7 +49,7 @@ export async function initFrontend() {
   // init component that shows content articles and job listings in front feed
   const frontAdElements = initFrontAdComponents(
     '#front-articles-list >.row:nth-child(1n+4)',
-    [...contentAds, ...premiumAds]
+    [...contentAds, ...premiumAds].filter((ad) => ad && ad.id)
   );
   // init box that shows job listings
   commonFunctions.initPremiumJobComponent(

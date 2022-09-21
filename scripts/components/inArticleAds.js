@@ -8,7 +8,7 @@ import { postImpressions } from '../API/api.js';
  * @returns
  */
 export function initInArticleAds(selector, premiumAds, contentAd) {
-  let allAds = [contentAd, ...premiumAds];
+  let allAds = [contentAd, ...premiumAds].filter((ad) => ad && ad.id);
   let adsForTracking = [];
   document
     .querySelectorAll(selector)
