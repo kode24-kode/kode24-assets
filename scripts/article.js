@@ -56,7 +56,7 @@ export async function initArticle() {
 
     // initialise the right menu with ads
     // asideElements are displayed in the right sidebar
-    const asideElements =
+    const asideElementsArticle =
       await commonFunctions.initAdElementsInRightColumn(
         '#desktop-sidemenu-front',
         premiumAds,
@@ -78,7 +78,9 @@ export async function initArticle() {
     );
 
     // track impressions for all ads in article
-    commonFunctions.trackInScreenImpressions([...asideElements]);
+    commonFunctions.trackInScreenImpressions([
+      ...asideElementsArticle,
+    ]);
   } else {
     // add ribbon class to top of page
     addRibbonClassToTop();
@@ -110,5 +112,5 @@ export async function initArticle() {
   commonFunctions.initSponsors('#company-sponsors-list ul');
 
   // track impressions for all ads in article
-  commonFunctions.trackInScreenImpressions([...asideElements]);
+  commonFunctions.trackInScreenImpressions([...asideElementsArticle]);
 }
