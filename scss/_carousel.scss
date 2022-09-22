@@ -1,6 +1,6 @@
 .preview-list {
   width: 100%;
-  padding: 1.25rem;
+  padding: 1.25rem 1.25rem 0 1.25rem;
   @media screen and (max-width: 1023px) {
     padding: 0.8rem;
   }
@@ -8,6 +8,45 @@
     background-color: v(v2-card-background);
     .preview {
       background-color: v(v2-card-background);
+    }
+  }
+
+  &.preview>.article-preview-text .labels .label {
+    width: calc(100% + 2.5rem);
+    padding: 1.25rem;
+    display: block;
+    margin: -1.25rem 0 1.25rem -1.25rem !important;
+    border-radius: 0;
+    font-size: 1.1rem;
+    text-align: center;
+    @media screen and (max-width: 1023px) {
+      font-size: 0.8rem;
+    }
+  }
+
+  .listing-actions {
+    padding: 1.25rem 0;
+    text-align: center;
+    .button {
+      justify-content: center;
+    }
+  }
+
+  .listing {
+    .preview {
+      padding: 1.25rem;
+      margin: 0 -1.25rem;
+      width: calc(100% + 2.5rem);
+      border-radius: 0;
+      border-bottom: 1px solid var(--v2-card-background-hover);
+      &:nth-child(even) {
+      }
+      a {
+        padding: 0;
+      }
+      &:nth-child(1n+5) {
+        display: none;
+      }
     }
   }
 
@@ -118,18 +157,7 @@
       @media screen and (max-width: 1023px) {
         padding: 0;
       }
-      &:after {
-        content: "";
-        position: absolute;
-        width: calc(100% - (75px - 1.25rem - 1.2rem));
-        left: calc(75px + 1.25rem);
-        bottom: 0;
-        height: 1px;
-        border-bottom: 1px solid v(v2-card-background-level-2);
-        @media screen and (max-width: 1023px) {
-          display: none;
-        }
-      }
+
     }
     .call-to-action {
       flex: 0 0 100px;
@@ -144,6 +172,7 @@
       justify-content: space-between;
       width: 100%;
       padding-bottom: 0;
+      position: relative;
     }
     .article-preview-text {
       position: relative;

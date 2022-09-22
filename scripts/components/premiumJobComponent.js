@@ -19,14 +19,16 @@ export async function initPremiumJobComponent(
   newPremiumJobComponent.classList.add('row', 'added');
   newPremiumJobComponent.innerHTML = `
     <article class="preview preview-list">
-    <a href="/jobb" class="preview-listings-button button">Vis alle ledige stillinger</a>
-    <div class="article-preview-text">
-      <div class="labels">
-        <span class="label job">Ledige stillinger</span>
+      <div class="article-preview-text">
+        <div class="labels">
+          <span class="label job">Ledige stillinger</span>
+        </div>
       </div>
-    </div>
       <div class="listing">
         ${getJobAdsMarkup(ads)}
+      </div>
+      <div class="listing-actions">
+        <a href="/jobb" class="button">Vis alle ledige stillinger</a>
       </div>
     </article>
     `;

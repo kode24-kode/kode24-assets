@@ -48,13 +48,13 @@ export async function initFrontend() {
 
   // init component that shows content articles and job listings in front feed
   const frontAdElements = initFrontAdComponents(
-    '#front-articles-list >.row:nth-child(1n+4)',
+    '#front-articles-list >.row:not(.show-for-small-only, .show-for-medium-up, .added):nth-child(2n+3)',
     [...contentAds, ...premiumAds].filter((ad) => ad && ad.id)
   );
   // init box that shows job listings
   commonFunctions.initPremiumJobComponent(
     premiumAds,
-    '#front-articles-list >.row:nth-child(11)'
+    '#front-articles-list >.row:not(.show-for-small-only, .show-for-medium-up, .added):nth-child(5)'
   );
 
   // init ad elements listed in right column
@@ -66,7 +66,7 @@ export async function initFrontend() {
     );
   // init container for calendar events shown in front feed
   const numberOfEvents = await initEventCardsList(
-    '#front-articles-list >.row:nth-child(4)'
+    '#front-articles-list >.row:not(.show-for-small-only, .show-for-medium-up, .added):nth-child(11)'
   );
   // add number of active events to counter in top menu
   commonFunctions.addNumberToEventCounterInTopMenu(numberOfEvents);

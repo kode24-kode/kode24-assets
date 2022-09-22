@@ -70,7 +70,7 @@ let getEventsCardMarkup = (events) => {
     <div class="article-preview-text">
       <div class="labels"><span class="label calendar">kodebransje-kalenderen</span></div>
     </div>
-    <div class="listings">
+    <div class="listing">
     ${
       events.premiumEvents.length
         ? getPRemiumEventsCardMarkup(events.premiumEvents)
@@ -109,7 +109,7 @@ let getEventsCardMarkup = (events) => {
     </div>
     ${
       events.nextEvents.length && events.nextEvents.length > 4
-        ? `<div>
+        ? `<div class="listing-actions">
       <a href="/kalender" class="button">
         Vis alle arrangementer (${events.eventsCount})
       </a>
