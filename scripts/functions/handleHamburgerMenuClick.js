@@ -3,11 +3,19 @@
  * and handles interaction
  */
 export function handleHamburgerMenuClick() {
-  document
-    .getElementById('top-menu-left-menu-link')
-    .addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      document.getElementById('left-menu').classList.toggle('active');
-    });
+  if (
+    document.getElementById('top-menu-left-menu-link') &&
+    document.getElementById('top-menu-left-menu-link')
+      ?.addEventListener
+  ) {
+    document
+      .getElementById('top-menu-left-menu-link')
+      .addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        document
+          .getElementById('left-menu')
+          .classList.toggle('active');
+      });
+  }
 }
