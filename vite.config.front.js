@@ -6,6 +6,7 @@ import legacy from '@vitejs/plugin-legacy';
 export default defineConfig({
   base: '',
   build: {
+    minify: false,
     rollupOptions: {
       input: {
         front: resolve(__dirname, 'index.html'),
