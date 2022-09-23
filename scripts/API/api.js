@@ -158,7 +158,19 @@ export async function getEventsFromApi() {
     eventsCount: result.upcomingEvents.length,
   };
 }
-
+/**
+ * posts form data to api from quickapplication
+ * @param {*} data
+ * @returns
+ */
 export async function postQuickApplication(data) {
   return await postDataToUrl(data, "sendmail");
+}
+
+/**
+ * fetches data from api for the company league
+ * @returns
+ */
+export async function getCompanyLeagueTableData() {
+  return await getDataFromUrl("company-league");
 }
