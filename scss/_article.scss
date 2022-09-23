@@ -202,9 +202,6 @@
     &:before {
       content: "Publisert: ";
     }
-    &:after {
-      content: " siden";
-    }
     font-size: 0.8rem;
     opacity: 0.5;
   }
@@ -213,7 +210,6 @@
     @media screen and (min-width: $vp-desktop) {
       padding: 2.5rem 0;
     }
-
   }
   .byline {
     .firstname,
@@ -507,9 +503,10 @@
     }
 
     img {
-      border-radius: 0;
+      border-radius: 10px;
+      max-width: 150px;
       @media screen and (min-width: $vp-desktop) {
-        border-radius: 10px;
+        
         max-width: 245px;
       }
     }
