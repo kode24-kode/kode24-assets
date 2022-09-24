@@ -5,7 +5,6 @@ import { getCompanyLeagueTableData } from "../API/api";
 
 export async function initCompanyLeague() {
   const companyLeagueData = await getCompanyLeagueTableData();
-  console.log(companyLeagueData);
   document
     .getElementById("left-menu")
     .prepend(drawCompanyLeagueTableMarkup(companyLeagueData));
@@ -17,7 +16,13 @@ export async function initCompanyLeague() {
  * @returns
  */
 function drawCompanyLeagueTableMarkup(data) {
-  let tableWrapper = document.createElement("nav");
+  let tableNav = document.createElement("nav");
+  let tableWrapper = document.createElement("a");
+  tableWrapper.setAttribute(
+    "href",
+    "https://app.masterblaster.gg/community/b733aa10-3c5e-4d9f-84c9-2aaf86306a09"
+  );
+  tableWrapper.setAttribute("target", "_blank");
   tableWrapper.classList.add("company-league-table-wrapper");
   let table = document.createElement("table");
   tableWrapper.innerHTML = `<h3>${data.name}</h3>`;
@@ -33,6 +38,7 @@ function drawCompanyLeagueTableMarkup(data) {
     </tr>`
     )
     .join("");
+  tableNav.append(tableWrapper);
   tableWrapper.append(table);
-  return tableWrapper;
+  return tableNav;
 }

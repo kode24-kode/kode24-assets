@@ -28,9 +28,10 @@
     border-radius: 10px;
     margin-bottom: 1.25rem;
     overflow: hidden;
+    display: block;
     h3 {
         background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-commercial-orange-stop));
-        margin: 0;
+        margin: 0 !important;
         padding: 0.6rem;
         color: var(--v2-card-headline-color) !important;
     }
