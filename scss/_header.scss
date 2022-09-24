@@ -43,6 +43,11 @@
     );
     width: 40px;
     height: 40px;
+    svg {
+      max-width: none;
+      width: 32px;
+      transform: translate(-4px, -4px);
+    }
   }
 }
 
