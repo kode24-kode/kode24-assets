@@ -1,13 +1,9 @@
-import { getEventsFromApi } from '../API/api.js';
-
 /**
  * fetches events from api and renders them
  * @param {*} selector
  * @returns
  */
-export const initEventCardsList = async (selector) => {
-  // fetch data
-  let eventData = await getEventsFromApi();
+export const initEventCardsList = (eventData, selector) => {
   // fetch markup for events
   let eventMarkup = getEventsCardMarkup(eventData);
   // create container and add markup

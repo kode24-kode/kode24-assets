@@ -25,19 +25,22 @@ import 'highlight.js/styles/github.css';
  */
 export async function initArticle() {
   // all functions that need to run on every page
-  const commonFunctions = initCommon();
-  // fetch data for job listings
-  const { listings, premiumIds } = await getAdsForFrontFromApi();
-  // filter list of premium ads
-  const premiumAds = listings.filter((ad) =>
-    premiumIds.includes(ad.id)
-  );
-  // filter list of non-premium ads
-  const nonPremiumAds = listings.filter(
-    (ad) => !premiumIds.includes(ad.id)
-  );
-  // fetch content ads
-  const contentAds = await getContentAdsFromApi();
+  const {
+    initAsideLoading,
+    initSponsors,
+    addNumberToJobCounterInTopMenu,
+    initPremiumJobComponent,
+    initAdElementsInRightColumn,
+    addNumberToEventCounterInTopMenu,
+    trackInScreenImpressions,
+    listings,
+    premiumIds,
+    premiumAds,
+    nonPremiumAds,
+    contentAds,
+    eventData,
+    partnerPage,
+  } = await initCommon();
   //fetch article data
   const articleData = await getArticleFromApi(getArticleId());
 
@@ -45,7 +48,7 @@ export async function initArticle() {
   // if it is not editiorial render quick signup form
   if (isArticleEditorial()) {
     // init loading animation for right aside
-    commonFunctions.initAsideLoading('desktop-sidemenu-front');
+    initAsideLoading('desktop-sidemenu-front');
 
     // render commercial ads in the article
     let inArticleAds = initInArticleAds(
@@ -56,19 +59,14 @@ export async function initArticle() {
 
     // initialise the right menu with ads
     // asideElements are displayed in the right sidebar
-    const asideElementsArticle =
-      await commonFunctions.initAdElementsInRightColumn(
-        '#desktop-sidemenu-front',
-        premiumAds,
-        nonPremiumAds
-      );
+    const asideElementsArticle = await initAdElementsInRightColumn(
+      '#desktop-sidemenu-front',
+      premiumAds,
+      nonPremiumAds
+    );
 
     // draws the listing of ads under the article body
-    commonFunctions.initPremiumJobComponent(
-      premiumAds,
-      '.article-entity',
-      true
-    );
+    initPremiumJobComponent(premiumAds, '.article-entity', true);
 
     // draws related articles based on first article tag from API
     initRelatedArticles(
@@ -78,9 +76,7 @@ export async function initArticle() {
     );
 
     // track impressions for all ads in article
-    commonFunctions.trackInScreenImpressions([
-      ...asideElementsArticle,
-    ]);
+    trackInScreenImpressions([...asideElementsArticle]);
   } else {
     // add ribbon class to top of page
     addRibbonClassToTop();
@@ -102,15 +98,12 @@ export async function initArticle() {
     }
   }
   // update job listings count in top menu
-  commonFunctions.addNumberToJobCounterInTopMenu(listings.length);
+  addNumberToJobCounterInTopMenu(listings.length);
   // fetch events data for top menu
-  commonFunctions.addNumberToEventCounterInTopMenu(
+  addNumberToEventCounterInTopMenu(
     await getEventsFromApi().then((events) => events.eventsCount)
   );
 
   // init sponsors in left sidebar
-  commonFunctions.initSponsors('#company-sponsors-list ul');
-
-  // track impressions for all ads in article
-  commonFunctions.trackInScreenImpressions([...asideElementsArticle]);
+  initSponsors('#company-sponsors-list ul');
 }
