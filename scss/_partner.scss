@@ -1,4 +1,4 @@
-.partner-page {
+.partner {
   .copy p {
     color: var(--v2-card-paragraph-color);
     max-width: 600px;
@@ -15,6 +15,12 @@
 
   h5.section-title.center {
     color: var(--v2-card-headline-color);
+  }
+
+  #front-articles-list p,
+  #front-articles-list ul,
+  #front-articles-list ol {
+    color: var(--v2-card-paragraph-color);
   }
 
   #front-articles-list .row {

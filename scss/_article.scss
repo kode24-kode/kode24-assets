@@ -45,12 +45,6 @@
     }
   }
 
-  .preview-list {
-    @media screen and (min-width: $vp-tablet) {
-      display: none;
-    }
-  }
-
   header.row {
     margin: 0 -0.6rem 2.5rem -0.6rem !important;
     padding: 0 1.25rem;
@@ -506,7 +500,7 @@
       border-radius: 10px;
       max-width: 150px;
       @media screen and (min-width: $vp-desktop) {
-        
+
         max-width: 245px;
       }
     }
