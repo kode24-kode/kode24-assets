@@ -19,9 +19,12 @@ import {
   getAdsForFrontFromApi,
   getContentAdsFromApi,
   getEventsFromApi,
+  getSponsorsFromApi,
 } from './API/api';
 import { isPagePartner } from './functions/isPagePartner';
 import { setPartnerPageConfig } from './functions/setPartnerPageConfig';
+import { initDiamondPartners } from './components/diamondPartners';
+
 /**
  * Runs all the code that all pages have in common
  */
@@ -64,10 +67,16 @@ export async function initCommon() {
   // fetch event data
   let eventData = await getEventsFromApi();
 
+  let sponsors = await getSponsorsFromApi();
+
+  initSponsors(sponsors, '#company-sponsors-list');
+  initDiamondPartners(sponsors.diamond || [], '#left-menu');
+
   // add number of active events to counter in top menu
   addNumberToEventCounterInTopMenu(eventData.eventsCount);
   // update job listings count in top menu
   addNumberToJobCounterInTopMenu(listings.length);
+
   return {
     addNumberToEventCounterInTopMenu,
     addNumberToJobCounterInTopMenu,
@@ -83,5 +92,6 @@ export async function initCommon() {
     nonPremiumAds,
     contentAds,
     eventData,
+    initDiamondPartners,
   };
 }
