@@ -31,11 +31,11 @@ export async function initFrontend() {
     contentAds,
     eventData,
     partnerPage,
+    initDiamondPartners,
   } = await initCommon();
 
   // if we have a partner page, we should not show ads
   if (!partnerPage) {
-    console.log('is not page partner');
     initAsideLoading('desktop-sidemenu-front');
     // get ids and nodes of all article previews on page
     const { articleIds, articlesList } = getArticlePreviewList();
@@ -71,6 +71,4 @@ export async function initFrontend() {
     // track impressions for all ads on frontpage
     trackInScreenImpressions([...frontAdElements, ...asideElements]);
   }
-  // init sponsors in left sidebar
-  initSponsors('#company-sponsors-list ul');
 }

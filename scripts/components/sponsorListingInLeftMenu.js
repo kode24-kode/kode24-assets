@@ -1,4 +1,3 @@
-import { getSponsorsFromApi } from '../API/api';
 /**
  * Draws sponsors in the left menu from api
  * @param {*} sponsors
@@ -28,10 +27,8 @@ function getSponsorsMarkup(sponsors) {
   `;
 }
 
-export async function initSponsors(elementToAppendTo) {
-  const sponsorsMarkup = getSponsorsMarkup(
-    await getSponsorsFromApi()
-  );
+export async function initSponsors(sponsors, elementToAppendTo) {
+  const sponsorsMarkup = getSponsorsMarkup(sponsors);
   document.querySelector(elementToAppendTo).innerHTML =
     sponsorsMarkup;
 }

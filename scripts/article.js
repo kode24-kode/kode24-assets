@@ -103,7 +103,4 @@ export async function initArticle() {
   addNumberToEventCounterInTopMenu(
     await getEventsFromApi().then((events) => events.eventsCount)
   );
-
-  // init sponsors in left sidebar
-  initSponsors('#company-sponsors-list ul');
 }
