@@ -20,7 +20,7 @@ function drawCompanyLeagueTableMarkup(data) {
   let tableWrapper = document.createElement("a");
   tableWrapper.setAttribute(
     "href",
-    "https://app.masterblaster.gg/community/b733aa10-3c5e-4d9f-84c9-2aaf86306a09"
+    "https://www.kode24.no/partner/masterblaster"
   );
   tableWrapper.setAttribute("target", "_blank");
   tableWrapper.classList.add("company-league-table-wrapper");
