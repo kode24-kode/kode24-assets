@@ -24,8 +24,8 @@ a {
 
   .labels .label,
   .deck {
-    background: hsla(0, 0%, 0%, 0.4) !important;
-    color: v(v2-card-always-white) !important;
+    background: var(--v2-card-background);
+    color: var(--v2-card-paragraph-color);
   }
 
   &:before {
@@ -91,13 +91,5 @@ a {
 .article-entity .native-advertisement {
   .headline {
     font-family: v(fontRegular);
-    color: v(v2-card-always-white);
-    .headline-title-wrapper {
-      color: v(v2-card-always-white);
-    }
-  }
-
-  .standfirst {
-    color: v(v2-card-always-white);
   }
 }
