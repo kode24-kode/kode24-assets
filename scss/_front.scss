@@ -1,6 +1,10 @@
 h2 {
   color: var(--v2-card-headline-color);
   margin: 0 0 1rem 0;
+  @media screen and (max-width: 1023px) {
+      font-size: 1.2rem;
+      padding: 0 0.6rem;
+  }
 }
 
 .frontpage {
@@ -11,7 +15,9 @@ h2 {
   margin: 0 auto 0 auto;
   grid-template-columns: 250px 680px 350px;
   @media screen and (max-width: 1023px) {
-    padding: 4rem 0.6rem 0.6rem 0.6rem;
+    padding: 4rem 0 0.6rem 0;
+
+    grid-template-columns: 100%;
   }
   img {
     width: 100%;
@@ -58,7 +64,7 @@ h2 {
     h1.headline {
       font-size: 1.8rem !important;
       @media screen and (max-width: 1023px) {
-        font-size: 1.6rem !important;
+        font-size: 1.2rem !important;
       }
     }
   }
@@ -73,6 +79,9 @@ h2 {
     .columns.large-5,
     .columns.large-7 {
       margin-bottom: 1.25rem;
+    }
+    @media screen and (max-width: 1023px) {
+      margin-bottom: 0.6rem;
     }
   }
 }

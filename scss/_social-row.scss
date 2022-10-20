@@ -81,68 +81,44 @@
 }
 
 .frontpage .row:not(.added):nth-child(8n + 0) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-teal);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-teal-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-teal);
   }
 }
 .frontpage .row:not(.added):nth-child(8n + 1) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-pink);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-pink-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-pink);
   }
 }
 .frontpage .row:not(.added):nth-child(8n + 2) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-purple);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-purple-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-purple);
   }
 }
 
 .frontpage .row:not(.added):nth-child(8n + 3) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-blue);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-blue-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-blue);
   }
 }
 .frontpage .row:not(.added):nth-child(8n + 4) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-yellow);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-yellow-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-yellow);
   }
 }
 .frontpage .row:not(.added):nth-child(8n + 5) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-orange);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-orange-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-orange);
   }
 }
 .frontpage .row:not(.added):nth-child(8n + 6) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-midnight);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-midnight-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-midnight);
   }
 }
 .frontpage .row:not(.added):nth-child(8n + 7) article.preview .article-social {
-  .social-tag {
-    background-color: v(v2-label-color-grey);
-    &:not(:first-child) {
-      background-color: v(v2-label-color-grey-darker);
-    }
+  .social-tag:first-child {
+    border: 1px solid v(v2-label-color-grey);
   }
 }
 

@@ -47,6 +47,13 @@ a {
     z-index: 0;
     background-color: var(--v2-background);
     border-radius: 10px;
+    @media screen and (max-width: 1023px) {
+      left: 2px;
+        top: 2px;
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        border-radius: 0;
+    }
   }
 
 }

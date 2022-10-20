@@ -8,7 +8,11 @@
   transition: background-color 0.1s ease-in-out;
   overflow: hidden;
   box-shadow: 0 0 14px 2px rgba(0, 0, 0, 0.03);
-
+  @media screen and (max-width: 1023px) {
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid v(v2-card-background);
+  }
   &:hover {
     background-color: v(v2-card-background-hover);
   }
@@ -39,7 +43,7 @@
   .article-preview-text {
     padding-left: 1.25rem;
     @media screen and (max-width: 1023px) {
-      padding-left: 0.8rem;
+      padding-left: 0.6rem;
     }
   }
 
@@ -172,20 +176,20 @@
 .frontpage .row:not(.added):nth-child(6n + 0) {
   .label,
   .deck {
-    background-color: v(v2-label-color-pink);
+    border: 1px solid v(v2-label-color-pink);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 1) {
   .label,
   .deck {
-    background-color: v(v2-label-color-purple);
+    border: 1px solid v(v2-label-color-purple);
     color: v(v2-card-always-white);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 2) {
   .label,
   .deck {
-    background-color: v(v2-label-color-blue);
+    border: 1px solid v(v2-label-color-blue);
     color: v(v2-card-always-white);
   }
 }
@@ -193,20 +197,20 @@
 .frontpage .row:not(.added):nth-child(6n + 3) {
   .label,
   .deck {
-    background-color: v(v2-label-color-teal);
+    border: 1px solid v(v2-label-color-teal);
     color: v(v2-card-always-white);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 4) {
   .label,
   .deck {
-    background-color: v(v2-card-always-white);
+    border: 1px solid v(v2-card-always-white);
     color: v(v2-card-always-black);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 5) {
   .label,
   .deck {
-    background-color: v(v2-card-always-black);
+    border: 1px solid v(v2-card-always-black);
   }
 }

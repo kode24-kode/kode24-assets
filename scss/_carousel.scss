@@ -30,6 +30,10 @@
     text-align: center;
     @media screen and (max-width: 1023px) {
       font-size: 0.8rem;
+      width: calc(100% + 1.2rem);
+        padding: 0.6rem;
+        display: block;
+        margin: -0.6rem 0 0 -0.6rem !important;
     }
   }
 

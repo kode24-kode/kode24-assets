@@ -12,11 +12,16 @@ import { drawCommentRow } from './components/drawCommentRow';
 import { isPagePartner } from './functions/isPagePartner';
 import { setPartnerPageConfig } from './functions/setPartnerPageConfig';
 import { getNodes } from './functions/getNodes';
+import { getPrettyFormatDateString } from './functions/getPrettyFormatDateString';
 
 /**
  * inits everything that needs to run on a kode24 front (/, /emne/react, etc...)
  */
 export async function initFrontend() {
+  document.getElementById(
+    'date-frontpage'
+  ).innerHTML = ` ${getPrettyFormatDateString()}`;
+
   const {
     initAsideLoading,
     initSponsors,
