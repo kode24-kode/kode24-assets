@@ -1,6 +1,7 @@
 .byline-row {
-  margin-top: 2rem;
   display: flex;
+  align-items: center;
+  color: var(--v2-card-paragraph-color);
   @media screen and (max-width: 700px) {
     margin-top: 1rem;
   }

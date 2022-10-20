@@ -1,48 +1,20 @@
-#left-menu .diamond-partners-list a {
-  padding: 0;
-}
-
-#left-menu .diamond-partners-list {
-  border: 1px solid var(--v2-card-background);
-  border-radius: 10px;
-  margin-bottom: 1rem;
-  padding: 1rem;
-}
-#left-menu .diamond-partners-list h3 {
-  margin: 0 0 1rem 0;
-}
-#left-menu .diamond-partners-list img {
-  width: 100%;
-  border-radius: 10px;
-}
-#left-menu .diamond-partners-list a {
-  margin: 0 0 1rem 0;
-}
-#left-menu .diamond-partners-list .call-to-action {
-  color: var(--v2-card-paragraph-color);
-  font-size: 0.8rem;
-  margin: 0;
-}
-
-#left-menu .diamond-partners-list .call-to-action a {
-  text-decoration: none;
-  cursor: pointer;
-  background-image: linear-gradient(90deg, var(--v2-pink-gradient-start), var(--v2-pink-gradient-stop));
-  background-position: 0px 22px;
-  background-repeat: repeat-x;
-  background-size: 100% 1px;
-  overflow: visible;
-  padding-bottom: 6px;
-  color: var(--v2-card-paragraph-color);
-}
-
-#left-menu .diamond-partners-list {
-
+.diamond-partners-list {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      display: inline-block;
+    }
+    img {
+      border-radius: 10px;
+    }
+  }
 }
 
 
 .partner #front-articles-list {
-  
+
   .row {
     max-width: 600px;
     margin: 0 auto;
@@ -53,7 +25,7 @@
   .headline {
     font-size: 1.2rem;
   }
-  
+
   #desktop-sidemenu-front {
     display: none;
 
@@ -70,7 +42,7 @@
       color: var(--v2-card-paragraph-color);
       max-width: 600px;
       margin: 0 auto 1rem auto;
-  
+
     }
     h2 {
       color: var(--v2-card-headline-color);
@@ -98,7 +70,7 @@
       max-width: 600px;
       margin: 0 auto 1rem auto;
       color: var(--v2-card-paragraph-color);
-    }    
+    }
   }
 
   .section-title.heading {

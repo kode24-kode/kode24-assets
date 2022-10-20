@@ -6,7 +6,7 @@ import { postImpressions } from '../API/api';
  */
 export async function initPremiumJobComponent(
   ads,
-  selector,
+  nodeList,
   appendToggle
 ) {
   // post impression for all ads rendered on page
@@ -21,7 +21,7 @@ export async function initPremiumJobComponent(
     <article class="preview preview-list">
       <div class="article-preview-text">
         <div class="labels">
-          <span class="label job">Ledige stillinger</span>
+          <span class="label job">Utvalgte stillinger</span>
         </div>
       </div>
       <div class="listing">
@@ -34,11 +34,13 @@ export async function initPremiumJobComponent(
     `;
 
   // Add after specified element
-  if (appendToggle) {
-    console.log('appending element to', selector);
-    document.querySelector(selector).append(newPremiumJobComponent);
-  } else {
-    document.querySelector(selector).after(newPremiumJobComponent);
+  if (nodeList[0]) {
+    if (appendToggle == 'append') {
+      console.log('appending');
+      nodeList[0].append(newPremiumJobComponent);
+    } else {
+      nodeList[0].after(newPremiumJobComponent);
+    }
   }
 }
 

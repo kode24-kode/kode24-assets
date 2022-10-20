@@ -4,10 +4,10 @@ import { postImpressions } from '../API/api';
  * @param {*} premiumAds
  * @param {*} selector
  */
-export function initFrontAdComponents(selector, ads) {
+export function initFrontAdComponents(nodeList, ads) {
   let adsForTracking = [];
   // run through all eligable elements in front feed
-  document.querySelectorAll(selector).forEach(function (node) {
+  nodeList.forEach(function (node) {
     // if we still have ads to distribute in our ads array
     if (ads.length) {
       // fetch the first ad in the array

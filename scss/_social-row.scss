@@ -8,7 +8,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem 0.6rem 0.6rem 1.25rem;
-  background-color: var(--v2-card-background-hover);
   @media screen and (max-width: 700px) {
     padding: 0.6rem;
   }
@@ -67,6 +66,7 @@
       border-radius: 4px;
       margin-left: 0.6rem;
       color: v(v2-card-always-white);
+      white-space: nowrap;
       &:hover {
         background-color: var(--v2-background);
       }
@@ -148,7 +148,7 @@
 
 
 .light .frontpage article.preview .article-social {
-  .reaction-button {  
+  .reaction-button {
     &:before {
       filter: invert(0);
     }

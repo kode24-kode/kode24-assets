@@ -11,6 +11,7 @@ import { drawByline } from './components/drawByline';
 import { drawCommentRow } from './components/drawCommentRow';
 import { isPagePartner } from './functions/isPagePartner';
 import { setPartnerPageConfig } from './functions/setPartnerPageConfig';
+import { getNodes } from './functions/getNodes';
 
 /**
  * inits everything that needs to run on a kode24 front (/, /emne/react, etc...)
@@ -36,7 +37,7 @@ export async function initFrontend() {
 
   // if we have a partner page, we should not show ads
   if (!partnerPage) {
-    initAsideLoading('desktop-sidemenu-front');
+    //initAsideLoading('desktop-sidemenu-front');
     // get ids and nodes of all article previews on page
     const { articleIds, articlesList } = getArticlePreviewList();
     // get data for all article previews on page
@@ -44,29 +45,44 @@ export async function initFrontend() {
       articleIds
     );
     // draw bylines for all article previews on page
-    drawByline(articlePreviewListData, articleIds, articlesList);
+    //drawByline(articlePreviewListData, articleIds, articlesList);
     // draw comment rows for all article previews on page
     drawCommentRow(articlePreviewListData, articleIds, articlesList);
     // init component that shows content articles and job listings in front feed
     const frontAdElements = initFrontAdComponents(
-      '#front-articles-list >.row:not(.show-for-small-only, .show-for-medium-up, .added):nth-child(2n+3)',
-      [...contentAds, ...premiumAds].filter((ad) => ad && ad.id)
+      getNodes(
+        '.article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)',
+        [3, 5, 7, 9, 11, 13, 15, 19, 23, 27, 31]
+      ),
+      premiumAds
     );
     // init box that shows job listings
     initPremiumJobComponent(
       premiumAds,
-      '#front-articles-list >.row:not(.show-for-small-only, .show-for-medium-up, .added):nth-child(5)'
+      getNodes(
+        '.article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)',
+        [4]
+      )
     );
-    // init ad elements listed in right column
-    const asideElements = await initAdElementsInRightColumn(
-      '#desktop-sidemenu-front',
+    // init box that shows job listings
+    initPremiumJobComponent(
       premiumAds,
-      nonPremiumAds
+      getNodes('#desktop-sidemenu-front', [1]),
+      'append'
     );
+
     // init container for calendar events shown in front feed
+    await initEventCardsList(
+      eventData,
+      getNodes('#desktop-sidemenu-front', [1]),
+      'append'
+    );
     const numberOfEvents = await initEventCardsList(
       eventData,
-      '#front-articles-list >.row:not(.show-for-small-only, .show-for-medium-up, .added):nth-child(11)'
+      getNodes(
+        '.article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)',
+        [11]
+      )
     );
     // track impressions for all ads on frontpage
     trackInScreenImpressions([...frontAdElements, ...asideElements]);

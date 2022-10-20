@@ -3,7 +3,11 @@
  * @param {*} selector
  * @returns
  */
-export const initEventCardsList = (eventData, selector) => {
+export const initEventCardsList = (
+  eventData,
+  nodeList,
+  placement
+) => {
   // fetch markup for events
   let eventMarkup = getEventsCardMarkup(eventData);
   // create container and add markup
@@ -11,7 +15,13 @@ export const initEventCardsList = (eventData, selector) => {
   eventContainer.classList.add('row', 'added');
   eventContainer.innerHTML = eventMarkup;
   // add container to dom
-  document.querySelector(selector).after(eventContainer);
+  if (nodeList[0]) {
+    if (placement === 'append') {
+      nodeList[0].append(eventContainer);
+    } else {
+      nodeList[0].after(eventContainer);
+    }
+  }
 
   return eventData.eventsCount;
 };

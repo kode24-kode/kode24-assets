@@ -70,7 +70,10 @@ export async function initCommon() {
   let sponsors = await getSponsorsFromApi();
 
   initSponsors(sponsors, '#company-sponsors-list');
-  initDiamondPartners(sponsors.diamond || [], '#left-menu');
+  initDiamondPartners(
+    sponsors.diamond || [],
+    '#desktop-sidemenu-front'
+  );
 
   // add number of active events to counter in top menu
   addNumberToEventCounterInTopMenu(eventData.eventsCount);

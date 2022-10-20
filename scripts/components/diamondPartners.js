@@ -4,8 +4,13 @@
 
 export function initDiamondPartners(diamondPartners, selector) {
   if (diamondPartners && diamondPartners.length) {
-    var diamondPartnersContainer = document.createElement("div");
-    diamondPartnersContainer.classList.add("diamond-partners-list");
+    var diamondPartnersContainer = document.createElement('div');
+    diamondPartnersContainer.classList.add(
+      'diamond-partners-list',
+      'preview-list',
+      'preview',
+      'row'
+    );
     diamondPartnersContainer.innerHTML = `
     <h3>kode24-partnere</h3>
     <ul>
@@ -17,11 +22,10 @@ export function initDiamondPartners(diamondPartners, selector) {
       `
     )}
       </ul>
-      <p class="call-to-action">Lyst til å bli partner og få din egen landingsside?<br/> <a href="https://www.kode24.no/annonse/na-lanserer-vi-egen-landingsside-for-annonsorer/77370110"> Les mer her! </a></p>
       `;
   }
   console.log(
-    "hallo",
+    'hallo',
     selector,
     document.querySelector(selector),
     diamondPartnersContainer
