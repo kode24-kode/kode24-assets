@@ -1,18 +1,17 @@
 import { initCommon } from "./common";
 import { initFrontAdComponents } from "./components/frontAdComponents";
-import { initEventCardsList } from "./components/eventCardsList";
 import { getArticlePreviewList } from "./functions/getArticlePreviewList";
-import {
-  getFrontPreviewData,
-  getAdsForFrontFromApi,
-  getContentAdsFromApi,
-} from "./API/api";
-import { drawByline } from "./components/drawByline";
+import { getFrontPreviewData } from "./API/api";
 import { drawCommentRow } from "./components/drawCommentRow";
-import { isPagePartner } from "./functions/isPagePartner";
-import { setPartnerPageConfig } from "./functions/setPartnerPageConfig";
 import { getNodes } from "./functions/getNodes";
 import { getPrettyFormatDateString } from "./functions/getPrettyFormatDateString";
+import { trackInScreenImpressions } from "./functions/inScreenAdImpressionTracker";
+import { shuffleArray } from "./functions/shuffleArray";
+import { limitArray } from "./functions/limitArray";
+import {
+  initJobAdsComponent,
+  initJobAdsComponentLoading,
+} from "./components/JobAdsComponent";
 
 /**
  * inits everything that needs to run on a kode24 front (/, /emne/react, etc...)
@@ -22,17 +21,23 @@ export async function initFrontend() {
     "date-frontpage"
   ).innerHTML = ` ${getPrettyFormatDateString()}`;
 
-  const {
-    initJobAdsComponent,
-    trackInScreenImpressions,
-    listings,
-    premiumIds,
+  const { premiumAds, nonPremiumAds, contentAds, eventData, partnerPage } =
+    await initCommon();
+
+  // init job ad component in front feed
+  const JobAdsComponentNode = initJobAdsComponentLoading(10);
+  document
+    .querySelectorAll(
+      ".article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)"
+    )[4]
+    .after(JobAdsComponentNode);
+  // init box that shows job listings
+  initJobAdsComponent(
     premiumAds,
-    nonPremiumAds,
-    contentAds,
-    eventData,
-    partnerPage,
-  } = await initCommon();
+    JobAdsComponentNode,
+    "replace",
+    "utvalgte stillinger"
+  );
 
   // if we have a partner page, we should not show ads
   if (!partnerPage) {
@@ -45,24 +50,20 @@ export async function initFrontend() {
     //drawByline(articlePreviewListData, articleIds, articlesList);
     // draw comment rows for all article previews on page
     drawCommentRow(articlePreviewListData, articleIds, articlesList);
+
     // init component that shows content articles and job listings in front feed
     const frontAdElements = initFrontAdComponents(
       getNodes(
         ".article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)",
         [3, 5, 7, 9, 11, 13, 15, 19, 23, 27, 31]
       ),
-      premiumAds
-    );
-    /**
-    // init box that shows job listings
-    initJobAdsComponent(
-      premiumAds,
-      getNodes(
-        ".article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)",
-        [4]
-      )
+      [
+        contentAds ? shuffleArray(contentAds)[0] : {},
+        ...limitArray(shuffleArray(premiumAds), 6),
+      ]
     );
 
+    /*
     // init container for calendar events shown in front feed
     await initEventCardsList(
       eventData,

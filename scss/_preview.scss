@@ -48,61 +48,6 @@
       padding-left: 0.6rem;
     }
   }
-
-  .labels .label,
-  .deck,
-  .kicker {
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    color: v(v2-card-always-white);
-    background-color: v(v2-card-always-black);
-    padding: 0.5em 0.5em;
-    margin-top: 0;
-    margin-bottom: 1rem;
-    letter-spacing: 0.1em;
-    border-radius: 10px;
-    display: inline-block;
-    font-weight: 400;
-    @media screen and (max-width: 1023px) {
-      font-size: 0.6rem;
-      margin-bottom: 0.6rem;
-    }
-    &.calendar {
-      background-image: linear-gradient(
-        45deg,
-        var(--v2-label-color-pink),
-        var(--v2-label-color-purple),
-      );
-    }
-    &.job {
-      background: linear-gradient(
-        45deg,
-        var(--v2-label-color-pink),
-        var(--v2-label-color-orange),
-      );
-    }
-    &.purple {
-      background-color: v(v2-label-color-purple);
-    }
-    &.blue {
-      background-color: v(v2-label-color-blue);
-    }
-    &.pink {
-      background-color: v(v2-label-color-pink);
-      color: v(v2-card-always-white);
-    }
-    &.yellow {
-      background-color: v(v2-label-color-teal);
-      color: v(v2-card-always-white);
-    }
-    &.white {
-      background-color: v(v2-card-always-white);
-      color: v(v2-card-always-black);
-    }
-    &.black {
-      background-color: v(v2-card-always-black);
-    }
-  }
   .headline {
     display: block;
     margin: 0;
@@ -117,27 +62,12 @@
       font-size: 1.1rem;
       margin-bottom: 0.6rem;
     }
-    .headline-title-wrapper {
-      color: v(v2-card-headline-color);
-      .yellow {
-        color: v(v2-label-color-teal);
-      }
-      .pink {
-        color: v(v2-label-color-pink);
-      }
-      .purple {
-        color: v(v2-label-color-purple);
-      }
-      .blue {
-        color: v(v2-label-color-blue);
-      }
-      .black {
-        color: v(v2-card-always-black);
-      }
-      .white {
-        color: v(v2-card-always-white);
-      }
-    }
+  }
+  .labels span {
+    display: inline-block;
+    color: var(--v2-card-paragraph-color);
+    margin-bottom: 0.6rem;
+    font-family: var(--fontRegular);
   }
   .standfirst {
     margin: 0;

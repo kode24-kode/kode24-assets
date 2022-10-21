@@ -113,6 +113,7 @@ export async function initCommon() {
     "replace",
     "Utvalgte stillinger"
   );
+
   initPodcastPlayer(podcastPlayerNode);
   initSponsors(sponsors, "#company-sponsors-list");
   initDiamondPartners(sponsors.diamond || [], diamondPartnersNode);
@@ -123,19 +124,10 @@ export async function initCommon() {
   addNumberToJobCounterInTopMenu(listings.length);
 
   return {
-    addNumberToEventCounterInTopMenu,
-    addNumberToJobCounterInTopMenu,
-    initJobAdsComponent,
-    initSponsors,
-    initAdElementsInRightColumn,
-    hideSidebarForCommercialPages,
-    trackInScreenImpressions,
     listings,
-    premiumIds,
     premiumAds,
     nonPremiumAds,
     contentAds,
     eventData,
-    initDiamondPartners,
   };
 }

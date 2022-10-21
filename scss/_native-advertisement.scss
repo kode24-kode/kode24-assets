@@ -22,12 +22,6 @@ a {
     }
   }
 
-  .labels .label,
-  .deck {
-    background: var(--v2-card-background);
-    color: var(--v2-card-paragraph-color);
-  }
-
   &:before {
     content: "";
     position: absolute;
