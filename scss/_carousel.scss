@@ -1,10 +1,13 @@
+.article-previews .preview-list {
+  background-color: var(--v2-card-background);
+  &:hover {
+    background-color: var(--v2-card-background-hover);
+  }
+}
 .preview-list {
   width: 100%;
-  padding: 1.25rem 1.25rem 0 1.25rem;
+  padding: 0;
   background-color: var(--v2-preview-list-background);
-  @media screen and (max-width: 1023px) {
-    padding: 0.8rem;
-  }
   &:hover {
     background-color: var(--v2-preview-list-background);
   }
@@ -40,26 +43,19 @@
     }
   }
 
+  .listing {
+
+  }
   .listing-actions {
     padding: 1.25rem;
   }
 
   .listing {
+    padding: 1.25rem;
+    display: flex;
+    overflow: scroll;
     .preview {
-      padding: 1.25rem;
-      margin: 0 -1.25rem;
-      width: calc(100% + 2.5rem);
-      border-radius: 0;
-      border: 0;
-      border-bottom: 1px solid var(--v2-card-border-background);
-      &:nth-child(even) {
-      }
-      a {
-        padding: 0;
-      }
-      &:last-child {
-        border-bottom: 0;
-      }
+      
     }
   }
 
@@ -68,6 +64,17 @@
     position: relative;
     box-shadow: none;
     background-color: transparent;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid var(--v2-card-border-background);
+    flex: 0 0 200px;
+    a {
+      padding: 0;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
     &:hover {
       background-color: var(--v2-card-background-hover);
       a {
@@ -76,6 +83,13 @@
         }
       }
     }
+
+    .labels .label {
+      font-size: 0.8rem;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+
     &.calendar {
       &.premium {
         @media screen and (min-width: 1023px) {
@@ -201,6 +215,11 @@
   padding: 0;
   .call-to-action {
     display: none
+  }
+  .listing {
+    padding: 0;
+    display: block;
+    overflow: visible;
   }
   .listing .preview {
       padding: 0;

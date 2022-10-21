@@ -60,7 +60,7 @@ h2 {
 
 
 
-  .article-previews .row:nth-child(1) {
+  .article-previews>.row:nth-child(1) {
     .preview {
       background-color: var(--v2-card-background-highlight);
       .article-social {

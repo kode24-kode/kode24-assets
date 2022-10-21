@@ -11,6 +11,24 @@ body {
   background-color: v(v2-background);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  &::-webkit-scrollbar-track {
+    background: var(--v2-card-border-background);
+    border-radius: 0;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      0deg,
+      var(--v2-label-color-pink),
+      var(--v2-label-color-purple)
+    );
+    border-radius: 10px;
+  }
+  
+  &::-webkit-scrollbar {
+    width: 10px;
+    background: transparent;
+  }
 }
 
 * {
@@ -26,24 +44,7 @@ a {
   text-decoration: none;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-  border-radius: 0;
-}
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    0deg,
-    v(v2-pink-gradient-start),
-    v(v2-pink-gradient-stop)
-  );
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar {
-  width: 10px;
-  background: transparent;
-}
 
 .text-center {
   text-align: center;
