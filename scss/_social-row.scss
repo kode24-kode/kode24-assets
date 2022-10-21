@@ -62,10 +62,10 @@
     .social-tag {
       display: block;
       padding: 0.6rem;
-      background-color: var(--v2-card-background);
+      //background-color: var(--v2-card-label-background);
       border-radius: 4px;
       margin-left: 0.6rem;
-      color: v(v2-card-always-white);
+      color: var(--v2-card-paragraph-color);
       white-space: nowrap;
       &:hover {
         background-color: var(--v2-background);

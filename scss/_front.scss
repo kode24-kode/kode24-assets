@@ -13,18 +13,25 @@ h2 {
   grid-auto-flow: column;
   padding: 0;
   margin: 0 auto 0 auto;
-  grid-template-columns: 250px 680px 350px;
-  @media screen and (max-width: 1023px) {
-    padding: 4rem 0 0.6rem 0;
-
-    grid-template-columns: 100%;
+  padding: 4rem 0 0.6rem 0;
+  grid-template-columns: 100% 100% 0;
+  #desktop-sidemenu-front {
+    display: none;
+  }
+  @media screen and (min-width: 830px) {  
+    grid-template-columns: minmax(200px, 250px) minmax(580px, 680px) 0;
+    gap: 1rem;
+    #desktop-sidemenu-front {
+      display: block;
+    }
+  }
+  @media screen and (min-width: 1080px) {
+    grid-template-columns: minmax(200px, 250px) minmax(580px, 680px) minmax(250px, 350px);
   }
   img {
     width: 100%;
     max-width: 100%;
   }
-
-  padding: 1.25rem;
 
   &.with-ribbon {
     padding: 4.4rem 0.6rem 0.6rem 0.6rem
@@ -55,7 +62,7 @@ h2 {
 
   .article-previews .row:nth-child(1) {
     .preview {
-      background-color: var(--v2-card-background);
+      background-color: var(--v2-card-background-highlight);
       .article-social {
         background-color: var(--v2-card-background-hover);
       }

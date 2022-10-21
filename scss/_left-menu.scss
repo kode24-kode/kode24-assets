@@ -13,10 +13,7 @@
   &.active {
     display: block;
   }
-  @media screen and (min-width: 1023px) {
-    display: none;
-  }
-  @media screen and (min-width: 1226px) {
+  @media screen and (min-width: 830px) {
       height: auto;
       position: relative;
       left: auto;

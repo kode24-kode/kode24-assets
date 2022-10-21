@@ -16,6 +16,7 @@
 
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i|IBM+Plex+Sans:400,400i,500,500i");
 
+/**
 :root {
   --v2-background: hsl(210, 4%, 10%);
   --v2-background-always-dark: hsl(210, 4%, 10%);
@@ -97,6 +98,93 @@
   --color-adWrapperTitleColor: hsl(210, 3%, 14%);
   --color-adWrapperBackground: hsl(0, 0%, 100%);
 }
+**/
+
+
+:root {
+  --v2-background: hsl(245, 8%, 8%);
+  --v2-background-always-dark: hsl(245, 12%, 12%);
+  --v2-background-faded: hsl(230, 15%, 30%), 80%;
+
+  --v2-card-background: hsl(245, 14%, 14%);
+  --v2-card-border-background: hsl(245, 14%, 20%);
+  --v2-card-background-hover: hsl(245, 14%, 20%);
+  --v2-card-background-highlight: hsl(245, 14%, 18%);
+  --v2-card-headline-color: hsl(60, 30%, 96%);
+  --v2-card-paragraph-color: hsl(245, 10%, 50%);
+  --v2-card-always-white: hsl(0, 0%, 100%);
+  --v2-card-always-white-paragraph-color: hsl(0, 0%, 70%);
+  --v2-card-always-black: hsl(231, 15%, 18%);
+  --v2-card-always-dark-background: hsl(210, 3%, 15%);
+  --v2-card-always-dark-background-sidebar: hsl(210, 3%, 14%);
+  --v2-card-always-dark-paragraph-color: hsl(0, 0%, 70%);
+
+
+  --v2-calendar-button-background-premium: hsla(0, 0%, 100%, 10%);
+  --v2-calendar-button-background: hsla(290, 76%, 31%, 0.25); 
+  --v2-calendar-button-outline: hsla(290, 76%, 31%, 1);
+  --v2-job-button-background: hsla(327, 81%, 54%, 0.25);
+  --v2-job-button-outline: hsl(327, 81%, 54%);
+
+
+  // preview-list
+  --v2-preview-list-background: transparent;
+
+  // labels
+  --v2-card-label-background: hsl(245, 14%, 14%);
+  --v2-label-color-teal: hsl(180, 100%, 79%);
+  --v2-label-color-teal-darker: hsl(180, 100%, 40%);
+  --v2-label-color-pink: hsl(330, 100%, 75%);
+  --v2-label-color-pink-darker: hsl(330, 100%, 40%);
+  --v2-label-color-purple: hsl(250, 100%, 75%);
+  --v2-label-color-purple-darker: hsl(250, 100%, 40%);
+  --v2-label-color-blue: hsl(115, 100%, 75%);
+  --v2-label-color-blue-darker: hsl(115, 100%, 40%);
+  --v2-label-color-yellow: hsl(60, 100%, 75%);
+  --v2-label-color-yellow-darker: hsl(60, 100%, 40%);
+  --v2-label-color-orange: hsl(35, 100%, 75%);
+  --v2-label-color-orange-darker: hsl(35, 100%, 40%);
+
+  --vp-tablet: 700px;
+  --vp-desktop: 1025px;
+  --vp-desktopWide: 1330px;
+
+  --fontMono: "IBM Plex Mono", monospace;
+  --fontRegular: "IBM Plex Sans", sans-serif;
+
+  --gutter: 0.4rem;
+
+  // variables used by google ads
+  --color-adWrapperTitleColor: hsl(0, 0%, 100%);
+  --color-adWrapperBackground: hsl(210, 3%, 15%);
+}
+
+.light {
+  --v2-background-faded: hsla(0, 0%, 94%, 80%);
+  --v2-background: hsl(0, 0%, 94%);
+  --v2-background-always-dark: hsl(210, 4%, 10%);
+  --v2-card-background: hsla(0, 0%, 100%, 0.60);
+  --v2-card-background-hover: hsl(0, 0%, 100%);
+  --v2-card-border-background: hsla(244, 14%, 20%, 0.10);
+  --v2-card-background-highlight: hsl(0, 0%, 100%);
+  --v2-card-headline-color: hsl(231, 15%, 20%);
+  --v2-card-paragraph-color: hsl(231, 10%, 42%);
+  --v2-job-button-background: hsla(327, 81%, 54%, 0.2);
+  --v2-job-button-outline: hsl(327, 81%, 54%);
+  --v2-card-background-level-2: hsl(0, 0%, 88%);
+
+  --v2-card-label-background: hsla(0, 0%, 100%, 0.60);
+
+  --v2-preview-list-background: hsla(0, 0%, 100%, 0.40);
+
+  // variables used by google ads
+  --color-adWrapperTitleColor: hsl(210, 3%, 14%);
+  --color-adWrapperBackground: hsl(0, 0%, 100%);
+}
+
+
+
+
 
 // vp - viewport
 $vp-tablet: 700px;

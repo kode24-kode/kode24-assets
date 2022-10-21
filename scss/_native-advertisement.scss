@@ -12,8 +12,8 @@ a {
 .article-entity .native-advertisement.preview {
   background: linear-gradient(
     45deg,
-    v(v2-pink-gradient-start),
-    v(v2-commercial-orange-stop)
+    var(--v2-label-color-pink),
+    var(--v2-label-color-orange)
   );
 
   &.job {
@@ -68,8 +68,8 @@ a {
 #front-articles-list .action {
   background-image: linear-gradient(
     45deg,
-    v(v2-pink-gradient-start),
-    v(v2-commercial-orange-stop)
+    var(--v2-label-color-pink),
+    var(--v2-label-color-orange)
   );
 }
 

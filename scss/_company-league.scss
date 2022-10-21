@@ -9,7 +9,7 @@
       padding: 0.6rem;
       font-size: 0.8rem;
       text-align: left;
-      border-bottom: 1px solid var(--v2-card-background-hover);
+      border-bottom: 1px solid var(--v2-card-border-background);
 
   }
   tr:last-child {
@@ -25,10 +25,4 @@
 }
 
 .company-league-table-wrapper {
-    text-align: center;
-    border: 1px solid var(--v2-card-background-hover);
-    border-radius: 10px;
-    margin-bottom: 1.25rem;
-    overflow: hidden;
-    display: block;
 }

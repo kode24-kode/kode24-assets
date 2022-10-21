@@ -1,14 +1,31 @@
 .preview-list {
   width: 100%;
   padding: 1.25rem 1.25rem 0 1.25rem;
+  background-color: var(--v2-preview-list-background);
   @media screen and (max-width: 1023px) {
     padding: 0.8rem;
   }
   &:hover {
-    background-color: v(v2-card-background);
-    .preview {
-      background-color: v(v2-card-background);
+    background-color: var(--v2-preview-list-background);
+  }
+  &.job-list {
+    h3 {
+      background-image: linear-gradient(
+        45deg,
+        var(--v2-label-color-pink),
+        var(--v2-label-color-orange)
+      );
     }
+  }
+  &.calendar-list {
+    h3 {
+      background-image: linear-gradient(
+        45deg,
+        var(--v2-label-color-pink),
+        var(--v2-label-color-purple)
+      );
+    }
+  
   }
   h3 {
     background: var(--v2-card-background);
@@ -18,31 +35,13 @@
     color: var(--v2-card-headline-color);
     font-weight: normal;
     font-size: 1rem;
-  }
-
-  &.preview>.article-preview-text .labels .label {
-    width: calc(100% + 2.5rem);
-    padding: 1.25rem;
-    display: block;
-    margin: -1.25rem 0 0 -1.25rem !important;
-    border-radius: 0;
-    font-size: 1.1rem;
-    text-align: center;
-    @media screen and (max-width: 1023px) {
-      font-size: 0.8rem;
-      width: calc(100% + 1.2rem);
-        padding: 0.6rem;
-        display: block;
-        margin: -0.6rem 0 0 -0.6rem !important;
+    &.highlight {
+      color: var(--v2-card-always-black);
     }
   }
 
   .listing-actions {
-    padding: 1.25rem 0;
-    text-align: center;
-    .button {
-      justify-content: center;
-    }
+    padding: 1.25rem;
   }
 
   .listing {
@@ -52,7 +51,7 @@
       width: calc(100% + 2.5rem);
       border-radius: 0;
       border: 0;
-      border-bottom: 1px solid var(--v2-card-background-hover);
+      border-bottom: 1px solid var(--v2-card-border-background);
       &:nth-child(even) {
       }
       a {
@@ -64,41 +63,13 @@
     }
   }
 
-  > .article-preview-text {
-    margin-bottom: 0rem;
-    padding-left: 0;
-    @media screen and (max-width: 1023px) {
-      margin-bottom: 0;
-      .label {
-        margin-bottom: 0 !important;
-      }
-    }
-    .standfirst {
-      @media screen and (max-width: 1023px) {
-        display: none;
-      }
-    }
-  }
-  .preview-listings-button {
-    position: absolute;
-    width: auto;
-    display: inline-block;
-    right: 1.25rem;
-    top: 1.25rem;
-    padding: 0.6rem;
-    font-weight: normal;
-    font-size: 0.8rem;
-    @media screen and (max-width: 1023px) {
-      right: 0.8rem;
-      top: 0.8rem;
-    }
-  }
   .preview {
     width: 100%;
     position: relative;
     box-shadow: none;
+    background-color: transparent;
     &:hover {
-      background-color: v(v2-card-background-hover);
+      background-color: var(--v2-card-background-hover);
       a {
         &:after {
           display: none;
@@ -142,11 +113,16 @@
         color: v(v2-card-always-white);
       }
       &.calendar {
-        background-image: linear-gradient(
+        &:before {
+          background-image: linear-gradient(
           45deg,
-          v(v2-calendar-gradient-start),
-          v(v2-calendar-gradient-stop)
-        );
+          var(--v2-label-color-pink),
+          var(--v2-label-color-purple)  
+          );
+          z-index: -1;
+          opacity: 0.2;
+        }
+        
       }
       a {
         &:after {
@@ -233,14 +209,6 @@
   }
   h1 {
     font-size: 1rem;
-  }
-  &.preview>.article-preview-text .labels .label {
-    width: 100%;
-    margin: 0 !important;
-    padding: calc(1.25rem/2);
-    font-size: 1rem;
-    text-transform: none;
-    letter-spacing: auto;
   }
   .listing-actions {
     padding: calc(1.25rem/2);

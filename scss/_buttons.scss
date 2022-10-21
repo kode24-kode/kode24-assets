@@ -2,14 +2,14 @@
 .job-ad-cta {
   display: inline-block;
   border-radius: 10px;
-  padding: 10px 20px;
-  background-color: v(v2-card-background-level-2);
-  color: v(v2-pink-gradient-start);
-  font-family: v(fontRegular);
+  padding: 0.6rem 1.25rem;
+  background-color: var(--v2-card-background-highlight);
+  color: var(--v2-card-headline-color);
+  font-family: var(--fontRegular);
   font-size: 0.9rem;
-  text-transform: uppercase;
-  font-weight: bold;
   white-space:nowrap;
+  text-align: center;
+  justify-content: center;
   @media screen and (max-width: 1023px) {
     padding: 6px 14px;
     font-size: 0.8rem;
