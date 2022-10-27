@@ -13,10 +13,10 @@ import {
   initJobAdsComponent,
 } from "./components/JobAdsComponent";
 import { initSponsors } from "./components/sponsorListingInLeftMenu";
-
-import { initAdElementsInRightColumn } from "./components/adElementsInRightColumn";
-import { hideSidebarForCommercialPages } from "./functions/hideSidebarForCommercialPages";
-import { trackInScreenImpressions } from "./functions/inScreenAdImpressionTracker";
+import {
+  initEventCardsListLoading,
+  initEventCardsList,
+} from "./components/eventCardsList";
 import {
   initCompanyLeague,
   initCompanyLeagueLoading,
@@ -50,11 +50,13 @@ export async function initCommon() {
   const diamondPartnersNode = initDiamondPartnersLoading();
   const companyLeagueNode = initCompanyLeagueLoading();
   const podcastPlayerNode = initPodcastPlayerLoading();
+  const eventCardsListNode = initEventCardsListLoading();
   document
     .querySelector("#desktop-sidemenu-front")
     .append(
       diamondPartnersNode,
       JobAdsComponentNode,
+      eventCardsListNode,
       companyLeagueNode,
       podcastPlayerNode
     );
@@ -107,11 +109,19 @@ export async function initCommon() {
     "Ledige stillinger"
   );
 
+  // init sidebar component for premium ads
   initJobAdsComponent(
     limitArray(shuffleArray(premiumAds), 5),
     JobAdsComponentNode,
     "replace",
     "Utvalgte stillinger"
+  );
+
+  // init sidebar component for calendar events shown right column
+
+  const numberOfEvents = await initEventCardsList(
+    eventData,
+    eventCardsListNode
   );
 
   initPodcastPlayer(podcastPlayerNode);

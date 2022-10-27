@@ -12,11 +12,16 @@ import {
   initJobAdsComponent,
   initJobAdsComponentLoading,
 } from "./components/JobAdsComponent";
+import {
+  initEventCardsListLoading,
+  initEventCardsList,
+} from "./components/eventCardsList";
 
 /**
  * inits everything that needs to run on a kode24 front (/, /emne/react, etc...)
  */
 export async function initFrontend() {
+  // Add todays date
   document.getElementById(
     "date-frontpage"
   ).innerHTML = ` ${getPrettyFormatDateString()}`;
@@ -26,17 +31,28 @@ export async function initFrontend() {
 
   // init job ad component in front feed
   const JobAdsComponentNode = initJobAdsComponentLoading(10);
+  const eventCardsListNode = initEventCardsListLoading();
   document
     .querySelectorAll(
       ".article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)"
     )[4]
     .after(JobAdsComponentNode);
+  document
+    .querySelectorAll(
+      ".article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)"
+    )[6]
+    .after(eventCardsListNode);
   // init box that shows job listings
   initJobAdsComponent(
     premiumAds,
     JobAdsComponentNode,
     "replace",
     "utvalgte stillinger"
+  );
+
+  const numberOfEvents = await initEventCardsList(
+    eventData,
+    eventCardsListNode
   );
 
   // if we have a partner page, we should not show ads
@@ -64,19 +80,7 @@ export async function initFrontend() {
     );
 
     /*
-    // init container for calendar events shown in front feed
-    await initEventCardsList(
-      eventData,
-      getNodes("#desktop-sidemenu-front", [1]),
-      "append"
-    );
-    const numberOfEvents = await initEventCardsList(
-      eventData,
-      getNodes(
-        ".article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)",
-        [11]
-      )
-    );
+
      */
     // track impressions for all ads on frontpage
     trackInScreenImpressions([...frontAdElements]);

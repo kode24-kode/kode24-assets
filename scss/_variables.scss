@@ -158,6 +158,9 @@
   // variables used by google ads
   --color-adWrapperTitleColor: hsl(0, 0%, 100%);
   --color-adWrapperBackground: hsl(210, 3%, 15%);
+  @media screen and (max-width: 829px) {
+    --v2-card-background: hsl(var(--v2-main-color), 14%, 10%);
+  }
 }
 
 .light {

@@ -18,6 +18,7 @@
         var(--v2-label-color-pink),
         var(--v2-label-color-orange)
       );
+      
     }
   }
   &.calendar-list {
@@ -27,11 +28,11 @@
         var(--v2-label-color-pink),
         var(--v2-label-color-purple)
       );
+      
     }
   
   }
   h3 {
-    background: var(--v2-card-background);
     padding: 0.6rem;
     margin: 0;
     text-align: center;
@@ -39,7 +40,10 @@
     font-weight: normal;
     font-size: 1rem;
     &.highlight {
-      color: var(--v2-card-always-black);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      padding-bottom: 0;
     }
   }
 
@@ -50,14 +54,7 @@
     padding: 1.25rem;
   }
 
-  .listing {
-    padding: 1.25rem;
-    display: flex;
-    overflow: scroll;
-    .preview {
-      
-    }
-  }
+
 
   .preview {
     width: 100%;
@@ -66,15 +63,10 @@
     background-color: transparent;
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid var(--v2-card-border-background);
-    flex: 0 0 200px;
     a {
       padding: 0;
     }
 
-    &:last-child {
-      border-bottom: 0;
-    }
     &:hover {
       background-color: var(--v2-card-background-hover);
       a {
@@ -89,35 +81,7 @@
       margin-bottom: 0.6rem;
       display: inline-block;
     }
-
-    &.calendar {
-      &.premium {
-        @media screen and (min-width: 1023px) {
-          margin-bottom: 0.6rem;
-        }
-        .article-preview-text .labels .label,
-        .article-preview-text .standfirst {
-          color: v(v2-card-always-white-paragraph-color);
-        }
-      }
-      .button {
-        color: v(v2-card-headline-color);
-        background: v(v2-calendar-button-background);
-        border: 1px solid v(v2-calendar-button-outline);
-      }
-    }
-    &.job {
-      .button {
-        color: v(v2-card-headline-color);
-        background: v(v2-job-button-background);
-        border: 1px solid v(v2-job-button-outline);
-      }
-    }
-    @media screen and (max-width: 1023px) {
-      padding: 0.8rem;
-      margin: 0 -0.8rem 0 -0.8rem;
-      width: calc(100% + 1.6rem);
-    }
+   
     &.premium {
       @media screen and (max-width: 1023px) {
         border-radius: 0;
@@ -133,10 +97,18 @@
           var(--v2-label-color-pink),
           var(--v2-label-color-purple)  
           );
-          z-index: -1;
+          z-index: 1;
           opacity: 0.2;
         }
-        
+        .button {
+          background-image: linear-gradient(
+          45deg,
+          var(--v2-label-color-purple),
+          var(--v2-label-color-pink)  
+          );
+          color: v(v2-card-always-black);
+          font-weight: bold;
+        }
       }
       a {
         &:after {
@@ -235,7 +207,91 @@
   .preview figure {
     flex: 0 0 50px;
   }
+  h3 {
+    text-align: center;
+    padding: 1.2rem 0.6rem 0.6rem 0.6rem;
+    font-size: 1.1rem;
+    font-family: var(--fontRegular);
+    font-weight: bold;
+  }
   a {
-    padding: calc(1.25rem/2);
+    padding: 1rem;
+  }
+}
+
+#front-articles-list .preview-list {
+  @media screen and (min-width: 830px) {
+    display: none;
+  }
+  &:hover {
+    background: var(--v2-card-background);
+  }
+  .preview {
+    flex: 0 0 200px;
+    border: 1px solid var(--v2-card-border-background);
+    background-color: var(--v2-background);
+    border-radius: 10px;
+  }
+  .preview a {
+    padding: 0.6rem;
+    flex-direction: column;
+    height: 100%;
+  }
+  figure {
+    width: auto;
+    flex: 0 0 100px;
+    img {
+      height: 100%;
+    }
+  }
+  .listing {
+    padding: 0.6rem;
+    display: flex;
+    overflow-x: scroll;
+    gap: 0.6rem;
+    scroll-snap-type: x mandatory;
+    scroll-snap-align: center;
+  }
+  .labels {
+    text-align: center;
+  }
+  .call-to-action-container {
+    flex: 1 1 100%;
+    padding-top: 0.6rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: space-between;
+  }
+  .headline {
+    margin-top: 0.6rem;
+    text-align: center;
+  }
+
+  h3 {
+    text-align: left;
+    padding: 1.2rem 1.2rem 0.6rem 1.2rem;
+    font-size: 1.1rem;
+    font-family: var(--fontRegular);
+    font-weight: bold;
+  }
+  .article-preview-text {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .call-to-action {
+    margin-top: 0.6rem;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+    flex: 1 1 100%;
+    .button {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 5px;
+    }
+  }
+  .listing-actions {
+    padding: 0.6rem 0.6rem 0.6rem 0.6rem;
   }
 }

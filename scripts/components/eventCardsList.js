@@ -1,9 +1,14 @@
+export function initEventCardsListLoading() {
+  var diamondPartnersContainer = document.createElement("div");
+  return diamondPartnersContainer;
+}
+
 /**
- * fetches events from api and renders them
+ * takes event data and returns markup for the event card
  * @param {*} selector
  * @returns
  */
-export const initEventCardsList = (eventData, nodeList, placement) => {
+export const initEventCardsList = (eventData, node, placement) => {
   // fetch markup for events
   let eventMarkup = getEventsCardMarkup(eventData);
   // create container and add markup
@@ -11,12 +16,16 @@ export const initEventCardsList = (eventData, nodeList, placement) => {
   eventContainer.classList.add("row", "added");
   eventContainer.innerHTML = eventMarkup;
   // add container to dom
-  if (nodeList[0]) {
+  if (node) {
     if (placement === "append") {
-      nodeList[0].append(eventContainer);
-    } else {
-      nodeList[0].after(eventContainer);
+      node.append(eventContainer);
+      return;
+    } else if (placement === "after") {
+      node.after(eventContainer);
+      return;
     }
+    node.innerHTML = "";
+    node.append(eventContainer);
   }
 
   return eventData.eventsCount;

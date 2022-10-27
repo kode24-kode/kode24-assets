@@ -1,9 +1,16 @@
 h2 {
   color: var(--v2-card-headline-color);
   margin: 0 0 1rem 0;
+  #date-frontpage {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: normal;
+    margin-top: 0.1rem;
+    color: var(--v2-card-paragraph-color);
+  }
   @media screen and (max-width: 1023px) {
       font-size: 1.2rem;
-      padding: 0 0.6rem;
+      padding: 0 1.2rem;
   }
 }
 
@@ -64,7 +71,6 @@ h2 {
     .preview {
       background-color: var(--v2-card-background-highlight);
       .article-social {
-        background-color: var(--v2-card-background-hover);
       }
     }
 
