@@ -9,15 +9,16 @@ export function initDiamondPartners(diamondPartners, selector) {
     diamondPartnersContainer.innerHTML = `
     <h3>kode24-partnere</h3>
     <ul>
-    ${diamondPartners.map(
-      (partner) => `
+    ${diamondPartners
+      .map(
+        (partner) => `
       <li>
       <a href="${partner.url}"><img src="${partner.logo}"></a>
       </li>
       `
-    )}
+      )
+      .join("")}
       </ul>
-      <p class="call-to-action">Lyst til å bli partner og få din egen landingsside?<br/> <a href="https://www.kode24.no/annonse/na-lanserer-vi-egen-landingsside-for-annonsorer/77370110"> Les mer her! </a></p>
       `;
   }
   console.log(

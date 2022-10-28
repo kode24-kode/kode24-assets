@@ -6,7 +6,7 @@
   border: 1px solid var(--v2-card-background);
   border-radius: 10px;
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem;
 }
 #left-menu .diamond-partners-list h3 {
   margin: 0 0 1rem 0;
@@ -165,5 +165,38 @@
 
   figure img {
     display: block;
+  }
+}
+
+#front-articles-list .diamond-partners-list {
+  border: 1px solid var(--v2-card-background);
+  padding: 0.6rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  h3 {
+    font-weight: bold;
+    color: var(--v2-card-headline-color);
+    text-align: center;
+    margin: 0 0 0.6rem 0;
+  }
+  ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    li {
+      flex: 0 1 48%;
+      border-radius: 5px;
+      overflow: hidden;
+      img {
+        display: block;
+      }
+    }
+  }
+  @media screen and (min-width: 1023px) {
+    display: none;
   }
 }
