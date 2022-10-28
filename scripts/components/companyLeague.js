@@ -4,12 +4,34 @@
 import { getCompanyLeagueTableData } from "../API/api";
 
 export function initCompanyLeagueLoading() {
-  const companyLeagueTableNode = document.createElement("div");
+  let companyLeagueTableNode = document.createElement("div");
+  companyLeagueTableNode.innerHTML = `
+  <a href="https://www.kode24.no/partner/masterblaster" target="_blank" class="company-league-table-wrapper preview-list preview row">
+    <h3>Bedriftsligaen</h3>
+    <table class="company-league-table">
+      <tbody>
+        <tr>
+          <td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+        </tr>
+        <tr>
+          <td></td><td></td><td></td>
+        </tr>
+      </tbody>
+    </table>
+  </a>    
+  `;
   return companyLeagueTableNode;
 }
 
 export async function initCompanyLeague(node) {
   const companyLeagueData = await getCompanyLeagueTableData();
+  node.innerHTML = "";
   node.append(drawCompanyLeagueTableMarkup(companyLeagueData));
 }
 

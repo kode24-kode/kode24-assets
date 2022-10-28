@@ -20,6 +20,15 @@
       );
       
     }
+    .preview .button {
+      background-image: linear-gradient(
+      45deg,
+      var(--v2-label-color-pink),
+      var(--v2-label-color-orange)  
+      );
+      color: v(v2-card-always-black);
+      font-weight: bold;
+    }
   }
   &.calendar-list {
     h3 {
@@ -29,6 +38,15 @@
         var(--v2-label-color-purple)
       );
       
+    }
+    .preview .button {
+      background-image: linear-gradient(
+      45deg,
+      var(--v2-label-color-purple),
+      var(--v2-label-color-pink)  
+      );
+      color: v(v2-card-always-black);
+      font-weight: bold;
     }
   
   }
@@ -81,7 +99,7 @@
       margin-bottom: 0.6rem;
       display: inline-block;
     }
-   
+    
     &.premium {
       @media screen and (max-width: 1023px) {
         border-radius: 0;
@@ -100,24 +118,12 @@
           z-index: 1;
           opacity: 0.2;
         }
-        .button {
-          background-image: linear-gradient(
-          45deg,
-          var(--v2-label-color-purple),
-          var(--v2-label-color-pink)  
-          );
-          color: v(v2-card-always-black);
-          font-weight: bold;
-        }
+
       }
       a {
         &:after {
           display: none;
         }
-      }
-      .button {
-        color: white;
-        background-color: v(v2-calendar-gradient-start);
       }
     }
 
@@ -277,6 +283,10 @@
   .article-preview-text {
     padding-left: 0;
     padding-right: 0;
+  }
+
+  .listing-actions .button {
+    background-color: var(--v2-card-background-highlight);
   }
 
   .call-to-action {

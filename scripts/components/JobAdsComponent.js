@@ -56,7 +56,6 @@ export async function initJobAdsComponent(
   postImpressions([...ads.map((ad) => ad.id)]);
   // get markup for all ads
   let jobAdsMarkup = getJobAdsMarkup(ads);
-  console.log("node", JobAdsComponentNode);
   // create job component element
   let newPremiumJobComponent = document.createElement("div");
   newPremiumJobComponent.classList.add("row", "added");

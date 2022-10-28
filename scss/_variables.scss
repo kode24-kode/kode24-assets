@@ -107,10 +107,10 @@
   --v2-background-always-dark: hsl(var(--v2-main-color), 12%, 12%);
   --v2-background-faded: hsl(230, 15%, 30%), 80%;
 
-  --v2-card-background: hsl(var(--v2-main-color), 14%, 14%);
+  --v2-card-background: hsl(var(--v2-main-color), 14%, 12%);
   --v2-card-border-background: hsl(var(--v2-main-color), 14%, 20%);
   --v2-card-background-hover: hsl(var(--v2-main-color), 14%, 20%);
-  --v2-card-background-highlight: hsl(var(--v2-main-color), 14%, 18%);
+  --v2-card-background-highlight: hsl(var(--v2-main-color), 30%, 18%);
   --v2-card-headline-color: hsl(60, 30%, 96%);
   --v2-card-paragraph-color: hsl(var(--v2-main-color), 5%, 65%);
   --v2-card-always-white: hsl(0, 0%, 100%);
@@ -159,7 +159,8 @@
   --color-adWrapperTitleColor: hsl(0, 0%, 100%);
   --color-adWrapperBackground: hsl(210, 3%, 15%);
   @media screen and (max-width: 829px) {
-    --v2-card-background: hsl(var(--v2-main-color), 14%, 10%);
+    --v2-card-background-highlight: hsl(var(--v2-main-color), 20%, 14%);
+    --v2-card-background: hsl(var(--v2-main-color), 14%, 11%);
   }
 }
 

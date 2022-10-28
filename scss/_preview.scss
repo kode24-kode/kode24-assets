@@ -13,7 +13,8 @@
   @media screen and (max-width: 1023px) {
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid v(v2-card-background);
+    border-top: 1px solid v(v2-card-border-background);
+    border-bottom: 1px solid v(v2-card-border-background);
   }
   &:hover {
     background-color: v(v2-card-background-hover);

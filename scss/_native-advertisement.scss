@@ -16,6 +16,13 @@ a {
     var(--v2-label-color-orange)
   );
 
+  @media screen and (max-width: 830px) {
+    width: calc(100% - 2.5rem);
+    margin: 1.25rem 1.25rem 1.25rem 1.25rem;
+    border-radius: 10px;
+  }  
+  
+
   &.job {
     figure {
       flex: 0 0 110px;
@@ -42,11 +49,10 @@ a {
     background-color: var(--v2-background);
     border-radius: 10px;
     @media screen and (max-width: 1023px) {
-      left: 2px;
-        top: 2px;
-        width: calc(100% - 4px);
-        height: calc(100% - 4px);
-        border-radius: 0;
+      left: 1px;
+        top: 1px;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
     }
   }
 

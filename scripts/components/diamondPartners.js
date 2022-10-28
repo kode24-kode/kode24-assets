@@ -28,7 +28,27 @@ export function initDiamondPartners(diamondPartners, element) {
   element.append(diamondPartnersContainer);
 }
 
-export function initDiamondPartnersLoading() {
-  var diamondPartnersContainer = document.createElement("div");
+export function initDiamondPartnersLoading(numberOfItems) {
+  let diamondPartnersContainer = document.createElement("div");
+  let dummyAds = Array.from(Array(numberOfItems).keys());
+  diamondPartnersContainer.innerHTML = `
+      <div class="diamond-partners-list preview-list preview row">
+      <h3>kode24-partnere</h3>
+      <ul>
+      
+        
+          ${dummyAds
+            .map(
+              () =>
+                `<li><div class="dummy-diamond-partner-list-item"></div></li>`
+            )
+            .join("")}
+        
+        
+        
+        </ul>
+        </div>    
+  `;
+  console.log("new node", diamondPartnersContainer);
   return diamondPartnersContainer;
 }

@@ -8,7 +8,7 @@
   position: fixed;
   z-index: 100;
   padding: 0 max(2rem, 50vw - 1440px / 2);
-  border-bottom: 1px solid hsl(200deg 4% 24% / 88%);
+  border-bottom: 1px var(--v2-card-border-background);
   @media screen and (max-width: 1023px) {
     padding: 0 max(0.6rem, 50vw - 1440px / 2);
   }
@@ -115,8 +115,8 @@
         height: 20px;
         @media screen and (max-width: 1023px) {
           flex-direction: column;
-          width: 24px;
-          height: 24px;
+          width: 28px;
+          height: 28px;
           margin-right: 0;
         }
       }

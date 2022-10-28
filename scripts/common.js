@@ -8,6 +8,7 @@ import { handleLightSwitchToggle } from "./functions/handleLightSwitchToggle";
 import { handleImageExpansionClick } from "./functions/handleImageExpansionClick";
 import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu";
 import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu";
+import { initPreviewListLoading } from "./components/previewListLoading";
 import {
   initJobAdsComponentLoading,
   initJobAdsComponent,
@@ -45,12 +46,13 @@ import {
  */
 export async function initCommon() {
   // init loading animation for job ads in right column
-  const JobAdsComponentNode = initJobAdsComponentLoading(5);
+  const JobAdsComponentNode = initPreviewListLoading(5);
 
-  const diamondPartnersNode = initDiamondPartnersLoading();
+  const diamondPartnersNode = initDiamondPartnersLoading(2);
   const companyLeagueNode = initCompanyLeagueLoading();
   const podcastPlayerNode = initPodcastPlayerLoading();
-  const eventCardsListNode = initEventCardsListLoading();
+  const eventCardsListNode = initPreviewListLoading(4);
+  console.log(diamondPartnersNode);
   document
     .querySelector("#desktop-sidemenu-front")
     .append(

@@ -21,6 +21,15 @@ import {
  * inits everything that needs to run on a kode24 front (/, /emne/react, etc...)
  */
 export async function initFrontend() {
+  // get ids and nodes of all article previews on page
+  const { articleIds, articlesList } = getArticlePreviewList();
+  // get data for all article previews on page
+  const articlePreviewListData = await getFrontPreviewData(articleIds);
+  // draw bylines for all article previews on page
+  //drawByline(articlePreviewListData, articleIds, articlesList);
+  // draw comment rows for all article previews on page
+  drawCommentRow(articlePreviewListData, articleIds, articlesList);
+
   // Add todays date
   document.getElementById(
     "date-frontpage"
@@ -58,15 +67,6 @@ export async function initFrontend() {
   // if we have a partner page, we should not show ads
   if (!partnerPage) {
     //initAsideLoading('desktop-sidemenu-front');
-    // get ids and nodes of all article previews on page
-    const { articleIds, articlesList } = getArticlePreviewList();
-    // get data for all article previews on page
-    const articlePreviewListData = await getFrontPreviewData(articleIds);
-    // draw bylines for all article previews on page
-    //drawByline(articlePreviewListData, articleIds, articlesList);
-    // draw comment rows for all article previews on page
-    drawCommentRow(articlePreviewListData, articleIds, articlesList);
-
     // init component that shows content articles and job listings in front feed
     const frontAdElements = initFrontAdComponents(
       getNodes(
@@ -76,7 +76,7 @@ export async function initFrontend() {
       [
         contentAds ? shuffleArray(contentAds)[0] : {},
         ...limitArray(shuffleArray(premiumAds), 6),
-      ]
+      ].filter((obj) => obj)
     );
 
     /*
