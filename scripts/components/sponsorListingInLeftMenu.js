@@ -5,30 +5,29 @@
  */
 function getSponsorsMarkup(sponsors) {
   return `
-  ${sponsors.gold
+  ${sponsors.goldPatreon
     .map(
       (sponsors) => `<li class="gold preview">
-      <a href="${sponsors.url}" target="new_window">
+      <a href="${sponsors.link}" target="new_window">
         <img src="${sponsors.logo}" alt="${sponsors.name}" loading="lazy">
         <p>${sponsors.message}</p>
       </a>
     </li>`
     )
-    .join('')}
+    .join("")}
 
-  ${sponsors.silver
+  ${sponsors.silverPatreon
     .map(
       (sponsors) => `<li class="silver preview">
-      <a href="${sponsors.url}" target="new_window"><img src="${sponsors.logo}" alt="${sponsors.name}"></a>
+      <a href="${sponsors.link}" target="new_window"><img src="${sponsors.logo}" alt="${sponsors.name}"></a>
     </li>`
     )
-    .join('')}
+    .join("")}
 
   `;
 }
 
 export async function initSponsors(sponsors, elementToAppendTo) {
   const sponsorsMarkup = getSponsorsMarkup(sponsors);
-  document.querySelector(elementToAppendTo).innerHTML =
-    sponsorsMarkup;
+  document.querySelector(elementToAppendTo).innerHTML = sponsorsMarkup;
 }

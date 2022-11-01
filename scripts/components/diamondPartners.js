@@ -14,13 +14,15 @@ export function initDiamondPartners(diamondPartners, element) {
     diamondPartnersContainer.innerHTML = `
     <h3>kode24-partnere</h3>
     <ul>
-    ${diamondPartners.map(
-      (partner) => `
+    ${diamondPartners
+      .map(
+        (partner) => `
       <li>
-      <a href="${partner.url}"><img src="${partner.logo}"></a>
+      <a href="${partner.link}"><img src="${partner.banner}"></a>
       </li>
       `
-    )}
+      )
+      .join("")}
       </ul>
       `;
   }

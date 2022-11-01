@@ -144,7 +144,7 @@ export async function getArticlesByTag(tag) {
  * Fetches list of sponsors
  */
 export async function getSponsorsFromApi() {
-  return await getDataFromUrl("sponsors");
+  return await getDataFromUrl("partners");
 }
 /**
  * Fetches calendar events

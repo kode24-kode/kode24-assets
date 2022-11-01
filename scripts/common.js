@@ -128,7 +128,7 @@ export async function initCommon() {
 
   initPodcastPlayer(podcastPlayerNode);
   initSponsors(sponsors, "#company-sponsors-list");
-  initDiamondPartners(sponsors.diamond || [], diamondPartnersNode);
+  initDiamondPartners(sponsors.companyPartner || [], diamondPartnersNode);
 
   // add number of active events to counter in top menu
   addNumberToEventCounterInTopMenu(eventData.eventsCount);
