@@ -1,23 +1,23 @@
-import { initCommon } from './common';
-import { initQuickJobApplicationForm } from './components/quickJobApplicationForm';
-import { initInArticleAds } from './components/inArticleAds';
+import { initCommon } from "./common";
+import { initQuickJobApplicationForm } from "./components/quickJobApplicationForm";
+import { initInArticleAds } from "./components/inArticleAds";
 
 import {
   getAdsForFrontFromApi,
   getArticleFromApi,
   getEventsFromApi,
   getContentAdsFromApi,
-} from './API/api';
-import { isArticleEditorial } from './functions/isArticleEditorial';
-import { listenToOutboundAdClicks } from './functions/listenToOutboundAdClicks';
-import { trackJobView } from './functions/trackJobView';
-import { findDataInSpecialTag } from './functions/findDataInSpecialTag';
-import { initRelatedArticles } from './components/relatedArticles';
-import { getArticleId } from './functions/getArticleId';
-import { addRibbonClassToTop } from './functions/addRibbonClassToTop';
+} from "./API/api";
+import { isArticleEditorial } from "./functions/isArticleEditorial";
+import { listenToOutboundAdClicks } from "./functions/listenToOutboundAdClicks";
+import { trackJobView } from "./functions/trackJobView";
+import { findTagInCommaSeparatedString } from "./functions/findTagInCommaSeparatedString";
+import { initRelatedArticles } from "./components/relatedArticles";
+import { getArticleId } from "./functions/getArticleId";
+import { addRibbonClassToTop } from "./functions/addRibbonClassToTop";
 
-import hljs from 'highlight.js/lib/core';
-import 'highlight.js/styles/github.css';
+import hljs from "highlight.js/lib/core";
+import "highlight.js/styles/github.css";
 /**
  * Inits all components that needs to run on a kode24 article page
  * Should have as litle logic as possible built in.
@@ -48,11 +48,11 @@ export async function initArticle() {
   // if it is not editiorial render quick signup form
   if (isArticleEditorial()) {
     // init loading animation for right aside
-    initAsideLoading('desktop-sidemenu-front');
+    initAsideLoading("desktop-sidemenu-front");
 
     // render commercial ads in the article
     let inArticleAds = initInArticleAds(
-      '.body-copy h2',
+      ".body-copy h2",
       premiumAds,
       contentAds.length && contentAds[0] ? contentAds[0] : []
     );
@@ -60,20 +60,16 @@ export async function initArticle() {
     // initialise the right menu with ads
     // asideElements are displayed in the right sidebar
     const asideElementsArticle = await initAdElementsInRightColumn(
-      '#desktop-sidemenu-front',
+      "#desktop-sidemenu-front",
       premiumAds,
       nonPremiumAds
     );
 
     // draws the listing of ads under the article body
-    initPremiumJobComponent(premiumAds, '.article-entity', true);
+    initPremiumJobComponent(premiumAds, ".article-entity", true);
 
     // draws related articles based on first article tag from API
-    initRelatedArticles(
-      articleData.tags,
-      '.article-entity',
-      articleData.id
-    );
+    initRelatedArticles(articleData.tags, ".article-entity", articleData.id);
 
     // track impressions for all ads in article
     trackInScreenImpressions([...asideElementsArticle]);
@@ -88,10 +84,10 @@ export async function initArticle() {
     if (
       articleData &&
       articleData.tags &&
-      articleData.tags.includes('jobbmail')
+      articleData.tags.includes("jobbmail")
     ) {
       initQuickJobApplicationForm(
-        findDataInSpecialTag(articleData.tags, 'jobbmail'),
+        findTagInCommaSeparatedString(articleData.tags, "jobbmail"),
         articleData.title,
         articleData.published_url
       );
