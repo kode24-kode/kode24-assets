@@ -3,7 +3,8 @@
   display: inline-block;
   border-radius: 5px;
   padding: 0.6rem 1.25rem;
-  background-color: var(--v2-card-background-highlight);
+  background-color: var(--v2-card-background);
+  border: 1px solid var(--v2-card-border-background);
   color: var(--v2-card-headline-color);
   font-family: var(--fontRegular);
   font-size: 0.9rem;
@@ -14,9 +15,9 @@
     padding: 6px 14px;
     font-size: 0.8rem;
   }
-}
-
-.action-button {
+  &.action {
+    background-color: var(--v2-card-background-highlight);
+  }
 }
 
 .job-ad-cta {

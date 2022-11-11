@@ -68,5 +68,9 @@ function drawCompanyLeagueTableMarkup(data) {
     )
     .join("");
   tableWrapper.append(table);
+  let callToAction = document.createElement("div");
+  callToAction.classList.add("listing-actions");
+  callToAction.innerHTML = `<a href="/jobb" class="button">Finn ut mer</a>`;
+  tableWrapper.append(callToAction);
   return tableWrapper;
 }

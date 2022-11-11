@@ -67,6 +67,7 @@ export async function initJobAdsComponent(
       </div>
       <div class="listing-actions">
         <a href="/jobb" class="button">Vis alle ledige stillinger</a>
+        <a href="https://www.kode24.no/annonse/priser-pa-annonser-og-content-pa-kode24/70244826" class="button action">+ bestill</a>
       </div>
     </article>
     `;
@@ -108,7 +109,7 @@ function getJobAdsMarkup(ads) {
                   </h1>
               </div>
               <div class="call-to-action">
-                <span class="button action-button">Les mer</span>
+                <span class="button">Les mer</span>
               </div>
             </div>
           </a>

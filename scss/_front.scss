@@ -68,10 +68,27 @@ h2 {
 
 
   .article-previews>.row:nth-child(1) {
+
     .preview {
       background-color: var(--v2-card-background-highlight);
       .article-social {
       }
+      >a {
+        flex-direction: column;
+      }
+      figure {
+        display: block;
+        flex: 0 0 100%;
+        width: calc(100% + 2.5rem);
+        margin-left: -1.25rem;
+        margin-top: -1.25rem;
+        margin-bottom: 1.25rem;
+        border-radius: 0;
+      }
+    }
+
+    .article-preview-text {
+      padding-left: 0;
     }
 
     h1.headline {

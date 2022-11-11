@@ -116,15 +116,20 @@ let getEventsCardMarkup = (events) => {
       )
       .join("")}
     </div>
+    <div class="listing-actions">
     ${
       events.nextEvents.length && events.nextEvents.length > 4
-        ? `<div class="listing-actions">
+        ? `
       <a href="/kalender" class="button">
         Vis alle arrangementer (${events.eventsCount})
+        
       </a>
-    </div>`
+      
+    `
         : ""
     }
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform" class="button action">+ legg inn</a>
+    </div>
     </article>
 `;
 };
