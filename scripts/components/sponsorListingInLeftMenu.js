@@ -8,10 +8,10 @@ function getSponsorsMarkup(sponsors) {
   ${sponsors.gold
     .map(
       (sponsors) => `<li class="gold preview">
-      <a href="${sponsors.url}" target="new_window">
+      <div>
         <img src="${sponsors.logo}" alt="${sponsors.name}" loading="lazy">
         <p>${sponsors.message}</p>
-      </a>
+      </div>
     </li>`
     )
     .join('')}
@@ -19,7 +19,7 @@ function getSponsorsMarkup(sponsors) {
   ${sponsors.silver
     .map(
       (sponsors) => `<li class="silver preview">
-      <a href="${sponsors.url}" target="new_window"><img src="${sponsors.logo}" alt="${sponsors.name}"></a>
+      <img src="${sponsors.logo}" alt="${sponsors.name}" loading="lazy">
     </li>`
     )
     .join('')}
