@@ -35,7 +35,6 @@ export async function initPremiumJobComponent(
 
   // Add after specified element
   if (appendToggle) {
-    console.log('appending element to', selector);
     document.querySelector(selector).append(newPremiumJobComponent);
   } else {
     document.querySelector(selector).after(newPremiumJobComponent);

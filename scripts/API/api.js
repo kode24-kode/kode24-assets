@@ -1,13 +1,13 @@
-import { getAPIHost } from "./getAPIHost";
+import { getAPIHost } from './getAPIHost';
 
 /**
  * fetches data from url
  * @param {*} url
  * @returns
  */
-async function getDataFromUrl(url) {
+async function getDataFromUrl(url, customUrl) {
   try {
-    const result = await fetch(getAPIHost() + url);
+    const result = await fetch(customUrl ?? getAPIHost() + url);
     return await result.json();
   } catch (error) {
     console.error(error);
@@ -22,8 +22,8 @@ async function getDataFromUrl(url) {
 async function postDataToUrl(postData, url) {
   try {
     const result = await fetch(getAPIHost() + url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(postData),
     });
     return await result.json();
@@ -37,8 +37,20 @@ async function postDataToUrl(postData, url) {
  * @param {*} ids
  * @returns
  */
+export async function getChristmasCalendarHighscore() {
+  return await getDataFromUrl(
+    '',
+    'https://jk-backend.kode24.no/api/highscore/'
+  );
+}
+
+/**
+ * takes a list of article ids on front previews and returns additional data (byline, tags)
+ * @param {*} ids
+ * @returns
+ */
 export async function getFrontPreviewData(ids) {
-  return await getDataFromUrl("front/" + ids.join(","));
+  return await getDataFromUrl('front/' + ids.join(','));
 }
 
 /**
@@ -47,7 +59,7 @@ export async function getFrontPreviewData(ids) {
  * @returns
  */
 export async function getSearchData(searchValue) {
-  return await getDataFromUrl("search/" + searchValue);
+  return await getDataFromUrl('search/' + searchValue);
 }
 
 /**
@@ -56,7 +68,10 @@ export async function getSearchData(searchValue) {
  * @returns
  */
 export async function postImpressions(impressionData) {
-  return await postDataToUrl(impressionData, "listing/impression-data");
+  return await postDataToUrl(
+    impressionData,
+    'listing/impression-data'
+  );
 }
 
 /**
@@ -71,7 +86,7 @@ export async function postClick(documentId, clickUrl) {
       documentId: documentId,
       url: clickUrl,
     },
-    "listing/click-data"
+    'listing/click-data'
   );
 }
 
@@ -81,7 +96,7 @@ export async function postClick(documentId, clickUrl) {
  * @returns
  */
 export async function postViewData(viewData) {
-  return await postDataToUrl(viewData, "listing/view-data");
+  return await postDataToUrl(viewData, 'listing/view-data');
 }
 
 /**
@@ -102,7 +117,7 @@ export async function updateViewDataWithExitTime({
       startView: startView,
       documentId: documentId,
     },
-    "listing/exit-view-data"
+    'listing/exit-view-data'
   );
 }
 
@@ -111,7 +126,7 @@ export async function updateViewDataWithExitTime({
  * @returns
  */
 export async function getAdsForFrontFromApi() {
-  return await getDataFromUrl("listing/front");
+  return await getDataFromUrl('listing/front');
 }
 
 /**
@@ -119,7 +134,7 @@ export async function getAdsForFrontFromApi() {
  * @returns
  */
 export async function getContentAdsFromApi() {
-  return await getDataFromUrl("listing/content");
+  return await getDataFromUrl('listing/content');
 }
 
 /**
@@ -128,7 +143,7 @@ export async function getContentAdsFromApi() {
  * @returns
  */
 export async function getArticleFromApi(articleId) {
-  return await getDataFromUrl("article/" + articleId);
+  return await getDataFromUrl('article/' + articleId);
 }
 
 /**
@@ -137,21 +152,21 @@ export async function getArticleFromApi(articleId) {
  * @returns
  */
 export async function getArticlesByTag(tag) {
-  return await getDataFromUrl("article/tag/" + tag);
+  return await getDataFromUrl('article/tag/' + tag);
 }
 
 /**
  * Fetches list of sponsors
  */
 export async function getSponsorsFromApi() {
-  return await getDataFromUrl("sponsors");
+  return await getDataFromUrl('sponsors');
 }
 /**
  * Fetches calendar events
  * @returns
  */
 export async function getEventsFromApi() {
-  const result = await getDataFromUrl("events");
+  const result = await getDataFromUrl('events');
   return {
     nextEvents: result.upcomingEvents,
     premiumEvents: result.premiumEvents || [],
@@ -164,7 +179,7 @@ export async function getEventsFromApi() {
  * @returns
  */
 export async function postQuickApplication(data) {
-  return await postDataToUrl(data, "sendmail");
+  return await postDataToUrl(data, 'sendmail');
 }
 
 /**
@@ -172,5 +187,5 @@ export async function postQuickApplication(data) {
  * @returns
  */
 export async function getCompanyLeagueTableData() {
-  return await getDataFromUrl("company-league");
+  return await getDataFromUrl('company-league');
 }

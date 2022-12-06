@@ -1,13 +1,17 @@
 /**
  * fetches data for company league (bedriftsligaen) and displays a table in the left menu of kode24.no
  */
-import { getCompanyLeagueTableData } from "../API/api";
+import { getCompanyLeagueTableData } from '../API/api';
 
 export async function initCompanyLeague() {
-  const companyLeagueData = await getCompanyLeagueTableData();
-  document
-    .getElementById("left-menu")
-    .prepend(drawCompanyLeagueTableMarkup(companyLeagueData));
+  try {
+    const companyLeagueData = await getCompanyLeagueTableData();
+    document
+      .getElementById('left-menu')
+      .prepend(drawCompanyLeagueTableMarkup(companyLeagueData));
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 /**
@@ -16,17 +20,17 @@ export async function initCompanyLeague() {
  * @returns
  */
 function drawCompanyLeagueTableMarkup(data) {
-  let tableNav = document.createElement("nav");
-  let tableWrapper = document.createElement("a");
+  let tableNav = document.createElement('nav');
+  let tableWrapper = document.createElement('a');
   tableWrapper.setAttribute(
-    "href",
-    "https://www.kode24.no/partner/masterblaster"
+    'href',
+    'https://www.kode24.no/partner/masterblaster'
   );
-  tableWrapper.setAttribute("target", "_blank");
-  tableWrapper.classList.add("company-league-table-wrapper");
-  let table = document.createElement("table");
+  tableWrapper.setAttribute('target', '_blank');
+  tableWrapper.classList.add('company-league-table-wrapper');
+  let table = document.createElement('table');
   tableWrapper.innerHTML = `<h3>${data.name}</h3>`;
-  table.classList.add("company-league-table");
+  table.classList.add('company-league-table');
   table.innerHTML = data.standings
     .map(
       (leagueRow) => `<tr>
@@ -37,7 +41,7 @@ function drawCompanyLeagueTableMarkup(data) {
         <td>${leagueRow.points}</td>
     </tr>`
     )
-    .join("");
+    .join('');
   tableNav.append(tableWrapper);
   tableWrapper.append(table);
   return tableNav;
