@@ -38,8 +38,9 @@
     border-radius: 100%;
     padding: 7px;
     background-image: linear-gradient(
-      var(--v2-label-color-purple),
+      var(--v2-label-color-pink-lighter),
       var( --v2-label-color-pink),
+      
     );
     width: 40px;
     height: 40px;
@@ -123,7 +124,7 @@
     }
   }
   .counter {
-    background-color: var(--v2-label-color-purple);
+    background-color: var( --v2-notification-background-color);
     position: absolute;
     color: v(v2-card-always-white);
     padding: 1px 6px;
