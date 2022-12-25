@@ -25,15 +25,15 @@ h2 {
   #desktop-sidemenu-front {
     display: none;
   }
-  @media screen and (min-width: 830px) {  
-    grid-template-columns: minmax(200px, 250px) minmax(580px, 680px) 0;
+  @media screen and (min-width: 830px) {
+    grid-template-columns: minmax(160px, 160px) minmax(auto, 1200px) 0;
     gap: 1rem;
     #desktop-sidemenu-front {
       display: block;
     }
   }
   @media screen and (min-width: 1080px) {
-    grid-template-columns: minmax(200px, 250px) minmax(580px, 680px) minmax(250px, 350px);
+    grid-template-columns: minmax(160px, 160px) minmax(680px, 986px) 250px;
   }
   img {
     width: 100%;

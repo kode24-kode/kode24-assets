@@ -5,19 +5,20 @@
 
 .frontpage article.preview .article-social {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 1.25rem 0.6rem 1.25rem;
+  padding: 0rem var(--gutter)rem calc(var(---gutter)/2)rem var(--gutter)rem;
   font-size: 0.9rem;
   font-family: var(--fontRegular);
   @media screen and (max-width: 700px) {
-    padding: 0.6rem;
+    padding: calc(var(---gutter)/2)rem;
     font-size: 0.8rem;
   }
   .reaction-button {
     background-color: transparent;
     color: var(--v2-card-paragraph-color);
-    
+
     border: 0;
     display: flex;
     align-items: center;

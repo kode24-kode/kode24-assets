@@ -7,7 +7,7 @@
   background-color: var(--v2-background);
   height: calc(100vh - 50px);
   overflow: auto;
-  padding: 0 1.25rem 0 1.25rem;
+  padding: 0 0 0 0;
   width: 100%;
   display: none;
   &.active {
@@ -20,7 +20,7 @@
       top: auto;
       overflow: visible;
       display: block;
-      padding: 3rem 1.25rem 0 1.25rem;
+      padding: 3rem 0 0 0;
   }
   h3 {
     color: v(v2-card-paragraph-color);
@@ -45,12 +45,12 @@
         display: inline-block;
       }
       a {
-        padding: 1rem 0.6rem;
-        font-size: 1.1rem;
+        padding: 0.4rem 0;
+        font-size: 1rem;
         display: flex;
+        gap: 0.6rem;
         img {
           width: 25px;
-          margin-right: 0.6rem;
         }
       }
       &:hover {
