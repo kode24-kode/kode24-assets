@@ -15,7 +15,7 @@ body {
     background: var(--v2-card-border-background);
     border-radius: 0;
   }
-  
+
   &::-webkit-scrollbar-thumb {
     background: linear-gradient(
       0deg,
@@ -24,7 +24,7 @@ body {
     );
     border-radius: 10px;
   }
-  
+
   &::-webkit-scrollbar {
     width: 10px;
     background: transparent;
@@ -40,7 +40,7 @@ img {
   max-width: 100%;
 }
 a {
-  color: v(v2-card-headline-color);
+  color: v(v2-card-paragraph-color);
   text-decoration: none;
 }
 
@@ -58,11 +58,12 @@ a {
   path,
   rect,
   circle,
-  line {
+  line,
+  polyline {
     stroke: v(v2-card-paragraph-color);
     stroke-width: 1px;
   }
-  
+
 }
 .cross-site-legend {
   display: flex;

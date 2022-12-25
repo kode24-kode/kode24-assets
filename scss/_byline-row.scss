@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   color: var(--v2-card-paragraph-color);
-  gap: 0.6rem;
+  gap: calc(var(--gutter) / 2);
 
 
   .byline-profile-image {

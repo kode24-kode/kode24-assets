@@ -59,7 +59,8 @@
         .icon {
           path,
           circle,
-          line {
+          line,
+          polyline {
             stroke: v(v2-card-headline-color);
           }
         }

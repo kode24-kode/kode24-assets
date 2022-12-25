@@ -1,0 +1,106 @@
+.desktop-row {
+  --image-height: 170px;
+  margin-bottom: calc(var(--gutter) * 2);
+  .col-1-2 {
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: calc(var(--gutter)) calc(var(--gutter));
+    article {
+      grid-column: span 2;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      &:first-child {
+        grid-column: span 4;
+        grid-row: span 2;
+      }
+    }
+  }
+  .preview.highlight {
+    figure {
+      max-height: none;
+      height: calc(var(--image-height) * 2);
+    }
+    img {
+      max-width: none;
+      height: 100%;
+      object-fit: cover;
+    }
+    .headline {
+      font-size: 2rem;
+    }
+        .article-social {
+          padding: 0;
+          justify-content: flex-start;
+          gap: calc(var(--gutter) / 4) var(--gutter);
+          font-size: 1rem;
+        }
+        .standfirst {
+          display: block;
+          margin-bottom: var(--gutter);
+        }
+
+        .byline-profile-image {
+          flex: 0 0 40px;
+          height: 40px;
+          width: 40px;
+        }
+
+        .byline-bio {
+          display: block;
+        }
+
+        .article-social .reaction-button:before {
+          width: 14px;
+          height: 14px;
+        }
+  }
+  .preview {
+        >a {
+          flex-direction: column;
+          padding: 0;
+          gap: calc(var(--gutter) / 2);
+        }
+        figure {
+          display: block;
+          width: 100%;
+          max-height: var(--image-height);
+          overflow: hidden;
+          flex: auto;
+
+          img {
+            border-radius: var(--border-radius);
+          }
+
+        }
+      }
+      .headline {
+        font-size: 1.1rem;
+      }
+      .standfirst {
+        display: none;
+      }
+      .article-preview-text {
+        padding-left: 0;
+      }
+    .article-social {
+      padding: 0;
+      justify-content: flex-start;
+      gap: calc(var(--gutter) / 4) var(--gutter);
+      font-size: 0.8rem;
+    }
+    .byline-profile-image {
+      flex: 0 0 20px;
+      height: 20px;
+      width: 20px;
+    }
+    .byline-bio {
+      display: none;
+    }
+    .article-social .reaction-button:before {
+      width: 14px;
+      height: 14px;
+    }
+}

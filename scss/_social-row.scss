@@ -3,7 +3,7 @@
     Lists number of comments, reactions and tags
 **/
 
-.frontpage article.preview .article-social {
+.article-social {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -54,13 +54,13 @@
   }
   .social-buttons {
     display: flex;
-    gap: 1rem;
+    gap: calc(var(--gutter) / 2);
   }
 
 
   .article-social-tags {
     display: flex;
-    gap: 1.2rem;
+    gap: calc(var(--gutter) / 2);
     .social-tag {
       display: block;
       padding: 0;

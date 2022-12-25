@@ -1,5 +1,5 @@
 export function initEventCardsListLoading() {
-  var diamondPartnersContainer = document.createElement("div");
+  var diamondPartnersContainer = document.createElement('div');
   return diamondPartnersContainer;
 }
 
@@ -12,19 +12,19 @@ export const initEventCardsList = (eventData, node, placement) => {
   // fetch markup for events
   let eventMarkup = getEventsCardMarkup(eventData);
   // create container and add markup
-  let eventContainer = document.createElement("div");
-  eventContainer.classList.add("row", "added");
+  let eventContainer = document.createElement('div');
+  eventContainer.classList.add('row', 'added');
   eventContainer.innerHTML = eventMarkup;
   // add container to dom
   if (node) {
-    if (placement === "append") {
+    if (placement === 'append') {
       node.append(eventContainer);
       return;
-    } else if (placement === "after") {
+    } else if (placement === 'after') {
       node.after(eventContainer);
       return;
     }
-    node.innerHTML = "";
+    node.innerHTML = '';
     node.append(eventContainer);
   }
 
@@ -57,7 +57,7 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
               }</span></h1>
               <p class="standfirst">${event.startDateFormatted} - ${
         event.startDateFormatted
-      } (${event.digital ? "digitalt" : "Fysisk"})</p>
+      } (${event.digital ? 'digitalt' : 'Fysisk'})</p>
             </div>
             <div class="call-to-action">
               <span class="button action-button">Les mer</span>
@@ -67,7 +67,7 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
       </article>
   `
     )
-    .join(" ");
+    .join(' ');
 };
 
 /**
@@ -83,7 +83,7 @@ let getEventsCardMarkup = (events) => {
     ${
       events.premiumEvents.length
         ? getPRemiumEventsCardMarkup(events.premiumEvents)
-        : ""
+        : ''
     }
     ${events.nextEvents
       .slice(0, 4)
@@ -104,7 +104,7 @@ let getEventsCardMarkup = (events) => {
             }</span></h1>
             <p class="standfirst">${event.startDateFormatted} - ${
           event.startDateFormatted
-        } (${event.digital ? "digitalt" : "Fysisk"})</p>
+        } (${event.digital ? 'digitalt' : 'Fysisk'})</p>
           </div>
           <div class="call-to-action">
             <span class="button action-button">Les mer</span>
@@ -114,19 +114,19 @@ let getEventsCardMarkup = (events) => {
     </article>
     `
       )
-      .join("")}
+      .join('')}
     </div>
     <div class="listing-actions">
     ${
       events.nextEvents.length && events.nextEvents.length > 4
         ? `
       <a href="/kalender" class="button">
-        Vis alle arrangementer (${events.eventsCount})
-        
+        Vis alle (${events.eventsCount})
+
       </a>
-      
+
     `
-        : ""
+        : ''
     }
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform" class="button action">+ legg inn</a>
     </div>

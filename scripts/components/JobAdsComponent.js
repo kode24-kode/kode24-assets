@@ -1,4 +1,4 @@
-import { postImpressions } from "../API/api";
+import { postImpressions } from '../API/api';
 
 /**
  * Created dummy ad element for showing while loading job ads
@@ -7,7 +7,7 @@ import { postImpressions } from "../API/api";
  * @param {*} selector
  */
 export const initJobAdsComponentLoading = (numberOfElements) => {
-  let element = document.createElement("div");
+  let element = document.createElement('div');
   // create array with number of elements
   let dummyAds = Array.from(Array(numberOfElements).keys());
   element.innerHTML = `
@@ -28,10 +28,10 @@ export const initJobAdsComponentLoading = (numberOfElements) => {
                         </div>
                     </a>
                 </article>
-                
+
                 `
               )
-              .join("")}
+              .join('')}
             </div>
             <div class="listing-actions">
               <a href="#" class="button"></a>
@@ -57,8 +57,8 @@ export async function initJobAdsComponent(
   // get markup for all ads
   let jobAdsMarkup = getJobAdsMarkup(ads);
   // create job component element
-  let newPremiumJobComponent = document.createElement("div");
-  newPremiumJobComponent.classList.add("row", "added");
+  let newPremiumJobComponent = document.createElement('div');
+  newPremiumJobComponent.classList.add('row', 'added');
   newPremiumJobComponent.innerHTML = `
     <article class="preview preview-list job-list">
       <h3 class="highlight">${headerText}</h3>
@@ -66,7 +66,7 @@ export async function initJobAdsComponent(
         ${getJobAdsMarkup(ads)}
       </div>
       <div class="listing-actions">
-        <a href="/jobb" class="button">Vis alle ledige stillinger</a>
+        <a href="/jobb" class="button">Vis alle</a>
         <a href="https://www.kode24.no/annonse/priser-pa-annonser-og-content-pa-kode24/70244826" class="button action">+ bestill</a>
       </div>
     </article>
@@ -74,12 +74,12 @@ export async function initJobAdsComponent(
 
   // Add after specified element
   if (JobAdsComponentNode) {
-    if (appendToggle == "append") {
+    if (appendToggle == 'append') {
       JobAdsComponentNode.append(newPremiumJobComponent);
-    } else if ("replace") {
-      JobAdsComponentNode.innerHTML = "";
+    } else if ('replace') {
+      JobAdsComponentNode.innerHTML = '';
       JobAdsComponentNode.append(newPremiumJobComponent);
-    } else if ("after") {
+    } else if ('after') {
       JobAdsComponentNode.after(newPremiumJobComponent);
     }
   }
@@ -116,5 +116,5 @@ function getJobAdsMarkup(ads) {
         </article>
     `;
     })
-    .join("");
+    .join('');
 }
