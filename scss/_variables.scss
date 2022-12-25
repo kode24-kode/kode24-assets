@@ -135,16 +135,20 @@
   --v2-card-label-background: hsl(245, 14%, 14%);
   --v2-label-color-teal: hsl(180, 100%, 79%);
   --v2-label-color-teal-darker: hsl(180, 100%, 40%);
-  --v2-label-color-pink: hsl(330, 100%, 75%);
-  --v2-label-color-pink-darker: hsl(330, 100%, 40%);
-  --v2-label-color-purple: hsl(250, 100%, 75%);
-  --v2-label-color-purple-darker: hsl(250, 100%, 40%);
+  --v2-label-color-pink-lighter: hsl(327, 100%, 60%);
+  --v2-label-color-pink: hsl(327, 81%, 54%);
+  --v2-label-color-pink-darker: hsl(327, 100%, 40%);
+  --v2-label-color-purple: hsl(300, 66%, 43%);
+  --v2-label-color-purple-darker: hsl(300, 100%, 40%);
   --v2-label-color-blue: hsl(115, 100%, 75%);
   --v2-label-color-blue-darker: hsl(115, 100%, 40%);
   --v2-label-color-yellow: hsl(60, 100%, 75%);
   --v2-label-color-yellow-darker: hsl(60, 100%, 40%);
   --v2-label-color-orange: hsl(35, 100%, 75%);
   --v2-label-color-orange-darker: hsl(35, 100%, 40%);
+
+  --v2-button-background-color: hsl(327, 81%, 54%);
+  --v2-notification-background-color: hsl(327, 81%, 54%);
 
   --vp-tablet: 700px;
   --vp-desktop: 1025px;

@@ -25,7 +25,7 @@ export function initDiamondPartners(diamondPartners, element) {
       .join("")}
       </ul>
       <div class="listing-actions">
-        <a href="https://www.kode24.no/annonse/na-lanserer-vi-egen-landingsside-for-annonsorer/77370110" class="button action">+ bli partner</a>
+        <a href="https://www.kode24.no/annonse/na-lanserer-vi-egen-landingsside-for-annonsorer/77370110" class="button">+ bli partner</a>
       </div>
       `;
   }
