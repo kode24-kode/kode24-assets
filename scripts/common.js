@@ -14,21 +14,12 @@ import {
   initJobAdsComponent,
 } from './components/JobAdsComponent';
 import { initSponsors } from './components/sponsorListingInLeftMenu';
-import {
-  initEventCardsListLoading,
-  initEventCardsList,
-} from './components/eventCardsList';
+import { initEventCardsList } from './components/eventCardsList';
 import {
   initCompanyLeague,
   initCompanyLeagueLoading,
 } from './components/companyLeague';
-import {
-  getAdsForFrontFromApi,
-  getContentAdsFromApi,
-  getEventsFromApi,
-  getSponsorsFromApi,
-  getFrontPageDataFromApi,
-} from './API/api';
+import { getFrontPageDataFromApi } from './API/api';
 import { isPagePartner } from './functions/isPagePartner';
 import { setPartnerPageConfig } from './functions/setPartnerPageConfig';
 import {
@@ -84,8 +75,9 @@ export async function initCommon() {
   // init inline search handler for top menu bar
   initInlineSearch();
 
+  const frontPageData = await getFrontPageDataFromApi();
   // fetch data for job listings
-  const { listings, premiumIds } = await getAdsForFrontFromApi();
+  const { listings, premiumIds } = frontPageData.listing;
   // filter list of premium ads
   const premiumAds = listings.filter((ad) =>
     premiumIds.includes(ad.id)
@@ -94,21 +86,24 @@ export async function initCommon() {
   const nonPremiumAds = listings.filter(
     (ad) => !premiumIds.includes(ad.id)
   );
-  const frontPageData = await getFrontPageDataFromApi();
-  // fetch content ads
-  const contentAds = await getContentAdsFromApi();
-  // fetch event data
-  let eventData = await getEventsFromApi();
 
-  let sponsors = await getSponsorsFromApi();
+  // fetch content ads
+  const contentAds = frontPageData.content;
+  // fetch event data
+  let eventData = frontPageData.events;
+
+  let sponsors = await frontPageData.partners;
 
   // init a sidebar component for all ads
   const JobAdsComponentLongNode = initJobAdsComponentLoading(
     [...premiumAds, nonPremiumAds].length
   );
-  document
-    .querySelector('#desktop-sidemenu-front')
-    .append(JobAdsComponentLongNode);
+
+  if (document.querySelector('#desktop-sidemenu-front')) {
+    document
+      .querySelector('#desktop-sidemenu-front')
+      .append(JobAdsComponentLongNode);
+  }
   initJobAdsComponent(
     limitArray(shuffleArray([...premiumAds, ...nonPremiumAds])),
     JobAdsComponentLongNode,
@@ -125,11 +120,12 @@ export async function initCommon() {
   );
 
   // init sidebar component for calendar events shown right column
-
+  /**
   const numberOfEvents = await initEventCardsList(
     eventData,
     eventCardsListNode
   );
+   */
 
   initPodcastPlayer(podcastPlayerNode);
   initSponsors(sponsors, '#company-sponsors-list');
@@ -139,7 +135,7 @@ export async function initCommon() {
   );
 
   // add number of active events to counter in top menu
-  addNumberToEventCounterInTopMenu(eventData.eventsCount);
+  addNumberToEventCounterInTopMenu(eventData.upcomingEvents.length);
   // update job listings count in top menu
   addNumberToJobCounterInTopMenu(listings.length);
 

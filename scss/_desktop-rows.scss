@@ -3,7 +3,7 @@
   margin-bottom: calc(var(--gutter) * 4);
   .heading {
     .heading-title:has(+ .heading-description) {
-      margin-bottom: calc(var(--gutter) / 2);
+      margin-bottom: calc(var(--gutter) / 4);
     }
     .heading-description {
       margin-top: 0;
