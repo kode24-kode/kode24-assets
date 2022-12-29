@@ -4,9 +4,6 @@
   display: flex;
   position: relative;
   border: 2px solid transparent;
-  &:hover {
-    border: 2px solid var(--v2-pink-gradient-start);
-  }
   @media screen and (max-width: 1023px) {
 
   }

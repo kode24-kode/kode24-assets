@@ -1,6 +1,15 @@
 .desktop-row {
   --image-height: 170px;
-  margin-bottom: calc(var(--gutter) * 2);
+  margin-bottom: calc(var(--gutter) * 4);
+  .heading {
+    .heading-title:has(+ .heading-description) {
+      margin-bottom: calc(var(--gutter) / 2);
+    }
+    .heading-description {
+      margin-top: 0;
+      color: var(--v2-card-paragraph-color);
+    }
+  }
   .col-1-2 {
 
     display: grid;
