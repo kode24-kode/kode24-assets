@@ -14,7 +14,7 @@ function getSponsorsMarkup(sponsors) {
       </a>
     </li>`
     )
-    .join("")}
+    .join('')}
 
   ${sponsors.silverPatreon
     .map(
@@ -22,12 +22,15 @@ function getSponsorsMarkup(sponsors) {
       <a href="${sponsors.link}" target="new_window"><img src="${sponsors.logo}" alt="${sponsors.name}"></a>
     </li>`
     )
-    .join("")}
+    .join('')}
 
   `;
 }
-
-export async function initSponsors(sponsors, elementToAppendTo) {
+export function initSponsorsLoading() {
+  const sponsorsNode = document.createElement('div');
+  return sponsorsNode;
+}
+export function initSponsors(sponsors, elementToAppendTo) {
   const sponsorsMarkup = getSponsorsMarkup(sponsors);
-  document.querySelector(elementToAppendTo).innerHTML = sponsorsMarkup;
+  elementToAppendTo.innerHTML = sponsorsMarkup;
 }

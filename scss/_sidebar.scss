@@ -1,6 +1,4 @@
 #desktop-sidemenu-front {
-  display: block;
-  padding-top: 4rem;
   .preview {
     //background-color: transparent;
   }
@@ -9,7 +7,7 @@
 // dummy styling
 .frontpage .dummy-aside-content {
   &.preview-list {
-    
+
     h3,
     &.job-list h3
      {
@@ -17,7 +15,7 @@
       height: 2rem;
       margin-top: 0;
     }
-  } 
+  }
   .preview {
     .article-preview-text {
       width: 100%;

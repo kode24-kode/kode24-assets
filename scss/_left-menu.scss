@@ -20,7 +20,7 @@
       top: auto;
       overflow: visible;
       display: block;
-      padding: 3rem 0 0 0;
+      padding: var(--gutter) 0 0 0;
   }
   h3 {
     color: v(v2-card-paragraph-color);

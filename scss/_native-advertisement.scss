@@ -10,6 +10,7 @@ a {
 
 .native-advertisement.preview,
 .article-entity .native-advertisement.preview {
+  border-radius: var(--border-radius);
   background: linear-gradient(
     45deg,
     var(--v2-label-color-pink),
@@ -19,9 +20,9 @@ a {
   @media screen and (max-width: 830px) {
     width: calc(100% - 2.5rem);
     margin: 1.25rem 1.25rem 1.25rem 1.25rem;
-    border-radius: 10px;
-  }  
-  
+    border-radius: var(--border-radius);
+  }
+
 
   &.job {
     figure {
@@ -47,7 +48,7 @@ a {
     pointer-events: none;
     z-index: 0;
     background-color: var(--v2-background);
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     @media screen and (max-width: 1023px) {
       left: 1px;
         top: 1px;

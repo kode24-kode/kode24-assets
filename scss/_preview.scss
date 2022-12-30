@@ -3,20 +3,11 @@
   position: relative;
   display: block;
   width: 100%;
-  border: 1px solid v(v2-card-background);
-  border-radius: 10px;
-  transition: background-color 0.1s ease-in-out;
-  box-shadow: 0 0 14px 2px rgba(0, 0, 0, 0.03);
-  background-color: var(--v2-card-background);
-  border: 1px solid var(--v2-card-border-background);
   @media screen and (max-width: 1023px) {
     border-radius: 0;
     border: 0;
     border-top: 1px solid v(v2-card-border-background);
     border-bottom: 1px solid v(v2-card-border-background);
-  }
-  &:hover {
-    background-color: v(v2-card-background-hover);
   }
   a {
     position: relative;
@@ -87,6 +78,7 @@
     margin: 0;
     width: 245px;
     flex: 0 0 245px;
+    overflow: hidden;
     padding-bottom: 0 !important;
     @media screen and (max-width: 1023px) {
       flex: 0 0 128px;

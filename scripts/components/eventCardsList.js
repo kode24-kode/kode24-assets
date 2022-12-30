@@ -5,10 +5,11 @@ export function initEventCardsListLoading() {
 
 /**
  * takes event data and returns markup for the event card
- * @param {*} selector
+ * @param {*} eventData
  * @returns
  */
 export const initEventCardsList = (eventData, node, placement) => {
+  console.log('hello', eventData, node);
   // fetch markup for events
   let eventMarkup = getEventsCardMarkup(eventData);
   // create container and add markup
@@ -27,8 +28,6 @@ export const initEventCardsList = (eventData, node, placement) => {
     node.innerHTML = '';
     node.append(eventContainer);
   }
-
-  return eventData.eventsCount;
 };
 
 /**
@@ -85,7 +84,7 @@ let getEventsCardMarkup = (events) => {
         ? getPRemiumEventsCardMarkup(events.premiumEvents)
         : ''
     }
-    ${events.nextEvents
+    ${events.upcomingEvents
       .slice(0, 4)
       .map(
         (event) => `
@@ -118,10 +117,10 @@ let getEventsCardMarkup = (events) => {
     </div>
     <div class="listing-actions">
     ${
-      events.nextEvents.length && events.nextEvents.length > 4
+      events.upcomingEvents.length && events.upcomingEvents.length > 4
         ? `
       <a href="/kalender" class="button">
-        Vis alle (${events.eventsCount})
+        Vis alle (${events.upcomingEvents.length})
 
       </a>
 

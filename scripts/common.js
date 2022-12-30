@@ -13,7 +13,10 @@ import {
   initJobAdsComponentLoading,
   initJobAdsComponent,
 } from './components/JobAdsComponent';
-import { initSponsors } from './components/sponsorListingInLeftMenu';
+import {
+  initSponsors,
+  initSponsorsLoading,
+} from './components/sponsorListingInLeftMenu';
 import { initEventCardsList } from './components/eventCardsList';
 import {
   initCompanyLeague,
@@ -44,7 +47,8 @@ export async function initCommon() {
   const companyLeagueNode = initCompanyLeagueLoading();
   const podcastPlayerNode = initPodcastPlayerLoading();
   const eventCardsListNode = initPreviewListLoading(4);
-  console.log(diamondPartnersNode);
+  const sponsorsNode = initSponsorsLoading();
+  const JobAdsComponentLongNode = initJobAdsComponentLoading(10);
   document
     .querySelector('#desktop-sidemenu-front')
     .append(
@@ -52,7 +56,9 @@ export async function initCommon() {
       JobAdsComponentNode,
       eventCardsListNode,
       companyLeagueNode,
-      podcastPlayerNode
+      podcastPlayerNode,
+      JobAdsComponentLongNode,
+      sponsorsNode
     );
 
   const partnerPage = isPagePartner();
@@ -95,15 +101,7 @@ export async function initCommon() {
   let sponsors = await frontPageData.partners;
 
   // init a sidebar component for all ads
-  const JobAdsComponentLongNode = initJobAdsComponentLoading(
-    [...premiumAds, nonPremiumAds].length
-  );
 
-  if (document.querySelector('#desktop-sidemenu-front')) {
-    document
-      .querySelector('#desktop-sidemenu-front')
-      .append(JobAdsComponentLongNode);
-  }
   initJobAdsComponent(
     limitArray(shuffleArray([...premiumAds, ...nonPremiumAds])),
     JobAdsComponentLongNode,
@@ -120,15 +118,10 @@ export async function initCommon() {
   );
 
   // init sidebar component for calendar events shown right column
-  /**
-  const numberOfEvents = await initEventCardsList(
-    eventData,
-    eventCardsListNode
-  );
-   */
+  initEventCardsList(eventData, eventCardsListNode, '');
 
   initPodcastPlayer(podcastPlayerNode);
-  initSponsors(sponsors, '#company-sponsors-list');
+  //initSponsors(sponsors, '#company-sponsors-list');
   initDiamondPartners(
     sponsors.companyPartner || [],
     diamondPartnersNode

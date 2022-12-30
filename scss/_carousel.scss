@@ -8,6 +8,8 @@
   width: 100%;
   padding: 0;
   background-color: var(--v2-preview-list-background);
+  border: 1px solid var(--v2-card-border-background);
+  border-radius: var(--gutter);
   &:hover {
     background-color: var(--v2-preview-list-background);
   }
@@ -18,13 +20,13 @@
         var(--v2-label-color-pink),
         var(--v2-label-color-orange)
       );
-      
+
     }
     .preview .button {
       background-image: linear-gradient(
       45deg,
       var(--v2-label-color-pink),
-      var(--v2-label-color-orange)  
+      var(--v2-label-color-orange)
       );
       color: v(v2-card-always-black);
       font-weight: bold;
@@ -37,18 +39,18 @@
         var(--v2-label-color-pink),
         var(--v2-label-color-purple)
       );
-      
+
     }
     .preview .button {
       background-image: linear-gradient(
       45deg,
       var(--v2-label-color-purple),
-      var(--v2-label-color-pink)  
+      var(--v2-label-color-pink)
       );
       color: v(v2-card-always-black);
       font-weight: bold;
     }
-  
+
   }
   h3 {
     padding: 0.6rem;
@@ -105,7 +107,7 @@
       margin-bottom: 0.6rem;
       display: inline-block;
     }
-    
+
     &.premium {
       @media screen and (max-width: 1023px) {
         border-radius: 0;
@@ -119,7 +121,7 @@
           background-image: linear-gradient(
           45deg,
           var(--v2-label-color-pink),
-          var(--v2-label-color-purple)  
+          var(--v2-label-color-purple)
           );
           z-index: 1;
           opacity: 0.2;

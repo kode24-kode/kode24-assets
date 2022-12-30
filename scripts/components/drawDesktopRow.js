@@ -20,8 +20,11 @@ export const initDesktopRow = (
 
 function drawDesktopRow(articlesData) {
   console.log('articlesData', articlesData);
+  let articlesGrid = 'multiple';
+  if (articlesData.articles.length < 2) articlesGrid = 'single';
+  if (articlesData.articles.length == 2) articlesGrid = 'dual';
   return `
-    <div class="row desktop-row">
+    <div class="row desktop-row ${articlesData.style}">
       <div class="heading">
         <h2 class="heading-title">${articlesData.title}</h2>
         ${
@@ -30,15 +33,13 @@ function drawDesktopRow(articlesData) {
             : ''
         }
       </div>
-      <div class="col-1-2">
+      <div class="${articlesGrid} ${articlesData.layout}">
       ${articlesData.articles
         .map(
           (article, index) => `
         <article
               id="article_${article.id}"
-              class="preview columns large-12 small-12 medium-12 compact ${
-                index === 0 ? 'highlight' : ''
-              }"
+              class="preview columns large-12 small-12 medium-12 compact"
               itemscope
               itemprop="itemListElement"
               itemtype="https://schema.org/ListItem"
