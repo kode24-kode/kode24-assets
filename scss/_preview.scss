@@ -3,21 +3,18 @@
   position: relative;
   display: block;
   width: 100%;
-  @media screen and (max-width: 1023px) {
+  padding-bottom: var(--gutter);
+  @media screen and (max-width: 830px) {
+    margin-bottom: var(--gutter);
     border-radius: 0;
     border: 0;
-    border-top: 1px solid v(v2-card-border-background);
     border-bottom: 1px solid v(v2-card-border-background);
   }
   a {
     position: relative;
-    padding: 1.25rem;
     display: flex;
     align-items: flex-start;
     text-decoration: none;
-    @media screen and (max-width: 1023px) {
-      padding: 0.8rem;
-    }
   }
   time {
     display: none;

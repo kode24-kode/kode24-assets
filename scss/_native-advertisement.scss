@@ -1,10 +1,10 @@
-a {
-  .native-advertisement {
-    .kicker {
-      &:hover {
-        text-decoration: none;
-      }
-    }
+.native-advertisement {
+  padding-bottom: 0;
+  a {
+    padding: var(--gutter);
+  }
+  .labels {
+    font-size: 0.8rem;
   }
 }
 

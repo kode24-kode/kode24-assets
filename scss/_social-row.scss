@@ -11,7 +11,7 @@
   padding: 0 var(--gutter) calc(var(--gutter)/2) var(--gutter);
   font-size: 0.9rem;
   font-family: var(--fontRegular);
-  gap: var(--gutter);
+  gap: calc(var(--gutter)/2) calc(var(--gutter)/2);
   @media screen and (max-width: 700px) {
     padding: calc(var(---gutter)/2)rem;
     font-size: 0.8rem;
