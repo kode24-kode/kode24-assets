@@ -36,11 +36,6 @@ export async function initFrontend() {
   // draw comment rows for all article previews on page
   drawCommentRow(articlePreviewListData, articleIds, articlesList);
 
-  // Add todays date
-  document.getElementById(
-    'date-frontpage'
-  ).innerHTML = ` ${getPrettyFormatDateString()}`;
-
   const {
     premiumAds,
     nonPremiumAds,
@@ -56,16 +51,6 @@ export async function initFrontend() {
     document.getElementById('desktop-rows').append(desktopRowNode);
   const JobAdsComponentNode = initJobAdsComponentLoading(10);
   const eventCardsListNode = initEventCardsListLoading();
-  document
-    .querySelectorAll(
-      '.article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)'
-    )[4]
-    .after(JobAdsComponentNode);
-  document
-    .querySelectorAll(
-      '.article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)'
-    )[6]
-    .after(eventCardsListNode);
   // init box that shows job listings
   console.log(frontPageData);
   initDesktopRow(desktopRowNode, frontPageData.frontpage);
@@ -77,11 +62,6 @@ export async function initFrontend() {
     'utvalgte stillinger'
   );
 
-  const numberOfEvents = await initEventCardsList(
-    eventData,
-    eventCardsListNode
-  );
-
   // if we have a partner page, we should not show ads
   if (!partnerPage) {
     //initAsideLoading('desktop-sidemenu-front');
@@ -89,7 +69,7 @@ export async function initFrontend() {
     const frontAdElements = initFrontAdComponents(
       getNodes(
         '.article-previews .row:not(.show-for-small-only, .show-for-medium-up, .added)',
-        [3, 5, 7, 9, 11, 13, 15, 19, 23, 27, 31]
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
       ),
       [
         contentAds ? shuffleArray(contentAds)[0] : {},

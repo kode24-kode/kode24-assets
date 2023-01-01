@@ -26,15 +26,19 @@ h2 {
     display: none;
   }
   @media screen and (min-width: 830px) {
-    padding: 4rem var(--gutter) 0.6rem var(--gutter);
-    grid-template-columns: minmax(160px, 160px) minmax(auto, 1200px) 0;
-    gap: calc(var(--gutter) * 2);
-    #desktop-sidemenu-front {
-      display: block;
+    &.with-ribbon {
+        padding: 6.5rem 0 0 0;
     }
+    padding: calc(var(--gutter) * 4) var(--gutter) 0.6rem var(--gutter);
+    grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
+    gap: calc(var(--gutter) * 2);
+
   }
-  @media screen and (min-width: 1080px) {
-    grid-template-columns: minmax(160px, 160px) minmax(680px, 986px) 310px;
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: minmax(160px, 160px) minmax(0, 986px) 310px;
+    #desktop-sidemenu-front {
+        display: block;
+      }
   }
   img {
     width: 100%;
@@ -45,16 +49,6 @@ h2 {
     padding: 4.4rem 0.6rem 0.6rem 0.6rem
   }
 
-  @media screen and (min-width: 1024px) {
-    width: 100%;
-    padding: 5rem 0 0 0;
-    &.with-ribbon {
-      padding: 6.5rem 0 0 0;
-    }
-  }
-  @media screen and (min-width: 1450px) {
-    width: 1440px;
-  }
   &.only-main-row {
     #left-menu,
     #desktop-sidemenu-front {

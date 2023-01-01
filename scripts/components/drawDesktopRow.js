@@ -100,12 +100,20 @@ function drawDesktopRow(articlesData) {
                 <div class="article-social-reactions article-social-item">
                     <a href="https://www.kode24.no/${
                       article.id
-                    }#hyvor-talk-view" class="reaction-button reaction">1</a>
+                    }#hyvor-talk-view" class="reaction-button reaction">${
+            article.reactions.reactions_count
+              ? article.reactions.reactions_count
+              : ''
+          }</a>
                 </div>
                 <div class="article-social-comments article-social-item">
                     <a href="https://www.kode24.no/${
                       article.id
-                    }#hyvor-talk-view" class="reaction-button comment">3</a>
+                    }#hyvor-talk-view" class="reaction-button comment">${
+            article.reactions.comments_count
+              ? article.reactions.comments_count
+              : ''
+          }</a>
                 </div>
             </div>
             <div class="article-social-tags article-social-item">
