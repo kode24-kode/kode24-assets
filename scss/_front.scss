@@ -29,7 +29,7 @@ h2 {
     &.with-ribbon {
         padding: 6.5rem 0 0 0;
     }
-    padding: calc(var(--gutter) * 4) var(--gutter) 0.6rem var(--gutter);
+    padding: calc(var(--gutter) * 4) max(var(--gutter), 50vw - 1900px / 2);
     grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
     gap: calc(var(--gutter) * 2);
 
