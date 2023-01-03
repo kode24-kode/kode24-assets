@@ -14,7 +14,6 @@ import { initAsideLoading } from './components/asideLoading';
 import { initAdElementsInRightColumn } from './components/adElementsInRightColumn';
 import { hideSidebarForCommercialPages } from './functions/hideSidebarForCommercialPages';
 import { trackInScreenImpressions } from './functions/inScreenAdImpressionTracker';
-import { initChristmasCalendarTable } from './components/christmasCalendarTable';
 import {
   getAdsForFrontFromApi,
   getContentAdsFromApi,
@@ -33,9 +32,6 @@ export async function initCommon() {
   const partnerPage = isPagePartner();
   if (partnerPage) setPartnerPageConfig();
   // initialise the company league table
-  if (!partnerPage) {
-    initChristmasCalendarTable();
-  }
   // if user presses hamburger menu button in mobile view
   handleHamburgerMenuClick();
   // if user presses light switch on top right of page
