@@ -1,5 +1,5 @@
 #top-bar {
-  display: flex;
+  display: grid;
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -9,10 +9,16 @@
   z-index: 100;
   padding: 0 max(2rem, 50vw - 1440px / 2);
   border-bottom: 1px var(--v2-card-border-background);
-  @media screen and (max-width: 1023px) {
-    padding: 0 max(0.6rem, 50vw - 1440px / 2);
-  }
 
+  @media screen and (min-width: 830px) {
+    padding: calc(var(--gutter) / 4) max(var(--gutter), 50vw - 860px);
+    grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
+    gap: calc(var(--gutter) * 2);
+
+  }
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: minmax(160px, 160px) minmax(0, 986px) 310px;
+  }
 }
 .light #top-bar {
   background-color: rgba(255, 255, 255, 0.8);
@@ -68,9 +74,10 @@
 #nav-top {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   ul {
     list-style: none;
-    padding: 0 1.25rem 0 1.25rem;
+    padding: 0 0 0 0;
     border-radius: 40px;
     margin: 0;
     display: flex;
@@ -144,6 +151,7 @@
 
 #mode-toggle {
   display: flex;
+  justify-content: flex-end;
   button {
     border: 0;
     cursor: pointer;
