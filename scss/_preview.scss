@@ -3,18 +3,17 @@
   position: relative;
   display: block;
   width: 100%;
-  padding-bottom: var(--gutter);
   @media screen and (max-width: 830px) {
     margin-bottom: var(--gutter);
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid v(v2-card-border-background);
   }
-  a {
+  >a {
     position: relative;
     display: flex;
     align-items: flex-start;
     text-decoration: none;
+    gap: var(--gutter);
   }
   time {
     display: none;
@@ -30,12 +29,6 @@
     z-index: 1;
   }
 
-  .article-preview-text {
-    padding-left: 1.25rem;
-    @media screen and (max-width: 1023px) {
-      padding-left: 0.6rem;
-    }
-  }
   .headline {
     display: block;
     margin: 0;
@@ -72,9 +65,7 @@
   figure {
     border-radius: 10px;
     padding: 0;
-    margin: 0;
-    width: 245px;
-    flex: 0 0 245px;
+    margin: 0 0 calc(var(--gutter)/2) 0;
     overflow: hidden;
     padding-bottom: 0 !important;
     @media screen and (max-width: 1023px) {
