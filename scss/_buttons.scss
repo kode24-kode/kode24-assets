@@ -3,9 +3,9 @@
   display: inline-block;
   border-radius: 10px;
   padding: 10px 20px;
-  background-color: v(v2-card-background-level-2);
-  color: v(v2-pink-gradient-start);
-  font-family: v(fontRegular);
+  background-color: var(--v2-card-background-level-2);
+  color: var(--v2-card-headline-color);
+  font-family: var(--fontRegular);
   font-size: 0.9rem;
   text-transform: uppercase;
   font-weight: bold;
@@ -20,7 +20,7 @@
 }
 
 .job-ad-cta {
-  color: v(v2-card-headline-color);
-  background: v(v2-job-button-background);
-  border: 1px solid v(v2-job-button-outline);
+  color: var(--v2-card-headline-color);
+  background: var(--v2-job-button-background);
+  border: 1px solid var(--v2-job-button-outline);
 }
