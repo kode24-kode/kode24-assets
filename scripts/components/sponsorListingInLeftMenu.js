@@ -5,6 +5,7 @@
  */
 function getSponsorsMarkup(sponsors) {
   return `
+  <ul>
   ${sponsors.gold
     .map(
       (sponsors) => `<li class="gold preview">
@@ -20,10 +21,10 @@ function getSponsorsMarkup(sponsors) {
     .map(
       (sponsors) => `<li class="silver preview">
       <img src="${sponsors.logo}" alt="${sponsors.name}" loading="lazy">
-    </li>`
+    </li></ul>`
     )
     .join('')}
-
+  </ul>
   `;
 }
 
