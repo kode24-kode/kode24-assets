@@ -54,8 +54,8 @@
       margin: 0 0 0 0 !important;
     }
 
-    .row h1.headline,
-    h1.headline {
+    .row .headline,
+    .headline {
       line-height: 1.1;
       padding: 0;
       margin: 1.25rem 0 0.6rem 0;
@@ -76,7 +76,7 @@
         width: calc(100%);
       }
     }
-    .row h1.headline {
+    .row .headline {
       margin-top: 0;
     }
 
@@ -90,17 +90,13 @@
         font-size: 1.2rem;
       }
     }
-    h1 {
-    }
-    p {
-    }
     .row {
       margin: 0 auto;
     }
     @media screen and (min-width: $vp-tablet) {
       margin-bottom: 4rem;
       border-radius: 10px;
-      h1 {
+      .headline {
         margin: 0 0 1.25rem 0;
       }
     }
@@ -169,7 +165,7 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        h1 {
+        .headline {
           max-width: 980px;
           margin: 0 auto 2rem auto;
           position: relative;
@@ -197,7 +193,6 @@
       content: "Publisert: ";
     }
     font-size: 0.8rem;
-    opacity: 0.5;
   }
   .columns.byline {
     padding: 1rem 0;

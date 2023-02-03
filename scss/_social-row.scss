@@ -37,7 +37,7 @@
       width: 17px;
       height: 17px;
       filter: invert(1);
-      opacity: 0.4;
+      opacity: 0.8;
       margin-right: 0.6rem;
     }
     &.reaction {
@@ -148,7 +148,7 @@
 
 
 .light .frontpage article.preview .article-social {
-  .reaction-button {  
+  .reaction-button {
     &:before {
       filter: invert(0);
     }
