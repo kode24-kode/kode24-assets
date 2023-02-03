@@ -1,0 +1,13 @@
+.skip-to:focus {
+  transform: translateY(0px)
+}
+
+.skip-to {
+  position: absolute;
+  z-index: 200;
+  transform: translateY(-100px);
+  background-color: var(--v2-calendar-button-outline);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--v2-card-always-white);
+}

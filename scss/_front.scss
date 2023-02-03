@@ -1,8 +1,9 @@
 .frontpage {
-  display: flex;
+  display: grid;
   justify-content: center;
   padding: 0;
   margin: 0 auto 0 auto;
+  grid-template-columns: 1fr minmax(0, 980px) 1fr;
   @media screen and (max-width: 1023px) {
     padding: 4rem 0.6rem 0.6rem 0.6rem;
   }
@@ -15,6 +16,15 @@
 
   &.with-ribbon {
     padding: 4.4rem 0.6rem 0.6rem 0.6rem
+  }
+
+  #main-content,
+  .article-entity {
+    grid-row: 1;
+    grid-column: 2;
+    @media screen and (max-width: 1023px) {
+      grid-column: span 3;
+    }
   }
 
   @media screen and (min-width: 1024px) {
