@@ -1,28 +1,28 @@
-import '../scss/main.scss';
-import { initInlineSearch } from './components/inlineSearch';
-import { convertTagFeedURL } from './functions/convertTagFeedURL';
-import { upScaleImages } from './functions/upScaleImages';
-import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick';
-import { convertLazyLoadImages } from './functions/convertLazyLoadImages';
-import { handleLightSwitchToggle } from './functions/handleLightSwitchToggle';
-import { handleImageExpansionClick } from './functions/handleImageExpansionClick';
-import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu';
-import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu';
-import { initPremiumJobComponent } from './components/premiumJobComponent';
-import { initSponsors } from './components/sponsorListingInLeftMenu';
-import { initAsideLoading } from './components/asideLoading';
-import { initAdElementsInRightColumn } from './components/adElementsInRightColumn';
-import { hideSidebarForCommercialPages } from './functions/hideSidebarForCommercialPages';
-import { trackInScreenImpressions } from './functions/inScreenAdImpressionTracker';
+import "../scss/main.scss";
+import { initInlineSearch } from "./components/inlineSearch";
+import { convertTagFeedURL } from "./functions/convertTagFeedURL";
+import { upScaleImages } from "./functions/upScaleImages";
+import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick";
+import { convertLazyLoadImages } from "./functions/convertLazyLoadImages";
+import { handleLightSwitchToggle } from "./functions/handleLightSwitchToggle";
+import { handleImageExpansionClick } from "./functions/handleImageExpansionClick";
+import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu";
+import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu";
+import { initPremiumJobComponent } from "./components/premiumJobComponent";
+import { initSponsors } from "./components/sponsorListingInLeftMenu";
+import { initAsideLoading } from "./components/asideLoading";
+import { initAdElementsInRightColumn } from "./components/adElementsInRightColumn";
+import { hideSidebarForCommercialPages } from "./functions/hideSidebarForCommercialPages";
+import { trackInScreenImpressions } from "./functions/inScreenAdImpressionTracker";
 import {
   getAdsForFrontFromApi,
   getContentAdsFromApi,
   getEventsFromApi,
   getSponsorsFromApi,
-} from './API/api';
-import { isPagePartner } from './functions/isPagePartner';
-import { setPartnerPageConfig } from './functions/setPartnerPageConfig';
-import { initDiamondPartners } from './components/diamondPartners';
+} from "./API/api";
+import { isPagePartner } from "./functions/isPagePartner";
+import { setPartnerPageConfig } from "./functions/setPartnerPageConfig";
+import { initDiamondPartners } from "./components/diamondPartners";
 
 /**
  * Runs all the code that all pages have in common
@@ -48,16 +48,17 @@ export async function initCommon() {
   // init inline search handler for top menu bar
   initInlineSearch();
 
+  // draw company partners
+  let diamondPartnersElement = initDiamondPartners();
+  if (diamondPartnersElement)
+    document.querySelector("#top-bar").after(diamondPartnersElement);
+
   // fetch data for job listings
   const { listings, premiumIds } = await getAdsForFrontFromApi();
   // filter list of premium ads
-  const premiumAds = listings.filter((ad) =>
-    premiumIds.includes(ad.id)
-  );
+  const premiumAds = listings.filter((ad) => premiumIds.includes(ad.id));
   // filter list of non-premium ads
-  const nonPremiumAds = listings.filter(
-    (ad) => !premiumIds.includes(ad.id)
-  );
+  const nonPremiumAds = listings.filter((ad) => !premiumIds.includes(ad.id));
   // fetch content ads
   const contentAds = await getContentAdsFromApi();
   // fetch event data
@@ -65,8 +66,7 @@ export async function initCommon() {
 
   let sponsors = await getSponsorsFromApi();
 
-  initSponsors(sponsors, '#company-sponsors-list');
-  initDiamondPartners(sponsors.diamond || [], '#left-menu');
+  initSponsors(sponsors, "#company-sponsors-list");
 
   // add number of active events to counter in top menu
   addNumberToEventCounterInTopMenu(eventData.eventsCount);
