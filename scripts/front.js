@@ -12,15 +12,6 @@ import { limitArray } from "./functions/limitArray";
  * inits everything that needs to run on a kode24 front (/, /emne/react, etc...)
  */
 export async function initFrontend() {
-  // get ids and nodes of all article previews on page
-  const { articleIds, articlesList } = getArticlePreviewList();
-  // get data for all article previews on page
-  const articlePreviewListData = await getFrontPreviewData(articleIds);
-  // draw bylines for all article previews on page
-  //drawByline(articlePreviewListData, articleIds, articlesList);
-  // draw comment rows for all article previews on page
-  drawCommentRow(articlePreviewListData, articleIds, articlesList);
-
   const { premiumAds, contentAds, partnerPage } = await initCommon();
 
   // if we have a partner page, we should not show ads

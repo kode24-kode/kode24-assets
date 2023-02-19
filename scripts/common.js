@@ -48,7 +48,7 @@ export async function initCommon() {
   // init loading animation for job ads in right column
   const JobAdsComponentNode = initPreviewListLoading(5);
 
-  const diamondPartnersNode = initDiamondPartnersLoading(2);
+  const diamondPartnersNode = initDiamondPartnersLoading();
   const companyLeagueNode = initCompanyLeagueLoading();
   const podcastPlayerNode = initPodcastPlayerLoading();
   const eventCardsListNode = initPreviewListLoading(4);
@@ -57,7 +57,6 @@ export async function initCommon() {
   document
     .querySelector("#desktop-sidemenu-front")
     .append(
-      diamondPartnersNode,
       JobAdsComponentNode,
       eventCardsListNode,
       companyLeagueNode,
@@ -94,6 +93,10 @@ export async function initCommon() {
   // filter list of non-premium ads
   const nonPremiumAds = listings.filter((ad) => !premiumIds.includes(ad.id));
 
+  // draw company partners
+  initDiamondPartners(diamondPartnersNode);
+  document.querySelector("#top-bar").after(diamondPartnersNode);
+
   // fetch content ads
   const contentAds = frontPageData.content;
   // fetch event data
@@ -123,7 +126,6 @@ export async function initCommon() {
 
   initPodcastPlayer(podcastPlayerNode);
   //initSponsors(sponsors, '#company-sponsors-list');
-  initDiamondPartners(sponsors.companyPartner || [], diamondPartnersNode);
 
   // add number of active events to counter in top menu
   addNumberToEventCounterInTopMenu(eventData.upcomingEvents.length);
@@ -132,13 +134,7 @@ export async function initCommon() {
 
   const desktopRowNode = initDesktopRowLoading();
   document.getElementById("desktop-rows")?.append(desktopRowNode);
-  let frontPageRows = frontPageData.frontpage;
-  if (frontPageData.content && frontPageData.content.articles) {
-    // insert after first item in array
-    frontPageRows.splice(1, 0, frontPageData.content);
-  }
-  console.log(frontPageRows);
-  initDesktopRow(desktopRowNode, frontPageRows);
+  initDesktopRow(desktopRowNode, frontPageData);
 
   return {
     listings,
