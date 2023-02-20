@@ -35,13 +35,13 @@ const partners = [
   {
     name: "DNB",
     logoUrl: "dnb",
-    title: "",
+    title: "We Aim Higher",
     url: "https://www.kode24.no/partner/dnb",
   },
   {
     name: "Avantgarde Search",
     logoUrl: "avantgardesearch",
-    title: "Future of talent sourcing",
+    title: "Looking for talent?",
     url: "https://www.kode24.no/partner/avantgarde-search",
   },
   {
@@ -71,7 +71,7 @@ const partners = [
   {
     name: "Geodata",
     logoUrl: "geodata",
-    title: "",
+    title: "Vit hvor du er – vit hvor du skal",
     url: "https://www.kode24.no/partner/geodata",
   },
   {
