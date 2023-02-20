@@ -16,7 +16,10 @@
     gap: var(--gutter);
   }
   time {
-    display: none;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: calc(var(--gutter) / 4);
   }
   &:before {
     content: "";
@@ -32,7 +35,7 @@
   .headline {
     display: block;
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: calc(var(--gutter) / 2);
     font-family: v(fontMono);
     font-weight: 500;
     font-size: 1.6rem;
