@@ -8,6 +8,6 @@ export function addRibbonClassToTop() {
     document.querySelector('.article-entity.content') ||
     document.querySelector('.article-entity.jobb')
   ) {
-    document.querySelector('.frontpage').classList.add('with-ribbon');
+    document.body.classList.add('with-ribbon');
   }
 }
