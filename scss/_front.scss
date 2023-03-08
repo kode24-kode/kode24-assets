@@ -13,7 +13,6 @@ h2 {
       padding: 0 1.2rem;
   }
 }
-
 .frontpage {
   display: grid;
   justify-content: space-between;
@@ -24,6 +23,12 @@ h2 {
   grid-template-columns: 100% 100% 0;
   #desktop-sidemenu-front {
     display: none;
+  }
+
+  #main-content,
+  .article-entity {
+      grid-row: 1;
+      grid-column: 2;
   }
   @media screen and (min-width: 830px) {
     &.with-ribbon {

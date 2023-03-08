@@ -77,6 +77,9 @@
             font-size: 0.9rem;
       }
     }
+    article:nth-child(1n + 6) {
+      display: none;
+    }
   }
   .dual {
     display: grid;
@@ -84,9 +87,6 @@
     gap: var(--gutter);
     article {
       grid-column: span 1;
-      .headline {
-        font-size: 0.9rem;
-      }
     }
   }
   .main-story-with-two-vertical-extra-triple {
@@ -261,7 +261,7 @@
           grid-row: span 2;
 
           .headline {
-            font-size: 2.2rem;
+            font-size: 2.6rem;
           }
 
           .standfirst {

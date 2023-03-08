@@ -4,63 +4,130 @@
  * returns a container for ads to replace
  * @param {*} selector
  */
-import { shuffleArray } from "../functions/shuffleArray";
+import { shuffleArray } from '../functions/shuffleArray';
 export const initDesktopRowLoading = (numberOfElements = 0) => {
-  let element = document.createElement("div");
-  element.innerHTML = `<div class="row desktop-rowadded">`;
+  let element = document.createElement('div');
+  element.innerHTML = ``;
   return element;
 };
-export const initDesktopRow = (desktopRowNode, frontPageDataOriginal) => {
-  let frontPageData = { ...frontPageDataOriginal };
-  desktopRowNode.innerHTML = `
 
-  ${drawDesktopRow({
-    antall: "6",
-    articles: frontPageData.latestArticles.slice(0, 6),
-    description: "",
-    layout: "main-story-with-two-vertical-extra-triple",
-    lenke: "",
-    style: "card",
-    tags1: "nyheter",
-    title: "",
-  })}
-  
+/**
+ * Takes a node and fills it with frontpage articles
+ * @param {*} desktopRowNode
+ * @param {*} param1
+ */
+export const initDesktopRow = (
+  desktopRowNode,
+  { latestArticles, frontpage, listing, content, events, partners }
+) => {
+  let iterator = 1;
+  let newMarkup = '';
+
+  // shuffle content ads before presentation
+  shuffleArray(content);
+
+  // get list of premium Ids and shuffle them
+  let lists = listing.premiumIds;
+  let premiumAds = shuffleArray(
+    listing.listings.filter((listing) => lists.includes(listing.id))
+  );
+  // The main loop for drawing articles
+  while (latestArticles.length > 0 && iterator < 50) {
+    // we can draw a full row
+    if (latestArticles.length >= 3) {
+      newMarkup += drawDesktopRow({
+        articles: latestArticles.splice(0, 3),
+        layout:
+          iterator === 1 ? 'main-story-with-two-vertical' : undefined,
+        showDate: true,
+      });
+    } else if (latestArticles.length > 0) {
+      newMarkup += drawDesktopRow({
+        articles: latestArticles.splice(0),
+        showDate: true,
+      });
+    }
+    if (iterator >= 2 && frontpage.length > 0) {
+      let frontPageRow = frontpage.splice(0, 1)[0];
+      frontPageRow.layout = undefined;
+      newMarkup += drawDesktopRow(frontPageRow);
+    }
+    if (iterator % 2 === 0) {
+      console.log(iterator);
+      // start drawing commercial content
+      if (content.length > 0) {
+        if (content.length > 3) {
+          newMarkup += drawDesktopRow({
+            title: 'Fra våre annonsører',
+            articles: content.splice(0, 3),
+            style: 'commercial',
+          });
+        } else {
+          newMarkup += drawDesktopRow({
+            title: 'Fra våre annonsører',
+            articles: content.splice(0),
+            style: 'commercial',
+          });
+        }
+      } else if (premiumAds.length > 0) {
+        if (premiumAds.length > 3) {
+          newMarkup += drawDesktopRow({
+            title: 'Ledige stillinger',
+            articles: premiumAds.splice(0, 3),
+            style: 'commercial',
+            lenke: '/jobb',
+          });
+        } else {
+          newMarkup += drawDesktopRow({
+            title: 'Ledige stillinger',
+            articles: premiumAds.splice(0),
+            style: 'commercial',
+            lenke: '/jobb',
+          });
+        }
+      }
+    }
+    iterator++;
+  }
+  /**
   ${
     frontPageData.content?.articles?.length > 0 &&
     drawDesktopRow({
       ...frontPageData.content,
-      ...{ articles: shuffleArray(frontPageData.content.articles).slice(0, 3) },
+      ...{
+        articles: shuffleArray(frontPageData.content.articles).slice(
+          0,
+          3
+        ),
+      },
     })
   }
+  **/
 
-  ${drawDesktopRow({
-    antall: "6",
-    articles: frontPageData.latestArticles.slice(6),
-    description: "",
-    layout: "main-story-with-two-vertical",
-    lenke: "/emne/artikkel",
-    style: "card",
-    tags1: "nyheter",
-    title: "Fikk du med deg?",
-  })}
-  // draw the other rows in frontpage config  
-  ${(() => {
-    let markup = ``;
-    let frontPageRows = [...frontPageData.frontpage];
-    let jobAds = [...frontPageData.listing.listings];
-
-    while (frontPageRows.length > 0) {
-      let row = frontPageRows.shift();
-      let newMarkup = drawDesktopRow(row);
-
-      markup += drawDesktopRow(row);
-      console.log(row, frontPageRows);
-    }
-    return markup;
-  })()}
-  `;
-  // draw
+  desktopRowNode.innerHTML = `<div id="desktop-row-list">${newMarkup}</div>`;
 };
+
+function getRandomView(articlesLength) {
+  const views = {
+    1: ['single'],
+    2: ['dual'],
+    3: ['main-story-with-two-vertical', 'triple'],
+    4: ['main-story-with-two-vertical', 'triple'],
+    5: [
+      'main-story-with-two-vertical',
+      'triple',
+      'main-story-with-vertical-list',
+    ],
+    6: [
+      'main-story-with-two-vertical',
+      'triple',
+      'main-story-with-vertical-list',
+    ],
+  };
+  return views[articlesLength][
+    Math.floor(Math.random() * views[articlesLength].length)
+  ];
+}
 
 function drawDesktopRow(articlesData) {
   if (articlesData)
@@ -68,26 +135,33 @@ function drawDesktopRow(articlesData) {
     <div class="row desktop-row ${articlesData.style}">
       <div class="heading">
         ${
-          articlesData.title &&
-          `<h2 class="heading-title">${articlesData.title}</h2>`
+          articlesData.title
+            ? `<h2 class="heading-title">${articlesData.title}</h2>`
+            : ''
         }
         ${
-          articlesData.description &&
-          `<p class="heading-description">${articlesData.description}</p>`
+          articlesData.description
+            ? `<p class="heading-description">${articlesData.description}</p>`
+            : ''
         }
         ${
-          articlesData.lenke &&
-          `<a href="https://www.kode24.no${articlesData.lenke}" target="_blank" class="button">Se alle</a>`
+          articlesData.lenke
+            ? `<a href="https://www.kode24.no${articlesData.lenke}" target="_blank" class="button">Se alle</a>`
+            : ''
         }
       </div>
-      <div class="${articlesData.layout}">
+      <div class="${
+        articlesData.layout
+          ? articlesData.layout
+          : getRandomView(articlesData.articles.length)
+      }">
       ${articlesData.articles
         .map((article, index) =>
-          articlesData.style === "commercial"
-            ? drawDesktopAd(article, articlesData.layout.includes("list"))
-            : drawDesktopArticle(article, articlesData.layout.includes("list"))
+          articlesData.style === 'commercial'
+            ? drawDesktopAd(article)
+            : drawDesktopArticle(article, true, articlesData.showDate)
         )
-        .join("")}
+        .join('')}
       </div>
     </div>
   `;
@@ -131,11 +205,11 @@ const socialComponent = (article) => {
               ${
                 article.reactions.reactions_count
                   ? article.reactions.reactions_count
-                  : ""
+                  : ''
               }
             </a>
           </div>`
-              : ""
+              : ''
           }
           ${
             article.reactions.comments_count > 0
@@ -146,18 +220,25 @@ const socialComponent = (article) => {
               ${
                 article.reactions.comments_count
                   ? article.reactions.comments_count
-                  : ""
+                  : ''
               }
             </a>
           </div>`
-              : ""
+              : ''
           }
         </div>
       </div>
   `;
 };
 
-const drawDesktopArticle = (article, socialToggle) => {
+const drawDesktopArticle = (article, socialToggle, timeToggle) => {
+  // check if article is today
+  let articleIsToday =
+    new Date(article.published).setHours(0, 0, 0, 0) ==
+    new Date().setHours(0, 0, 0, 0)
+      ? true
+      : false;
+
   return `
     <article
     id="article_${article.id}"
@@ -188,27 +269,37 @@ const drawDesktopArticle = (article, socialToggle) => {
             itemprop="url"
             href="https://www.kode24.no${article.published_url}"
           >
-            <time class="published" datetime="${
-              article.published
-            }">${new Intl.DateTimeFormat("no-NB", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-    timeZone: "Europe/Oslo",
-  }).format(new Date(article.published))}
+          ${
+            timeToggle
+              ? `
+            <time class="published" datetime="${article.published}">${
+                  articleIsToday
+                    ? `I dag, ${new Intl.DateTimeFormat('no-NB', {
+                        timeStyle: 'short',
+                        timeZone: 'Europe/Oslo',
+                      }).format(new Date(article.published))}`
+                    : `
+            ${new Intl.DateTimeFormat('no-NB', {
+              weekday: 'long',
+              month: 'long',
+              day: 'numeric',
+              timeZone: 'Europe/Oslo',
+            }).format(new Date(article.published))}`
+                }
             </time>
+          `
+              : ``
+          }
+
             <h1 class="headline">
               <span class="headline-title-wrapper">
                 ${article.title}
               </span>
             </h1>
-            <p class="standfirst">
-              ${article.subtitle}
-            </p>
           </a>
-          ${socialToggle ? socialComponent(article) : ""}
+          ${socialToggle ? socialComponent(article) : ''}
         </div>
-        ${!socialToggle ? socialComponent(article) : ""}
+        ${!socialToggle ? socialComponent(article) : ''}
       </div>
 
     </article>
@@ -264,7 +355,6 @@ const drawDesktopAd = (content) => {
               </div>
               <div class="byline-info">
                 <div class="byline-name">${content.company.name}</div>
-                <div class="byline-bio">${content.company.bio}</div>
               </div>
             </div>
           </div>
