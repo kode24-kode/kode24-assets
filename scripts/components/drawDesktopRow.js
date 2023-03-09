@@ -53,7 +53,6 @@ export const initDesktopRow = (
       newMarkup += drawDesktopRow(frontPageRow);
     }
     if (iterator % 2 === 0) {
-      console.log(iterator);
       // start drawing commercial content
       if (content.length > 0) {
         if (content.length > 3) {
@@ -89,20 +88,6 @@ export const initDesktopRow = (
     }
     iterator++;
   }
-  /**
-  ${
-    frontPageData.content?.articles?.length > 0 &&
-    drawDesktopRow({
-      ...frontPageData.content,
-      ...{
-        articles: shuffleArray(frontPageData.content.articles).slice(
-          0,
-          3
-        ),
-      },
-    })
-  }
-  **/
 
   desktopRowNode.innerHTML = `<div id="desktop-row-list">${newMarkup}</div>`;
 };
@@ -194,8 +179,12 @@ const socialComponent = (article) => {
             <div class="byline-name">${article.byline.name}</div>
             <div class="byline-bio">${article.byline.bio}</div>
           </div>
-        </div>
+        </div>${
+          article.reactions.reactions_count > 0 ||
+          article.reactions.comments_count > 0
+            ? `
         <div class="social-buttons">
+
           ${
             article.reactions.reactions_count > 0
               ? `<div class="article-social-reactions article-social-item">
@@ -226,7 +215,13 @@ const socialComponent = (article) => {
           </div>`
               : ''
           }
+
+
+
         </div>
+        `
+            : ''
+        }
       </div>
   `;
 };

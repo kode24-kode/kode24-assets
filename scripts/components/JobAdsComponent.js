@@ -1,5 +1,3 @@
-import { postImpressions } from '../API/api';
-
 /**
  * Created dummy ad element for showing while loading job ads
  * creates a dummy element
@@ -52,8 +50,6 @@ export async function initJobAdsComponent(
   appendToggle,
   headerText
 ) {
-  // post impression for all ads rendered on page
-  postImpressions([...ads.map((ad) => ad.id)]);
   // get markup for all ads
   let jobAdsMarkup = getJobAdsMarkup(ads);
   // create job component element

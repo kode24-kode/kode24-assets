@@ -60,65 +60,6 @@ export async function getSearchData(searchValue) {
 }
 
 /**
- * posts impressionData to the job board statistics
- * @param {*} impressionData
- * @returns
- */
-export async function postImpressions(impressionData) {
-  return await postDataToUrl(
-    impressionData,
-    'listing/impression-data'
-  );
-}
-
-/**
- * Posts job clicks to the job board statistics
- * @param {*} documentId
- * @param {*} clickUrl
- * @returns
- */
-export async function postClick(documentId, clickUrl) {
-  return await postDataToUrl(
-    {
-      documentId: documentId,
-      url: clickUrl,
-    },
-    'listing/click-data'
-  );
-}
-
-/**
- * Posts view data to the job board statistics
- * @param {*} viewData
- * @returns
- */
-export async function postViewData(viewData) {
-  return await postDataToUrl(viewData, 'listing/view-data');
-}
-
-/**
- * Updates view data with exit time and posts to the job board statistics
- * @param {*} param0
- * @returns
- */
-export async function updateViewDataWithExitTime({
-  exitView,
-  startView,
-  uuid,
-  documentId,
-}) {
-  return await postDataToUrl(
-    {
-      uuid: uuid,
-      exitView: exitView,
-      startView: startView,
-      documentId: documentId,
-    },
-    'listing/exit-view-data'
-  );
-}
-
-/**
  * Fetches all active ads from the job board
  * @returns
  */

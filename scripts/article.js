@@ -2,17 +2,9 @@ import { initCommon } from './common';
 import { initQuickJobApplicationForm } from './components/quickJobApplicationForm';
 import { initInArticleAds } from './components/inArticleAds';
 
-import {
-  getAdsForFrontFromApi,
-  getArticleFromApi,
-  getEventsFromApi,
-  getContentAdsFromApi,
-} from './API/api';
+import { getArticleFromApi } from './API/api';
 import { isArticleEditorial } from './functions/isArticleEditorial';
-import { listenToOutboundAdClicks } from './functions/listenToOutboundAdClicks';
-import { trackJobView } from './functions/trackJobView';
 import { findDataInSpecialTag } from './functions/findDataInSpecialTag';
-import { initRelatedArticles } from './components/relatedArticles';
 import { getArticleId } from './functions/getArticleId';
 import { addRibbonClassToTop } from './functions/addRibbonClassToTop';
 
@@ -24,67 +16,24 @@ import 'highlight.js/styles/github.css';
  * Separate it into functions and call them from here.
  */
 export async function initArticle() {
+  hljs.highlightAll();
   // all functions that need to run on every page
-  const {
-    initAsideLoading,
-    initSponsors,
-    addNumberToJobCounterInTopMenu,
-    initPremiumJobComponent,
-    initAdElementsInRightColumn,
-    addNumberToEventCounterInTopMenu,
-    trackInScreenImpressions,
-    listings,
-    premiumIds,
-    premiumAds,
-    nonPremiumAds,
-    contentAds,
-    eventData,
-    partnerPage,
-  } = await initCommon();
+  const { premiumAds, contentAds } = await initCommon();
   //fetch article data
   const articleData = await getArticleFromApi(getArticleId());
-
   // if article is editorial render in article ads
   // if it is not editiorial render quick signup form
   if (isArticleEditorial()) {
-    // init loading animation for right aside
-    initAsideLoading('desktop-sidemenu-front');
-
     // render commercial ads in the article
     let inArticleAds = initInArticleAds(
       '.body-copy h2',
       premiumAds,
       contentAds.length && contentAds[0] ? contentAds[0] : []
     );
-
-    // initialise the right menu with ads
-    // asideElements are displayed in the right sidebar
-    const asideElementsArticle = await initAdElementsInRightColumn(
-      '#desktop-sidemenu-front',
-      premiumAds,
-      nonPremiumAds
-    );
-
-    // draws the listing of ads under the article body
-    initPremiumJobComponent(premiumAds, '.article-entity', true);
-
-    // draws related articles based on first article tag from API
-    initRelatedArticles(
-      articleData.tags,
-      '.article-entity',
-      articleData.id
-    );
-
-    // track impressions for all ads in article
-    trackInScreenImpressions([...asideElementsArticle]);
   } else {
     // add ribbon class to top of page
     addRibbonClassToTop();
     // initiate view tracking
-    trackJobView(articleData.id);
-    // track outbound clicks
-    listenToOutboundAdClicks(articleData.id);
-    // draw quick application form if job ad has a jobbmail tag
     if (
       articleData &&
       articleData.tags &&
@@ -97,10 +46,4 @@ export async function initArticle() {
       );
     }
   }
-  // update job listings count in top menu
-  addNumberToJobCounterInTopMenu(listings.length);
-  // fetch events data for top menu
-  addNumberToEventCounterInTopMenu(
-    await getEventsFromApi().then((events) => events.eventsCount)
-  );
 }

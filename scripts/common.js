@@ -49,7 +49,6 @@ export async function initCommon() {
   const JobAdsComponentNode = initPreviewListLoading(5);
 
   const diamondPartnersNode = initDiamondPartnersLoading();
-  const companyLeagueNode = initCompanyLeagueLoading();
   const podcastPlayerNode = initPodcastPlayerLoading();
   const eventCardsListNode = initPreviewListLoading(4);
   const sponsorsNode = initSponsorsLoading();
@@ -59,7 +58,6 @@ export async function initCommon() {
     ?.append(
       JobAdsComponentNode,
       eventCardsListNode,
-      companyLeagueNode,
       podcastPlayerNode,
       JobAdsComponentLongNode,
       sponsorsNode
@@ -67,8 +65,6 @@ export async function initCommon() {
 
   const partnerPage = isPagePartner();
   if (partnerPage) setPartnerPageConfig();
-  // initialise the company league table
-  initCompanyLeague(companyLeagueNode);
   // if user presses hamburger menu button in mobile view
   handleHamburgerMenuClick();
   // if user presses light switch on top right of page

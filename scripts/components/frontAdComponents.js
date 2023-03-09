@@ -1,4 +1,3 @@
-import { postImpressions } from '../API/api';
 /**
  * Injects ad above given elements specified in selector
  * @param {*} premiumAds
@@ -35,8 +34,7 @@ export function initFrontAdComponents(nodeList, ads) {
       });
     }
   });
-  // post impressions to server
-  postImpressions([...adsForTracking.map((ad) => ad.id)]);
+
   return adsForTracking;
 }
 

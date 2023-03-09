@@ -1,4 +1,3 @@
-import { postImpressions } from '../API/api';
 /**
  * Creates markup for commercial right sidebar.
  * A combination of premium ads and regular ads.
@@ -10,12 +9,6 @@ export function initAdElementsInRightColumn(
   premiumAdsList,
   nonPremiumAdsList
 ) {
-  // send impressions
-  postImpressions([
-    ...premiumAdsList.map((ad) => ad.id),
-    ...nonPremiumAdsList.map((ad) => ad.id),
-  ]);
-
   // get markup for ad elements
   let asideMarkup = drawAsideMarkup(
     premiumAdsList,

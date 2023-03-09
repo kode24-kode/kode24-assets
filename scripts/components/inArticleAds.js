@@ -1,4 +1,3 @@
-import { postImpressions } from '../API/api.js';
 /**
  * Draw ads inline in the article
  * starts with content ads, then job ads
@@ -39,7 +38,6 @@ export function initInArticleAds(selector, premiumAds, contentAd) {
         adsForTracking.push(trackingElement);
       }
     });
-  postImpressions([...adsForTracking.map((ad) => ad.id)]);
   return adsForTracking;
 }
 
