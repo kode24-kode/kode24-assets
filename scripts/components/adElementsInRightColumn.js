@@ -10,20 +10,17 @@ export function initAdElementsInRightColumn(
   nonPremiumAdsList
 ) {
   // get markup for ad elements
-  let asideMarkup = drawAsideMarkup(
-    premiumAdsList,
-    nonPremiumAdsList
-  );
+  let asideMarkup = drawAsideMarkup(premiumAdsList, nonPremiumAdsList);
 
   // add markup to element in html. Assumes element is id
   document.querySelector(selector).innerHTML = asideMarkup;
 
   // must be done after elements have been rendered, so we know their position in the dom.
   const premiumAdsListElements = document.querySelectorAll(
-    '#desktop-sidemenu-front .preview.premium'
+    "#desktop-sidemenu-front .preview.premium"
   );
   const nonPremiumAdsListElements = document.querySelectorAll(
-    '#desktop-sidemenu-front .preview.regular'
+    "#desktop-sidemenu-front .preview.regular"
   );
 
   // tracking
@@ -86,7 +83,7 @@ function drawAsideMarkup(premiumAdsList, nonPremiumAdsList) {
             </article>
         `
           )
-          .join('')}
+          .join("")}
           <h3>☕ Flere ledige stillinger</h3>
           ${nonPremiumAdsList
             .map(
@@ -94,7 +91,7 @@ function drawAsideMarkup(premiumAdsList, nonPremiumAdsList) {
               <article id="article_${ad.id}" class="preview regular job-aside-preview" itemscope itemprop="itemListElement" itemType="http://schema.org/ListItem" data-id="${ad.id}">
                   <a itemprop="url" href="//www.kode24.no/${ad.published_url}">
                       <figure id="${ad.id}">
-                          <img src="https://dbstatic.no${ad.company.imageUrl}" loading="lazy" />
+                          <img src="https://dbstatic.no${ad.company.imageUrl}" alt="company name ${ad.company.name}" loading="lazy" />
                       </figure>
                       <div class="article-preview-text">
                           <div class="labels"><span class="label">${ad.company.name}</span></div>
@@ -104,6 +101,6 @@ function drawAsideMarkup(premiumAdsList, nonPremiumAdsList) {
               </article>
           `
             )
-            .join('')}
+            .join("")}
     `;
 }
