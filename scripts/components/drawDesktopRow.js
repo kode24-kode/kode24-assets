@@ -4,9 +4,9 @@
  * returns a container for ads to replace
  * @param {*} selector
  */
-import { shuffleArray } from '../functions/shuffleArray';
+import { shuffleArray } from "../functions/shuffleArray";
 export const initDesktopRowLoading = (numberOfElements = 0) => {
-  let element = document.createElement('div');
+  let element = document.createElement("div");
   element.innerHTML = ``;
   return element;
 };
@@ -21,7 +21,7 @@ export const initDesktopRow = (
   { latestArticles, frontpage, listing, content, events, partners }
 ) => {
   let iterator = 1;
-  let newMarkup = '';
+  let newMarkup = "";
 
   // shuffle content ads before presentation
   shuffleArray(content);
@@ -37,8 +37,7 @@ export const initDesktopRow = (
     if (latestArticles.length >= 3) {
       newMarkup += drawDesktopRow({
         articles: latestArticles.splice(0, 3),
-        layout:
-          iterator === 1 ? 'main-story-with-two-vertical' : undefined,
+        layout: iterator === 1 ? "main-story-with-two-vertical" : undefined,
         showDate: true,
       });
     } else if (latestArticles.length > 0) {
@@ -57,31 +56,31 @@ export const initDesktopRow = (
       if (content.length > 0) {
         if (content.length > 3) {
           newMarkup += drawDesktopRow({
-            title: 'Fra våre annonsører',
+            title: "Fra våre annonsører",
             articles: content.splice(0, 3),
-            style: 'commercial',
+            style: "commercial",
           });
         } else {
           newMarkup += drawDesktopRow({
-            title: 'Fra våre annonsører',
+            title: "Fra våre annonsører",
             articles: content.splice(0),
-            style: 'commercial',
+            style: "commercial",
           });
         }
       } else if (premiumAds.length > 0) {
         if (premiumAds.length > 3) {
           newMarkup += drawDesktopRow({
-            title: 'Ledige stillinger',
+            title: "Ledige stillinger",
             articles: premiumAds.splice(0, 3),
-            style: 'commercial',
-            lenke: '/jobb',
+            style: "commercial",
+            lenke: "/jobb",
           });
         } else {
           newMarkup += drawDesktopRow({
-            title: 'Ledige stillinger',
+            title: "Ledige stillinger",
             articles: premiumAds.splice(0),
-            style: 'commercial',
-            lenke: '/jobb',
+            style: "commercial",
+            lenke: "/jobb",
           });
         }
       }
@@ -92,23 +91,24 @@ export const initDesktopRow = (
   desktopRowNode.innerHTML = `<div id="desktop-row-list">${newMarkup}</div>`;
 };
 
-function getRandomView(articlesLength) {
+function getRandomView(articlesLength = 0) {
   const views = {
-    1: ['single'],
-    2: ['dual'],
-    3: ['main-story-with-two-vertical', 'triple'],
-    4: ['main-story-with-two-vertical', 'triple'],
+    1: ["single"],
+    2: ["dual"],
+    3: ["main-story-with-two-vertical", "triple"],
+    4: ["main-story-with-two-vertical", "triple"],
     5: [
-      'main-story-with-two-vertical',
-      'triple',
-      'main-story-with-vertical-list',
+      "main-story-with-two-vertical",
+      "triple",
+      "main-story-with-vertical-list",
     ],
     6: [
-      'main-story-with-two-vertical',
-      'triple',
-      'main-story-with-vertical-list',
+      "main-story-with-two-vertical",
+      "triple",
+      "main-story-with-vertical-list",
     ],
   };
+  if (!articlesLength) return "";
   return views[articlesLength][
     Math.floor(Math.random() * views[articlesLength].length)
   ];
@@ -122,17 +122,17 @@ function drawDesktopRow(articlesData) {
         ${
           articlesData.title
             ? `<h2 class="heading-title">${articlesData.title}</h2>`
-            : ''
+            : ""
         }
         ${
           articlesData.description
             ? `<p class="heading-description">${articlesData.description}</p>`
-            : ''
+            : ""
         }
         ${
           articlesData.lenke
             ? `<a href="https://www.kode24.no${articlesData.lenke}" target="_blank" class="button">Se alle</a>`
-            : ''
+            : ""
         }
       </div>
       <div class="${
@@ -142,11 +142,11 @@ function drawDesktopRow(articlesData) {
       }">
       ${articlesData.articles
         .map((article, index) =>
-          articlesData.style === 'commercial'
+          articlesData.style === "commercial"
             ? drawDesktopAd(article)
             : drawDesktopArticle(article, true, articlesData.showDate)
         )
-        .join('')}
+        .join("")}
       </div>
     </div>
   `;
@@ -160,7 +160,8 @@ const figureComponent = (article) => {
             class=""
             itemprop="image"
             alt="image: ${article.title}"
-            src="${`https://www.kode24.no/images/${article.image}.jpg?imageId=${article.image}&width=1000&compression=80`}"
+            src="${`https://www.kode24.no/images/${article.image}.jpg${article.frontCropUrl}`}"
+            
           />
         </figure>
   `;
@@ -194,11 +195,11 @@ const socialComponent = (article) => {
               ${
                 article.reactions.reactions_count
                   ? article.reactions.reactions_count
-                  : ''
+                  : ""
               }
             </a>
           </div>`
-              : ''
+              : ""
           }
           ${
             article.reactions.comments_count > 0
@@ -209,18 +210,18 @@ const socialComponent = (article) => {
               ${
                 article.reactions.comments_count
                   ? article.reactions.comments_count
-                  : ''
+                  : ""
               }
             </a>
           </div>`
-              : ''
+              : ""
           }
 
 
 
         </div>
         `
-            : ''
+            : ""
         }
       </div>
   `;
@@ -255,7 +256,7 @@ const drawDesktopArticle = (article, socialToggle, timeToggle) => {
               class=""
               itemprop="image"
               alt="image: ${article.title}"
-              src="${`https://www.kode24.no/images/${article.image}.jpg?imageId=${article.image}&width=1000&compression=80`}"
+              src="${`https://www.kode24.no/images/${article.image}.jpg${article.frontCropUrl}&width=650`}"
             />
           </figure>
         </a>
@@ -269,16 +270,16 @@ const drawDesktopArticle = (article, socialToggle, timeToggle) => {
               ? `
             <time class="published" datetime="${article.published}">${
                   articleIsToday
-                    ? `I dag, ${new Intl.DateTimeFormat('no-NB', {
-                        timeStyle: 'short',
-                        timeZone: 'Europe/Oslo',
+                    ? `I dag, ${new Intl.DateTimeFormat("no-NB", {
+                        timeStyle: "short",
+                        timeZone: "Europe/Oslo",
                       }).format(new Date(article.published))}`
                     : `
-            ${new Intl.DateTimeFormat('no-NB', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric',
-              timeZone: 'Europe/Oslo',
+            ${new Intl.DateTimeFormat("no-NB", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              timeZone: "Europe/Oslo",
             }).format(new Date(article.published))}`
                 }
             </time>
@@ -292,9 +293,9 @@ const drawDesktopArticle = (article, socialToggle, timeToggle) => {
               </span>
             </h1>
           </a>
-          ${socialToggle ? socialComponent(article) : ''}
+          ${socialToggle ? socialComponent(article) : ""}
         </div>
-        ${!socialToggle ? socialComponent(article) : ''}
+        ${!socialToggle ? socialComponent(article) : ""}
       </div>
 
     </article>

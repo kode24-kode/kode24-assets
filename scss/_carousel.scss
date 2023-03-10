@@ -10,65 +10,18 @@
   background-color: var(--v2-preview-list-background);
   border: 1px solid var(--v2-card-border-background);
   border-radius: var(--gutter);
+  overflow: hidden;
   &:hover {
     background-color: var(--v2-preview-list-background);
   }
-  &.job-list {
-    h3 {
-      background-image: linear-gradient(
-        45deg,
-        var(--v2-label-color-pink),
-        var(--v2-label-color-orange)
-      );
 
-    }
-    .preview .button {
-      background-image: linear-gradient(
-      45deg,
-      var(--v2-label-color-pink),
-      var(--v2-label-color-orange)
-      );
-      color: v(v2-card-always-black);
-      font-weight: bold;
-    }
-  }
-  &.calendar-list {
-    h3 {
-      background-image: linear-gradient(
-        45deg,
-        var(--v2-label-color-pink),
-        var(--v2-label-color-purple)
-      );
-
-    }
-    .preview .button {
-      background-image: linear-gradient(
-      45deg,
-      var(--v2-label-color-purple),
-      var(--v2-label-color-pink)
-      );
-      color: v(v2-card-always-black);
-      font-weight: bold;
-    }
-
-  }
   h3 {
     padding: 0.6rem;
     margin: 0;
     text-align: center;
-    color: var(--v2-card-headline-color);
+    color: var(--v2-card-paragraph-color);
     font-weight: normal;
-    font-size: 1rem;
-    &.highlight {
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      padding-bottom: 0;
-    }
-  }
-
-  .listing {
-
+    font-size: calc(var(--gutter) / 1.5);
   }
   .listing-actions {
     padding: 1.25rem;
@@ -181,7 +134,7 @@
         margin-bottom: 0;
         padding-right: 0.6rem;
         @media screen and (max-width: 1023px) {
-          font-size: 1rem;
+          font-size: calc(var(--gutter) / 1.5);
         }
       }
       .standfirst {
@@ -213,7 +166,7 @@
       width: 100%;
   }
   h1 {
-    font-size: 1rem;
+    font-size: calc(var(--gutter) / 1.5);
   }
   .listing-actions {
     padding: calc(1.25rem/2);
@@ -229,7 +182,7 @@
     font-weight: bold;
   }
   a {
-    padding: 1rem;
+    padding: calc(var(--gutter) / 1.5);
   }
 }
 
@@ -305,7 +258,7 @@
     flex: 1 1 100%;
     .button {
       width: 100%;
-      padding: 1rem;
+      padding: calc(var(--gutter) / 1.5);
       border-radius: 5px;
     }
   }

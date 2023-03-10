@@ -1,3 +1,22 @@
+#tip-us-call-to-action {
+  padding: calc(var(--gutter) / 1.5);
+  background-color: var(--v2-card-background);
+  .title {
+    color: var(--v2-card-headline-color);
+    text-align: center;
+  }
+  .description {
+    color: var(--v2-card-paragraph-color);
+    text-align: center;
+  }
+  margin-bottom: calc(var(--gutter) * 2);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--v2-card-border-background);
+  a {
+    color: var(--v2-label-color-pink-lighter);
+  }
+}
+
 #left-menu {
   display: block;
   position: fixed;
@@ -10,45 +29,44 @@
   padding: 0 0 0 0;
   width: 100%;
   display: none;
+  padding: var(--gutter);
   &.active {
     display: block;
   }
-  @media screen and (min-width: 830px) {
-      height: auto;
-      position: relative;
-      left: auto;
-      top: auto;
-      overflow: visible;
-      display: block;
-      padding: var(--gutter) 0 0 0;
-  }
+
   h3 {
     color: v(v2-card-paragraph-color);
-    margin-bottom: 0.6rem;
-    font-size: 0.8rem;
+    margin-bottom: var(--gutter);
+    font-size: 1rem;
     font-family: v(fontRegular);
     font-weight: normal;
   }
-  nav {
-    margin-bottom: 1.25rem;
+  #left-menu-nav-content,
+  #left-menu-nav-social,
+  .navigation {
+    margin-bottom: calc(var(--gutter) * 2);
     border-bottom: 1px solid v(v2-card-background-level-2);
   }
-  .icon {
-    margin-right: 0.6rem;
-  }
+
+  
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: var(--gutter);
+    flex-wrap: wrap;
     li {
       @media screen and (max-width: 1023px) {
         display: inline-block;
       }
       a {
-        padding: 0.4rem 0;
+        padding: calc(var(--gutter) / 2);
         font-size: 1rem;
         display: flex;
-        gap: 0.6rem;
+        gap: calc(var(--gutter) / 2);
+        background-color: var(--v2-card-background);
+        border-radius: var(--border-radius);
         img {
           width: 25px;
         }
@@ -69,6 +87,15 @@
         }
       }
     }
+  }
+  @media screen and (min-width: 830px) {
+    height: auto;
+    position: relative;
+    left: auto;
+    top: auto;
+    overflow: visible;
+    display: block;
+    padding: var(--gutter) 0 0 0;
   }
 }
 

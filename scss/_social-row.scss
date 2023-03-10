@@ -57,9 +57,12 @@
     display: flex;
     gap: calc(var(--gutter) / 2);
     align-items: center;
-    background-color: var(--v2-card-background-highlight);
+    background-color: var(--v2-card-background);
     padding: calc(var(--gutter) / 3);
     border-radius: var(--border-radius);
+    &:hover {
+      background-color: var(--v2-card-background-highlight);
+    }
   }
 
 

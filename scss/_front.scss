@@ -20,7 +20,7 @@ h2 {
   padding: 0;
   margin: 0 auto 0 auto;
   padding: 7rem 0 0.6rem 0;
-  grid-template-columns: 100% 100% 0;
+  grid-template-columns: 0 100% 0;
   #desktop-sidemenu-front {
     display: none;
   }
@@ -28,7 +28,7 @@ h2 {
   #main-content,
   .article-entity {
       grid-row: 1;
-      grid-column: 2;
+      grid-column: span 3;
   }
   @media screen and (min-width: 830px) {
     &.with-ribbon {
@@ -38,12 +38,22 @@ h2 {
     grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
     gap: calc(var(--gutter) * 2);
 
+    #main-content,
+    .article-entity {
+      grid-row: 1;
+      grid-column: 2;
+    } 
   }
   @media screen and (min-width: 1200px) {
-    grid-template-columns: minmax(160px, 160px) minmax(0, 986px) 310px;
+    grid-template-columns: minmax(160px, 260px) minmax(722px, 986px) 310px;
     #desktop-sidemenu-front {
         display: block;
       }
+    #main-content,
+    .article-entity {
+      grid-row: 1;
+      grid-column: 2;
+    } 
   }
   img {
     width: 100%;

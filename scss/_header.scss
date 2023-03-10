@@ -11,14 +11,15 @@
   border-bottom: 1px var(--v2-card-border-background);
 
   @media screen and (min-width: 830px) {
-    display: grid;
-    padding: calc(var(--gutter) / 4) max(var(--gutter), 50vw - 860px);
-    grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
+    display: flex;
+    justify-content: space-between;
     gap: calc(var(--gutter) * 2);
 
   }
   @media screen and (min-width: 1200px) {
-    grid-template-columns: minmax(160px, 160px) minmax(0, 986px) 310px;
+    display: grid;
+    grid-template-columns: minmax(160px, 260px) minmax(0, 986px) 310px;
+    padding: 0 max(var(--gutter), 50vw - 860px);
   }
 }
 .light #top-bar {

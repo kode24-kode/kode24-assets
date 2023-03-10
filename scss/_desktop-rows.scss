@@ -13,6 +13,7 @@
     margin-bottom: var(--gutter);
     padding: 0;
     padding-right: 70px;
+    font-size: 1.2rem;
   }
 
 
@@ -71,6 +72,9 @@
     }
     article:first-child {
       grid-column: span 2;
+      .headline {
+        font-size: 1.4rem;
+      }
     }
     article:not(:first-child) {
       .headline {
@@ -181,19 +185,20 @@
 
       }
       &:not(:first-child) {
-        .article-content-wrapper {
+        >.article-content-wrapper {
           display: flex;
           flex-direction: row-reverse;
+          gap: calc(var(--gutter) / 2);
         }
         grid-column: span 3;
-        a {
-          flex-direction: row-reverse;
-        }
+        
         figure {
-          width: calc(var(--image-height) / 1);
+          width: calc(var(--image-height) / 1.5);
+
         }
         .headline {
           font-size: 1.1rem;
+          font-weight: normal;
         }
       }
     }

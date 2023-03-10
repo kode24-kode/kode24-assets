@@ -47,25 +47,14 @@
   top: 63px;
   left: 0;
   width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding: calc(var(--gutter) / 2) max(var(--gutter), 50vw - 860px);
-  gap: calc(var(--gutter) / 2);
-  @media screen and (max-width: 800px) {
-    overflow: scroll;
-    white-space: nowrap;
-    justify-content: flex-start;
-    padding: var(--gutter);
-    li {
-      width: max-content;
-    }
-  }
+
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    gap: calc(var(--gutter) * 2);
+    gap: calc(var(--gutter));
     li {
       position: relative;
     }
@@ -89,6 +78,51 @@
   }
   border-bottom: 1px solid;
   border-color: var(--v2-card-border-background);
+
+  overflow-y: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+  justify-content: flex-start;
+  padding: calc(var(--gutter) / 2);
+  gap: calc(var(--gutter));
+  li {
+    width: max-content;
+  }
+  ul {
+    gap: calc(var(--gutter) / 2);
+  }  
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: var(--v2-card-background);
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--v2-card-background-highlight);
+  }
+
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--v2-card-background-highlight);
+  }
+
+
+  @media screen and (max-width: 1199px) and (min-width: 801px) {
+    padding: calc(var(--gutter));
+    gap: calc(var(--gutter) * 2);
+
+
+  }
+  @media screen and (min-width: 1200px) {
+    align-items: center;
+    justify-content: center;
+    padding: calc(var(--gutter) / 2) max(var(--gutter), 50vw - 860px);
+    gap: calc(var(--gutter) * 2);
+    overflow: hidden;
+  }
 }
 
 #front-articles-list {
