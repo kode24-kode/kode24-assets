@@ -19,7 +19,7 @@
   @media screen and (min-width: 1200px) {
     display: grid;
     grid-template-columns: minmax(160px, 260px) minmax(0, 986px) 310px;
-    padding: 0 max(var(--gutter), 50vw - 860px);
+    padding: calc(var(--gutter) / 4) max(var(--gutter), 50vw - 860px);
   }
 }
 .light #top-bar {

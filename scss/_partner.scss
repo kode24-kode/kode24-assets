@@ -109,19 +109,24 @@
     background: var(--v2-card-background-highlight);
   }
 
-
   @media screen and (max-width: 1199px) and (min-width: 801px) {
     padding: calc(var(--gutter));
     gap: calc(var(--gutter) * 2);
-
+    ul {
+      gap: var(--gutter);
+    }  
 
   }
   @media screen and (min-width: 1200px) {
     align-items: center;
     justify-content: center;
-    padding: calc(var(--gutter) / 2) max(var(--gutter), 50vw - 860px);
     gap: calc(var(--gutter) * 2);
-    overflow: hidden;
+    &::-webkit-scrollbar {
+      height: 1px;
+    }
+    ul {
+      gap: var(--gutter);
+    }
   }
 }
 
