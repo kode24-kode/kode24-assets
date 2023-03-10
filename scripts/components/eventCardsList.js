@@ -76,7 +76,7 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
 let getEventsCardMarkup = (events) => {
   return `
   <article class="preview preview-list calendar-list">
-    <h3 class="highlight">Bransjekalender</h3>
+    <h2 class="highlight">Bransjekalender</h2>
     <div class="listing">
     ${
       events.premiumEvents.length

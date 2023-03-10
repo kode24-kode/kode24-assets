@@ -174,7 +174,7 @@ const socialComponent = (article) => {
           <div class="byline-profile-image">
             <img src="https://www.kode24.no/images${
               article.byline.imageUrl
-            }" loading="lazy">
+            }" loading="lazy" alt="byline name ${article.byline.name}">
           </div>
           <div class="byline-info">
             <div class="byline-name">${article.byline.name}</div>
@@ -310,7 +310,7 @@ const drawDesktopAd = (content) => {
     itemscope
     itemprop="itemListElement"
     itemtype="https://schema.org/ListItem"
-    role="content"
+    role="article"
     data-id="${content.id}"
     data-label=""
     >
@@ -347,7 +347,7 @@ const drawDesktopAd = (content) => {
               <div class="byline-profile-image">
                 <img src="https://www.kode24.no/images${
                   content.company.imageUrl
-                }" loading="lazy">
+                }" loading="lazy" alt="company name ${content.company.name}">
               </div>
               <div class="byline-info">
                 <div class="byline-name">${content.company.name}</div>

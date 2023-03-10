@@ -6,14 +6,19 @@ export function initInlineSearch() {
   searchForm.id = "search-component";
   let searchInput = document.createElement("input");
   searchInput.setAttribute("placeholder", "Søk etter..");
-  searchInput.type = "text";
+  searchInput.type = "search";
   let searchButton = document.createElement("button");
+  searchButton.setAttribute("aria-label", "search button");
+  searchButton.setAttribute("title", "search button");
+  searchButton.id = "search-button";
   searchButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>`;
 
   searchForm.append(searchInput);
   searchForm.append(searchButton);
 
-  document.getElementById("nav-top").append(searchForm);
+  let navTop = document.getElementById("nav-top");
+
+  navTop ? navTop.append(searchForm) : null;
 
   window.inputTimeout = false;
   searchInput.addEventListener("input", (e) =>
@@ -55,8 +60,11 @@ function handleInlineSearchEvent(e) {
   e.preventDefault();
   e.stopPropagation();
   clearTimeout(window.inputTimeout);
-  if (e.target.value)
+  if (e.target.value) {
     window.inputTimeout = setTimeout(() => initSearch(e.target.value), 500);
+    return;
+  }
+  removeSearchResults();
 }
 
 function removeSearchResults() {
@@ -161,7 +169,7 @@ function drawSearchItems(items, searchBox) {
                   <img class="" itemprop="image" alt="" src="https://www.kode24.no/images/${
                     item.image
                   }.jpg?width=400" loading="lazy">
-                  
+
                   </figure>
                   <div class="article-preview-text">
                     <h1 class="headline ">
