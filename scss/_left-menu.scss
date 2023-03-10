@@ -56,6 +56,11 @@
     display: flex;
     gap: var(--gutter);
     flex-wrap: wrap;
+    @media screen and (min-width: 800px) {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
     li {
       @media screen and (max-width: 1023px) {
         display: inline-block;
@@ -63,10 +68,12 @@
       a {
         padding: calc(var(--gutter) / 2);
         font-size: 1rem;
-        display: flex;
+        display: inline-flex;
         gap: calc(var(--gutter) / 2);
         background-color: var(--v2-card-background);
         border-radius: var(--border-radius);
+        flex: 0 0;
+        
         img {
           width: 25px;
         }
