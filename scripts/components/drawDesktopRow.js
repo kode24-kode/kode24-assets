@@ -143,8 +143,8 @@ function drawDesktopRow(articlesData) {
       ${articlesData.articles
         .map((article, index) =>
           articlesData.style === "commercial"
-            ? drawDesktopAd(article)
-            : drawDesktopArticle(article, true, articlesData.showDate)
+            ? drawDesktopAd(article, index)
+            : drawDesktopArticle(article, true, articlesData.showDate, index)
         )
         .join("")}
       </div>
@@ -227,8 +227,10 @@ const socialComponent = (article) => {
   `;
 };
 
-const drawDesktopArticle = (article, socialToggle, timeToggle) => {
+const drawDesktopArticle = (article, socialToggle, timeToggle, index) => {
   // check if article is today
+  let isMainArticle = index === 0 ? true : false;
+  let imageWidth = isMainArticle ? "900" : "400";
   let articleIsToday =
     new Date(article.published).setHours(0, 0, 0, 0) ==
     new Date().setHours(0, 0, 0, 0)
@@ -256,7 +258,7 @@ const drawDesktopArticle = (article, socialToggle, timeToggle) => {
               class=""
               itemprop="image"
               alt="image: ${article.title}"
-              src="${`https://www.kode24.no/images/${article.image}.jpg${article.frontCropUrl}&width=650`}"
+              src="${`https://www.kode24.no/images/${article.image}.jpg${article.frontCropUrl}&width=${imageWidth}`}"
             />
           </figure>
         </a>
@@ -302,7 +304,9 @@ const drawDesktopArticle = (article, socialToggle, timeToggle) => {
   `;
 };
 
-const drawDesktopAd = (content) => {
+const drawDesktopAd = (content, index) => {
+  let isMainArticle = index === 0 ? true : false;
+  let imageWidth = isMainArticle ? "900" : "400";
   return `
     <article
     id="article_${content.id}"
@@ -324,7 +328,7 @@ const drawDesktopAd = (content) => {
               class=""
               itemprop="image"
               alt="image: ${content.title}"
-              src="${`https://www.kode24.no/images/${content.image}.jpg?imageId=${content.image}&width=1000&compression=80`}"
+              src="${`https://www.kode24.no/images/${content.image}.jpg?imageId=${content.image}&width=${imageWidth}&compression=80`}"
             />
           </figure>
         </a>
