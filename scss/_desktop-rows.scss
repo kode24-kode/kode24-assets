@@ -60,7 +60,7 @@
     }
   }
 
-  .triple,
+
   .main-story-with-two-vertical,
   .main-story-with-vertical-list,
   .main-story-with-two-vertical-extra-triple {
@@ -86,7 +86,8 @@
     }
   }
 
-  .dual {
+  .dual,
+  .dual-extra-dual {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--gutter);
@@ -209,7 +210,8 @@
 
   }
 
-  .dual {
+  .dual,
+  .dual-extra-dual {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(auto-fill, 1fr);
@@ -225,6 +227,14 @@
     figure {
         max-height: calc(var(--image-height)* 1.5);
 
+    }
+  }
+
+  .dual-extra-dual {
+    article {
+      &:nth-child(1n + 5) {
+        display: none;
+      }
     }
   }
 

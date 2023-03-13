@@ -63,6 +63,25 @@ export const initDesktopRow = (
       layout: "main-story-with-two-vertical",
       showDate: true,
     });
+    // start drawing commercial content
+    if (content.length > 0) {
+      secondRowMarkup += drawDesktopRow({
+        title: "Fra våre annonsører",
+        articles: content.splice(0, 3),
+        style: "commercial",
+      });
+    } else if (premiumAds.length > 0) {
+      secondRowMarkup += drawDesktopRow({
+        title: "Ledige stillinger",
+        articles: premiumAds.splice(0, 3),
+        style: "commercial",
+        lenke: "/jobb",
+      });
+    }
+    if (frontpage.length > 0) {
+      let frontPageRow = frontpage.splice(0, 1)[0];
+      secondRowMarkup += drawDesktopRow(frontPageRow);
+    }
     contentBelowFirstBanner.innerHTML = secondRowMarkup;
   }
 
