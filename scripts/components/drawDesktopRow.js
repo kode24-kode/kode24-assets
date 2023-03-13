@@ -63,26 +63,6 @@ export const initDesktopRow = (
       layout: "main-story-with-two-vertical",
       showDate: true,
     });
-    if (frontpage.length > 0) {
-      let frontPageRow = frontpage.splice(0, 1)[0];
-      frontPageRow.layout = undefined;
-      secondRowMarkup += drawDesktopRow(frontPageRow);
-    }
-    // start drawing commercial content
-    if (content.length > 0) {
-      secondRowMarkup += drawDesktopRow({
-        title: "Fra våre annonsører",
-        articles: content.splice(0, 3),
-        style: "commercial",
-      });
-    } else if (premiumAds.length > 0) {
-      secondRowMarkup += drawDesktopRow({
-        title: "Ledige stillinger",
-        articles: premiumAds.splice(0, 3),
-        style: "commercial",
-        lenke: "/jobb",
-      });
-    }
     contentBelowFirstBanner.innerHTML = secondRowMarkup;
   }
 
@@ -105,7 +85,6 @@ export const initDesktopRow = (
             } else {
               if (iterator > 2 && frontpage.length > 0) {
                 let frontPageRow = frontpage.splice(0, 1)[0];
-                frontPageRow.layout = undefined;
                 thirdRowMarkup += drawDesktopRow(frontPageRow);
               }
               // start drawing commercial content
@@ -265,7 +244,7 @@ const socialComponent = (article) => {
 const drawDesktopArticle = (article, socialToggle, timeToggle, index) => {
   // check if article is today
   let isMainArticle = index === 0 ? true : false;
-  let imageWidth = isMainArticle ? "900" : "400";
+  let imageWidth = isMainArticle ? "960" : "400";
   let articleIsToday =
     new Date(article.published).setHours(0, 0, 0, 0) ==
     new Date().setHours(0, 0, 0, 0)
@@ -293,7 +272,9 @@ const drawDesktopArticle = (article, socialToggle, timeToggle, index) => {
               class=""
               itemprop="image"
               alt="image: ${article.title}"
-              src="${`https://www.kode24.no/images/${article.image}.jpg${article.frontCropUrl}&width=${imageWidth}`}"
+              src="${`https://www.kode24.no/images/${article.image}.jpg${
+                article.frontCropUrl
+              }&width=${imageWidth}&height=${isMainArticle ? "600" : "250"}`}"
             />
           </figure>
         </a>

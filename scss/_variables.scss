@@ -107,7 +107,7 @@
   --v2-background-always-dark: hsl(var(--v2-main-color), 12%, 12%);
   --v2-background-faded: hsl(230, 15%, 30%), 80%;
 
-  --v2-card-background: hsl(var(--v2-main-color), 14%, 12%);
+  --v2-card-background: hsl(var(--v2-main-color), 14%, 15%);
   --v2-card-border-background: hsl(var(--v2-main-color), 14%, 20%);
   --v2-card-background-hover: hsl(var(--v2-main-color), 14%, 20%);
   --v2-card-background-highlight: hsl(var(--v2-main-color), 30%, 18%);
@@ -173,7 +173,7 @@
   --v2-background-faded: hsla(0, 0%, 94%, 80%);
   --v2-background: hsl(214, 100%, 97%);
   --v2-background-always-dark: hsl(210, 4%, 10%);
-  --v2-card-background: hsla(0, 0%, 100%, 0.60);
+  --v2-card-background: hsla(0, 0%, 100%, 1);
   --v2-card-background-hover: hsl(0, 0%, 100%);
   --v2-card-border-background: hsla(244, 14%, 20%, 0.10);
   --v2-card-background-highlight: hsl(0, 0%, 100%);
@@ -185,7 +185,7 @@
 
   --v2-card-label-background: hsla(0, 0%, 100%, 0.60);
 
-  --v2-preview-list-background: hsla(0, 0%, 100%, 0.40);
+  --v2-preview-list-background: hsla(0, 0%, 100%, 0.70);
 
   // variables used by google ads
   --color-adWrapperTitleColor: hsl(210, 3%, 14%);

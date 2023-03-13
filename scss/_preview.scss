@@ -3,6 +3,16 @@
   position: relative;
   display: block;
   width: 100%;
+  &:hover {
+    img {
+      filter: brightness(1.1);
+      transform: scale(1.01);
+    }
+    .headline {
+      text-decoration: underline;
+      text-decoration-color: var( --v2-label-color-pink);
+    }
+  }
   @media screen and (max-width: 830px) {
     margin-bottom: var(--gutter);
     border-radius: 0;
@@ -79,6 +89,7 @@
     img {
       display: block;
       width: 100%;
+      transition: all 0.25s ease-in-out;
       &.lazyload {
         width: auto;
         height: auto;

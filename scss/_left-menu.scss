@@ -2,12 +2,15 @@
   padding: calc(var(--gutter) / 1.5);
   background-color: var(--v2-card-background);
   .title {
-    color: var(--v2-card-headline-color);
-    text-align: center;
     font-size: 1rem;
+    text-align: center;
+    color: var(--v2-card-paragraph-color);
+    padding: 0 var(--gutter) 0var(--gutter);
+    margin: 0;
+    font-family: var(--fontMono);
   }
   .description {
-    color: var(--v2-card-paragraph-color);
+    color: var(--v2-card-headline-color);
     text-align: center;
   }
   margin-bottom: calc(var(--gutter) * 2);
@@ -36,12 +39,15 @@
   }
 
   h3 {
-    color: v(v2-card-paragraph-color);
-    margin-bottom: var(--gutter);
     font-size: 1rem;
-    font-family: v(fontRegular);
-    font-weight: normal;
+    text-align: center;
+    color: var(--v2-card-paragraph-color);
+    padding: 0 var(--gutter) var(--gutter) var(--gutter);
+    margin: 0;
+    font-family: var(--fontMono);
+    padding-top: var(--gutter);
   }
+
   #left-menu-nav-content,
   #left-menu-nav-social,
   .navigation {
@@ -60,6 +66,7 @@
     @media screen and (min-width: 800px) {
       flex-wrap: nowrap;
       flex-direction: column;
+      gap: 0;
       justify-content: flex-start;
     }
     li {
@@ -71,8 +78,7 @@
         font-size: 1rem;
         display: inline-flex;
         gap: calc(var(--gutter) / 2);
-        background-color: var(--v2-card-background);
-        border-radius: var(--border-radius);
+        color: var(--v2-card-headline-color);
         flex: 0 0;
         
         img {
