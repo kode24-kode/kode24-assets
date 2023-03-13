@@ -16,6 +16,9 @@
     background-color: transparent !important;
     color: v(v2-card-headline-color) !important;
   }
+  @media only screen and (min-width: 830px) {
+    margin-bottom: calc(var(--gutter) * 4);
+  }
 }
 .adunit-wrapper {
   display: flex;
@@ -29,7 +32,7 @@
   display: inline-block;
 }
 .adunit.large-980x300 {
-  @media only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 830px) {
     height: calc(300px + 26px);
   }
 }

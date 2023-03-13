@@ -23,6 +23,9 @@ export const initDesktopRow = (
   let iterator = 1;
   let newMarkup = "";
 
+  // is set when third row is drawn. We try to draw it after page loads
+  let toggledThirdRow = false;
+
   // shuffle content ads before presentation
   shuffleArray(content);
 
@@ -31,82 +34,116 @@ export const initDesktopRow = (
   let premiumAds = shuffleArray(
     listing.listings.filter((listing) => lists.includes(listing.id))
   );
-  // The main loop for drawing articles
-  while (latestArticles.length > 0 && iterator < 50) {
-    // we can draw a full row
-    if (latestArticles.length >= 3) {
-      newMarkup += drawDesktopRow({
+
+  let contentAboveFirstBanner = document.getElementById(
+    "articles-above-first-banner"
+  );
+  let contentBelowFirstBanner = document.getElementById(
+    "articles-below-first-banner"
+  );
+  let contentBelowSecondBanner = document.getElementById(
+    "articles-below-second-banner"
+  );
+
+  // Start by adding first row
+  if (contentAboveFirstBanner) {
+    contentAboveFirstBanner.innerHTML = `
+      ${drawDesktopRow({
         articles: latestArticles.splice(0, 3),
-        layout: iterator === 1 ? "main-story-with-two-vertical" : undefined,
+        layout: "main-story-with-two-vertical",
         showDate: true,
-      });
-    } else if (latestArticles.length > 0) {
-      newMarkup += drawDesktopRow({
-        articles: latestArticles.splice(0),
-        showDate: true,
-      });
-    }
-    if (iterator >= 2 && frontpage.length > 0) {
+      })}
+    `;
+  }
+
+  if (contentBelowFirstBanner) {
+    let secondRowMarkup = ``;
+    secondRowMarkup += drawDesktopRow({
+      articles: latestArticles.splice(0, 3),
+      layout: "main-story-with-two-vertical",
+      showDate: true,
+    });
+    if (frontpage.length > 0) {
       let frontPageRow = frontpage.splice(0, 1)[0];
       frontPageRow.layout = undefined;
-      newMarkup += drawDesktopRow(frontPageRow);
+      secondRowMarkup += drawDesktopRow(frontPageRow);
     }
-    if (iterator % 2 === 0) {
-      // start drawing commercial content
-      if (content.length > 0) {
-        if (content.length > 3) {
-          newMarkup += drawDesktopRow({
-            title: "Fra våre annonsører",
-            articles: content.splice(0, 3),
-            style: "commercial",
-          });
-        } else {
-          newMarkup += drawDesktopRow({
-            title: "Fra våre annonsører",
-            articles: content.splice(0),
-            style: "commercial",
-          });
-        }
-      } else if (premiumAds.length > 0) {
-        if (premiumAds.length > 3) {
-          newMarkup += drawDesktopRow({
-            title: "Ledige stillinger",
-            articles: premiumAds.splice(0, 3),
-            style: "commercial",
-            lenke: "/jobb",
-          });
-        } else {
-          newMarkup += drawDesktopRow({
-            title: "Ledige stillinger",
-            articles: premiumAds.splice(0),
-            style: "commercial",
-            lenke: "/jobb",
-          });
+    // start drawing commercial content
+    if (content.length > 0) {
+      secondRowMarkup += drawDesktopRow({
+        title: "Fra våre annonsører",
+        articles: content.splice(0, 3),
+        style: "commercial",
+      });
+    } else if (premiumAds.length > 0) {
+      secondRowMarkup += drawDesktopRow({
+        title: "Ledige stillinger",
+        articles: premiumAds.splice(0, 3),
+        style: "commercial",
+        lenke: "/jobb",
+      });
+    }
+    contentBelowFirstBanner.innerHTML = secondRowMarkup;
+  }
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 2000) {
+      if (!toggledThirdRow) {
+        toggledThirdRow = true;
+        if (contentBelowSecondBanner) {
+          let thirdRowMarkup = ``;
+
+          // The main loop for drawing articles
+          while (latestArticles.length > 0 && iterator < 50) {
+            if (iterator % 2 !== 0) {
+              thirdRowMarkup += drawDesktopRow({
+                articles: latestArticles.splice(0, 3),
+                layout:
+                  iterator === 1 ? "main-story-with-two-vertical" : undefined,
+                showDate: true,
+              });
+            } else {
+              if (iterator > 2 && frontpage.length > 0) {
+                let frontPageRow = frontpage.splice(0, 1)[0];
+                frontPageRow.layout = undefined;
+                thirdRowMarkup += drawDesktopRow(frontPageRow);
+                console.log("drawing front page rows", iterator);
+              }
+              // start drawing commercial content
+              if (content.length > 0) {
+                thirdRowMarkup += drawDesktopRow({
+                  title: "Fra våre annonsører",
+                  articles: content.splice(0, 3),
+                  style: "commercial",
+                });
+              } else if (premiumAds.length > 0) {
+                thirdRowMarkup += drawDesktopRow({
+                  title: "Ledige stillinger",
+                  articles: premiumAds.splice(0, 3),
+                  style: "commercial",
+                  lenke: "/jobb",
+                });
+              }
+            }
+            iterator++;
+          }
+          console.log("third row markup", thirdRowMarkup);
+
+          contentBelowSecondBanner.innerHTML = thirdRowMarkup;
         }
       }
     }
-    iterator++;
-  }
-
-  desktopRowNode.innerHTML = `<div id="desktop-row-list">${newMarkup}</div>`;
+  });
 };
 
 function getRandomView(articlesLength = 0) {
   const views = {
     1: ["single"],
     2: ["dual"],
-    3: ["main-story-with-two-vertical", "triple"],
-    4: ["main-story-with-two-vertical", "triple"],
-    5: [
-      "main-story-with-two-vertical",
-      "triple",
-      "main-story-with-vertical-list",
-    ],
-    6: [
-      "main-story-with-two-vertical",
-      "triple",
-      "main-story-with-vertical-list",
-    ],
+    3: ["main-story-with-two-vertical"],
+    4: ["main-story-with-two-vertical"],
+    5: ["main-story-with-two-vertical", "main-story-with-vertical-list"],
+    6: ["main-story-with-two-vertical", "main-story-with-vertical-list"],
   };
   if (!articlesLength) return "";
   return views[articlesLength][
