@@ -107,7 +107,6 @@ export const initDesktopRow = (
                 let frontPageRow = frontpage.splice(0, 1)[0];
                 frontPageRow.layout = undefined;
                 thirdRowMarkup += drawDesktopRow(frontPageRow);
-                console.log("drawing front page rows", iterator);
               }
               // start drawing commercial content
               if (content.length > 0) {
@@ -127,7 +126,6 @@ export const initDesktopRow = (
             }
             iterator++;
           }
-          console.log("third row markup", thirdRowMarkup);
 
           contentBelowSecondBanner.innerHTML = thirdRowMarkup;
         }
