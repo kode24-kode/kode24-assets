@@ -29,6 +29,8 @@
 
 
 
+
+
   .preview {
     width: 100%;
     position: relative;
@@ -36,6 +38,14 @@
     background-color: transparent;
     border-radius: 0;
     border: 0;
+    &:hover {
+      text-decoration:  none;
+      text-decoration-color: transparent;
+      .headline {
+        text-decoration: none;
+        text-decoration-color: transparent;
+      }
+    }
     a {
       padding: 0;
     }
@@ -144,7 +154,18 @@
   }
 }
 
+#desktop-sidemenu-front {
+  .preview:hover .headline {
+    text-decoration: none;
+    text-decoration-color: transparent;
+  }
+}
+
 #desktop-sidemenu-front .preview-list {
+.preview:hover .headline {
+    text-decoration: none;
+    text-decoration-color: transparent;
+  }
   padding: 0;
   .call-to-action {
     display: none
@@ -175,7 +196,7 @@
   .preview figure {
     flex: 0 0 50px;
   }
-  
+
   h3 {
     text-align: center;
     padding: 1.2rem 0.6rem 0.6rem 0.6rem;
@@ -185,5 +206,9 @@
   }
   a {
     padding: calc(var(--gutter) / 1.5);
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }

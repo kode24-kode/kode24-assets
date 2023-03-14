@@ -16,7 +16,11 @@
     var(--v2-label-color-pink),
     var(--v2-label-color-orange)
   );
-
+  .article-preview-text .label {
+    color: var(--v2-card-paragraph-color);
+    border: 0;
+    font-family: var(--fontMono)
+  }
   @media screen and (max-width: 830px) {
     width: calc(100% - 2.5rem);
     margin: 1.25rem 1.25rem 1.25rem 1.25rem;

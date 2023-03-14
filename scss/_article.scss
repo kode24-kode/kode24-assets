@@ -251,8 +251,8 @@
     cursor: pointer;
     background-image: linear-gradient(
       90deg,
-      v(v2-pink-gradient-start),
-      v(v2-pink-gradient-stop)
+      var(--v2-label-color-pink),
+      var(--v2-label-color-purple),
     );
     background-position: 0px 22px;
     background-repeat: repeat-x;
@@ -347,7 +347,7 @@
       line-height: 1.6;
       text-rendering: optimizeLegibility;
       margin: 0;
-      margin-bottom: calc(#{v(gutter)} * 2);
+      margin-bottom: calc(var(--gutter));
     }
     @media screen and (min-width: $vp-tablet) {
       flex: 0 0 670px;
@@ -484,6 +484,9 @@
       .standfirst {
         display: none;
       }
+    }
+    time {
+      display: none;
     }
     @media screen and (min-width: $vp-desktop) {
       margin-left: 0;

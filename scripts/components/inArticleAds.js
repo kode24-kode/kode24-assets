@@ -51,9 +51,7 @@ function getMarkupForNativeAd(ad) {
             <a itemprop="url" href="https://www.kode24.no${
               ad.published_url
             }">
-                <figure id="${
-                  ad.image
-                }" style="width: 980px; padding-bottom: 53.861386138613994%;">
+                <figure id="${ad.image}" style="">
                     <img class="" itemprop="image" alt="logo" src="//www.kode24.no/images/${
                       ad.section === 'annonse'
                         ? `${ad.image}.jpg?width=400`

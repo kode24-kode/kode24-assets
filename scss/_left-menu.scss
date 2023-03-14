@@ -39,13 +39,7 @@
   }
 
   h3 {
-    font-size: 1rem;
-    text-align: center;
-    color: var(--v2-card-paragraph-color);
-    padding: 0 var(--gutter) var(--gutter) var(--gutter);
-    margin: 0;
-    font-family: var(--fontMono);
-    padding-top: var(--gutter);
+    display: none;
   }
 
   #left-menu-nav-content,
@@ -54,7 +48,7 @@
     margin-bottom: calc(var(--gutter) * 2);
   }
 
-  
+
   ul {
     list-style: none;
     padding: 0;
@@ -79,7 +73,7 @@
         gap: calc(var(--gutter) / 2);
         color: var(--v2-card-headline-color);
         flex: 0 0;
-        
+
         img {
           width: 25px;
         }

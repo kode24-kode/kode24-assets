@@ -9,7 +9,7 @@
   }
 
   &.has-section-title {
-    margin-top: calc(#{v(gutter)} * 2);
+    margin-top: calc(var(--gutter) * 2);
   }
 
   .section-title {
@@ -17,8 +17,8 @@
     font-family: v(fontMono);
     margin: 0;
     font-weight: 500;
-    padding: calc(#{v(gutter)} * 4) calc(#{v(gutter)} * 2)
-      calc(#{v(gutter)} * 2) calc(#{v(gutter)} * 2);
+    padding: calc(var(--gutter)) calc(var(--gutter))
+      calc(var(--gutter)) calc(var(--gutter));
     &.center {
       text-align: center;
     }
@@ -27,6 +27,6 @@
     }
   }
   .copy {
-    padding: calc(#{v(gutter)} * 2) calc(#{v(gutter)} * 2);
+    padding: calc(var(--gutter)) calc(var(--gutter));
   }
 }
