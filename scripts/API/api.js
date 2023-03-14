@@ -7,7 +7,9 @@ import { getAPIHost } from './getAPIHost';
  */
 async function getDataFromUrl(url) {
   try {
-    const result = await fetch(getAPIHost() + url);
+    const result = await fetch(
+      getAPIHost() + url + '?safaricanbiteme=' + Math.random()
+    );
     return await result.json();
   } catch (error) {
     console.error(error);
