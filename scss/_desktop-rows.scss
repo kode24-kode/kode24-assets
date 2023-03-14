@@ -193,7 +193,7 @@
           gap: calc(var(--gutter) / 2);
         }
         grid-column: span 3;
-        
+
         figure {
           width: calc(var(--image-height) / 1.5);
 
@@ -415,6 +415,7 @@
 
 
 #front-articles-list {
+  margin-top: 11px;
   .single {
       article {
         &:nth-child(1n + 2) {

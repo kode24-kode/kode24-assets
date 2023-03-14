@@ -31,7 +31,12 @@
 }
 
 .article-entity {
+  max-width: 100%;
   color: v(v2-card-paragraph-color);
+  margin-top: calc(var(--gutter) * 1.5);
+  @media screen and (min-width: 830px) {
+    margin-top: 0;
+  }
   > div {
     &.row {
       @media screen and (min-width: $vp-tablet) {
@@ -46,9 +51,8 @@
   }
 
   header.row {
-    margin: 0 -0.6rem 2.5rem -0.6rem !important;
-    padding: 0 1.25rem;
-    width: calc(100% + 1.2rem);
+    padding: 0 var(--gutter);
+    width: 100%;
     @media screen and (min-width: $vp-tablet) {
       width: 100%;
       margin: 0 0 0 0 !important;
@@ -82,10 +86,11 @@
 
     .standfirst {
       color: v(v2-card-paragraph-color);
-      line-height: 1.6;
+
       margin-bottom: 1.25rem;
-      font-size: 0.9rem;
+      font-size: 1.1rem;
       @media screen and (min-width: $vp-tablet) {
+        line-height: 1.6;
         margin-bottom: 0;
         font-size: 1.2rem;
       }
@@ -105,7 +110,17 @@
       }
     }
     figure {
-      margin: 0 -1.25rem 0 -1.25rem;
+      margin-left: calc(var(--gutter) *-1);
+      margin-right: calc(var(--gutter) *-1);
+      position: relative;
+      background-color: v(v2-card-background);
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 1.9rem;
+        margin-left: 0;
+        margin-right: 0;
+        border-radius: 10px;
+        overflow: hidden;
+      }
       @media screen and (min-width: $vp-desktop) {
         margin: 0;
         border-radius: 10px;
@@ -273,8 +288,8 @@
     > figure,
     .large-6 figure,
     .large-12 figure {
-      margin-left: -1.25rem;
-      margin-right: -1.25rem;
+      margin-left: calc(var(--gutter) / 2 *-1);
+      margin-right: calc(var(--gutter) / 2 *-1);
       margin-top: 2.5rem;
       margin-bottom: 2.5rem;
       position: relative;
@@ -405,8 +420,8 @@
       font-family: "IBM Plex Mono", monospace;
       background: linear-gradient(
         45deg,
-        v(v2-pink-gradient-start),
-        v(v2-pink-gradient-stop)
+        var(--v2-label-color-pink),
+        var(--v2-label-color-purple)
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -469,13 +484,10 @@
   .body-copy .preview {
     background: v(v2-card-background);
     transition: all 0.1s ease-in-out;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
     margin-top: 2.5em;
     margin-bottom: 2.5em;
     display: block;
     border-radius: 0;
-    width: calc(100% + 2.5rem);
     padding: 1.25rem;
     a {
       padding: 0;
