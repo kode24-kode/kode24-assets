@@ -1,41 +1,41 @@
-import "../scss/main.scss";
-import { initInlineSearch } from "./components/inlineSearch";
-import { convertTagFeedURL } from "./functions/convertTagFeedURL";
-import { upScaleImages } from "./functions/upScaleImages";
-import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick";
-import { convertLazyLoadImages } from "./functions/convertLazyLoadImages";
-import { handleLightSwitchToggle } from "./functions/handleLightSwitchToggle";
-import { handleImageExpansionClick } from "./functions/handleImageExpansionClick";
-import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu";
-import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu";
-import { initPreviewListLoading } from "./components/previewListLoading";
+import '../scss/main.scss';
+import { initInlineSearch } from './components/inlineSearch';
+import { convertTagFeedURL } from './functions/convertTagFeedURL';
+import { upScaleImages } from './functions/upScaleImages';
+import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick';
+import { convertLazyLoadImages } from './functions/convertLazyLoadImages';
+import { handleLightSwitchToggle } from './functions/handleLightSwitchToggle';
+import { handleImageExpansionClick } from './functions/handleImageExpansionClick';
+import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu';
+import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu';
+import { initPreviewListLoading } from './components/previewListLoading';
 import {
   initJobAdsComponentLoading,
   initJobAdsComponent,
-} from "./components/JobAdsComponent";
+} from './components/JobAdsComponent';
 import {
   initSponsors,
   initSponsorsLoading,
-} from "./components/sponsorListingInLeftMenu";
-import { initEventCardsList } from "./components/eventCardsList";
-import { getFrontPageDataFromApi } from "./API/api";
-import { isPagePartner } from "./functions/isPagePartner";
-import { setPartnerPageConfig } from "./functions/setPartnerPageConfig";
+} from './components/sponsorListingInLeftMenu';
+import { initEventCardsList } from './components/eventCardsList';
+import { getFrontPageDataFromApi } from './API/api';
+import { isPagePartner } from './functions/isPagePartner';
+import { setPartnerPageConfig } from './functions/setPartnerPageConfig';
 import {
   initDiamondPartners,
   initDiamondPartnersLoading,
-} from "./components/diamondPartners";
-import { shuffleArray } from "./functions/shuffleArray";
-import { limitArray } from "./functions/limitArray";
+} from './components/diamondPartners';
+import { shuffleArray } from './functions/shuffleArray';
+import { limitArray } from './functions/limitArray';
 import {
   initPodcastPlayer,
   initPodcastPlayerLoading,
-} from "./components/PodcastPlayer";
+} from './components/PodcastPlayer';
 
 import {
   initDesktopRowLoading,
   initDesktopRow,
-} from "./components/drawDesktopRow";
+} from './components/drawDesktopRow';
 
 /**
  * Runs all the code that all pages have in common
@@ -50,14 +50,15 @@ export async function initCommon() {
   const sponsorsNode = initSponsorsLoading();
   const JobAdsComponentLongNode = initJobAdsComponentLoading(10);
   document
-    .querySelector("#desktop-sidemenu-front")
+    .querySelector('#desktop-sidemenu-front')
     ?.append(
       JobAdsComponentNode,
       eventCardsListNode,
       podcastPlayerNode,
-      JobAdsComponentLongNode,
-      sponsorsNode
+      JobAdsComponentLongNode
     );
+
+  document.querySelector('#left-menu')?.append(sponsorsNode);
 
   const partnerPage = isPagePartner();
   if (partnerPage) setPartnerPageConfig();
@@ -81,13 +82,17 @@ export async function initCommon() {
   // fetch data for job listings
   const { listings, premiumIds } = frontPageData.listing;
   // filter list of premium ads
-  const premiumAds = listings.filter((ad) => premiumIds.includes(ad.id));
+  const premiumAds = listings.filter((ad) =>
+    premiumIds.includes(ad.id)
+  );
   // filter list of non-premium ads
-  const nonPremiumAds = listings.filter((ad) => !premiumIds.includes(ad.id));
+  const nonPremiumAds = listings.filter(
+    (ad) => !premiumIds.includes(ad.id)
+  );
 
   // draw company partners
   initDiamondPartners(diamondPartnersNode);
-  document.querySelector("#top-bar")?.after(diamondPartnersNode);
+  document.querySelector('#top-bar')?.after(diamondPartnersNode);
 
   // fetch content ads
   const contentAds = frontPageData.content;
@@ -101,23 +106,23 @@ export async function initCommon() {
   initJobAdsComponent(
     limitArray(shuffleArray([...premiumAds, ...nonPremiumAds])),
     JobAdsComponentLongNode,
-    "replace",
-    "Ledige stillinger"
+    'replace',
+    'Ledige stillinger'
   );
 
   // init sidebar component for premium ads
   initJobAdsComponent(
     limitArray(shuffleArray(premiumAds), 5),
     JobAdsComponentNode,
-    "replace",
-    "Utvalgte stillinger"
+    'replace',
+    'Utvalgte stillinger'
   );
 
   // init sidebar component for calendar events shown right column
-  initEventCardsList(eventData, eventCardsListNode, "");
+  initEventCardsList(eventData, eventCardsListNode, '');
 
   initPodcastPlayer(podcastPlayerNode);
-  //initSponsors(sponsors, '#company-sponsors-list');
+  initSponsors(sponsors, sponsorsNode);
 
   // add number of active events to counter in top menu
   addNumberToEventCounterInTopMenu(eventData.upcomingEvents.length);
@@ -125,7 +130,7 @@ export async function initCommon() {
   addNumberToJobCounterInTopMenu(listings.length);
 
   const desktopRowNode = initDesktopRowLoading();
-  document.getElementById("desktop-rows")?.append(desktopRowNode);
+  document.getElementById('desktop-rows')?.append(desktopRowNode);
   initDesktopRow(desktopRowNode, frontPageData);
 
   return {

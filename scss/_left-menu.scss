@@ -111,6 +111,7 @@
 
 
 #company-sponsors-list {
+  max-width: 170px;
   img {
     display: block;
     padding: 4px;
@@ -122,14 +123,15 @@
     &.preview {
       display: block;
       background-color: transparent;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0;
       @media screen and (max-width: 1023px) {
         width: calc(50% - 10px);
         display: inline-block;
       }
       a {
-        padding: 0.6rem;
+        padding: 0;
         display: block;
+        gap: 0;
         img {
           width: 100%;
           margin-right: 0;
@@ -139,10 +141,12 @@
   }
   .gold {
     &.preview {
-      margin-bottom: 0.6rem;
+      margin-bottom: 0;
       background-color: transparent;
       a {
-        padding: 0.6rem;
+        padding: 0;
+        gap: 0;
+        margin-bottom: calc(var(--gutter) / 2)
       }
     }
     a {
