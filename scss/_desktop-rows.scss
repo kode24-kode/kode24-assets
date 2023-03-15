@@ -66,19 +66,19 @@
   .main-story-with-two-vertical-extra-triple {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--gutter);
+    gap: calc(var(--gutter) * 2) var(--gutter);
     article {
       grid-column: span 1;
     }
     article:first-child {
       grid-column: span 2;
       .headline {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
       }
     }
     article:not(:first-child) {
       .headline {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
       }
     }
     article:nth-child(1n + 6) {
