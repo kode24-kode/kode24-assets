@@ -9,7 +9,7 @@
 
 .content-marketing-ribbon {
   margin-top: 2rem;
-  padding: 0.8rem;
+  padding: var(--gutter);
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -18,6 +18,7 @@
   padding-left: 0.8rem;
   padding-right: 0.8rem;
   margin-bottom: 0.8rem;
+  background-color: rgba(0,0,0,0.8);
   z-index: 200;
   background-color: var(--v2-background-faded);
   backdrop-filter: blur(10px);
@@ -30,7 +31,7 @@
     font-weight: bold;
   }
   position: fixed;
-  top: 21px;
+  top: 30px;
   left: 0;
   width: 100%;
   @media screen and (max-width: 1023px) {

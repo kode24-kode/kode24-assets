@@ -60,6 +60,9 @@
     li {
       position: relative;
     }
+    a {
+      position: relative;
+    }
     img {
       max-height: 30px;
       opacity: 0.6;
@@ -82,11 +85,15 @@
   border-color: var(--v2-card-border-background);
 
   overflow-y: hidden;
-  overflow-x: scroll;
+  overflow-x:  scroll;
   white-space: nowrap;
   justify-content: flex-start;
   padding: calc(var(--gutter) / 2);
   gap: calc(var(--gutter));
+  @media screen and (min-width: 1200px){
+    overflow-y: visible;
+      overflow-x: visible;
+  }
   li {
     width: max-content;
   }

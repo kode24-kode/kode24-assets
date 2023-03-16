@@ -48,6 +48,9 @@ export async function initCommon() {
   const podcastPlayerNode = initPodcastPlayerLoading();
   const eventCardsListNode = initPreviewListLoading(4);
   const sponsorsNode = initSponsorsLoading();
+  const articlesAboveFirstBanner = initDesktopRowLoading();
+  const articlesBelowFirstBanner = initDesktopRowLoading();
+  const articlesBelowSecondBanner = initDesktopRowLoading();
   const JobAdsComponentLongNode = initJobAdsComponentLoading(10);
   document
     .querySelector('#desktop-sidemenu-front')
@@ -59,6 +62,16 @@ export async function initCommon() {
     );
 
   document.querySelector('#left-menu')?.append(sponsorsNode);
+
+  document
+    .getElementById('articles-above-first-banner')
+    ?.append(articlesAboveFirstBanner);
+  document
+    .getElementById('articles-below-first-banner')
+    ?.append(articlesBelowFirstBanner);
+  document
+    .getElementById('articles-below-second-banner')
+    ?.append(articlesBelowSecondBanner);
 
   const partnerPage = isPagePartner();
   if (partnerPage) setPartnerPageConfig();
@@ -131,7 +144,13 @@ export async function initCommon() {
 
   const desktopRowNode = initDesktopRowLoading();
   document.getElementById('desktop-rows')?.append(desktopRowNode);
-  initDesktopRow(desktopRowNode, frontPageData);
+
+  initDesktopRow(
+    frontPageData,
+    articlesAboveFirstBanner,
+    articlesBelowFirstBanner,
+    articlesBelowSecondBanner
+  );
 
   return {
     listings,
