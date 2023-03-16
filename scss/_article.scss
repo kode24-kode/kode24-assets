@@ -62,12 +62,13 @@
     h1.headline {
       line-height: 1.1;
       padding: 0;
-      margin: 1.25rem 0 0.6rem 0;
+      margin: var(--gutter) 0 var(--gutter) 0;
       color: v(v2-card-headline-color);
       margin-bottom: 0.8rem;
       font-family: v(fontMono);
       font-weight: 500;
-      font-size: 1.6rem !important;
+      font-size: 2rem !important;
+      text-wrap: balance;
       @media screen and (min-width: $vp-tablet) {
         font-size: 2rem !important;
 

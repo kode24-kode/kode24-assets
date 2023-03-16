@@ -142,9 +142,6 @@ export async function initCommon() {
   // update job listings count in top menu
   addNumberToJobCounterInTopMenu(listings.length);
 
-  const desktopRowNode = initDesktopRowLoading();
-  document.getElementById('desktop-rows')?.append(desktopRowNode);
-
   initDesktopRow(
     frontPageData,
     articlesAboveFirstBanner,
