@@ -19,8 +19,8 @@
     top: calc(100% + var(--gutter) / 2);
     box-shadow: 0 0 10px 0 var(--v2-background);
     left: 50%;
-    transform: translateX(calc(-130px / 2));
-    width: 130px;
+    transform: translateX(-50%);
+    width: auto;
     font-size: 0.8rem;
     color: var(--v2-card-headline-color);
     background-color: var(--v2-card-background);
