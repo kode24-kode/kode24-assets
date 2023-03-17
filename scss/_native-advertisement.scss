@@ -22,8 +22,7 @@
     font-family: var(--fontMono)
   }
   @media screen and (max-width: 830px) {
-    width: calc(100% - 2.5rem);
-    margin: 1.25rem 1.25rem 1.25rem 1.25rem;
+    width: 100%;
     border-radius: var(--border-radius);
   }
 

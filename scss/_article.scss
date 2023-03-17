@@ -399,6 +399,7 @@
     font-size: 1.4rem;
     margin-bottom: 0.6rem;
     margin-top: 2.5rem;
+    padding: 0;
     font-family: v(fontMono);
     font-weight: 500;
     a {
@@ -475,6 +476,7 @@
     background-color: v(v2-card-background);
     border-radius: 10px;
     padding: 1.25rem;
+    display: block;
     @media screen and (max-width: 1023px) {
       margin: 0 -1.25rem 0 -1.25rem;
       border-radius: 0;
@@ -492,6 +494,7 @@
     padding: 1.25rem;
     a {
       padding: 0;
+      gap: var(--gutter);
     }
     &:not(.native-advertisement) {
       .standfirst {
@@ -512,17 +515,18 @@
       align-items: center;
     }
 
-    img {
+    img,
+    figure {
       border-radius: 10px;
       max-width: 150px;
+      flex: 0 0 150px;
       @media screen and (min-width: $vp-desktop) {
-
+        flex: 0 0 245px;
         max-width: 245px;
       }
     }
     .headline {
       font-size: 1rem;
-      padding-left: 1.25rem;
       @media screen and (min-width: $vp-desktop) {
         margin-left: 1.25rem;
         font-size: 1.4rem;
