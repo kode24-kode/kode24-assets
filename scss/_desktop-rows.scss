@@ -473,6 +473,8 @@
     background-color: var(--v2-card-background);
     border-radius: var(--border-radius);
   }
+  max-width: 100%;
+  overflow: hidden;
   .dummy-article {
     &:first-child {
       .dummy-image {
