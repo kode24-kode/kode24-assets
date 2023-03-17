@@ -137,14 +137,13 @@ export async function initCommon() {
   addNumberToEventCounterInTopMenu(eventData.upcomingEvents.length);
   // update job listings count in top menu
   addNumberToJobCounterInTopMenu(listings.length);
-  /**
   initDesktopRow(
     frontPageData,
     articlesAboveFirstBanner,
     articlesBelowFirstBanner,
     articlesBelowSecondBanner
   );
- */
+
   return {
     listings,
     premiumAds,
