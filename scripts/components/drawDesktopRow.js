@@ -4,9 +4,11 @@
  * returns a container for ads to replace
  * @param {*} selector
  */
-import { shuffleArray } from '../functions/shuffleArray';
+import { shuffleArray } from "../functions/shuffleArray";
+import { initReactionIcon } from "./reactionIcons";
+import { initCommentIcon } from "./commentIcon";
 export const initDesktopRowLoading = (numberOfElements = 0) => {
-  let element = document.createElement('div');
+  let element = document.createElement("div");
   element.innerHTML = `
 
 
@@ -68,7 +70,7 @@ export const initDesktopRow = (
   articlesBelowSecondBanner
 ) => {
   let iterator = 1;
-  let newMarkup = '';
+  let newMarkup = "";
 
   // is set when third row is drawn. We try to draw it after page loads
   let toggledThirdRow = false;
@@ -87,7 +89,7 @@ export const initDesktopRow = (
       ${drawDesktopRow(
         {
           articles: latestArticles.splice(0, 3),
-          layout: 'main-story-with-two-vertical',
+          layout: "main-story-with-two-vertical",
           showDate: true,
         },
         true
@@ -97,22 +99,22 @@ export const initDesktopRow = (
   let secondRowMarkup = ``;
   secondRowMarkup += drawDesktopRow({
     articles: latestArticles.splice(0, 3),
-    layout: 'main-story-with-two-vertical',
+    layout: "main-story-with-two-vertical",
     showDate: true,
   });
   // start drawing commercial content
   if (content.length > 0) {
     secondRowMarkup += drawDesktopRow({
-      title: 'Fra våre annonsører',
+      title: "Fra våre annonsører",
       articles: content.splice(0, 3),
-      style: 'commercial',
+      style: "commercial",
     });
   } else if (premiumAds.length > 0) {
     secondRowMarkup += drawDesktopRow({
-      title: 'Ledige stillinger',
+      title: "Ledige stillinger",
       articles: premiumAds.splice(0, 3),
-      style: 'commercial',
-      lenke: '/jobb',
+      style: "commercial",
+      lenke: "/jobb",
     });
   }
   if (frontpage.length > 0) {
@@ -121,7 +123,7 @@ export const initDesktopRow = (
   }
   articlesBelowFirstBanner.innerHTML = secondRowMarkup;
 
-  window.addEventListener('scroll', () => {
+  window.addEventListener("scroll", () => {
     if (window.scrollY > 2000) {
       if (!toggledThirdRow) {
         toggledThirdRow = true;
@@ -134,9 +136,7 @@ export const initDesktopRow = (
             thirdRowMarkup += drawDesktopRow({
               articles: latestArticles.splice(0, 3),
               layout:
-                iterator === 1
-                  ? 'main-story-with-two-vertical'
-                  : undefined,
+                iterator === 1 ? "main-story-with-two-vertical" : undefined,
               showDate: true,
             });
           } else {
@@ -147,16 +147,16 @@ export const initDesktopRow = (
             // start drawing commercial content
             if (content.length > 0) {
               thirdRowMarkup += drawDesktopRow({
-                title: 'Fra våre annonsører',
+                title: "Fra våre annonsører",
                 articles: content.splice(0, 3),
-                style: 'commercial',
+                style: "commercial",
               });
             } else if (premiumAds.length > 0) {
               thirdRowMarkup += drawDesktopRow({
-                title: 'Ledige stillinger',
+                title: "Ledige stillinger",
                 articles: premiumAds.splice(0, 3),
-                style: 'commercial',
-                lenke: '/jobb',
+                style: "commercial",
+                lenke: "/jobb",
               });
             }
           }
@@ -171,20 +171,14 @@ export const initDesktopRow = (
 
 function getRandomView(articlesLength = 0) {
   const views = {
-    1: ['single'],
-    2: ['dual'],
-    3: ['main-story-with-two-vertical'],
-    4: ['main-story-with-two-vertical'],
-    5: [
-      'main-story-with-two-vertical',
-      'main-story-with-vertical-list',
-    ],
-    6: [
-      'main-story-with-two-vertical',
-      'main-story-with-vertical-list',
-    ],
+    1: ["single"],
+    2: ["dual"],
+    3: ["main-story-with-two-vertical"],
+    4: ["main-story-with-two-vertical"],
+    5: ["main-story-with-two-vertical", "main-story-with-vertical-list"],
+    6: ["main-story-with-two-vertical", "main-story-with-vertical-list"],
   };
-  if (!articlesLength) return '';
+  if (!articlesLength) return "";
   return views[articlesLength][
     Math.floor(Math.random() * views[articlesLength].length)
   ];
@@ -194,23 +188,23 @@ function drawDesktopRow(articlesData, firstRow) {
   if (articlesData)
     return `
     <div class="row desktop-row ${articlesData.style} ${
-      firstRow ? 'first-row' : ''
+      firstRow ? "first-row" : ""
     }">
       <div class="heading">
         ${
           articlesData.title
             ? `<h2 class="heading-title">${articlesData.title}</h2>`
-            : ''
+            : ""
         }
         ${
           articlesData.description
             ? `<p class="heading-description">${articlesData.description}</p>`
-            : ''
+            : ""
         }
         ${
           articlesData.lenke
             ? `<a href="https://www.kode24.no${articlesData.lenke}" target="_blank" class="button">Se alle</a>`
-            : ''
+            : ""
         }
       </div>
       <div class="${
@@ -220,16 +214,11 @@ function drawDesktopRow(articlesData, firstRow) {
       }">
       ${articlesData.articles
         .map((article, index) =>
-          articlesData.style === 'commercial'
+          articlesData.style === "commercial"
             ? drawDesktopAd(article, index)
-            : drawDesktopArticle(
-                article,
-                true,
-                articlesData.showDate,
-                index
-              )
+            : drawDesktopArticle(article, true, articlesData.showDate, index)
         )
-        .join('')}
+        .join("")}
       </div>
     </div>
   `;
@@ -243,9 +232,7 @@ const socialComponent = (article) => {
           <div class="byline-profile-image">
             <img src="https://www.kode24.no/images${
               article.byline.imageUrl
-            }" loading="lazy" alt="byline name ${
-    article.byline.name
-  }">
+            }" loading="lazy" alt="byline name ${article.byline.name}">
           </div>
           <div class="byline-info">
             <div class="byline-name">${article.byline.name}</div>
@@ -256,57 +243,20 @@ const socialComponent = (article) => {
           article.reactions.comments_count > 0
             ? `
         <div class="social-buttons">
-
-          ${
-            article.reactions.reactions_count > 0
-              ? `<div class="article-social-reactions article-social-item">
-            <a href="https://www.kode24.no/${
-              article.id
-            }#hyvor-talk-view" class="reaction-button reaction">
-              ${
-                article.reactions.reactions_count
-                  ? article.reactions.reactions_count
-                  : ''
-              }
-            </a>
-          </div>`
-              : ''
-          }
-          ${
-            article.reactions.comments_count > 0
-              ? `<div class="article-social-comments article-social-item">
-            <a href="https://www.kode24.no/${
-              article.id
-            }#hyvor-talk-view" class="reaction-button comment">
-              ${
-                article.reactions.comments_count
-                  ? article.reactions.comments_count
-                  : ''
-              }
-            </a>
-          </div>`
-              : ''
-          }
-
-
-
+          ${initReactionIcon(article.reactions, article.id)}
+          ${initCommentIcon(article.reactions.comments_count, article.id)}
         </div>
         `
-            : ''
+            : ""
         }
       </div>
   `;
 };
 
-const drawDesktopArticle = (
-  article,
-  socialToggle,
-  timeToggle,
-  index
-) => {
+const drawDesktopArticle = (article, socialToggle, timeToggle, index) => {
   // check if article is today
   let isMainArticle = index === 0 ? true : false;
-  let imageWidth = isMainArticle ? '960' : '400';
+  let imageWidth = isMainArticle ? "960" : "400";
   let articleIsToday =
     new Date(article.published).setHours(0, 0, 0, 0) ==
     new Date().setHours(0, 0, 0, 0)
@@ -335,13 +285,9 @@ const drawDesktopArticle = (
               itemprop="image"
               loading="lazy"
               alt="image: ${article.title}"
-              src="${`https://www.kode24.no/images/${
-                article.image
-              }.jpg${
+              src="${`https://www.kode24.no/images/${article.image}.jpg${
                 article.frontCropUrl
-              }&width=${imageWidth}&height=${
-                isMainArticle ? '600' : '250'
-              }`}"
+              }&width=${imageWidth}&height=${isMainArticle ? "600" : "250"}`}"
             />
           </figure>
         </a>
@@ -355,16 +301,16 @@ const drawDesktopArticle = (
               ? `
             <time class="published" datetime="${article.published}">${
                   articleIsToday
-                    ? `I dag, ${new Intl.DateTimeFormat('no-NB', {
-                        timeStyle: 'short',
-                        timeZone: 'Europe/Oslo',
+                    ? `I dag, ${new Intl.DateTimeFormat("no-NB", {
+                        timeStyle: "short",
+                        timeZone: "Europe/Oslo",
                       }).format(new Date(article.published))}`
                     : `
-            ${new Intl.DateTimeFormat('no-NB', {
-              weekday: 'long',
-              month: 'long',
-              day: 'numeric',
-              timeZone: 'Europe/Oslo',
+            ${new Intl.DateTimeFormat("no-NB", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              timeZone: "Europe/Oslo",
             }).format(new Date(article.published))}`
                 }
             </time>
@@ -378,9 +324,9 @@ const drawDesktopArticle = (
               </span>
             </h1>
           </a>
-          ${socialToggle ? socialComponent(article) : ''}
+          ${socialToggle ? socialComponent(article) : ""}
         </div>
-        ${!socialToggle ? socialComponent(article) : ''}
+        ${!socialToggle ? socialComponent(article) : ""}
       </div>
 
     </article>
@@ -389,7 +335,7 @@ const drawDesktopArticle = (
 
 const drawDesktopAd = (content, index) => {
   let isMainArticle = index === 0 ? true : false;
-  let imageWidth = isMainArticle ? '900' : '400';
+  let imageWidth = isMainArticle ? "900" : "400";
   return `
     <article
     id="article_${content.id}"
@@ -435,9 +381,7 @@ const drawDesktopAd = (content, index) => {
               <div class="byline-profile-image">
                 <img src="https://www.kode24.no/images${
                   content.company.imageUrl
-                }" loading="lazy" alt="company name ${
-    content.company.name
-  }">
+                }" loading="lazy" alt="company name ${content.company.name}">
               </div>
               <div class="byline-info">
                 <div class="byline-name">${content.company.name}</div>
