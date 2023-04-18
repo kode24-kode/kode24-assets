@@ -3,20 +3,27 @@
   padding: 0;
   background-color: var(--v2-preview-list-background);
   border: 1px solid var(--v2-card-border-background);
-  border-radius: var(--gutter);
+  border-radius: var(--border-radius);
   overflow: hidden;
   &:hover {
     background-color: var(--v2-preview-list-background);
   }
 
-  h3 {
-    padding: 0.6rem;
-    margin: 0;
+  .preview-calendar-date {
+    border: 1px solid var(--v2-card-border-background);
     text-align: center;
-    color: var(--v2-card-paragraph-color);
-    font-weight: normal;
-    font-size: calc(var(--gutter) / 1.5);
+    border-radius: var(--border-radius);
+    .preview-calendar-date-day {
+      padding: calc(var(--gutter) / 1.5);
+    }
+    .preview-calendar-date-month {
+      padding: calc(var(--gutter) / 1.5);
+      background-color: var(--v2-card-background);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+    }
   }
+
   .listing-actions {
     padding: 1.25rem;
     display: flex;
@@ -94,13 +101,15 @@
 
     figure {
       flex: 0 0 75px;
+      margin-bottom: 0;
       @media screen and (max-width: 1023px) {
         flex: 0 0 50px;
       }
     }
     a {
       position: relative;
-      align-items: center;
+      align-items: flex-start;
+      gap: calc(var(--gutter) / 1.5);
       @media screen and (max-width: 1023px) {
         padding: 0;
       }
@@ -114,12 +123,10 @@
       }
     }
     .call-to-action-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding-bottom: 0;
-      position: relative;
+      figure {
+        max-height: 100px;
+        margin-bottom: calc(var(--gutter) / 1.5);
+      }
     }
     .article-preview-text {
       position: relative;
@@ -136,7 +143,6 @@
         font-family: v(fontRegular);
         font-size: 1.4rem;
         margin-bottom: 0;
-        padding-right: 0.6rem;
         @media screen and (max-width: 1023px) {
           font-size: calc(var(--gutter) / 1.5);
         }
@@ -180,12 +186,17 @@
       margin: 0;
       width: 100%;
   }
+  .preview-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: calc(var(--gutter) / 1.5);
+  }
   h2 {
-    font-size: 1rem;
-    text-align: center;
+    font-size: 1.1rem;
     color: var(--v2-card-paragraph-color);
-    padding: var(--gutter);
     margin: 0;
+    font-family: var(--fontRegular);
   }
   h1 {
     font-size: calc(var(--gutter) / 1.2);
