@@ -47,7 +47,7 @@
   top: 53px;
   left: 0;
   width: 100%;
-  @media screen and (min-width: 830px) {
+  @media screen and (min-width: 1024px) {
     top: 63px;
   }
 
@@ -90,15 +90,16 @@
   justify-content: flex-start;
   padding: calc(var(--gutter) / 2);
   gap: calc(var(--gutter));
-  @media screen and (min-width: 1200px){
+  @media screen and (min-width: 1800px){
     overflow-y: visible;
       overflow-x: visible;
+      justify-content: center;
   }
   li {
     width: max-content;
   }
   ul {
-    gap: calc(var(--gutter) / 2);
+    gap: calc(var(--gutter));
   }
   &::-webkit-scrollbar {
     height: 10px;
@@ -116,26 +117,6 @@
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
     background: var(--v2-card-background-highlight);
-  }
-
-  @media screen and (max-width: 1199px) and (min-width: 801px) {
-    padding: calc(var(--gutter));
-    gap: calc(var(--gutter) * 2);
-    ul {
-      gap: var(--gutter);
-    }
-
-  }
-  @media screen and (min-width: 1200px) {
-    align-items: center;
-    justify-content: center;
-    gap: calc(var(--gutter) * 2);
-    &::-webkit-scrollbar {
-      height: 1px;
-    }
-    ul {
-      gap: var(--gutter);
-    }
   }
 }
 
