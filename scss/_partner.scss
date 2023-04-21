@@ -105,12 +105,12 @@
     height: 10px;
   }
   /* Track */
-  &::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-thumb {
     background: var(--v2-card-background);
   }
 
   /* Handle */
-  &::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-track {
     background: var(--v2-card-background-highlight);
   }
 

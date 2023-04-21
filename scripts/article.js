@@ -16,6 +16,7 @@ import "highlight.js/styles/github-dark.css";
  * Separate it into functions and call them from here.
  */
 export async function initArticle() {
+  console.log("yoooo");
   hljs.highlightAll();
   // all functions that need to run on every page
   const { premiumAds, contentAds } = await initCommon();
