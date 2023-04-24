@@ -50,7 +50,7 @@
     font-size: 1.6rem;
     position: relative;
     line-height: 1.3;
-    color: v(v2-card-headline-color);
+    color: var(--v2-card-headline-color);
     @media screen and (max-width: 1023px) {
       font-size: 1.1rem;
       margin-bottom: 0.6rem;
@@ -65,7 +65,7 @@
   .standfirst {
     margin: 0;
     margin-bottom: 0.5rem;
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
     position: relative;
     font-family: v(fontRegular);
     font-size: 1.1rem;
@@ -100,41 +100,41 @@
 .frontpage .row:not(.added):nth-child(6n + 0) {
   .label,
   .deck {
-    border: 1px solid v(v2-label-color-pink);
+    border: 1px solid var(--v2-label-color-pink);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 1) {
   .label,
   .deck {
-    border: 1px solid v(v2-label-color-purple);
-    color: v(v2-card-always-white);
+    border: 1px solid var(--v2-label-color-purple);
+    color: var(--v2-card-always-white);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 2) {
   .label,
   .deck {
-    border: 1px solid v(v2-label-color-blue);
-    color: v(v2-card-always-white);
+    border: 1px solid var(--v2-label-color-blue);
+    color: var(--v2-card-always-white);
   }
 }
 
 .frontpage .row:not(.added):nth-child(6n + 3) {
   .label,
   .deck {
-    border: 1px solid v(v2-label-color-teal);
-    color: v(v2-card-always-white);
+    border: 1px solid var(--v2-label-color-teal);
+    color: var(--v2-card-always-white);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 4) {
   .label,
   .deck {
-    border: 1px solid v(v2-card-always-white);
-    color: v(v2-card-always-black);
+    border: 1px solid var(--v2-card-always-white);
+    color: var(--v2-card-always-black);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 5) {
   .label,
   .deck {
-    border: 1px solid v(v2-card-always-black);
+    border: 1px solid var(--v2-card-always-black);
   }
 }

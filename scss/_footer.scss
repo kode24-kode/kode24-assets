@@ -1,10 +1,10 @@
 .main-footer {
   margin-top: 4rem;
-  background: v(v2-card-background);
+  background: var(--v2-card-background);
   a {
-    color: v(v2-card-headline-color);
+    color: var(--v2-card-headline-color);
   }
-  color: v(v2-card-headline-color);
+  color: var(--v2-card-headline-color);
   .row {
     max-width: 1010px;
     display: flex;

@@ -2,7 +2,7 @@
   margin-top: 2.5rem;
   border-radius: 10px;
   padding: 1.25rem;
-  background-color: v(v2-card-background);
+  background-color: var(--v2-card-background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +28,7 @@
     padding: 0.6rem;
     font-size: 1rem;
     border-radius: 20px;
-    background-color: v(v2-card-background-level-2);
+    background-color: var(--v2-card-background-level-2);
     color: v(--v2-card-headline-color);
     outline: none;
     border: 0;
@@ -37,9 +37,9 @@
   }
   .button {
     margin-top: 0.6rem;
-    color: v(v2-card-headline-color);
-    background: v(v2-job-button-background);
-    border: 1px solid v(v2-job-button-outline);
+    color: var(--v2-card-headline-color);
+    background: var(--v2-job-button-background);
+    border: 1px solid var(--v2-job-button-outline);
     width: 100%;
     display: block;
     border-radius: 20px;

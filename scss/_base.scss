@@ -60,7 +60,7 @@ a {
   circle,
   line,
   polyline {
-    stroke: v(v2-card-paragraph-color);
+    stroke: var(--v2-card-paragraph-color);
     stroke-width: 1px;
   }
 

@@ -87,18 +87,18 @@
         }
       }
       &:hover {
-        background-color: v(v2-card-background-sidebar);
+        background-color: var(--v2-card-background-sidebar);
         border-radius: 10px;
         .icon {
           path,
           circle,
           line,
           polyline {
-            stroke: v(v2-card-headline-color);
+            stroke: var(--v2-card-headline-color);
           }
         }
         a {
-          color: v(v2-card-headline-color);
+          color: var(--v2-card-headline-color);
         }
       }
     }
@@ -166,7 +166,7 @@
         margin-right: 0;
       }
       p {
-        color: v(v2-card-paragraph-color);
+        color: var(--v2-card-paragraph-color);
         font-size: 0.7rem;
         font-style: italic;
       }
@@ -175,7 +175,7 @@
   .gold,
   .silver {
     box-shadow: none;
-    border-bottom: 1px solid v(v2-card-background-level-2);
+    border-bottom: 1px solid var(--v2-card-background-level-2);
     border-radius: 0;
 
   }

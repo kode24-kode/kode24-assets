@@ -89,33 +89,33 @@
 
 .frontpage .row:not(.added):nth-child(6n + 0) article.preview .article-social {
   .social-tag {
-    color: v(v2-label-color-teal);
+    color: var(--v2-label-color-teal);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 1) article.preview .article-social {
   .social-tag {
-    color: v(v2-label-color-pink);
+    color: var(--v2-label-color-pink);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 2) article.preview .article-social {
   .social-tag {
-    color: v(v2-label-color-purple);
+    color: var(--v2-label-color-purple);
   }
 }
 
 .frontpage .row:not(.added):nth-child(6n + 3) article.preview .article-social {
   .social-tag {
-    color: v(v2-label-color-blue);
+    color: var(--v2-label-color-blue);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 4) article.preview .article-social {
   .social-tag {
-    color: v(v2-label-color-yellow);
+    color: var(--v2-label-color-yellow);
   }
 }
 .frontpage .row:not(.added):nth-child(6n + 5) article.preview .article-social {
   .social-tag {
-    color: v(v2-label-color-orange);
+    color: var(--v2-label-color-orange);
   }
 }
 

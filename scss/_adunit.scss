@@ -15,7 +15,7 @@
   .settings-alt-2 {
     top: 0 !important;
     background-color: transparent !important;
-    color: v(v2-card-headline-color) !important;
+    color: var(--v2-card-headline-color) !important;
   }
   @media only screen and (min-width: 830px) {
     margin-bottom: calc(var(--gutter) * 4);

@@ -1,10 +1,10 @@
 #lab-modalContainer {
-  color: v(v2-card-always-black);
+  color: var(--v2-card-always-black);
   .section-title {
-    color: v(v2-card-always-black);
+    color: var(--v2-card-always-black);
   }
   label {
-    color: v(v2-card-always-black);
+    color: var(--v2-card-always-black);
   }
 }
 

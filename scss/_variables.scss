@@ -1,31 +1,16 @@
-// standard colors
-/**   Use this function when referencing colors.
-      it is basically just a shorthand.
-
-      usage: v(background-dark) outputs var(--background-dark)
-**/
-@function v($var) {
-  // https://dev.to/meduzen/write-css-variables-faster-in-scss-1mon
-  @return var(--#{$var});
-}
-
-@function vDarken($var) {
-  // https://dev.to/meduzen/write-css-variables-faster-in-scss-1mon
-  @return darken(var(--#{$var}), 40%);
-}
 
 @import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i|IBM+Plex+Sans:400,400i,500,500i");
 
 :root {
   --v2-main-color: 230;
   --v2-background: hsl(var(--v2-main-color), 8%, 8%);
+  --v2-background-highlight: hsl(var(--v2-main-color), 12%, 16%);
   --v2-background-always-dark: hsl(var(--v2-main-color), 12%, 12%);
-  --v2-background-faded: hsl(230, 15%, 30%), 80%;
 
   --v2-card-background: hsl(var(--v2-main-color), 14%, 17%);
   --v2-card-border-background: hsl(var(--v2-main-color), 14%, 20%);
-  --v2-card-background-hover: hsl(var(--v2-main-color), 14%, 20%);
   --v2-card-background-highlight: hsl(var(--v2-main-color), 16%, 11%);
+
   --v2-card-headline-color: hsl(60, 30%, 96%);
   --v2-card-paragraph-color: hsl(var(--v2-main-color), 5%, 65%);
   --v2-card-always-white: hsl(0, 0%, 100%);
@@ -81,13 +66,12 @@
 
 
 
-  --v2-light-background-faded: hsla(0, 0%, 94%, 80%);
-  --v2-light-background: hsl(214, 100%, 97%);
+  --v2-light-background: hsl(216, 20%, 95%);
   --v2-light-background-always-dark: hsl(210, 4%, 10%);
+  --v2-light-background-highlight: hsl(216, 20%, 95%);
   --v2-light-card-background: hsla(0, 0%, 100%, 1);
-  --v2-light-card-background-hover: hsl(0, 0%, 100%);
   --v2-light-card-border-background: hsla(244, 14%, 20%, 0.10);
-  --v2-light-card-background-highlight: hsl(0, 0%, 100%);
+  --v2-light-card-background-highlight: hsl(223, 15%, 91%);
   --v2-light-card-headline-color: hsl(231, 15%, 20%);
   --v2-light-card-paragraph-color: hsl(231, 10%, 42%);
   --v2-light-job-button-background: hsla(327, 81%, 54%, 0.2);
@@ -95,8 +79,6 @@
   --v2-light-card-background-level-2: hsl(0, 0%, 88%);
 
   --v2-light-card-label-background: hsla(0, 0%, 100%, 0.60);
-
-  --v2-light-preview-list-background: hsla(0, 0%, 100%, 0.70);
 
   // variables used by google ads
   --color-light-adWrapperTitleColor: hsl(210, 3%, 14%);
@@ -109,11 +91,9 @@
 
 @media (prefers-color-scheme: light) {
   .light {
-    --v2-background-faded: var(--v2-light-background-faded);
     --v2-background: var(--v2-light-background);
     --v2-background-always-dark: var(--v2-light-background-always-dark);
     --v2-card-background: var(--v2-light-card-background);
-    --v2-card-background-hover: var(--v2-light-card-background-hover);
     --v2-card-border-background: var(--v2-light-card-border-background);
     --v2-card-background-highlight: var(--v2-light-card-background-highlight);
     --v2-card-headline-color: var(--v2-light-card-headline-color);
@@ -133,11 +113,9 @@
 }
 
 .light {
-  --v2-background-faded: var(--v2-light-background-faded);
   --v2-background: var(--v2-light-background);
   --v2-background-always-dark: var(--v2-light-background-always-dark);
   --v2-card-background: var(--v2-light-card-background);
-  --v2-card-background-hover: var(--v2-light-card-background-hover);
   --v2-card-border-background: var(--v2-light-card-border-background);
   --v2-card-background-highlight: var(--v2-light-card-background-highlight);
   --v2-card-headline-color: var(--v2-light-card-headline-color);
