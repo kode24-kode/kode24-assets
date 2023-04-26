@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "buildProd": "vite build --config vite.config.front.js && vite build --config vite.config.article.js"
+    "buildProd": "vite build --config vite.config.front.js && vite build --config vite.config.article.js && vite build --config vite.config.content.js && vite build --config vite.config.jobb.js && vite build --config vite.config.emne.js"
   },
   "devDependencies": {
     "vite": "^3.0.7"
