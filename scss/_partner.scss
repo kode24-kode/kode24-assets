@@ -65,7 +65,9 @@
     }
     img {
       max-height: 40px;
-      opacity: 0.6;
+      @media screen and (min-width: 830px) {
+          opacity: 0.6;
+      }
     }
     a:hover {
       img {

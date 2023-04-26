@@ -62,7 +62,7 @@
     display: block;
     margin: 0;
     margin-bottom: calc(var(--gutter) / 2);
-    font-family: v(fontMono);
+    font-family: var(--fontMono);
     font-weight: 500;
     font-size: 1.6rem;
     position: relative;
