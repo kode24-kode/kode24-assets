@@ -127,7 +127,7 @@
       padding-top: 0;
     }
 
-    &.card, 
+    &.card,
     &.commercial {
       padding: var(--gutter);
     }
@@ -176,7 +176,7 @@
     }
     .main-story-with-vertical-list,
     .main-story-with-vertical-list-extra-triple {
-      
+
 
       .preview {
         &:first-child {
@@ -547,5 +547,23 @@
       height: 25px;
       animation: flashBackground 4s linear infinite;
     }
+  }
+}
+
+.social-component {
+  width: 100%;
+  .newest-comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .comment-container {
+    display: flex;
+  }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
   }
 }

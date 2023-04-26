@@ -61,8 +61,8 @@
   --border-radius : 0.6rem;
 
   // variables used by google ads
-  --color-adWrapperTitleColor: hsl(0, 0%, 100%);
-  --color-adWrapperBackground: hsl(210, 3%, 15%);
+  --color-adWrapperTitleColor: var(--v2-card-paragraph-color);
+  --color-adWrapperBackground: var(--v2-card-background);
 
 
 

@@ -25,6 +25,13 @@
   display: flex;
 }
 
+.show-for-medium-up {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gutter);
+
+}
+
 .adunit.small-320x250,
 .adunit.medium-320x250,
 .adunit.large-320x250 {
