@@ -64,7 +64,7 @@
       position: relative;
     }
     img {
-      max-height: 30px;
+      max-height: 40px;
       opacity: 0.6;
     }
     a:hover {
@@ -80,14 +80,16 @@
     margin: 0;
     color: var(--v2-card-paragraph-color);
     font-size: 0.8rem;
+    padding: calc(var(--gutter) / 2);
+    background-color: var(--v2-card-background);
+    border-radius: var(--border-radius);
   }
-  border-bottom: 1px solid;
-  border-color: var(--v2-card-border-background);
 
   overflow-y: hidden;
-  overflow-x:  scroll;
+  overflow-x:  auto;
   white-space: nowrap;
   justify-content: flex-start;
+  align-items: center;
   padding: calc(var(--gutter) / 2);
   gap: calc(var(--gutter));
   @media screen and (min-width: 1800px){

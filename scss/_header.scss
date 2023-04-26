@@ -91,17 +91,8 @@
     li {
       align-items: center;
       position: relative;
-      img,
-      .site-title {
-        opacity: 0.8;
-        transition: opacity 0.1s ease-in-out;
-      }
       &:hover {
         background-color: var(--v2-card-background-highlight);
-        img,
-        .site-title {
-          opacity: 1;
-        }
       }
       .site-title {
         display: inline-block;
@@ -115,6 +106,7 @@
         padding: 1rem;
         align-items: center;
         color: var(--v2-card-headline-color);
+        cursor: pointer;
         @media screen and (max-width: 1023px) {
           flex-direction: column;
           align-items: center;
@@ -162,7 +154,7 @@
   button {
     border: 0;
     cursor: pointer;
-    background-color: var(--v2-card-always-black);
+    background-color: var(--v2-card-background-highlight);
     padding: 0.4rem;
     border-radius: 10px;
   }

@@ -8,6 +8,7 @@ export function initDiamondPartners(node) {
     <h3>Se karrieremuligheter <br />hos våre partnere</h3>
     <ul>
     ${shuffleArray(partners)
+      .slice(0, 8)
       .map(
         (partner) => `
       <li>

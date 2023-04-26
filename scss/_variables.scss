@@ -8,8 +8,8 @@
   --v2-background-always-dark: hsl(var(--v2-main-color), 12%, 12%);
 
   --v2-card-background: hsl(var(--v2-main-color), 14%, 17%);
-  --v2-card-border-background: hsl(var(--v2-main-color), 14%, 20%);
-  --v2-card-background-highlight: hsl(var(--v2-main-color), 16%, 11%);
+  --v2-card-background-highlight: hsl(var(--v2-main-color), 14%, 24%);
+  --v2-card-border-background: var(--v2-card-background-highlight);
 
   --v2-card-headline-color: hsl(60, 30%, 96%);
   --v2-card-paragraph-color: hsl(var(--v2-main-color), 5%, 65%);
@@ -101,11 +101,11 @@
     --v2-job-button-background: var(--v2-light-job-button-background);
     --v2-job-button-outline: var(--v2-light-job-button-outline);
     --v2-card-background-level-2: var(--v2-light-card-background-level-2);
-  
+
     --v2-card-label-background: var(--v2-light-card-label-background);
-  
+
     --v2-preview-list-background: var(--v2-light-preview-list-background);
-  
+
     // variables used by google ads
     --color-adWrapperTitleColor: var(--color-light-adWrapperTitleColor);
     --color-adWrapperBackground: var(--color-light-adWrapperBackground);

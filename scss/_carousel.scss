@@ -2,7 +2,6 @@
   width: 100%;
   padding: 0;
   background-color: var(--v2-card-background);
-  border: 1px solid var(--v2-card-border-background);
   border-radius: var(--border-radius);
   overflow: hidden;
 
@@ -15,7 +14,7 @@
     }
     .preview-calendar-date-month {
       padding: calc(var(--gutter) / 1.5);
-      background-color: var(--v2-card-background);
+      background-color: var(--v2-card-background-highlight);
       text-transform: uppercase;
       font-size: 0.8rem;
     }

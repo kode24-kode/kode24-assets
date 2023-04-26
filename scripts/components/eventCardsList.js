@@ -115,9 +115,7 @@ let getEventsCardMarkup = (events) => {
             <div class="labels">
               <span class="label">${event.arrangedBy}</span>
             </div>
-            <h1 class="headline"><span class="headline-title-wrapper">${
-              event.name
-            }</span></h1>
+            <h1 class="headline">${event.name}</h1>
             <p class="standfirst">(${
               event.digital ? 'digitalt' : 'Fysisk'
             })</p>
