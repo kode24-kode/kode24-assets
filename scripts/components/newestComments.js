@@ -1,3 +1,5 @@
+import { getTimeAgo } from '../functions/getTimeAgo';
+
 export function initNewestComments(comments) {
   console.log(comments);
   const firstBanner = document.querySelectorAll(
@@ -12,21 +14,37 @@ export function initNewestComments(comments) {
   );
   newestCommentsNode.innerHTML = `
     <div class="heading">
-        <h2 class="heading-title">Nyeste kommentarer</h2>
+        <h2 class="heading-title">💬 Nyeste kommentarer</h2>
       </div>
     <ul class="newest-comments-list">
       ${comments
         .map(
           (comment) => `
         <li class="comment-container">
-          <a href="${comment.url}" class="comment-link">
-            <div class="avatar"><img src="${comment.user.picture}" /></div>
+          <a href="${
+            comment.url
+          }#hyvor-talk-view" class="comment-link">
+            <div class="avatar"><img src="${
+              comment.user.picture
+            }" /></div>
             <div class="comment">
               <div class="comment-description">
-                <span class="comment-author">${comment.user.name}:</span>
-                <span class="comment-text">${comment.bodySnippet}</span>
+                <div class="comment-author">
+                  ${comment.user.name}
+                  <span class="comment-meta">${getTimeAgo(
+                    comment.created_at
+                  )}</span>
+                </div>
+                <div class="comment-text">${comment.bodySnippet.replace(
+                  /(<([^>]+)>)/gi,
+                  ''
+                )}</div>
+                <div class="comment-article">${
+                  comment.articleTitle
+                }</div>
+
               </div>
-              <div class="comment-meta">${comment.created_at}</div>
+
             </div>
           </a>
         </li>

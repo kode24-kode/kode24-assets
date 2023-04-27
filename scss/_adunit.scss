@@ -17,9 +17,6 @@
     background-color: transparent !important;
     color: var(--v2-card-headline-color) !important;
   }
-  @media only screen and (min-width: 830px) {
-    margin-bottom: calc(var(--gutter) * 4);
-  }
 }
 .adunit-wrapper {
   display: flex;

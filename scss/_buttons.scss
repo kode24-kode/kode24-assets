@@ -1,6 +1,7 @@
 .button,
 .job-ad-cta {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   border-radius: var(--border-radius);
   padding: 0.6rem 1.25rem;
   border: 1px solid var(--v2-card-background-highlight);
@@ -10,6 +11,7 @@
   white-space:nowrap;
   text-align: center;
   justify-content: center;
+
   @media screen and (max-width: 1023px) {
     padding: 6px 14px;
     font-size: 0.8rem;

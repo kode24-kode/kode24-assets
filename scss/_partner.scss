@@ -94,10 +94,11 @@
   align-items: center;
   padding: calc(var(--gutter) / 2);
   gap: calc(var(--gutter));
-  @media screen and (min-width: 1800px){
+  @media screen and (min-width: 1400px){
     overflow-y: visible;
       overflow-x: visible;
       justify-content: center;
+
   }
   li {
     width: max-content;

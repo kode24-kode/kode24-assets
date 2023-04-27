@@ -82,7 +82,7 @@ h2 {
 
 .row {
   justify-content: center;
-  margin-bottom: var(--gutter);
+  margin-bottom: calc(var(--gutter) * 2);
 
   iframe {
     width: 100%;
