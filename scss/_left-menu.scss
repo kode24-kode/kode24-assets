@@ -110,21 +110,25 @@
     top: auto;
     overflow: visible;
     display: block;
-    padding: var(--gutter) 0 0 0;
+    padding: 0 0 0 0;
   }
 }
 
 
 
-
+.light #company-sponsors-list {
+  img {
+    filter: grayscale(1) invert(1);
+  }
+}
 
 #company-sponsors-list {
   max-width: 170px;
   img {
     display: block;
     padding: 4px;
-    background-color: var(--v2-background);
     border-radius: 4px;
+    filter: grayscale(1);    
   }
   .silver {
     padding: 0.4rem;

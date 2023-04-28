@@ -85,6 +85,19 @@
     padding: calc(var(--gutter) / 2);
     background-color: var(--v2-card-background);
     border-radius: var(--border-radius);
+    position: relative;
+    &:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--v2-card-background);
+      top: 50%;
+      position: absolute;
+      left: 100%;
+      transform: translateY(-50%);
+    }
   }
 
   overflow-y: hidden;

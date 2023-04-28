@@ -4,16 +4,15 @@
   a {
     color: var(--v2-card-headline-color);
   }
+  
+
   color: var(--v2-card-headline-color);
   .row {
-    max-width: 1010px;
-    display: flex;
-    margin: 0 auto;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    @media screen and (min-width: $vp-desktopWide) {
-      max-width: v(vp-desktopWide);
-    }
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--gutter);
+    padding: calc(var(--gutter) * 4) max(var(--gutter), 50vw - 860px);
   }
   .columns {
     padding: calc(#{v(gutter)} * 4) !important;

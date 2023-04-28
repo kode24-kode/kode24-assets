@@ -10,6 +10,7 @@ export async function initFrontend() {
   // if we have a partner page, we should not show ads
   console.log("yeeeet");
   if (isTopicPage()) {
+    console.log("yo topic");
     document.getElementById("main-content").classList.add("section-list");
     console.log("hello");
   }

@@ -22,7 +22,7 @@
   padding: 10px;
   margin: 0;
   position: relative;
-  background: linear-gradient(45deg, v(kode24-pink), v(kode24-red));
+  background: linear-gradient(45deg, var(--kode24-pink), var(--kode24-red));
   text-transform: uppercase;
   font-size: 20px;
   -webkit-background-clip: text;
@@ -65,7 +65,7 @@
       margin: var(--gutter) 0 var(--gutter) 0;
       color: var(--v2-card-headline-color);
       margin-bottom: 0.8rem;
-      font-family: v(fontMono);
+      font-family: var(--fontMono);
       font-weight: 500;
       font-size: 2rem !important;
       text-wrap: balance;
@@ -228,6 +228,8 @@
     }
     &.columns {
       min-height: 60px;
+      max-width: 670px;
+      margin: 0 auto;
     }
     .bio {
       margin-top: 0.4rem;
@@ -339,7 +341,7 @@
         margin: 0;
         &:before {
           content: "✖";
-          background: v(kode24-purple);
+          background: var(--v2-label-color-purple);
         }
         img {
           display: none;
@@ -382,7 +384,7 @@
     margin: 0;
     margin-left: 1.1rem;
     line-height: 1.6;
-    margin-bottom: calc(#{v(gutter)} * 2);
+    margin-bottom: calc(#{var(--gutter)} * 2);
     list-style-position: outside;
     font-family: inherit;
     font-size: 1rem;
@@ -400,7 +402,7 @@
     margin-bottom: 0.6rem;
     margin-top: 2.5rem;
     padding: 0;
-    font-family: v(fontMono);
+    font-family: var(--fontMono);
     font-weight: 500;
     a {
       background-position: 0 40px;

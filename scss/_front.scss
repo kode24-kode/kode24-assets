@@ -31,7 +31,7 @@ h2 {
       grid-column: span 3;
   }
   @media screen and (min-width: 830px) {
-    padding: calc(var(--gutter) * 8) max(var(--gutter), 50vw - 860px);
+    padding: calc(var(--gutter) * 10) max(var(--gutter), 50vw - 860px);
     grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
     gap: calc(var(--gutter) * 2);
 

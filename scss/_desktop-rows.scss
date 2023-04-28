@@ -4,6 +4,7 @@
 .desktop-row .heading {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: calc(var(--gutter) / 2);
   .button {
   }
@@ -123,6 +124,9 @@
     border-radius: var(--border-radius);
     &.first-row {
       padding-top: 0;
+      .heading {
+        display: none;
+      }
     }
 
     &.card,
@@ -221,10 +225,17 @@
           grid-column: span 3;
           background-color: var(--v2-card-background-highlight);
           padding: var(--gutter) var(--gutter) 0 var(--gutter);
-          margin-bottom: calc(var(--gutter) * -1);
+          margin-bottom: 0;
           >.article-content-wrapper {
             display: flex;
             gap: calc(var(--gutter) / 2);
+          }
+
+          .reaction-icon {
+            background-color: var(--v2-card-background-highlight);
+            &:nth-child(1n + 4) {
+              display: none;
+            }
           }
 
           figure {
