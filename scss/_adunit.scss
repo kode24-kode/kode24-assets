@@ -26,7 +26,10 @@
   display: flex;
   justify-content: space-between;
   gap: var(--gutter);
-
+  flex-direction: column;
+  @media only screen and (min-width: 830px) {
+      flex-direction: row;
+    }
 }
 
 .adunit.small-320x250,
