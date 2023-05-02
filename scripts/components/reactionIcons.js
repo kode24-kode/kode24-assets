@@ -6,6 +6,7 @@ export function initReactionIcon(reactions, articleId) {
             <a href="https://www.kode24.no/${articleId}#hyvor-talk-view" class="reaction-button reaction">
                 <span class="reaction-icons-summary" aria-hidden="true">${reactionsMapped
                   .map((reaction) => reaction.icon)
+                  .slice(0, 3)
                   .join("")}</span>
                 <span class="reaction-count">${reactions.reactions_count}</span>
             </a>
