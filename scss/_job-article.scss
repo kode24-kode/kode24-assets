@@ -9,7 +9,7 @@
 
 .content-marketing-ribbon {
   margin-top: 2rem;
-  padding: var(--gutter);
+  padding: calc(var(--gutter) * 1.2);
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
