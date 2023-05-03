@@ -4,15 +4,18 @@
   a {
     color: var(--v2-card-headline-color);
   }
-  
+
 
   color: var(--v2-card-headline-color);
   .row {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: var(--gutter);
-    padding: calc(var(--gutter) * 4) max(var(--gutter), 50vw - 860px);
+    display: block;
+    @media screen and (min-width: 830px) {
+      display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: var(--gutter);
+        padding: calc(var(--gutter) * 4) max(var(--gutter), 50vw - 860px);
+    }
   }
   .columns {
     padding: calc(#{v(gutter)} * 4) !important;
