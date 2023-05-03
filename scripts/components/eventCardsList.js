@@ -74,12 +74,10 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
  * @returns
  */
 let getEventsCardMarkup = (events) => {
-  console.log(events);
   const upComingEvents = events.upcomingEvents.map((event) => ({
     ...event,
     startDate: new Date(event.startDate),
   }));
-  console.log(upComingEvents);
   return `
   <article class="preview preview-list calendar-list">
   <div class="preview-list-header">

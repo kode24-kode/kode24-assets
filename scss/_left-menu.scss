@@ -1,6 +1,9 @@
 #tip-us-call-to-action {
   padding: calc(var(--gutter) / 1.5);
-  background-color: transparent;
+  background-color: var(--v2-card-background);
+  margin-bottom: calc(var(--gutter) * 2);
+  border-radius: var(--border-radius);
+
   .title {
     font-size: 1.1rem;
     color: var(--v2-card-paragraph-color);
@@ -18,9 +21,6 @@
       font-family: var(--fontRegular);
   }
 
-  margin-bottom: calc(var(--gutter) * 2);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--v2-card-border-background);
   a {
     color: var(--v2-label-color-pink-lighter);
   }
@@ -128,7 +128,7 @@
     display: block;
     padding: 4px;
     border-radius: 4px;
-    filter: grayscale(1);    
+    filter: grayscale(1);
   }
   .silver {
     padding: 0.4rem;

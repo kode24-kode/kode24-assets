@@ -1,7 +1,6 @@
 
 
 #top-bar {
-  --v2-header-background: hsla(var(--v2-main-color), 14%, 17%, 0.8);
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -158,23 +157,21 @@
     padding: 0.4rem;
     border-radius: 10px;
   }
-  #light-switch-toggler-icon-left {
-    display: none;
-  }
-  &.on {
-    #light-switch-toggler-icon-right {
-      display: none;
-    }
-    #light-switch-toggler-icon-left {
-      display: block;
-    }
+  .icon path,
+  .icon rect,
+  .icon circle,
+  .icon line {
+    stroke: var(--v2-card-headline-color);
   }
 }
 
-.light #mode-toggle {
-  .icon path, .icon rect, .icon circle, .icon line {
-    stroke: var(--v2-card-headline-color);
-  }
+#light-switch-toggler-icon-left {
+  display: var(--showBlockForDark);
+}
+
+#light-switch-toggler-icon-right {
+  display: var(--showBlockForLight);
+
 }
 
 #nav-top #search-button-mobile,

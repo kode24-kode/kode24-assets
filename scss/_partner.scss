@@ -1,17 +1,9 @@
-.light .diamond-partners-list {
-  .dark {
-    display: none;
-  }
-  .light {
-    display: block;
-  }
-}
 .diamond-partners-list {
-  .dark {
-    display: block;
-  }
   .light {
-    display: none;
+    display: var(--showBlockForLight);
+  }
+  .dark {
+    display: var(--showBlockForDark);
   }
   .description {
     display: none;

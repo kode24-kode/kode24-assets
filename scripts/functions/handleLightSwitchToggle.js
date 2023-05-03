@@ -2,8 +2,10 @@
  * Handles clicks on the light switch toggle button
  * on the top right of the page
  */
+
+import Cookies from 'js-cookie';
+
 export function handleLightSwitchToggle() {
-  let pageBody = document.getElementById('page-body');
   let lightSwitchButton = document.getElementById('mode-toggle');
   let lightButton = document.getElementById(
     'light-switch-toggler-icon-left'
@@ -12,27 +14,30 @@ export function handleLightSwitchToggle() {
     'light-switch-toggler-icon-right'
   );
 
-  if (document.cookie.indexOf('light') > -1) {
-    pageBody.classList.add('light');
-    lightSwitchButton.classList.add('on');
-  } else {
-    pageBody.classList.remove('light');
-    lightSwitchButton.classList.remove('on');
-  }
+  let theme = Cookies.get('theme');
+  setMode(theme);
 
-  function toggleLight() {
-    lightSwitchButton.classList.toggle('on');
-    pageBody.classList.add('animate');
-    pageBody.classList.toggle('light');
-    if (lightSwitchButton.classList.contains('on')) {
-      document.cookie =
-        'light=hest; expires=Fri, 3 Aug 2040 20:47:11 UTC; path=/;';
+  lightButton.onclick = () => setMode('light', true);
+  darkButton.onclick = () => setMode('dark', true);
+
+  function setMode(modeString, updateCookie) {
+    let pageBody = document.getElementById('page-body');
+    let lightSwitchButton = document.getElementById('mode-toggle');
+    pageBody?.classList.add('animate');
+
+    if (modeString === 'light') {
+      pageBody?.classList.add('light');
+      pageBody?.classList.remove('dark');
+      return;
+    } else if (modeString === 'dark') {
+      pageBody?.classList.remove('light');
+      pageBody?.classList.add('dark');
     } else {
-      document.cookie =
-        'light=; expires=Fri, 3 Aug 2017 20:47:11 UTC; path=/;';
+      pageBody?.classList.remove('light', 'dark');
+    }
+
+    if (updateCookie) {
+      Cookies.set('theme', modeString, { expires: 3600, path: '' });
     }
   }
-
-  lightButton.onclick = toggleLight;
-  darkButton.onclick = toggleLight;
 }

@@ -23,6 +23,7 @@
     "highlight.js": "^11.6.0",
     "hljs": "^6.2.3",
     "javascript-time-ago": "^2.5.9",
+    "js-cookie": "^3.0.5",
     "sass": "^1.54.9",
     "timeago.js": "^4.0.2",
     "vite-plugin-legacy": "^2.1.0"
