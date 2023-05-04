@@ -42,6 +42,8 @@ import {
  * Runs all the code that all pages have in common
  */
 export async function initCommon() {
+  // if user presses light switch on top right of page
+  handleLightSwitchToggle();
   // init loading animation for job ads in right column
   const JobAdsComponentNode = initPreviewListLoading(5);
 
@@ -78,8 +80,7 @@ export async function initCommon() {
   if (partnerPage) setPartnerPageConfig();
   // if user presses hamburger menu button in mobile view
   handleHamburgerMenuClick();
-  // if user presses light switch on top right of page
-  handleLightSwitchToggle();
+
   // if user clicks on image in article that is exapndable
   handleImageExpansionClick();
   // upscale all images in front feed

@@ -23,7 +23,6 @@ export function handleLightSwitchToggle() {
   function setMode(modeString, updateCookie) {
     let pageBody = document.getElementById('page-body');
     let lightSwitchButton = document.getElementById('mode-toggle');
-    pageBody?.classList.add('animate');
 
     if (modeString === 'light') {
       pageBody?.classList.add('light');
