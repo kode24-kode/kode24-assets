@@ -4,7 +4,6 @@ import { convertTagFeedURL } from './functions/convertTagFeedURL';
 import { upScaleImages } from './functions/upScaleImages';
 import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick';
 import { convertLazyLoadImages } from './functions/convertLazyLoadImages';
-import { handleLightSwitchToggle } from './functions/handleLightSwitchToggle';
 import { handleImageExpansionClick } from './functions/handleImageExpansionClick';
 import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu';
 import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu';
@@ -42,8 +41,6 @@ import {
  * Runs all the code that all pages have in common
  */
 export async function initCommon() {
-  // if user presses light switch on top right of page
-  handleLightSwitchToggle();
   // init loading animation for job ads in right column
   const JobAdsComponentNode = initPreviewListLoading(5);
 

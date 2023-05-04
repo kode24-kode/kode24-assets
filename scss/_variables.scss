@@ -6,7 +6,7 @@
   adds a toggle for block elements that should be hidden according to theme
 */
 @media (prefers-color-scheme: dark) {
-  :root {
+  html {
     @include dark;
     --showBlockForLight: none;
     --showBlockForDark: block;
@@ -15,20 +15,20 @@
 
 
 @media (prefers-color-scheme: light) {
-  :root {
+  html {
     @include light;
     --showBlockForLight: block;
     --showBlockForDark: none;
   }
 }
 
-body.dark {
+html.dark {
   @include dark;
   --showBlockForLight: none;
   --showBlockForDark: block;
 }
 
-body.light {
+html.light {
   @include light;
   --showBlockForLight: block;
   --showBlockForDark: none;
@@ -36,7 +36,7 @@ body.light {
 
 
 
-:root {
+html {
   --vp-tablet: 830px;
   --vp-desktop: 1025px;
   --vp-desktopWide: 1330px;

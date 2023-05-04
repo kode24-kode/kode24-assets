@@ -125,6 +125,58 @@ J     \         /._           /        -tI/ |
       content="black-translucent"
     />
     <meta name="apple-mobile-web-app-title" content="kode24" />
+    <script>
+      /**
+   * Handles clicks on the light switch toggle button
+   * on the top right of the page
+   */
+
+      (function handleLightSwitchToggle() {
+        console.log('yo light');
+
+
+        if (document.readyState !== 'loading') {
+          listenToLightButtons();
+        } else {
+          document.addEventListener('DOMContentLoaded', listenToLightButtons);
+        }
+
+        let theme = localStorage.getItem('theme');
+        setMode(theme);
+
+
+        function listenToLightButtons() {
+          let lightButton = document.getElementById(
+            'light-switch-toggler-icon-left'
+          );
+          let darkButton = document.getElementById(
+            'light-switch-toggler-icon-right'
+          );
+          lightButton.onclick = () => setMode('light', true);
+          darkButton.onclick = () => setMode('dark', true);
+        }
+
+        function setMode(modeString, updateCookie) {
+          console.log("setting mode", modeString);
+          let HTMLElement = document.documentElement;
+
+          if (modeString === 'light') {
+            HTMLElement?.classList.add('light');
+            HTMLElement?.classList.remove('dark');
+          } else if (modeString === 'dark') {
+            HTMLElement?.classList.remove('light');
+            HTMLElement?.classList.add('dark');
+          } else {
+            HTMLElement?.classList.remove('light', 'dark');
+          }
+
+          if (updateCookie) {
+            localStorage.setItem('theme', modeString);
+            //Cookies.set('theme', modeString, { expires: 3600, path: '' });
+          }
+        }
+      })();
+    </script>
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -957,10 +1009,10 @@ J     \         /._           /        -tI/ |
                 class="columns large-12 medium-12 small-12"
               >
                 <pre><code>// ./src/utils/privateRoute.tsx
-              
+
               import * as React from 'react';
               import { withAuthenticationRequired } from '@auth0/auth0-react';
-              
+
               interface IPrivateroute {
                 component: any;
                 location?: string;
@@ -969,7 +1021,7 @@ J     \         /._           /        -tI/ |
                 title?: string;
                 excerpt?: string;
               }
-              
+
               function PrivateRoute({
                 component: Component,
                 location,
@@ -977,7 +1029,7 @@ J     \         /._           /        -tI/ |
               }: IPrivateroute) {
                 return &lt;Component {...rest} /&gt;;
               }
-              
+
               export default withAuthenticationRequired(PrivateRoute);</code></pre>
               </div>
               <p>
