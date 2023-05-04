@@ -82,7 +82,7 @@ let getEventsCardMarkup = (events) => {
   <article class="preview preview-list calendar-list">
   <div class="preview-list-header">
     <h2 class="highlight">Bransjekalender</h2>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform" class="button action">+ legg inn</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform" class="button action">Opprett ny</a>
 
     </div>
     <div class="listing">

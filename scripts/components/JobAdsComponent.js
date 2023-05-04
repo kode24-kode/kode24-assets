@@ -57,7 +57,7 @@ export async function initJobAdsComponent(
   newPremiumJobComponent.classList.add('row', 'added');
   newPremiumJobComponent.innerHTML = `
     <article class="preview preview-list job-list">
-      <div class="preview-list-header"><h2 class="highlight">${headerText}</h2><a href="https://www.kode24.no/annonse/priser-pa-annonser-og-content-pa-kode24/70244826" class="button action">+ bestill</a></div>
+      <div class="preview-list-header"><h2 class="highlight">${headerText}</h2><a href="https://www.kode24.no/annonse/priser-pa-annonser-og-content-pa-kode24/70244826" class="button action">Se priser</a></div>
       <div class="listing">
         ${getJobAdsMarkup(ads)}
       </div>
