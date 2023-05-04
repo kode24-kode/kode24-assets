@@ -5,7 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: calc(var(--gutter) / 2);
+  padding: 0 0 var(--gutter) 0;
+  @media screen and (min-width: 830px) {
+    padding: calc(var(--gutter) / 2);
+  }
   .button {
   }
   position: relative;
@@ -588,10 +591,13 @@
   }
 
   .newest-comments-list {
-    margin-left: calc(var(--gutter) * -1);
-    padding: calc(var(--gutter) / 2) calc(var(--gutter)*1.5) 0 calc(var(--gutter)*1.5);
-    height: 358px;
-    overflow: auto;
+    padding: 0 0 var(--gutter) 0;
+    @media screen and (min-width: 830px) {
+      margin-left: calc(var(--gutter) * -1);
+      padding: calc(var(--gutter) / 2) calc(var(--gutter)*1.5) 0 calc(var(--gutter)*1.5);
+      height: 358px;
+      overflow: auto;
+    }
 
     &::-webkit-scrollbar {
         width: 10px;
@@ -609,6 +615,11 @@
 
   .comment-container {
     margin-bottom: calc(var(--gutter));
+    @media screen and (max-width: 830px) {
+      &:nth-child(1n + 4) {
+        display: none;
+      }
+    }
   }
   .comment-author {
     font-weight: bold;
