@@ -158,6 +158,9 @@
       .preview {
         padding: calc(var(--gutter) / 2);
         border-radius: var(--border-radius);
+        &.hot {
+          animation: hotAnimation 10s infinite;
+        }
         &:hover {
           background-color: var(--v2-card-background);
         }
@@ -226,7 +229,7 @@
 
         &:not(:first-child) {
           grid-column: span 3;
-          background-color: var(--v2-card-background-highlight);
+          background-color: var(--v2-card-background-highlight) !important;
           padding: var(--gutter) var(--gutter) 0 var(--gutter);
           margin-bottom: 0;
           >.article-content-wrapper {
@@ -645,5 +648,18 @@
   .comment-article {
     color: var(--v2-label-color-pink);
     font-style: italic;
+  }
+}
+
+
+@keyframes hotAnimation {
+  0%, 100% {
+    background-color: var(--v2-flame-red-light);
+  }
+  25%, 75% {
+    background-color: var(--v2-flame-red);
+  }
+  50% {
+    background-color: var(--v2-flame-red-light);
   }
 }

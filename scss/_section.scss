@@ -12,7 +12,10 @@
     figure {
         width: 100%;
         overflow: hidden;
-        flex: 0 0 200px;
+        flex: auto;
+        @media (min-width: 830px) {
+            flex: 0 0 200px;
+        }
     }
     .preview a {
         flex-direction: column;
@@ -27,9 +30,12 @@
             font-size: 2.6rem;
         }
         figure {
-            flex: 0 0 400px;
+            flex: auto;
+            @media (min-width: 830px) {
+                flex: 0 0 400px;
+              }
         }
-        
+
     }
 }
 

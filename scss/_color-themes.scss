@@ -35,6 +35,9 @@
 
   --v2-button-background-color: hsl(327, 81%, 54%);
   --v2-notification-background-color: hsl(327, 81%, 54%);
+
+  --v2-flame-red: hsl(12.17deg 59.61% 24.98% / 40%);
+  --v2-flame-red-light: hsl(44.45deg 97.67% 20.25% / 10%);
 }
 
 @mixin light {
@@ -74,5 +77,8 @@
 
     --v2-button-background-color: hsl(327, 81%, 54%);
     --v2-notification-background-color: hsl(327, 81%, 54%);
+
+    --v2-flame-red: hsl(12.17deg 59.61% 24.98% / 40%);
+    --v2-flame-red-light: hsl(44.45deg 97.67% 20.25% / 10%);
 
 }
