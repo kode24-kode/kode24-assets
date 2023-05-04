@@ -8,15 +8,15 @@ import { findDataInSpecialTag } from './functions/findDataInSpecialTag';
 import { getArticleId } from './functions/getArticleId';
 import { addRibbonClassToTop } from './functions/addRibbonClassToTop';
 
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github-dark.css';
+//import hljs from 'highlight.js';
+//import 'highlight.js/styles/github-dark.css';
 /**
  * Inits all components that needs to run on a kode24 article page
  * Should have as litle logic as possible built in.
  * Separate it into functions and call them from here.
  */
 export async function initArticle() {
-  hljs.highlightAll();
+  //hljs.highlightAll();
   // all functions that need to run on every page
   const { premiumAds, contentAds } = await initCommon();
   //fetch article data
