@@ -159,7 +159,7 @@
         padding: calc(var(--gutter) / 2);
         border-radius: var(--border-radius);
         &.hot {
-          animation: hotAnimation 10s infinite;
+          animation: hotAnimation 5s infinite;
         }
         &:hover {
           background-color: var(--v2-card-background);
