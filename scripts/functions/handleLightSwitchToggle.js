@@ -28,7 +28,6 @@ export function handleLightSwitchToggle() {
     if (modeString === 'light') {
       pageBody?.classList.add('light');
       pageBody?.classList.remove('dark');
-      return;
     } else if (modeString === 'dark') {
       pageBody?.classList.remove('light');
       pageBody?.classList.add('dark');
