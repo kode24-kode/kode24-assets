@@ -5,6 +5,8 @@
  * @param {*} selector
  */
 import { shuffleArray } from '../functions/shuffleArray';
+import { initReactionIcon } from './reactionIcons';
+import { initCommentIcon } from './commentIcon';
 export const initDesktopRowLoading = (numberOfElements = 0) => {
   let element = document.createElement('div');
   element.innerHTML = `
@@ -256,40 +258,11 @@ const socialComponent = (article) => {
           article.reactions.comments_count > 0
             ? `
         <div class="social-buttons">
-
-          ${
-            article.reactions.reactions_count > 0
-              ? `<div class="article-social-reactions article-social-item">
-            <a href="https://www.kode24.no/${
-              article.id
-            }#hyvor-talk-view" class="reaction-button reaction">
-              ${
-                article.reactions.reactions_count
-                  ? article.reactions.reactions_count
-                  : ''
-              }
-            </a>
-          </div>`
-              : ''
-          }
-          ${
-            article.reactions.comments_count > 0
-              ? `<div class="article-social-comments article-social-item">
-            <a href="https://www.kode24.no/${
-              article.id
-            }#hyvor-talk-view" class="reaction-button comment">
-              ${
-                article.reactions.comments_count
-                  ? article.reactions.comments_count
-                  : ''
-              }
-            </a>
-          </div>`
-              : ''
-          }
-
-
-
+          ${initReactionIcon(article.reactions, article.id)}
+          ${initCommentIcon(
+            article.reactions.comments_count,
+            article.id
+          )}
         </div>
         `
             : ''
@@ -307,6 +280,7 @@ const drawDesktopArticle = (
   // check if article is today
   let isMainArticle = index === 0 ? true : false;
   let imageWidth = isMainArticle ? '960' : '400';
+  const isHot = article.reactions.reactions_count > 30 ? true : false;
   let articleIsToday =
     new Date(article.published).setHours(0, 0, 0, 0) ==
     new Date().setHours(0, 0, 0, 0)
@@ -316,7 +290,9 @@ const drawDesktopArticle = (
   return `
     <article
     id="article_${article.id}"
-    class="preview columns large-12 small-12 medium-12 compact"
+    class="preview columns large-12 small-12 medium-12 compact ${
+      isHot ? 'hot' : ''
+    }"
     itemscope
     itemprop="itemListElement"
     itemtype="https://schema.org/ListItem"

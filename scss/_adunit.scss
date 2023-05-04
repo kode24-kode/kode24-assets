@@ -15,14 +15,21 @@
   .settings-alt-2 {
     top: 0 !important;
     background-color: transparent !important;
-    color: v(v2-card-headline-color) !important;
-  }
-  @media only screen and (min-width: 830px) {
-    margin-bottom: calc(var(--gutter) * 4);
+    color: var(--v2-card-headline-color) !important;
   }
 }
 .adunit-wrapper {
   display: flex;
+}
+
+.show-for-medium-up {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gutter);
+  flex-direction: column;
+  @media only screen and (min-width: 830px) {
+      flex-direction: row;
+    }
 }
 
 .adunit.small-320x250,

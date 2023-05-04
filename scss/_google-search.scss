@@ -1,5 +1,5 @@
 .google-search {
-  color: v(v2-card-paragraph-color);
+  color: var(--v2-card-paragraph-color);
   a,
   .gs-webResult div.gs-visibleUrl,
   .gs-imageResult div.gs-visibleUrl {
@@ -8,17 +8,17 @@
   .gs-webResult .gs-snippet,
   .gs-imageResult .gs-snippet,
   .gs-fileFormatType {
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
   }
   .gsc-results .gsc-cursor-box .gsc-cursor-page {
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
   }
 
   .gs-webResult.gs-result a.gs-title:link,
   .gs-webResult.gs-result a.gs-title:link b,
   .gs-imageResult a.gs-title:link,
   .gs-imageResult a.gs-title:link b {
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
 
     background-image: linear-gradient(90deg, #c431e3, #c431e3);
     background-position: 0px 22px;
@@ -44,7 +44,7 @@
   .gs-webResult.gs-result a.gs-title:visited b,
   .gs-imageResult a.gs-title:visited,
   .gs-imageResult a.gs-title:visited b {
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
   }
 
   .gsc-adBlock {

@@ -1,5 +1,5 @@
 export function initEventCardsListLoading() {
-  var diamondPartnersContainer = document.createElement("div");
+  var diamondPartnersContainer = document.createElement('div');
   return diamondPartnersContainer;
 }
 
@@ -12,19 +12,19 @@ export const initEventCardsList = (eventData, node, placement) => {
   // fetch markup for events
   let eventMarkup = getEventsCardMarkup(eventData);
   // create container and add markup
-  let eventContainer = document.createElement("div");
-  eventContainer.classList.add("row", "added");
+  let eventContainer = document.createElement('div');
+  eventContainer.classList.add('row', 'added');
   eventContainer.innerHTML = eventMarkup;
   // add container to dom
   if (node) {
-    if (placement === "append") {
+    if (placement === 'append') {
       node.append(eventContainer);
       return;
-    } else if (placement === "after") {
+    } else if (placement === 'after') {
       node.after(eventContainer);
       return;
     }
-    node.innerHTML = "";
+    node.innerHTML = '';
     node.append(eventContainer);
   }
 };
@@ -55,7 +55,7 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
               }</span></h1>
               <p class="standfirst">${event.startDateFormatted} - ${
         event.startDateFormatted
-      } (${event.digital ? "digitalt" : "Fysisk"})</p>
+      } (${event.digital ? 'digitalt' : 'Fysisk'})</p>
             </div>
             <div class="call-to-action">
               <span class="button action-button">Les mer</span>
@@ -65,7 +65,7 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
       </article>
   `
     )
-    .join(" ");
+    .join(' ');
 };
 
 /**
@@ -74,35 +74,49 @@ let getPRemiumEventsCardMarkup = (premiumEvents) => {
  * @returns
  */
 let getEventsCardMarkup = (events) => {
+  const upComingEvents = events.upcomingEvents.map((event) => ({
+    ...event,
+    startDate: new Date(event.startDate),
+  }));
   return `
   <article class="preview preview-list calendar-list">
+  <div class="preview-list-header">
     <h2 class="highlight">Bransjekalender</h2>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform" class="button action">Opprett ny</a>
+
+    </div>
     <div class="listing">
     ${
       events.premiumEvents.length
         ? getPRemiumEventsCardMarkup(events.premiumEvents)
-        : ""
+        : ''
     }
-    ${events.upcomingEvents
+    ${upComingEvents
       .slice(0, 4)
       .map(
         (event) => `
     <article class="preview calendar" itemscope="" itemprop="itemListElement" itemtype="http://schema.org/ListItem" role="article">
       <a itemprop="url" href="${event.link}">
-        <figure>
-          <img itemprop="image" alt="logo" src="${event.photo}">
-        </figure>
+       <div class="preview-calendar-date">
+          <div class="preview-calendar-date-day">${event.startDate.getDate()}</div>
+          <div class="preview-calendar-date-month">${event.startDate.toLocaleString(
+            'en-US',
+            { month: 'short' }
+          )}</div>
+       </div>
+
         <div class="call-to-action-container">
+          <figure>
+            <img itemprop="image" alt="logo" src="${event.photo}">
+          </figure>
           <div class="article-preview-text">
             <div class="labels">
               <span class="label">${event.arrangedBy}</span>
             </div>
-            <h1 class="headline"><span class="headline-title-wrapper">${
-              event.name
-            }</span></h1>
-            <p class="standfirst">${event.startDateFormatted} - ${
-          event.startDateFormatted
-        } (${event.digital ? "digitalt" : "Fysisk"})</p>
+            <h1 class="headline">${event.name}</h1>
+            <p class="standfirst">(${
+              event.digital ? 'digitalt' : 'Fysisk'
+            })</p>
           </div>
           <div class="call-to-action">
             <span class="button action-button">Les mer</span>
@@ -112,21 +126,13 @@ let getEventsCardMarkup = (events) => {
     </article>
     `
       )
-      .join("")}
+      .join('')}
     </div>
     <div class="listing-actions">
-    ${
-      events.upcomingEvents.length && events.upcomingEvents.length > 4
-        ? `
-      <a href="/kalender" class="button">
-        Vis alle (${events.upcomingEvents.length})
 
+    <a href="/kalender" class="button">
+        Vis alle
       </a>
-
-    `
-        : ""
-    }
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform" class="button action">+ legg inn</a>
     </div>
     </article>
 `;

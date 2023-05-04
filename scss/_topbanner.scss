@@ -31,13 +31,13 @@
     margin-bottom: calc(#{v(gutter)} * 4);
   }
   .kicker {
-    color: v(v2-card-headline-color);
+    color: var(--v2-card-headline-color);
     text-transform: uppercase;
     text-align: center;
     font-size: 0.85rem;
     text-decoration: none;
     font-size: 0.6em;
-    background: v(v2-card-background);
+    background: var(--v2-card-background);
     position: relative;
     width: auto !important;
     padding: 4px 10px;
@@ -84,9 +84,9 @@
         position: relative;
       }
     }
-    color: v(v2-card-always-white);
+    color: var(--v2-card-always-white);
     span {
-      text-shadow: 0 0 4px v(v2-card-always-black);
+      text-shadow: 0 0 4px var(--v2-card-always-black);
     }
   }
   a {
@@ -96,10 +96,10 @@
     background: linear-gradient(
       45deg,
       v(kode24-pink),
-      v(v2-commercial-orange-stop)
+      var(--v2-commercial-orange-stop)
     );
     text-align: center;
-    color: v(v2-card-always-white);
+    color: var(--v2-card-always-white);
     padding: 0.8em;
     font-size: 0.85em;
     font-weight: bold;

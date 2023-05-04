@@ -19,7 +19,7 @@ h2 {
   grid-auto-flow: column;
   padding: 0;
   margin: 0 auto 0 auto;
-  padding: 7rem 0 0.6rem 0;
+  padding: 8.5rem 0 0.6rem 0;
   grid-template-columns: 0 100% 0;
   #desktop-sidemenu-front {
     display: none;
@@ -31,7 +31,7 @@ h2 {
       grid-column: span 3;
   }
   @media screen and (min-width: 830px) {
-    padding: calc(var(--gutter) * 8) max(var(--gutter), 50vw - 860px);
+    padding: calc(var(--gutter) * 10) max(var(--gutter), 50vw - 860px);
     grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
     gap: calc(var(--gutter) * 2);
 
@@ -82,11 +82,12 @@ h2 {
 
 .row {
   justify-content: center;
-  margin-bottom: var(--gutter);
+  margin-bottom: calc(var(--gutter) * 2);
 
   iframe {
     width: 100%;
     margin-bottom: 0 !important;
+    display: block;
   }
 
   .columns.large-6,

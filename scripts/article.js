@@ -1,15 +1,15 @@
-import { initCommon } from "./common";
-import { initQuickJobApplicationForm } from "./components/quickJobApplicationForm";
-import { initInArticleAds } from "./components/inArticleAds";
+import { initCommon } from './common';
+import { initQuickJobApplicationForm } from './components/quickJobApplicationForm';
+import { initInArticleAds } from './components/inArticleAds';
 
-import { getArticleFromApi } from "./API/api";
-import { isArticleEditorial } from "./functions/isArticleEditorial";
-import { findDataInSpecialTag } from "./functions/findDataInSpecialTag";
-import { getArticleId } from "./functions/getArticleId";
-import { addRibbonClassToTop } from "./functions/addRibbonClassToTop";
+import { getArticleFromApi } from './API/api';
+import { isArticleEditorial } from './functions/isArticleEditorial';
+import { findDataInSpecialTag } from './functions/findDataInSpecialTag';
+import { getArticleId } from './functions/getArticleId';
+import { addRibbonClassToTop } from './functions/addRibbonClassToTop';
 
-import hljs from "highlight.js";
-import "highlight.js/styles/github-dark.css";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github-dark.css';
 /**
  * Inits all components that needs to run on a kode24 article page
  * Should have as litle logic as possible built in.
@@ -26,7 +26,7 @@ export async function initArticle() {
   if (isArticleEditorial()) {
     // render commercial ads in the article
     let inArticleAds = initInArticleAds(
-      ".body-copy h2",
+      '.body-copy h2',
       premiumAds,
       contentAds.length && contentAds[0] ? contentAds[0] : []
     );
@@ -37,10 +37,10 @@ export async function initArticle() {
     if (
       articleData &&
       articleData.tags &&
-      articleData.tags.includes("jobbmail")
+      articleData.tags.includes('jobbmail')
     ) {
       initQuickJobApplicationForm(
-        findDataInSpecialTag(articleData.tags, "jobbmail"),
+        findDataInSpecialTag(articleData.tags, 'jobbmail'),
         articleData.title,
         articleData.published_url
       );

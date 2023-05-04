@@ -12,7 +12,7 @@
     padding: 0;
   }
   p {
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
   }
 }
 
@@ -22,7 +22,7 @@
   padding: 10px;
   margin: 0;
   position: relative;
-  background: linear-gradient(45deg, v(kode24-pink), v(kode24-red));
+  background: linear-gradient(45deg, var(--kode24-pink), var(--kode24-red));
   text-transform: uppercase;
   font-size: 20px;
   -webkit-background-clip: text;
@@ -32,7 +32,7 @@
 
 .article-entity {
   max-width: 100%;
-  color: v(v2-card-paragraph-color);
+  color: var(--v2-card-paragraph-color);
   margin-top: calc(var(--gutter) * 1.5);
   @media screen and (min-width: 830px) {
     margin-top: 0;
@@ -63,9 +63,9 @@
       line-height: 1.1;
       padding: 0;
       margin: var(--gutter) 0 var(--gutter) 0;
-      color: v(v2-card-headline-color);
+      color: var(--v2-card-headline-color);
       margin-bottom: 0.8rem;
-      font-family: v(fontMono);
+      font-family: var(--fontMono);
       font-weight: 500;
       font-size: 2rem !important;
       text-wrap: balance;
@@ -86,7 +86,7 @@
     }
 
     .standfirst {
-      color: v(v2-card-paragraph-color);
+      color: var(--v2-card-paragraph-color);
 
       margin-bottom: 1.25rem;
       font-size: 1.1rem;
@@ -114,7 +114,7 @@
       margin-left: calc(var(--gutter) *-1);
       margin-right: calc(var(--gutter) *-1);
       position: relative;
-      background-color: v(v2-card-background);
+      background-color: var(--v2-card-background);
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
         margin-left: 0;
@@ -138,7 +138,7 @@
       width: 100%;
     }
     .caption {
-      background-color: v(v2-card-background);
+      background-color: var(--v2-card-background);
     }
     .standfirst {
       padding: 0;
@@ -168,7 +168,7 @@
           height: 100%;
           background: linear-gradient(
             0deg,
-            v(v2-card-always-black),
+            var(--v2-card-always-black),
             transparent
           );
         }
@@ -228,6 +228,8 @@
     }
     &.columns {
       min-height: 60px;
+      max-width: 670px;
+      margin: 0 auto;
     }
     .bio {
       margin-top: 0.4rem;
@@ -275,7 +277,7 @@
     background-size: 100% 1px;
     overflow: visible;
     padding-bottom: 6px;
-    color: v(v2-card-paragraph-color);
+    color: var(--v2-card-paragraph-color);
   }
   .row:not(header) {
     display: flex;
@@ -294,7 +296,7 @@
       margin-top: 2.5rem;
       margin-bottom: 2.5rem;
       position: relative;
-      background-color: v(v2-card-background);
+      background-color: var(--v2-card-background);
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
         margin-left: 0;
@@ -317,7 +319,7 @@
           width: 2.4rem;
           height: 2.4rem;
           position: absolute;
-          background-color: v(v2-card-always-black);
+          background-color: var(--v2-card-always-black);
           text-align: center;
           line-height: 2.4rem;
           right: 0;
@@ -332,14 +334,14 @@
         height: 100%;
         top: 0;
         left: 0 !important;
-        background-color: v(v2-card-always-black);
+        background-color: var(--v2-card-always-black);
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
         margin: 0;
         &:before {
           content: "✖";
-          background: v(kode24-purple);
+          background: var(--v2-label-color-purple);
         }
         img {
           display: none;
@@ -382,7 +384,7 @@
     margin: 0;
     margin-left: 1.1rem;
     line-height: 1.6;
-    margin-bottom: calc(#{v(gutter)} * 2);
+    margin-bottom: calc(#{var(--gutter)} * 2);
     list-style-position: outside;
     font-family: inherit;
     font-size: 1rem;
@@ -400,7 +402,7 @@
     margin-bottom: 0.6rem;
     margin-top: 2.5rem;
     padding: 0;
-    font-family: v(fontMono);
+    font-family: var(--fontMono);
     font-weight: 500;
     a {
       background-position: 0 40px;
@@ -439,7 +441,7 @@
   h4,
   h5,
   h6 {
-    color: v(v2-card-headline-color);
+    color: var(--v2-card-headline-color);
     word-break: break-word;
   }
 
@@ -473,7 +475,7 @@
   }
 
   code.hljs {
-    background-color: v(v2-card-background);
+    background-color: var(--v2-card-background);
     border-radius: 10px;
     padding: 1.25rem;
     display: block;
@@ -485,7 +487,7 @@
   }
 
   .body-copy .preview {
-    background: v(v2-card-background);
+    background: var(--v2-card-background);
     transition: all 0.1s ease-in-out;
     margin-top: 2.5em;
     margin-bottom: 2.5em;

@@ -1,7 +1,6 @@
 
 
 #top-bar {
-  --v2-header-background: hsla(var(--v2-main-color), 14%, 17%, 0.8);
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -17,19 +16,15 @@
     display: flex;
     justify-content: space-between;
     gap: calc(var(--gutter) * 2);
-
   }
   @media screen and (min-width: 1200px) {
     display: grid;
     grid-template-columns: minmax(160px, 260px) minmax(0, 986px) 310px;
-    padding: calc(var(--gutter) / 4) max(var(--gutter), 50vw - 860px);
+    padding: 0 max(var(--gutter), 50vw - 860px);
   }
 }
 .light #top-bar {
   background-color: rgba(255, 255, 255, 0.8);
-  .icon path, .icon rect, .icon circle, .icon line {
-    stroke: var(--v2-label-color-purple-darker);
-  }
   border-bottom-color: hsl(200deg 4% 24% / 20%);
 }
 
@@ -69,7 +64,7 @@
   rect,
   circle,
   line {
-    fill: v(v2-card-headline-color);
+    fill: var(--v2-card-headline-color);
   }
   @media screen and (max-width: 1023px) {
     display: none;
@@ -95,16 +90,8 @@
     li {
       align-items: center;
       position: relative;
-      img,
-      .site-title {
-        opacity: 0.8;
-        transition: opacity 0.1s ease-in-out;
-      }
       &:hover {
-        img,
-        .site-title {
-          opacity: 1;
-        }
+        background-color: var(--v2-card-background-highlight);
       }
       .site-title {
         display: inline-block;
@@ -116,6 +103,9 @@
       a {
         display: flex;
         padding: 1rem;
+        align-items: center;
+        color: var(--v2-card-headline-color);
+        cursor: pointer;
         @media screen and (max-width: 1023px) {
           flex-direction: column;
           align-items: center;
@@ -124,8 +114,11 @@
       }
       .icon {
         margin-right: 0.6rem;
-        width: 20px;
-        height: 20px;
+        width: 27px;
+        height: 27px;
+        * {
+          stroke-width: 1.5px;
+        }
         @media screen and (max-width: 1023px) {
           flex-direction: column;
           width: 28px;
@@ -138,7 +131,7 @@
   .counter {
     background-color: var( --v2-notification-background-color);
     position: absolute;
-    color: v(v2-card-always-white);
+    color: var(--v2-card-always-white);
     padding: 1px 6px;
     border-radius: 10px;
     font-size: 0.8rem;
@@ -160,27 +153,25 @@
   button {
     border: 0;
     cursor: pointer;
-    background-color: var(--v2-card-always-black);
+    background-color: var(--v2-card-background-highlight);
     padding: 0.4rem;
     border-radius: 10px;
   }
-  #light-switch-toggler-icon-left {
-    display: none;
-  }
-  &.on {
-    #light-switch-toggler-icon-right {
-      display: none;
-    }
-    #light-switch-toggler-icon-left {
-      display: block;
-    }
+  .icon path,
+  .icon rect,
+  .icon circle,
+  .icon line {
+    stroke: var(--v2-card-headline-color);
   }
 }
 
-.light #mode-toggle {
-  .icon path, .icon rect, .icon circle, .icon line {
-    stroke: var(--v2-card-always-white);
-  }
+#light-switch-toggler-icon-left {
+  display: var(--showBlockForDark);
+}
+
+#light-switch-toggler-icon-right {
+  display: var(--showBlockForLight);
+
 }
 
 #nav-top #search-button-mobile,

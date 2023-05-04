@@ -8,6 +8,7 @@ export function initDiamondPartners(node) {
     <h3>Se karrieremuligheter <br />hos våre partnere</h3>
     <ul>
     ${shuffleArray(partners)
+      .slice(0, 8)
       .map(
         (partner) => `
       <li>
@@ -68,9 +69,9 @@ const partners = [
   {
     name: 'Telenor',
     lightLogo:
-      'https://www.kode24.no/files/2023/02/17/kode24-partner-telenor-light.png',
+      'https://www.dagbladet.no/files/2023/05/04/kode24-partner-telenor-light2.png',
     darkLogo:
-      'https://www.kode24.no/files/2023/02/17/kode24-partner-telenor-dark.png',
+      'https://www.dagbladet.no/files/2023/05/04/kode24-partner-telenor-light2.png',
     logoUrl: 'telenor',
     title: 'Vi har mot til å forandre – har du?',
     url: 'https://www.kode24.no/partner/telenor',
@@ -162,9 +163,9 @@ const partners = [
   {
     name: 'PwC',
     lightLogo:
-      'https://www.dagbladet.no/files/2023/04/20/kode24-partner-pwc-light.png',
+      'https://www.dagbladet.no/files/2023/05/04/kode24-partner-pwc-light2.png',
     darkLogo:
-      'https://www.dagbladet.no/files/2023/04/20/kode24-partner-pwc-dark.png',
+      'https://www.dagbladet.no/files/2023/05/04/kode24-partner-pwc-dark2.png',
     title: 'Konsulent eller inhouse? Du velger!',
     url: 'https://www.kode24.no/partner/pwc',
   },

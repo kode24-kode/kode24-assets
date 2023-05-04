@@ -1,6 +1,7 @@
 // third party libraries
 
 // kode24-cs
+@import "color-themes";
 @import "variables";
 @import "base";
 @import "front";
@@ -31,6 +32,8 @@
 @import "partner";
 @import "desktop-rows";
 @import "skip-to-focus";
+@import "section";
+
 p {
-  //color: v(v2-commercial-orange-stop);
+  //color: var(--v2-commercial-orange-stop);
 }

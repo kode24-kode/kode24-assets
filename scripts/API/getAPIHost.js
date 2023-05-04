@@ -4,8 +4,10 @@
  */
 export const getAPIHost = () => {
   const url = window.location.hostname;
-  if (url.includes("localhost") || url.includes("127.0.0.1")) {
-    return "http://localhost:5000/api/";
+  if (window.location.search.includes('public'))
+    return 'https://functions.kode24.no/api/';
+  if (url.includes('localhost') || url.includes('127.0.0.1')) {
+    return 'http://localhost:5000/api/';
   }
-  return "https://functions.kode24.no/api/";
+  return 'https://functions.kode24.no/api/';
 };

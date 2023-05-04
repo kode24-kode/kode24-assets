@@ -1,17 +1,28 @@
-.light .diamond-partners-list {
-  .dark {
-    display: none;
+//css keyframe bounce hnorizontally with delay
+ @keyframes bounce {
+  0%, 100% {
+    transform: translateX(0);
   }
-  .light {
-    display: block;
+  10% {
+      transform: translateX(5px);
+    }
+  20% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(5px);
+  }
+  40% {
+    transform: translateX(0);
   }
 }
+
 .diamond-partners-list {
-  .dark {
-    display: block;
-  }
   .light {
-    display: none;
+    display: var(--showBlockForLight);
+  }
+  .dark {
+    display: var(--showBlockForDark);
   }
   .description {
     display: none;
@@ -47,7 +58,7 @@
   top: 53px;
   left: 0;
   width: 100%;
-  @media screen and (min-width: 830px) {
+  @media screen and (min-width: 1024px) {
     top: 63px;
   }
 
@@ -56,7 +67,7 @@
     padding: 0;
     margin: 0;
     display: flex;
-    gap: calc(var(--gutter));
+    gap: calc(var(--gutter) * 2);
     li {
       position: relative;
     }
@@ -64,8 +75,11 @@
       position: relative;
     }
     img {
-      max-height: 30px;
-      opacity: 0.6;
+      max-height: 40px;
+      opacity: 0.8;
+      @media screen and (min-width: 830px) {
+          opacity: 0.6;
+      }
     }
     a:hover {
       img {
@@ -80,62 +94,57 @@
     margin: 0;
     color: var(--v2-card-paragraph-color);
     font-size: 0.8rem;
+    padding: calc(var(--gutter) / 2);
+    background-color: var(--v2-card-background);
+    border-radius: var(--border-radius);
+    position: relative;
+    animation: bounce 2s infinite 5s;
+    &:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent var(--v2-card-background);
+      top: 50%;
+      position: absolute;
+      left: 100%;
+      transform: translateY(-50%);
+    }
   }
-  border-bottom: 1px solid;
-  border-color: var(--v2-card-border-background);
 
   overflow-y: hidden;
-  overflow-x:  scroll;
+  overflow-x:  auto;
   white-space: nowrap;
   justify-content: flex-start;
+  align-items: center;
   padding: calc(var(--gutter) / 2);
   gap: calc(var(--gutter));
-  @media screen and (min-width: 1200px){
+  @media screen and (min-width: 1400px){
     overflow-y: visible;
       overflow-x: visible;
+      justify-content: center;
+
   }
   li {
     width: max-content;
-  }
-  ul {
-    gap: calc(var(--gutter) / 2);
   }
   &::-webkit-scrollbar {
     height: 10px;
   }
   /* Track */
-  &::-webkit-scrollbar-track {
+  &::-webkit-scrollbar-thumb {
     background: var(--v2-card-background);
   }
 
   /* Handle */
-  &::-webkit-scrollbar-thumb {
+  &::-webkit-scrollbar-track {
     background: var(--v2-card-background-highlight);
   }
 
   /* Handle on hover */
   &::-webkit-scrollbar-thumb:hover {
     background: var(--v2-card-background-highlight);
-  }
-
-  @media screen and (max-width: 1199px) and (min-width: 801px) {
-    padding: calc(var(--gutter));
-    gap: calc(var(--gutter) * 2);
-    ul {
-      gap: var(--gutter);
-    }
-
-  }
-  @media screen and (min-width: 1200px) {
-    align-items: center;
-    justify-content: center;
-    gap: calc(var(--gutter) * 2);
-    &::-webkit-scrollbar {
-      height: 1px;
-    }
-    ul {
-      gap: var(--gutter);
-    }
   }
 }
 

@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background-color: v(v2-background);
+  background-color: var(--v2-background);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   &::-webkit-scrollbar-track {
@@ -60,7 +60,7 @@ a {
   circle,
   line,
   polyline {
-    stroke: v(v2-card-paragraph-color);
+    stroke: var(--v2-card-paragraph-color);
     stroke-width: 1px;
   }
 
