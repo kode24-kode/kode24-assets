@@ -98,7 +98,7 @@
     background-color: var(--v2-card-background);
     border-radius: var(--border-radius);
     position: relative;
-    animation: bounce 2s infinite 5s;
+    animation: bounce 2s infinite;
     &:before {
       content: "";
       width: 0;
