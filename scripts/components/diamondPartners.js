@@ -169,4 +169,13 @@ const partners = [
     title: 'Konsulent eller inhouse? Du velger!',
     url: 'https://www.kode24.no/partner/pwc',
   },
+  {
+    name: 'Nova Consulting',
+    lightLogo:
+      'https://www.dagbladet.no/files/2023/05/09/kode24-partner-nova-consulting-light.png',
+    darkLogo:
+      'https://www.dagbladet.no/files/2023/05/09/kode24-partner-nova-consulting-dark.png',
+    title: 'Verdens beste arbeidsplass',
+    url: 'https://www.kode24.no/partner/nova-consulting',
+  },
 ];
