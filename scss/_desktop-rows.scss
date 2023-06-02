@@ -48,7 +48,7 @@
 
     &:before {
       content: "";
-      background-color: var(--v2-background);
+      background-color: rgba(0,0,0,0.6);
       position: absolute;
       left: 1px;
       top: 1px;
@@ -656,7 +656,7 @@
   0%, 100% {
     background-color: var(--v2-flame-red-light);
   }
-  25%, 75% {
+  25% {
     background-color: var(--v2-flame-red);
   }
   50% {

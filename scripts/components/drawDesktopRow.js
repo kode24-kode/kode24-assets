@@ -200,11 +200,12 @@ export const initDesktopRow = (
   });
 };
 
-function getRandomView(articlesLength = 0) {
+function getRandomView(articlesLength = 0, commercialToggle) {
+  console.log(articlesLength, commercialToggle);
   const views = {
     1: ['single'],
     2: ['dual'],
-    3: ['main-story-with-two-vertical'],
+    3: ['main-story-with-two-vertical', 'triple'],
     4: ['main-story-with-two-vertical'],
     5: [
       'main-story-with-two-vertical',
@@ -216,6 +217,7 @@ function getRandomView(articlesLength = 0) {
     ],
   };
   if (!articlesLength) return '';
+  if (commercialToggle && articlesLength === 3) return ['triple'];
   return views[articlesLength][
     Math.floor(Math.random() * views[articlesLength].length)
   ];
@@ -247,7 +249,10 @@ function drawDesktopRow(articlesData, firstRow, hotnessThreshold) {
       <div class="${
         articlesData.layout
           ? articlesData.layout
-          : getRandomView(articlesData.articles.length)
+          : getRandomView(
+              articlesData.articles.length,
+              articlesData.style === 'commercial'
+            )
       }">
       ${articlesData.articles
         .map((article, index) =>
