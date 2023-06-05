@@ -1,4 +1,4 @@
-import { shuffleArray } from "../functions/shuffleArray.js";
+import { shuffleArray } from '../functions/shuffleArray.js';
 /**
  * Displays box of diamond partners
  */
@@ -12,13 +12,13 @@ export function initDiamondPartners(node, partners) {
       .map(
         (partner) => `
       <li>
-      <a href="${`https://www.kode24.no/partner/${partner.slug}`}">
-        <img class="dark" src="${partner.darkLogo}" alt="partner logo ${
-          partner.name
-        }">
-        <img class="light" src="${partner.lightLogo}" alt="partner logo ${
-          partner.name
-        }">
+      <a href="${`https://partner.kode24.no/${partner.slug}`}">
+        <img class="dark" src="${
+          partner.darkLogo
+        }" alt="partner logo ${partner.name}">
+        <img class="light" src="${
+          partner.lightLogo
+        }" alt="partner logo ${partner.name}">
         ${
           partner.tooltip &&
           `<span class="description">${partner.tooltip}</span>`
@@ -27,13 +27,13 @@ export function initDiamondPartners(node, partners) {
       </li>
       `
       )
-      .join("")}
+      .join('')}
       </ul>
       `;
 }
 
 export function initDiamondPartnersLoading() {
-  var diamondPartnersContainer = document.createElement("div");
-  diamondPartnersContainer.classList.add("diamond-partners-list");
+  var diamondPartnersContainer = document.createElement('div');
+  diamondPartnersContainer.classList.add('diamond-partners-list');
   return diamondPartnersContainer;
 }
