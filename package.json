@@ -1,31 +1,29 @@
 {
-  "name": "kode24-frontend",
+  "name": "kode24",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "buildProd": "vite build --config vite.config.front.js && vite build --config vite.config.article.js && vite build --config vite.config.content.js && vite build --config vite.config.jobb.js && vite build --config vite.config.emne.js"
-  },
-  "devDependencies": {
-    "vite": "^3.0.7"
+    "build": "tsc && vite build",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@babel/core": "^7.19.1",
-    "@babel/preset-env": "^7.19.1",
-    "@babel/runtime": "^7.19.0",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@vitejs/plugin-legacy": "^2.1.0",
-    "babel": "^6.23.0",
-    "core-js": "^3.25.1",
-    "highlight.js": "^11.6.0",
-    "hljs": "^6.2.3",
-    "javascript-time-ago": "^2.5.9",
-    "js-cookie": "^3.0.5",
-    "sass": "^1.54.9",
-    "timeago.js": "^4.0.2",
-    "vite-plugin-legacy": "^2.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.37",
+    "@types/react-dom": "^18.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.4",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.9"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "name": "kode24-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "buildProd": "vite build --config vite.config.front.js && vite build --config vite.config.article.js && vite build --config vite.config.content.js && vite build --config vite.config.jobb.js && vite build --config vite.config.emne.js"
+  },
+  "devDependencies": {
+    "vite": "^3.0.7"
+  },
+  "dependencies": {
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/runtime": "^7.19.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@vitejs/plugin-legacy": "^2.1.0",
+    "babel": "^6.23.0",
+    "core-js": "^3.25.1",
+    "highlight.js": "^11.6.0",
+    "hljs": "^6.2.3",
+    "javascript-time-ago": "^2.5.9",
+    "js-cookie": "^3.0.5",
+    "sass": "^1.54.9",
+    "timeago.js": "^4.0.2",
+    "vite-plugin-legacy": "^2.1.0"
+  }
+}
