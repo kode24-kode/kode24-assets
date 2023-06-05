@@ -34,8 +34,8 @@
 }
 .desktop-row {
 
-&.card {
-    background-color: var(--v2-card-background);
+  &.card {
+      background-color: var(--v2-card-background);
   }
 
   &.border {
@@ -45,15 +45,28 @@
   &.commercial {
     background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-orange));
     position: relative;
-
+    .heading {
+      padding-right: 0;
+      padding-top: 0;
+    }
     &:before {
       content: "";
-      background-color: rgba(0,0,0,0.6);
       position: absolute;
       left: 1px;
       top: 1px;
       width: calc(100% - 2px);
       height: calc(100% - 2px);
+    }
+    .heading-title {
+      color: var(--v2-card-background);
+    }
+    .triple,.single,.double {
+      .preview {
+        background-color: var(--v2-card-background);
+        margin-bottom: var(--gutter);
+        padding: var(--gutter);
+        border-radius: var(--border-radius);
+      }
     }
 
     .company-name {
