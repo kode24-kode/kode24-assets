@@ -14,11 +14,24 @@ export default function ArticlesRow({
 
   return (
     <div
-      className={`row desktop-row undefined ${DesktopRowData.style} ${
+      className={`row desktop-row ${DesktopRowData.style} ${
         firstRow ? 'first-row' : ''
       }`}
     >
-      <div className="heading"></div>
+      <div className="heading">
+        {DesktopRowData.title && (
+          <>
+            <h2 className="heading-title">{DesktopRowData.title}</h2>
+            <a
+              href={`https://www.kode24.no${DesktopRowData.lenke}`}
+              target="_blank"
+              className="button"
+            >
+              Se alle
+            </a>
+          </>
+        )}
+      </div>
       <div className={DesktopRowData.layout}>
         {DesktopRowData.articles.map(
           (article: Article, key: number) => (

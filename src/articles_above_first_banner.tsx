@@ -22,20 +22,6 @@ export default function ArticlesAboveFirstBanner({
         firstRow={true}
         hotnessThreshold={[20, 5]}
       />
-      <ArticlesRow
-        DesktopRowData={{
-          layout: 'main-story-with-two-vertical',
-          style: '',
-          title: '',
-          description: '',
-          tags: 'artikler',
-          antall: 3,
-          lenke: '',
-          articles: frontpageData.latestArticles.slice(3, 7),
-        }}
-        firstRow={true}
-        hotnessThreshold={[20, 5]}
-      />
     </div>
   );
 }

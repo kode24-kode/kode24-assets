@@ -122,7 +122,7 @@ export interface Frontpage {
     listings: [Listing];
     premiumIds: [number];
   };
-  content: [Article];
+  content: [Listing];
   events: {
     upcomingEvents: [Event];
     previousEvents: [Event];
