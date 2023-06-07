@@ -201,7 +201,6 @@ export const initDesktopRow = (
 };
 
 function getRandomView(articlesLength = 0, commercialToggle) {
-  console.log(articlesLength, commercialToggle);
   const views = {
     1: ['single'],
     2: ['dual'],

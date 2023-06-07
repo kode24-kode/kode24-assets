@@ -5,24 +5,31 @@
  */
 import { DesktopRow, Article } from '../types';
 
+interface HottestArticle {
+  id: string;
+  hotness: number;
+}
+
 export function findHottestArticle(
   desktopRow: DesktopRow,
   threshold: [number, number]
 ) {
   // adding four to comments to even out the difference between reactions and comments
-  const matchedArticles: any = desktopRow.articles
+  const matchedArticles: HottestArticle[] = desktopRow.articles
     .filter(
       (article: Article) =>
         article.reactions.reactions_count >= threshold[0] ||
-        article.reactions.reactions_count >= threshold[1]
+        article.reactions.comments_count >= threshold[1]
     )
     .map((article: Article) => ({
       id: article.id,
       hotness:
         article.reactions.reactions_count +
         article.reactions.comments_count * 4,
-    }));
-
-  console.log('hotness', matchedArticles);
+    }))
+    .sort(
+      (a: HottestArticle, b: HottestArticle) => b.hotness - a.hotness
+    );
+  if (matchedArticles.length > 0) return matchedArticles[0].id;
   return false;
 }

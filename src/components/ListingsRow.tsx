@@ -7,7 +7,9 @@ export default function ListingsRow({
 }) {
   return (
     <div className={`row desktop-row commercial`}>
-      <div className="heading"></div>
+      <div className="heading">
+        <h2 className="heading-title">Annonsørinnhold</h2>
+      </div>
       <div className={getLayoutForCommercialRow(Listings.length)}>
         {Listings.map((listing: Listing, key: number) => (
           <ListingTile Listing={listing} key={key} />

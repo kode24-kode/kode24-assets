@@ -19,7 +19,7 @@ export default function ArticlesBelowFirstBanner({
           lenke: '',
           articles: frontpageData.latestArticles.slice(3, 7),
         }}
-        firstRow={true}
+        firstRow={false}
         hotnessThreshold={[20, 5]}
       />
 

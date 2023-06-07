@@ -10,8 +10,10 @@ export default function ArticlesRow({
   firstRow: boolean;
   hotnessThreshold: [number, number];
 }) {
-  findHottestArticle(DesktopRowData, hotnessThreshold);
-
+  const hottestArticle = findHottestArticle(
+    DesktopRowData,
+    hotnessThreshold
+  );
   return (
     <div
       className={`row desktop-row ${DesktopRowData.style} ${
@@ -35,7 +37,15 @@ export default function ArticlesRow({
       <div className={DesktopRowData.layout}>
         {DesktopRowData.articles.map(
           (article: Article, key: number) => (
-            <ArticleTile Article={article} key={key} isHot={false} />
+            <ArticleTile
+              Article={article}
+              key={key}
+              isHot={
+                hottestArticle && hottestArticle === article.id
+                  ? true
+                  : false
+              }
+            />
           )
         )}
       </div>

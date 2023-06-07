@@ -1,4 +1,5 @@
 import { Article } from '../types';
+import ArticleTileSocial from './ArticleTileSocial';
 export default function ArticleTile({
   Article,
   isHot,
@@ -6,12 +7,13 @@ export default function ArticleTile({
   Article: Article;
   isHot: boolean;
 }) {
+  console.log(Article.id, Article.title, isHot);
   return (
     <article
       id={`article_${Article.id}`}
       className={`preview columns large-12 small-12 medium-12 compact ${
         isHot ? 'hot' : ''
-      }}`}
+      }`}
       itemScope
       itemType="https://schema.org/ListItem"
       itemProp="itemListElement"
@@ -60,6 +62,7 @@ export default function ArticleTile({
                 <div className="byline-bio">{Article.byline.bio}</div>
               </div>
             </div>
+            <ArticleTileSocial Article={Article} />
           </div>
         </div>
       </div>

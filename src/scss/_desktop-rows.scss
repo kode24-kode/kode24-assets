@@ -60,12 +60,15 @@
     .heading-title {
       color: var(--v2-card-background);
     }
-    .triple,.single,.double {
+    .triple,.single, .dual {
       .preview {
         background-color: var(--v2-card-background);
         margin-bottom: var(--gutter);
         padding: var(--gutter);
         border-radius: var(--border-radius);
+        @media screen and (min-width: 700px) {
+          margin-bottom: 0;
+        }
       }
     }
 

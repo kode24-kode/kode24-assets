@@ -120,7 +120,7 @@ export interface Frontpage {
   frontpage: [DesktopRow];
   listing: {
     listings: [Listing];
-    premiumIds: [number];
+    premiumIds: [string];
   };
   content: [Listing];
   events: {

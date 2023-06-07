@@ -5,7 +5,6 @@ export default function ArticlesAboveFirstBanner({
 }: {
   frontpageData: Frontpage;
 }) {
-  console.log(frontpageData);
   return (
     <div>
       <ArticlesRow
