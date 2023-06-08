@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/main.scss';
-import { Frontpage } from './types/index.ts';
+import { Frontpage, Quicksearch } from './types/index.ts';
 import ArticlesAboveFirstBanner from './articles_above_first_banner.tsx';
 import ArticlesBelowFirstBanner from './articles_below_first_banner.tsx';
 import ArticlesBelowSecondBanner from './articles_below_second_banner.tsx';
@@ -20,7 +20,8 @@ import { Listing } from './types/index.ts';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import ContentsRow from './components/ContentsRow.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
-import Quicksearch from './components/Quicksearch.tsx';
+import QuicksearchComponent from './components/Quicksearch.tsx';
+import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
@@ -171,7 +172,15 @@ async function main() {
         const jobbmail = document.createElement('div');
         ReactDOM.createRoot(jobbmail as HTMLElement).render(
           <React.StrictMode>
-            <Quicksearch />
+            <QuicksearchComponent
+              quicksearchData={{
+                from: 'no-reply@kode24.no',
+                to: findDataInSpecialTag(listing.tags, 'jobbmail'),
+                applicant: '',
+                jobUrl: listing.published_url,
+                jobTitle: listing.title,
+              }}
+            />
           </React.StrictMode>
         );
         document.querySelector('.body-copy')?.append(jobbmail);

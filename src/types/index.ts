@@ -127,3 +127,11 @@ export interface Frontpage {
   newestComments: [Comment];
   companyPartners: [CompanyPartner];
 }
+
+export interface Quicksearch {
+  from: string;
+  to: string;
+  applicant: string;
+  jobUrl: string;
+  jobTitle: string;
+}
