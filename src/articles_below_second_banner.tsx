@@ -6,6 +6,7 @@ export default function ArticlesBelowSecondBanner({
 }: {
   frontpageData: Frontpage;
 }) {
+  // if there are no contents the listings will be offset by 3 as 3 have already been shown in "articles_below_first_banner.tsx"
   const listings: Listing[] =
     frontpageData.content.length > 0
       ? [...frontpageData.listing.listings]

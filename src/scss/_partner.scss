@@ -81,12 +81,14 @@
           opacity: 0.6;
       }
     }
-    a:hover {
-      img {
-        opacity: 1;
-      }
-      .description {
-        display: block;
+    @media screen and (min-width: 1024px) {
+      a:hover {
+        img {
+          opacity: 1;
+        }
+        .description {
+          display: block;
+        }
       }
     }
   }

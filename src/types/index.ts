@@ -14,26 +14,19 @@ export interface Listing {
     description: string;
   };
 }
-
-export interface Article {
+export interface Content {
   id: string;
+  published_url: string;
   title: string;
   published: string;
   section: string;
   image: string;
-  published_url: string;
-  tags: string;
-  subtitle: string;
-  frontCropUrl: string;
-  byline: {
-    name: string;
-    bio: string;
+  premium: boolean;
+  location: [string];
+  company: {
     imageUrl: string;
-  };
-  reactions: {
-    reactions: Array<number>;
-    comments_count: number;
-    reactions_count: number;
+    name: string;
+    description: string;
   };
 }
 
@@ -58,7 +51,6 @@ export interface Article {
     reactions_count: number;
   };
 }
-
 export interface DesktopRow {
   title: string;
   description: string;
@@ -122,7 +114,7 @@ export interface Frontpage {
     listings: [Listing];
     premiumIds: [string];
   };
-  content: [Listing];
+  content: [Content];
   events: {
     upcomingEvents: [Event];
     previousEvents: [Event];

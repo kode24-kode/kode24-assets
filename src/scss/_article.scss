@@ -287,9 +287,25 @@
 
     width: 100%;
 
+    > h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+    margin-top: 2.5rem;
+    padding: 0;
+    font-family: var(--fontMono);
+    font-weight: 500;
+    a {
+      background-position: 0 40px;
+    }
+    @media screen and (min-width: $vp-tablet) {
+      font-size: 1.9rem;
+    }
+  }
+
     > figure,
-    .large-6 figure,
-    .large-12 figure {
+    >.large-12>figure,
+    >.small-12>figure,
+    >.medium-12>figure {
       margin-left: calc(var(--gutter) / 2 *-1);
       margin-right: calc(var(--gutter) / 2 *-1);
       margin-top: 2.5rem;
@@ -356,9 +372,6 @@
       }
     }
 
-    .preview figure {
-      margin: 0;
-    }
 
     p {
       line-height: 1.6;
@@ -396,20 +409,7 @@
       margin-bottom: 0.8rem;
     }
   }
-  h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.6rem;
-    margin-top: 2.5rem;
-    padding: 0;
-    font-family: var(--fontMono);
-    font-weight: 500;
-    a {
-      background-position: 0 40px;
-    }
-    @media screen and (min-width: $vp-tablet) {
-      font-size: 1.9rem;
-    }
-  }
+
 
   .quotebox {
     position: relative;
@@ -529,7 +529,6 @@
     .headline {
       font-size: 1rem;
       @media screen and (min-width: $vp-desktop) {
-        margin-left: 1.25rem;
         font-size: 1.4rem;
         padding: 0;
       }

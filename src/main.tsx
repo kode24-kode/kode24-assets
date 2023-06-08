@@ -5,6 +5,8 @@ import { Frontpage } from './types/index.ts';
 import ArticlesAboveFirstBanner from './articles_above_first_banner.tsx';
 import ArticlesBelowFirstBanner from './articles_below_first_banner.tsx';
 import ArticlesBelowSecondBanner from './articles_below_second_banner.tsx';
+
+import ListingsRow from './components/ListingsRow.tsx';
 import DesktopSidemenuFront from './desktop_sidemenu_front.tsx';
 import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu.ts';
 import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu.ts';
@@ -13,7 +15,16 @@ import { handleImageExpansionClick } from './functions/handleImageExpansionClick
 import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.ts';
 import CompanyPartnersTop from './components/CompanyPartnersTop.tsx';
 import CommentsTile from './components/CommentsTile.tsx';
+import Search from './components/Search.tsx';
+import { Listing } from './types/index.ts';
+import { shuffleArray } from './functions/shuffleArray.ts';
+import ContentsRow from './components/ContentsRow.tsx';
+import { getArticleId } from './functions/getArticleId.tsx';
+import Quicksearch from './components/Quicksearch.tsx';
+
+/** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
+  // fetch frontpage data
   const response = await fetch(
     'https://functions.kode24.no/api/frontpage'
   );
@@ -27,7 +38,9 @@ async function main() {
     FrontpageData.listing.listings.length
   );
 
+  // only if commercial content
   addRibbonClassToTop();
+
   handleImageExpansionClick();
   handleHamburgerMenuClick();
 
@@ -86,7 +99,7 @@ async function main() {
   document.querySelector('#top-bar')?.after(partnersTop);
 
   const newestCommentsNode = document.createElement('div');
-  ReactDOM.createRoot(newestCommentsNode).render(
+  ReactDOM.createRoot(newestCommentsNode as HTMLElement).render(
     <React.StrictMode>
       <CommentsTile comments={FrontpageData.newestComments} />
     </React.StrictMode>
@@ -96,6 +109,74 @@ async function main() {
   );
   if (firstBanner && firstBanner.length > 0) {
     firstBanner[0].prepend(newestCommentsNode);
+  }
+
+  const searchNode = document.createElement('div');
+  ReactDOM.createRoot(searchNode as HTMLElement).render(
+    <React.StrictMode>
+      <Search />
+    </React.StrictMode>
+  );
+  document.querySelector('#nav-top')?.append(searchNode);
+
+  /** This part should only occur in articles */
+  /** Attempts to add job ads before every odd h2-tag in article */
+  if (document.querySelector('.article-entity.artikkel')) {
+    const premiumListings = shuffleArray([
+      ...FrontpageData.listing.listings.filter((listing: Listing) =>
+        FrontpageData.listing.premiumIds.includes(listing.id)
+      ),
+    ]) as Listing[];
+    // draw a listing before each h2
+    const h2s = document.querySelectorAll(
+      '.body-copy h2:nth-of-type(odd)'
+    );
+    h2s.forEach((h2, key: number) => {
+      const listingNode = document.createElement('div');
+      if (key === 0 && FrontpageData.content.length > 0) {
+        ReactDOM.createRoot(listingNode as HTMLElement).render(
+          <React.StrictMode>
+            <ContentsRow
+              Contents={FrontpageData.content.slice(0, 3)}
+            />
+          </React.StrictMode>
+        );
+        h2.before(listingNode);
+      } else if (premiumListings.length > 0) {
+        ReactDOM.createRoot(listingNode as HTMLElement).render(
+          <React.StrictMode>
+            <ListingsRow
+              Listings={premiumListings.splice(0, 3) as Listing[]}
+            />
+          </React.StrictMode>
+        );
+        h2.before(listingNode);
+      }
+    });
+  }
+
+  /** This part only runs if we are in a job listing */
+  if (document.querySelector('.article-entity.jobb')) {
+    console.log('yo');
+    const listingId = getArticleId();
+    console.log('listing id', listingId);
+    if (listingId) {
+      // attempt to find listing and see if it has a quick search tag
+      const listing = FrontpageData.listing.listings.find(
+        (listing) => listing.id === listingId
+      );
+      console.log('found listing', listing);
+      if (listing && listing.tags.includes('jobbmail')) {
+        console.log(listing);
+        const jobbmail = document.createElement('div');
+        ReactDOM.createRoot(jobbmail as HTMLElement).render(
+          <React.StrictMode>
+            <Quicksearch />
+          </React.StrictMode>
+        );
+        document.querySelector('.body-copy')?.append(jobbmail);
+      }
+    }
   }
 }
 

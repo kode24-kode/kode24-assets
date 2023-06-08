@@ -25,26 +25,24 @@
     margin-bottom: 0.4rem;
   }
   input {
-    padding: 0.6rem;
+    padding: var(--gutter);
     font-size: 1rem;
-    border-radius: 20px;
-    background-color: var(--v2-card-background-level-2);
-    color: v(--v2-card-headline-color);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--v2-card-background-highlight);
+    background-color: var(--v2-background);
+    color: var(--v2-card-headline-color);
     outline: none;
     border: 0;
     width: 100%;
+    margin-bottom: var(--gutter);
     display: block;
   }
   .button {
-    margin-top: 0.6rem;
-    color: var(--v2-card-headline-color);
-    background: var(--v2-job-button-background);
-    border: 1px solid var(--v2-job-button-outline);
+    background: var(--v2-card-background-highlight);
     width: 100%;
-    display: block;
-    border-radius: 20px;
+    padding: var(--gutter);
+    font-size: 1rem;
     cursor: pointer;
-    outline: none;
   }
   .rocket {
     transition: all 2s ease-in-out;

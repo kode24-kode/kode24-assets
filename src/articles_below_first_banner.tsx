@@ -1,6 +1,8 @@
-import { Frontpage } from './types/index.ts';
+import { Frontpage, Content } from './types/index.ts';
 import ArticlesRow from './components/ArticlesRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
+import ContentsRow from './components/ContentsRow.tsx';
+import { shuffleArray } from './functions/shuffleArray.ts';
 export default function ArticlesBelowFirstBanner({
   frontpageData,
 }: {
@@ -17,19 +19,19 @@ export default function ArticlesBelowFirstBanner({
           tags: 'artikler',
           antall: 3,
           lenke: '',
-          articles: frontpageData.latestArticles.slice(3, 7),
+          articles: frontpageData.latestArticles.slice(3, 6),
         }}
         firstRow={false}
         hotnessThreshold={[20, 5]}
       />
-
-      <ListingsRow
-        Listings={
-          frontpageData.content?.length > 0
-            ? frontpageData.content
-            : frontpageData.listing.listings.slice(0, 3)
-        }
-      />
+      {frontpageData.content.length > 0 && (
+        <ContentsRow Contents={frontpageData.content} />
+      )}
+      {frontpageData.content.length <= 0 && (
+        <ListingsRow
+          Listings={frontpageData.listing.listings.slice(0, 3)}
+        />
+      )}
       {frontpageData.frontpage.length > 0 && (
         <ArticlesRow
           DesktopRowData={frontpageData.frontpage[0]}

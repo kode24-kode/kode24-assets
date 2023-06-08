@@ -7,7 +7,6 @@ export default function ArticleTile({
   Article: Article;
   isHot: boolean;
 }) {
-  console.log(Article.id, Article.title, isHot);
   return (
     <article
       id={`article_${Article.id}`}
