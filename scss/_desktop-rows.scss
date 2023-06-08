@@ -60,12 +60,15 @@
     .heading-title {
       color: var(--v2-card-background);
     }
-    .triple,.single,.double {
+    .triple,.single,.dual {
       .preview {
         background-color: var(--v2-card-background);
         margin-bottom: var(--gutter);
         padding: var(--gutter);
         border-radius: var(--border-radius);
+        @media screen and (min-width: 830px) {
+          margin-bottom: 0;
+        }
       }
     }
 
@@ -189,10 +192,10 @@
       }
     }
     .triple {
+      .headline {
+        font-size: 1.4rem;
+      }
       article:not(:first-child) {
-        .headline {
-          font-size: 1.1rem;
-        }
       }
     }
     .main-story-with-vertical-list,
@@ -205,7 +208,7 @@
           grid-row: span 4;
 
           .headline {
-            font-size: 2rem;
+            font-size: 2.4rem;
           }
 
           .standfirst {
@@ -341,7 +344,7 @@
           grid-row: span 2;
 
           .headline {
-            font-size: 2.6rem;
+            font-size: 3.5rem;
           }
 
           .standfirst {
@@ -370,7 +373,7 @@
         }
         &:not(:first-child) {
           .headline {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
           }
         }
       }
