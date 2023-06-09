@@ -45,6 +45,7 @@
   &.commercial {
     background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-orange));
     position: relative;
+    flex-direction: column;
     .heading {
       padding-right: 0;
       padding-top: 0;
@@ -66,6 +67,10 @@
         margin-bottom: var(--gutter);
         padding: var(--gutter);
         border-radius: var(--border-radius);
+        margin-top: 0;
+        figure,img {
+          max-width: 100%;
+        }
         @media screen and (min-width: 830px) {
           margin-bottom: 0;
         }

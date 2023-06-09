@@ -6,6 +6,7 @@ import ArticlesAboveFirstBanner from './articles_above_first_banner.tsx';
 import ArticlesBelowFirstBanner from './articles_below_first_banner.tsx';
 import ArticlesBelowSecondBanner from './articles_below_second_banner.tsx';
 import FullEventsList from './components/FullEventsList.tsx';
+import { adjustLazyImages } from './functions/adjustLazyImages.ts';
 
 import ListingsRow from './components/ListingsRow.tsx';
 import DesktopSidemenuFront from './desktop_sidemenu_front.tsx';
@@ -43,6 +44,8 @@ async function main() {
 
   // only if commercial content
   addRibbonClassToTop();
+
+  adjustLazyImages();
 
   handleImageExpansionClick();
   handleHamburgerMenuClick();

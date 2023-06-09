@@ -260,6 +260,12 @@
       }
     }
   }
+  pre {
+    @media screen and (max-width: 700px) {
+      overflow: scroll;
+      max-width: 100%;
+    }
+  }
   .byline a,
   p a,
   ul a,
