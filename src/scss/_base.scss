@@ -70,3 +70,19 @@ a {
   flex-direction: column;
   align-items: center;
 }
+
+@mixin underlined {
+  text-decoration: none;
+    cursor: pointer;
+    background-image: linear-gradient(
+      90deg,
+      var(--v2-label-color-pink),
+      var(--v2-label-color-purple),
+    );
+    background-position: 0px 22px;
+    background-repeat: repeat-x;
+    background-size: 100% 1px;
+    overflow: visible;
+    padding-bottom: 6px;
+    color: var(--v2-card-paragraph-color);
+}

@@ -1,27 +1,32 @@
 import { Event } from '../types';
-export default function EventsSidebar({
+export default function FullEventsList({
   events,
 }: {
   events: Array<Event>;
 }) {
   return (
     <div className="row">
-      <article className="preview preview-list job-list">
-        <div className="preview-list-header">
+      <section className="events-list-section">
+        <div className="events-list-header">
           <h2 className="highlight">Bransjekalender</h2>
+          <p>
+            Det er gratis å legge inn arrangement i kalenderen vår,
+            bare fyll inn skjemaet under her.
+          </p>
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLSeIpFCZRLdecwbZjLKZ_CSIqs7deA5vU4zHJJTPEa1wUbHo7A/viewform"
-            className="button action"
+            className="button"
           >
-            Opprett ny
+            Kalenderskjema 📅
           </a>
         </div>
-        <div className="listing">
+        <div className="events-list">
           {events.map((event: Event, key: number) => {
             const date = new Date(event.startDate);
+            console.log(event, date);
             return (
               <article
-                className="preview calendar"
+                className="calendar"
                 itemScope
                 itemProp="itemListElement"
                 itemType="http://schema.org/ListItem"
@@ -65,12 +70,7 @@ export default function EventsSidebar({
             );
           })}
         </div>
-        <div className="listing-actions">
-          <a href="/kalender" className="button">
-            Vis alle
-          </a>
-        </div>
-      </article>
+      </section>
     </div>
   );
 }

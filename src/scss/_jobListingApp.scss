@@ -1,32 +1,36 @@
-#front-articles-list .events-list-section {
-  h2 {
-    padding: 0;
-  }
+#front-articles-list .listings-application-list-section {
   p {
     color: var(--v2-card-paragraph-color);
+    margin-bottom: var(--gutter);
   }
   @media (max-width: 700px) {
     padding: var(--gutter);
+  }
+}
+#front-articles-list .listings-application-list-header {
+  p a {
+    @include underlined;
+  }
+  h2 {
+    padding: 0;
   }
   .button {
     padding: var(--gutter);
     font-size: 1rem;
   }
 }
-
-#front-articles-list .events-list {
+#front-articles-list .listings-application-list {
   margin-top: var(--gutter);
   gap: var(--gutter);
   display: flex;
   flex-wrap: wrap;
-  .calendar {
+  list-style: none;
+  padding: 0;
+  .listing-application-list-item {
     background-color: var(--v2-card-background);
     border-radius: var(--border-radius);
     padding: var(--gutter);
-    width: calc(50% - var(--gutter) / 2);
-    @media (max-width: 700px) {
-      width: 100%;
-    }
+    width: 100%;
     &:hover {
       background-color: var(--v2-card-background-highlight);
     }
@@ -42,12 +46,36 @@
         display: block;
       }
     }
-    .headline {
+    .listings-application-list-info-title {
       color: var(--v2-card-headline-color);
-      font-size: 2rem;
-      margin: 0 0 var(--gutter) 0;
+      margin: 0 0 calc(var(--gutter) / 2) 0;
+      padding: 0;
+    }
+    .listings-application-list-info-company-name {
+      color: var(--v2-card-paragraph-color);
+      margin: 0 0 calc(var(--gutter) / 2) 0;
+    }
+    .listings-application-list-info-location {
+      display: flex;
+      gap: calc(var(--gutter) / 2);
+      flex-wrap: wrap;
+      span {
+        display: inline-block;
+        padding: calc(var(--gutter) / 4);
+        border-radius: var(--border-radius);
+        background-color: var(--v2-card-background-highlight);
+      }
     }
   }
+  .listings-application-list-info {
+    width: 100%;
+  }
+
+  .listings-application-list-info-details {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .preview-calendar-date {
     border: 1px solid var(--v2-card-border-background);
     text-align: center;
@@ -61,5 +89,9 @@
       text-transform: uppercase;
       font-size: 0.8rem;
     }
+  }
+  .listings-application-list-info-time {
+    text-align: right;
+    display: block;
   }
 }

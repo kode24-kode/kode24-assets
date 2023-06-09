@@ -5,6 +5,7 @@ import { Frontpage } from './types/index.ts';
 import ArticlesAboveFirstBanner from './articles_above_first_banner.tsx';
 import ArticlesBelowFirstBanner from './articles_below_first_banner.tsx';
 import ArticlesBelowSecondBanner from './articles_below_second_banner.tsx';
+import FullEventsList from './components/FullEventsList.tsx';
 
 import ListingsRow from './components/ListingsRow.tsx';
 import DesktopSidemenuFront from './desktop_sidemenu_front.tsx';
@@ -22,6 +23,7 @@ import ContentsRow from './components/ContentsRow.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
 import QuicksearchComponent from './components/Quicksearch.tsx';
 import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
+import ListingsApplication from './components/ListingsApplication.tsx';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
@@ -45,49 +47,58 @@ async function main() {
   handleImageExpansionClick();
   handleHamburgerMenuClick();
 
-  ReactDOM.createRoot(
-    document.getElementById(
-      'articles-above-first-banner'
-    ) as HTMLElement
-  ).render(
-    <React.StrictMode>
-      <ArticlesAboveFirstBanner
-        frontpageData={{ ...FrontpageData }}
-      />
-    </React.StrictMode>
-  );
+  const articlesAboveFirstBanner = document.getElementById(
+    'articles-above-first-banner'
+  ) as HTMLElement;
 
-  ReactDOM.createRoot(
-    document.getElementById(
-      'articles-below-first-banner'
-    ) as HTMLElement
-  ).render(
-    <React.StrictMode>
-      <ArticlesBelowFirstBanner
-        frontpageData={{ ...FrontpageData }}
-      />
-    </React.StrictMode>
-  );
+  const articlesBelowFirstBanner = document.getElementById(
+    'articles-below-first-banner'
+  ) as HTMLElement;
 
-  ReactDOM.createRoot(
-    document.getElementById(
-      'articles-below-second-banner'
-    ) as HTMLElement
-  ).render(
-    <React.StrictMode>
-      <ArticlesBelowSecondBanner
-        frontpageData={{ ...FrontpageData }}
-      />
-    </React.StrictMode>
-  );
+  const articlesBelowSecondBanner = document.getElementById(
+    'articles-below-second-banner'
+  ) as HTMLElement;
 
-  ReactDOM.createRoot(
-    document.getElementById('desktop-sidemenu-front') as HTMLElement
-  ).render(
-    <React.StrictMode>
-      <DesktopSidemenuFront frontpageData={{ ...FrontpageData }} />
-    </React.StrictMode>
-  );
+  const desktopSideMenuFront = document.getElementById(
+    'desktop-sidemenu-front'
+  ) as HTMLElement;
+
+  const eventsList = document.getElementById('events-list');
+  const listingList = document.getElementById('listings-application');
+
+  if (articlesAboveFirstBanner)
+    ReactDOM.createRoot(articlesAboveFirstBanner).render(
+      <React.StrictMode>
+        <ArticlesAboveFirstBanner
+          frontpageData={{ ...FrontpageData }}
+        />
+      </React.StrictMode>
+    );
+
+  if (articlesBelowFirstBanner)
+    ReactDOM.createRoot(articlesBelowFirstBanner).render(
+      <React.StrictMode>
+        <ArticlesBelowFirstBanner
+          frontpageData={{ ...FrontpageData }}
+        />
+      </React.StrictMode>
+    );
+
+  if (articlesBelowSecondBanner)
+    ReactDOM.createRoot(articlesBelowSecondBanner).render(
+      <React.StrictMode>
+        <ArticlesBelowSecondBanner
+          frontpageData={{ ...FrontpageData }}
+        />
+      </React.StrictMode>
+    );
+
+  if (desktopSideMenuFront)
+    ReactDOM.createRoot(desktopSideMenuFront).render(
+      <React.StrictMode>
+        <DesktopSidemenuFront frontpageData={{ ...FrontpageData }} />
+      </React.StrictMode>
+    );
 
   const partnersTop = document.createElement('div') as HTMLElement;
   ReactDOM.createRoot(partnersTop).render(
@@ -108,6 +119,7 @@ async function main() {
   const firstBanner = document.querySelectorAll(
     '.show-for-medium-up'
   );
+
   if (firstBanner && firstBanner.length > 0) {
     firstBanner[0].prepend(newestCommentsNode);
   }
@@ -119,6 +131,29 @@ async function main() {
     </React.StrictMode>
   );
   document.querySelector('#nav-top')?.append(searchNode);
+
+  /** this part only occurs if the div "event-list" is present */
+  if (eventsList) {
+    ReactDOM.createRoot(eventsList).render(
+      <React.StrictMode>
+        <FullEventsList
+          events={FrontpageData.events.upcomingEvents}
+        />
+      </React.StrictMode>
+    );
+  }
+
+  /** this part only occurs if the div "listing-list" is present */
+  /** Which means we are on the job listing page */
+  if (listingList) {
+    ReactDOM.createRoot(listingList).render(
+      <React.StrictMode>
+        <ListingsApplication
+          listings={FrontpageData.listing.listings}
+        />
+      </React.StrictMode>
+    );
+  }
 
   /** This part should only occur in articles */
   /** Attempts to add job ads before every odd h2-tag in article */

@@ -1,6 +1,5 @@
 .desktop-row {
   padding: var(--gutter);
-  display: block !important;
 }
 .desktop-row .heading {
   display: flex;
@@ -17,8 +16,7 @@
     margin-bottom: 0;
     padding: 0;
     font-size: 1.2rem;
-    margin-top: 0;
-}
+  }
 
 
 
@@ -62,13 +60,13 @@
     .heading-title {
       color: var(--v2-card-background);
     }
-    .triple,.single, .dual {
+    .triple,.single,.dual {
       .preview {
         background-color: var(--v2-card-background);
         margin-bottom: var(--gutter);
         padding: var(--gutter);
         border-radius: var(--border-radius);
-        @media screen and (min-width: 700px) {
+        @media screen and (min-width: 830px) {
           margin-bottom: 0;
         }
       }
@@ -176,7 +174,6 @@
       .preview {
         padding: calc(var(--gutter) / 2);
         border-radius: var(--border-radius);
-        margin-top: 0;
         &.hot {
           animation: hotAnimation 5s infinite;
         }
@@ -195,10 +192,10 @@
       }
     }
     .triple {
+      .headline {
+        font-size: 1.4rem;
+      }
       article:not(:first-child) {
-        .headline {
-          font-size: 1.1rem;
-        }
       }
     }
     .main-story-with-vertical-list,
@@ -211,7 +208,7 @@
           grid-row: span 4;
 
           .headline {
-            font-size: 2rem;
+            font-size: 2.4rem;
           }
 
           .standfirst {
@@ -347,7 +344,7 @@
           grid-row: span 2;
 
           .headline {
-            font-size: 2.6rem;
+            font-size: 3.5rem;
           }
 
           .standfirst {
@@ -376,7 +373,7 @@
         }
         &:not(:first-child) {
           .headline {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
           }
         }
       }

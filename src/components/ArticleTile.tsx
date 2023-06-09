@@ -7,6 +7,11 @@ export default function ArticleTile({
   Article: Article;
   isHot: boolean;
 }) {
+  const articleIsToday =
+    new Date(Article.published).setHours(0, 0, 0, 0) ==
+    new Date().setHours(0, 0, 0, 0)
+      ? true
+      : false;
   return (
     <article
       id={`article_${Article.id}`}
@@ -35,7 +40,19 @@ export default function ArticleTile({
         <div className="article-preview-text">
           <a itemProp="url" href={Article.published_url}>
             <time className="published" dateTime={Article.published}>
-              I dag, 11:21
+              {articleIsToday
+                ? `I dag, ${new Intl.DateTimeFormat('no-NB', {
+                    timeStyle: 'short',
+                    timeZone: 'Europe/Oslo',
+                  }).format(new Date(Article.published))}`
+                : `
+              ${new Intl.DateTimeFormat('no-NB', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                timeZone: 'Europe/Oslo',
+              }).format(new Date(Article.published))}
+            `}
             </time>
 
             <h1 className="headline">
