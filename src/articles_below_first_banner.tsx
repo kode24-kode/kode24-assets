@@ -1,15 +1,14 @@
-import { Frontpage, Content } from './types/index.ts';
+import { Frontpage } from './types/index.ts';
 import ArticlesRow from './components/ArticlesRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import ContentsRow from './components/ContentsRow.tsx';
-import { shuffleArray } from './functions/shuffleArray.ts';
 export default function ArticlesBelowFirstBanner({
   frontpageData,
 }: {
   frontpageData: Frontpage;
 }) {
   return (
-    <div>
+    <>
       <ArticlesRow
         DesktopRowData={{
           layout: 'main-story-with-two-vertical',
@@ -39,6 +38,6 @@ export default function ArticlesBelowFirstBanner({
           hotnessThreshold={[20, 5]}
         />
       )}
-    </div>
+    </>
   );
 }

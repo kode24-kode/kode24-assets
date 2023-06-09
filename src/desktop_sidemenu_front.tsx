@@ -1,5 +1,4 @@
 import { Frontpage, Listing } from './types/index.ts';
-import ArticlesRow from './components/ArticlesRow.tsx';
 import EventsSidebar from './components/EventsSidebar.tsx';
 import ListingsSidebar from './components/ListingsSidebar.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';

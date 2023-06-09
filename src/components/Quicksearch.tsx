@@ -21,7 +21,7 @@ export default function QuicksearchComponent({
         } as Quicksearch),
       }
     );
-    const data = await response.json();
+    await response.json();
     setEmailStatus('sent');
   }
   return (
