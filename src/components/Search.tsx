@@ -13,10 +13,6 @@ export default function Search() {
     }
   });
 
-  window.addEventListener('click', (e) => {
-    console.log(e.target);
-  });
-
   function resetSearch() {
     setSearchResults([]);
     setSearchQuery('');
@@ -64,9 +60,7 @@ export default function Search() {
     setSearchQuery(value);
     clearTimeout(timeout);
     if (value.length > 3) {
-      console.log('going in here', value);
       timeout = setTimeout(() => {
-        console.log('searching', value);
         searchForArticles(value);
       }, 500);
     }

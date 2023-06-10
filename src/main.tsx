@@ -196,17 +196,14 @@ async function main() {
 
   /** This part only runs if we are in a job listing */
   if (document.querySelector('.article-entity.jobb')) {
-    console.log('yo');
     const listingId = getArticleId();
-    console.log('listing id', listingId);
     if (listingId) {
       // attempt to find listing and see if it has a quick search tag
       const listing = FrontpageData.listing.listings.find(
         (listing) => listing.id === listingId
       );
-      console.log('found listing', listing);
+
       if (listing && listing.tags.includes('jobbmail')) {
-        console.log(listing);
         const jobbmail = document.createElement('div');
         ReactDOM.createRoot(jobbmail as HTMLElement).render(
           <React.StrictMode>
