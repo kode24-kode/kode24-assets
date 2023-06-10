@@ -1,0 +1,26 @@
+/** All pages under /emne/ */
+#front-articles-list {
+  >.row {
+    >article {
+      padding: var(--gutter);
+      .standfirst {
+          display: none;
+      }
+      figure {
+          flex: auto;
+          @media (min-width: 830px) {
+              flex: 0 0 400px;
+            }
+      }
+
+      .preview a {
+          flex-direction: column;
+          gap: calc(var(--gutter) / 2)
+      }
+      .headline {
+          font-size: 2.6rem;
+      }
+    }
+  }
+}
+

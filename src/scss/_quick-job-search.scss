@@ -1,0 +1,56 @@
+.quick-job-container {
+  margin-top: 2.5rem;
+  border-radius: 10px;
+  padding: 1.25rem;
+  background-color: var(--v2-card-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .quick-job-content {
+    max-width: 500px;
+  }
+  h4 {
+    margin: 0 0 0.6rem 0;
+    font-size: 1.5rem;
+  }
+  p {
+  }
+}
+
+#quick-job-form {
+  label {
+    display: block;
+    margin-top: 1.25rem;
+    margin-bottom: 0.4rem;
+  }
+  input {
+    padding: var(--gutter);
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--v2-card-background-highlight);
+    background-color: var(--v2-background);
+    color: var(--v2-card-headline-color);
+    outline: none;
+    border: 0;
+    width: 100%;
+    margin-bottom: var(--gutter);
+    display: block;
+  }
+  .button {
+    background: var(--v2-card-background-highlight);
+    width: 100%;
+    padding: var(--gutter);
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .rocket {
+    transition: all 2s ease-in-out;
+
+    &.shoot {
+      position: absolute;
+      transform: scale(10);
+      opacity: 0;
+    }
+  }
+}
