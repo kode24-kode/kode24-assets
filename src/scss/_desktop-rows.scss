@@ -46,6 +46,9 @@
     background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-orange));
     position: relative;
     flex-direction: column;
+    @media screen and (max-width: 830px) {
+     padding-right: 0;
+    }
     .heading {
       padding-right: 0;
       padding-top: 0;
@@ -62,6 +65,16 @@
       color: var(--v2-card-background);
     }
     .triple,.single,.dual {
+      @media screen and (max-width: 830px) {
+        display: flex;
+        overflow: scroll;
+        gap: var(--gutter);
+        padding-right: var(--gutter);
+        margin-left: calc(var(--gutter) * -1);
+        padding-left: var(--gutter);
+        -webkit-overflow-scrolling: touch;
+      }
+
       .preview {
         background-color: var(--v2-card-background);
         margin-bottom: var(--gutter);
@@ -70,6 +83,9 @@
         margin-top: 0;
         figure,img {
           max-width: 100%;
+        }
+        @media screen and (max-width: 830px) {
+          flex: 0 0 70%;
         }
         @media screen and (min-width: 830px) {
           margin-bottom: 0;
