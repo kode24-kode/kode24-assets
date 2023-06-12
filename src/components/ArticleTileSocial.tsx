@@ -133,7 +133,7 @@ export default function ArticleTileSocial({
       {Article.reactions.comments_count > 0 && (
         <div className="article-social-reactions article-social-item">
           <a
-            href="https://www.kode24.no/79222223#hyvor-talk-view"
+            href={`https://www.kode24.no/${Article.id}#hyvor-talk-view`}
             className="reaction-button reaction"
           >
             <span
