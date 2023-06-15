@@ -22,7 +22,7 @@ export default function Search() {
     setSearchResults([]);
     setLoadingSearch(true);
     const response = await fetch(
-      `https:/functions.kode24.no/api/search/${value || searchQuery}`
+      `https://functions.kode24.no/api/search/${value || searchQuery}`
     );
     const data = await response.json();
     setSearchResults(
