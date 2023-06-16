@@ -194,6 +194,13 @@ async function main() {
     });
   }
 
+  /** Add class for topic pages */
+  if (window.location.pathname.includes('/emne')) {
+    document
+      ?.getElementById('main-content')
+      ?.classList.add('section-list');
+  }
+
   /** This part only runs if we are in a job listing */
   if (document.querySelector('.article-entity.jobb')) {
     const listingId = getArticleId();
