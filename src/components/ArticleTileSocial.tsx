@@ -25,6 +25,7 @@ export default function ArticleTileSocial({
                 .sort((a, b) => b.count - a.count)
                 // pick three first items in array
                 .slice(0, 3)
+                .filter((reaction) => reaction.count > 0)
                 .map((reaction, key: number) => (
                   <ArticleTileSocialIcons
                     key={key}
