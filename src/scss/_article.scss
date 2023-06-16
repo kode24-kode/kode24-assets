@@ -114,6 +114,7 @@
       margin-right: calc(var(--gutter) *-1);
       position: relative;
       background-color: var(--v2-card-background);
+      width: 100%;
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
         margin-left: 0;
