@@ -1,6 +1,7 @@
 import { Frontpage, Listing, Article } from './types/index.ts';
 import ArticlesRow from './components/ArticlesRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
+import { shuffleArray } from './functions/shuffleArray.ts';
 export default function ArticlesBelowSecondBanner({
   frontpageData,
 }: {
@@ -17,7 +18,9 @@ export default function ArticlesBelowSecondBanner({
   return (
     <div>
       {frontpageData.frontpage.slice(1).map((DesktopRow, key) => {
-        const splicedListings = listings.splice(0, 3);
+        const splicedListings = shuffleArray(
+          listings.splice(0, 3)
+        ) as Listing[];
         return (
           <div key={key}>
             <ArticlesRow
@@ -41,7 +44,7 @@ export default function ArticlesBelowSecondBanner({
               key={key}
             />
             {splicedListings.length > 0 && (
-              <ListingsRow Listings={listings.splice(0, 3)} />
+              <ListingsRow Listings={splicedListings} />
             )}
           </div>
         );
