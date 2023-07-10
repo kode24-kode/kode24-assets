@@ -1,7 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/main.scss';
-import { Frontpage } from './types/index.ts';
+import {
+  Frontpage,
+  Content,
+  Listing,
+  Article,
+} from './types/index.ts';
 import ArticlesAboveFirstBanner from './articles_above_first_banner.tsx';
 import ArticlesBelowFirstBanner from './articles_below_first_banner.tsx';
 import ArticlesBelowSecondBanner from './articles_below_second_banner.tsx';
@@ -18,7 +23,6 @@ import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.t
 import CompanyPartnersTop from './components/CompanyPartnersTop.tsx';
 import CommentsTile from './components/CommentsTile.tsx';
 import Search from './components/Search.tsx';
-import { Listing } from './types/index.ts';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import ContentsRow from './components/ContentsRow.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
@@ -28,6 +32,14 @@ import ListingsApplication from './components/ListingsApplication.tsx';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
+  // only if commercial content
+  addRibbonClassToTop();
+
+  adjustLazyImages();
+
+  handleImageExpansionClick();
+  handleHamburgerMenuClick();
+
   // fetch frontpage data
   const response = await fetch(
     'https://functions.kode24.no/api/frontpage'
@@ -42,13 +54,14 @@ async function main() {
     FrontpageData.listing.listings.length
   );
 
-  // only if commercial content
-  addRibbonClassToTop();
-
-  adjustLazyImages();
-
-  handleImageExpansionClick();
-  handleHamburgerMenuClick();
+  // this data mutates as components take data from it
+  const FrontPageDataDisposable = { ...FrontpageData };
+  FrontPageDataDisposable.content = shuffleArray(
+    FrontPageDataDisposable.content
+  ) as [Content];
+  FrontPageDataDisposable.listing.listings = shuffleArray(
+    FrontPageDataDisposable.listing.listings
+  ) as [Listing];
 
   const articlesAboveFirstBanner = document.getElementById(
     'articles-above-first-banner'
@@ -73,7 +86,7 @@ async function main() {
     ReactDOM.createRoot(articlesAboveFirstBanner).render(
       <React.StrictMode>
         <ArticlesAboveFirstBanner
-          frontpageData={{ ...FrontpageData }}
+          frontpageData={{ ...FrontPageDataDisposable }}
         />
       </React.StrictMode>
     );
@@ -82,7 +95,7 @@ async function main() {
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
         <ArticlesBelowFirstBanner
-          frontpageData={{ ...FrontpageData }}
+          frontpageData={{ ...FrontPageDataDisposable }}
         />
       </React.StrictMode>
     );
@@ -91,7 +104,7 @@ async function main() {
     ReactDOM.createRoot(articlesBelowSecondBanner).render(
       <React.StrictMode>
         <ArticlesBelowSecondBanner
-          frontpageData={{ ...FrontpageData }}
+          frontpageData={{ ...FrontPageDataDisposable }}
         />
       </React.StrictMode>
     );

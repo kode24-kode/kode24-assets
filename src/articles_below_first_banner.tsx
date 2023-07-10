@@ -1,13 +1,21 @@
-import { Frontpage, Content, Listing } from './types/index.ts';
+import { Frontpage } from './types/index.ts';
 import ArticlesRow from './components/ArticlesRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import ContentsRow from './components/ContentsRow.tsx';
-import { shuffleArray } from './functions/shuffleArray.ts';
 export default function ArticlesBelowFirstBanner({
   frontpageData,
 }: {
   frontpageData: Frontpage;
 }) {
+  const latestArticles = frontpageData.latestArticles.splice(0, 3);
+  const content = frontpageData.content.splice(0, 3);
+  console.log('got content', content);
+  const listings =
+    content.length > 0
+      ? []
+      : frontpageData.listing.listings.splice(0, 3);
+  console.log('got listings', content);
+  const frontPageRow = frontpageData.frontpage.splice(0, 1);
   return (
     <>
       <ArticlesRow
@@ -19,28 +27,16 @@ export default function ArticlesBelowFirstBanner({
           tags: 'artikler',
           antall: 3,
           lenke: '',
-          articles: frontpageData.latestArticles.slice(3, 6),
+          articles: latestArticles,
         }}
         firstRow={false}
         hotnessThreshold={[20, 5]}
       />
-      {frontpageData.content.length > 0 && (
-        <ContentsRow
-          Contents={shuffleArray(frontpageData.content) as Content[]}
-        />
-      )}
-      {frontpageData.content.length <= 0 && (
-        <ListingsRow
-          Listings={
-            shuffleArray(
-              frontpageData.listing.listings.slice(0, 3)
-            ) as Listing[]
-          }
-        />
-      )}
-      {frontpageData.frontpage.length > 0 && (
+      d{listings.length > 0 && <ListingsRow Listings={listings} />}f d
+      c{content.length > 0 && <ContentsRow Contents={content} />}f
+      {frontPageRow.length > 0 && (
         <ArticlesRow
-          DesktopRowData={frontpageData.frontpage[0]}
+          DesktopRowData={frontPageRow[0]}
           firstRow={false}
           hotnessThreshold={[20, 5]}
         />

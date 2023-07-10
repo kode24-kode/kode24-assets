@@ -16,7 +16,7 @@ export default function DesktopSidemenuFront({
     <div>
       <ListingsSidebar
         title="Utvalgte stillinger"
-        listings={premiumJobAds}
+        listings={premiumJobAds.slice(0, 5)}
       />
       <EventsSidebar
         events={frontpageData.events.upcomingEvents.slice(0, 5)}
