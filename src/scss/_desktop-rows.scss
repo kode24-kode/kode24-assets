@@ -663,10 +663,10 @@
   .comment-author {
     font-weight: bold;
     color: var(--v2-card-headline-color);
-    margin-bottom: calc(var(--gutter) / 4);
+    margin-bottom: calc(var(--gutter) / 2);
+    gap: 0;
     display: flex;
-    gap: calc(var(--gutter) / 2);
-    align-items: flex-end;
+    flex-direction: column;
   }
   .comment-meta {
     font-weight: normal;
