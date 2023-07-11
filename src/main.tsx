@@ -14,7 +14,7 @@ import FullEventsList from './components/FullEventsList.tsx';
 import { adjustLazyImages } from './functions/adjustLazyImages.ts';
 
 import ListingsRow from './components/ListingsRow.tsx';
-import DesktopSidemenuFront from './desktop_sidemenu_front.tsx';
+import DesktopSidemenuFront from './DesktopSidemenuFront.tsx';
 import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu.ts';
 import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu.ts';
 import { addRibbonClassToTop } from './functions/addRibbonClassToTop.ts';
@@ -29,6 +29,7 @@ import { getArticleId } from './functions/getArticleId.tsx';
 import QuicksearchComponent from './components/Quicksearch.tsx';
 import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
 import ListingsApplication from './components/ListingsApplication.tsx';
+import FrontContent from './FrontContent.tsx';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
@@ -46,6 +47,8 @@ async function main() {
   );
   const FrontpageData: Frontpage = await response.json();
 
+  FrontContent(FrontpageData as Frontpage);
+
   addNumberToEventCounterInTopMenu(
     FrontpageData.events.upcomingEvents.length
   );
@@ -54,60 +57,12 @@ async function main() {
     FrontpageData.listing.listings.length
   );
 
-  // this data mutates as components take data from it
-  const FrontPageDataDisposable = { ...FrontpageData };
-  FrontPageDataDisposable.content = shuffleArray(
-    FrontPageDataDisposable.content
-  ) as [Content];
-  FrontPageDataDisposable.listing.listings = shuffleArray(
-    FrontPageDataDisposable.listing.listings
-  ) as [Listing];
-
-  const articlesAboveFirstBanner = document.getElementById(
-    'articles-above-first-banner'
-  ) as HTMLElement;
-
-  const articlesBelowFirstBanner = document.getElementById(
-    'articles-below-first-banner'
-  ) as HTMLElement;
-
-  const articlesBelowSecondBanner = document.getElementById(
-    'articles-below-second-banner'
-  ) as HTMLElement;
-
   const desktopSideMenuFront = document.getElementById(
     'desktop-sidemenu-front'
   ) as HTMLElement;
 
   const eventsList = document.getElementById('events-list');
   const listingList = document.getElementById('listings-application');
-
-  if (articlesAboveFirstBanner)
-    ReactDOM.createRoot(articlesAboveFirstBanner).render(
-      <React.StrictMode>
-        <ArticlesAboveFirstBanner
-          frontpageData={{ ...FrontPageDataDisposable }}
-        />
-      </React.StrictMode>
-    );
-
-  if (articlesBelowFirstBanner)
-    ReactDOM.createRoot(articlesBelowFirstBanner).render(
-      <React.StrictMode>
-        <ArticlesBelowFirstBanner
-          frontpageData={{ ...FrontPageDataDisposable }}
-        />
-      </React.StrictMode>
-    );
-
-  if (articlesBelowSecondBanner)
-    ReactDOM.createRoot(articlesBelowSecondBanner).render(
-      <React.StrictMode>
-        <ArticlesBelowSecondBanner
-          frontpageData={{ ...FrontPageDataDisposable }}
-        />
-      </React.StrictMode>
-    );
 
   if (desktopSideMenuFront)
     ReactDOM.createRoot(desktopSideMenuFront).render(
