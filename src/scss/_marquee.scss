@@ -1,5 +1,8 @@
 // Overrides for the marquee style for topbanners
-.marquee-container .overlay {
-  --gradient-color: var(--v2-background), rgba(255, 255, 255, 0) !important;
-  --gradient-width: 50px !important;
+#page-body .marquee-container {
+  overflow-x: visible !important;
+  .overlay {
+    --gradient-color: var(--v2-background), rgba(255, 255, 255, 0) !important;
+    --gradient-width: 50px !important;
+  }
 }

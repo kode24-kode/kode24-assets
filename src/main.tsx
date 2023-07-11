@@ -1,19 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './scss/main.scss';
-import {
-  Frontpage,
-  Content,
-  Listing,
-  Article,
-} from './types/index.ts';
-import ArticlesAboveFirstBanner from './articles_above_first_banner.tsx';
-import ArticlesBelowFirstBanner from './articles_below_first_banner.tsx';
-import ArticlesBelowSecondBanner from './articles_below_second_banner.tsx';
+import { Frontpage } from './types/index.ts';
 import FullEventsList from './components/FullEventsList.tsx';
 import { adjustLazyImages } from './functions/adjustLazyImages.ts';
 
-import ListingsRow from './components/ListingsRow.tsx';
 import DesktopSidemenuFront from './DesktopSidemenuFront.tsx';
 import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu.ts';
 import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu.ts';
@@ -23,13 +14,12 @@ import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.t
 import CompanyPartnersTop from './components/CompanyPartnersTop.tsx';
 import CommentsTile from './components/CommentsTile.tsx';
 import Search from './components/Search.tsx';
-import { shuffleArray } from './functions/shuffleArray.ts';
-import ContentsRow from './components/ContentsRow.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
 import QuicksearchComponent from './components/Quicksearch.tsx';
 import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
 import ListingsApplication from './components/ListingsApplication.tsx';
 import FrontContent from './FrontContent.tsx';
+import ArticleContent from './ArticleContent.tsx';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
@@ -48,6 +38,7 @@ async function main() {
   const FrontpageData: Frontpage = await response.json();
 
   FrontContent(FrontpageData as Frontpage);
+  ArticleContent(FrontpageData as Frontpage);
 
   addNumberToEventCounterInTopMenu(
     FrontpageData.events.upcomingEvents.length
@@ -124,42 +115,6 @@ async function main() {
         />
       </React.StrictMode>
     );
-  }
-
-  /** This part should only occur in articles */
-  /** Attempts to add job ads before every odd h2-tag in article */
-  if (document.querySelector('.article-entity.artikkel')) {
-    const premiumListings = shuffleArray([
-      ...FrontpageData.listing.listings.filter((listing: Listing) =>
-        FrontpageData.listing.premiumIds.includes(listing.id)
-      ),
-    ]) as Listing[];
-    // draw a listing before each h2
-    const h2s = document.querySelectorAll(
-      '.body-copy h2:nth-of-type(odd)'
-    );
-    h2s.forEach((h2, key: number) => {
-      const listingNode = document.createElement('div');
-      if (key === 0 && FrontpageData.content.length > 0) {
-        ReactDOM.createRoot(listingNode as HTMLElement).render(
-          <React.StrictMode>
-            <ContentsRow
-              Contents={FrontpageData.content.slice(0, 3)}
-            />
-          </React.StrictMode>
-        );
-        h2.before(listingNode);
-      } else if (premiumListings.length > 0) {
-        ReactDOM.createRoot(listingNode as HTMLElement).render(
-          <React.StrictMode>
-            <ListingsRow
-              Listings={premiumListings.splice(0, 3) as Listing[]}
-            />
-          </React.StrictMode>
-        );
-        h2.before(listingNode);
-      }
-    });
   }
 
   /** Add class for topic pages */
