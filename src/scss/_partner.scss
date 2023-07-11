@@ -64,10 +64,10 @@
 
   ul {
     list-style: none;
-    padding: 0;
+    padding: 0 var(--gutter);
     margin: 0;
     display: flex;
-    gap: calc(var(--gutter) * 2);
+    gap: calc(var(--gutter));
     li {
       position: relative;
     }
@@ -77,14 +77,18 @@
     img {
       max-height: 40px;
       opacity: 0.8;
+
       @media screen and (min-width: 830px) {
           opacity: 0.6;
+          filter: grayscale(100%);
       }
     }
     @media screen and (min-width: 1024px) {
+      gap: calc(var(--gutter) * 2);
       a:hover {
         img {
           opacity: 1;
+          filter: grayscale(0);
         }
         .description {
           display: block;
@@ -115,19 +119,11 @@
     }
   }
 
-  overflow-y: hidden;
-  overflow-x:  auto;
   white-space: nowrap;
   justify-content: flex-start;
   align-items: center;
-  padding: calc(var(--gutter) / 2);
+  padding: calc(var(--gutter) / 2) 0;
   gap: calc(var(--gutter));
-  @media screen and (min-width: 1400px){
-    overflow-y: visible;
-      overflow-x: visible;
-      justify-content: center;
-
-  }
   li {
     width: max-content;
   }
@@ -178,7 +174,6 @@
             background-position: 0px 22px;
             background-repeat: repeat-x;
             background-size: 100% 1px;
-            overflow: visible;
             padding-bottom: 6px;
             color: var(--v2-card-paragraph-color);
     }
@@ -251,7 +246,6 @@
     padding: 0 !important;
     margin: 2rem auto 0 auto;
     border-radius: 10px;
-    overflow: hidden;
   }
 
   figure img {
