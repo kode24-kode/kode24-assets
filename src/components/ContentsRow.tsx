@@ -6,7 +6,11 @@ export default function ContentsRow({
   Contents: Array<Content>;
 }) {
   return (
-    <div className={`row desktop-row commercial`}>
+    <div
+      className={`row desktop-row commercial ${
+        Contents.length === 1 ? 'single-row' : ''
+      }`}
+    >
       <div className="heading">
         <h2 className="heading-title">Annonsørinnhold</h2>
       </div>

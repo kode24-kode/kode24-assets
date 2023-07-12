@@ -20,7 +20,11 @@ export default function ArticlesRow({
         firstRow ? 'first-row' : ''
       }`}
     >
-      <div className="heading">
+      <div
+        className={`heading ${
+          DesktopRowData.title ? '' : 'no-title'
+        }`}
+      >
         {DesktopRowData.title && (
           <>
             <h2 className="heading-title">{DesktopRowData.title}</h2>

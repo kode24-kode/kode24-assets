@@ -6,6 +6,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 0 var(--gutter) 0;
+  &.no-title {
+    display: none;
+  }
   @media screen and (min-width: 830px) {
     padding: calc(var(--gutter) / 2);
   }
@@ -47,7 +50,9 @@
     position: relative;
     flex-direction: column;
     @media screen and (max-width: 830px) {
-     padding-right: 0;
+     &:not(.single-row) {
+      padding-right: 0;
+     }
     }
     .heading {
       padding-right: 0;
@@ -64,7 +69,12 @@
     .heading-title {
       color: var(--v2-card-background);
     }
-    .triple,.single,.dual {
+    .single {
+      .preview {
+        max-width: 100%;
+      }
+    }
+    .triple,.dual,.single {
       @media screen and (max-width: 830px) {
         display: flex;
         overflow: scroll;
@@ -84,12 +94,22 @@
           max-width: 100%;
         }
         @media screen and (max-width: 830px) {
-          flex: 0 0 70%;
+            flex: 0 0 70%;
         }
         @media screen and (min-width: 830px) {
           margin-bottom: 0;
         }
       }
+    }
+    .single {
+      padding: 0;
+      margin-left: 0;
+      .preview {
+        @media screen and (max-width: 830px) {
+            flex: 0 0 100%;
+        }
+      }
+
     }
 
     .company-name {
