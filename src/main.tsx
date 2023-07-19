@@ -36,9 +36,12 @@ async function main() {
     'https://functions.kode24.no/api/frontpage'
   );
   const FrontpageData: Frontpage = await response.json();
+  const mutableFrontPageData = JSON.parse(
+    JSON.stringify(FrontpageData)
+  ) as Frontpage;
 
-  FrontContent(FrontpageData as Frontpage);
-  ArticleContent(FrontpageData as Frontpage);
+  FrontContent(mutableFrontPageData);
+  ArticleContent(mutableFrontPageData);
 
   addNumberToEventCounterInTopMenu(
     FrontpageData.events.upcomingEvents.length
@@ -58,7 +61,7 @@ async function main() {
   if (desktopSideMenuFront)
     ReactDOM.createRoot(desktopSideMenuFront).render(
       <React.StrictMode>
-        <DesktopSidemenuFront frontpageData={{ ...FrontpageData }} />
+        <DesktopSidemenuFront frontpageData={FrontpageData} />
       </React.StrictMode>
     );
 

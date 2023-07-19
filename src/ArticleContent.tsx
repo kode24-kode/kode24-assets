@@ -22,8 +22,6 @@ export default function FrontContent(frontpageData: Frontpage) {
     )
   ) as [Listing];
 
-  console.log(frontpageData, frontPageDataCopy);
-
   // grab the DOM-elements for the three content divs
 
   /** This part should only occur in articles */
@@ -35,9 +33,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     );
     h2s.forEach((h2, key: number) => {
       const listingNode = document.createElement('div');
-      console.log(frontPageDataCopy.content.length, 'content');
       if (key === 0 && frontPageDataCopy.content.length > 0) {
-        console.log(key, 'hello content 0');
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow
@@ -47,7 +43,6 @@ export default function FrontContent(frontpageData: Frontpage) {
         );
         h2.before(listingNode);
       } else if (key === 1 && frontPageDataCopy.content.length > 1) {
-        console.log(key, 'hello content 1');
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow
@@ -57,7 +52,6 @@ export default function FrontContent(frontpageData: Frontpage) {
         );
         h2.before(listingNode);
       } else if (frontpageData.listing.listings.length > 0) {
-        console.log(key, 'hello listing');
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ListingsRow

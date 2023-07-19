@@ -23,7 +23,6 @@ export default function FullEventsList({
         <div className="events-list">
           {events.map((event: Event, key: number) => {
             const date = new Date(event.startDate);
-            console.log(event, date);
             return (
               <article
                 className="calendar"
