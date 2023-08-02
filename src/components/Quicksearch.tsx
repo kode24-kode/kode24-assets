@@ -12,7 +12,7 @@ export default function QuicksearchComponent({
   async function handleSubmit() {
     setEmailStatus('sending');
     const response = await fetch(
-      'https://functions.kode24.no/api/sendmail',
+      'https://sendmail.kode24.no/api/sendmail',
       {
         method: 'POST',
         body: JSON.stringify({
