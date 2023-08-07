@@ -20,6 +20,8 @@ import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
 import ListingsApplication from './components/ListingsApplication.tsx';
 import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
+import PatreonsList from './components/PatreonsList.tsx';
+import PodcastPlayer from './components/PodcastPlayer.tsx';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
@@ -57,6 +59,19 @@ async function main() {
 
   const eventsList = document.getElementById('events-list');
   const listingList = document.getElementById('listings-application');
+  const leftMenu = document.getElementById('left-menu');
+  const tipUsCallToAction = document.getElementById(
+    'tip-us-call-to-action'
+  );
+
+  const podcastPlayerNode = document.createElement('div');
+  podcastPlayerNode.classList.add('podcast-player');
+  ReactDOM.createRoot(podcastPlayerNode).render(
+    <React.StrictMode>
+      <PodcastPlayer />
+    </React.StrictMode>
+  );
+  tipUsCallToAction?.after(podcastPlayerNode);
 
   if (desktopSideMenuFront)
     ReactDOM.createRoot(desktopSideMenuFront).render(
@@ -106,6 +121,24 @@ async function main() {
         />
       </React.StrictMode>
     );
+  }
+
+  /** Draws patreons in left menu if there are patreons */
+  if (
+    FrontpageData.partners &&
+    FrontpageData.partners.goldPatreon &&
+    FrontpageData.partners.silverPatreon
+  ) {
+    const newNode = document.createElement('div');
+    ReactDOM.createRoot(newNode).render(
+      <React.StrictMode>
+        <PatreonsList
+          GoldPatreons={FrontpageData.partners.goldPatreon}
+          SilverPatreons={FrontpageData.partners.silverPatreon}
+        />
+      </React.StrictMode>
+    );
+    leftMenu?.append(newNode);
   }
 
   /** this part only occurs if the div "listing-list" is present */

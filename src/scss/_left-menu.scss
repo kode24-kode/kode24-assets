@@ -124,65 +124,50 @@
   }
 }
 
-#company-sponsors-list {
-  max-width: 170px;
+#left-menu .patreons {
+
+  .patreons-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--gutter) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter);
+  }
+  li {
+    img {
+      filter: grayscale(100%);
+      max-width: 100%;
+    }
+    background-color: var(--v2-card-always-black);
+    padding: var(--gutter);
+    border-radius: var(--border-radius);
+    &:hover {
+      background-color: var(--v2-card-always-black);
+    }
+  }
+
+  .silver {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    li {
+      width: calc(50% - var(--gutter) / 2);
+    }
+  }
+}
+
+.podcast-player {
+  overflow: hidden;
+  display: block;
+  border-radius: var(--border-radius);
+  margin-bottom: calc(var(--gutter) * 2);
+}
+
+#kode24-dagen-banner {
+  margin-bottom: calc(var(--gutter) * 2);
   img {
     display: block;
-    padding: 4px;
-    border-radius: 4px;
-    filter: grayscale(1);
-  }
-  .silver {
-    padding: 0.4rem;
-    &.preview {
-      display: block;
-      background-color: transparent;
-      margin-bottom: 0;
-      @media screen and (max-width: 1023px) {
-        width: calc(50% - 10px);
-        display: inline-block;
-      }
-      a {
-        padding: 0;
-        display: block;
-        gap: 0;
-        img {
-          width: 100%;
-          margin-right: 0;
-        }
-      }
-    }
-  }
-  .gold {
-    &.preview {
-      margin-bottom: 0;
-      background-color: transparent;
-      a {
-        padding: 0;
-        gap: 0;
-        margin-bottom: calc(var(--gutter) / 2)
-      }
-    }
-    a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      img {
-        width: 100%;
-        margin-right: 0;
-      }
-      p {
-        color: var(--v2-card-paragraph-color);
-        font-size: 0.7rem;
-        font-style: italic;
-      }
-    }
-  }
-  .gold,
-  .silver {
-    box-shadow: none;
-    border-bottom: 1px solid var(--v2-card-background-level-2);
-    border-radius: 0;
-
+    margin: 0;
   }
 }
