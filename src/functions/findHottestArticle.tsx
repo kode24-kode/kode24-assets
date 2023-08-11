@@ -16,6 +16,13 @@ export function findHottestArticle(
 ) {
   // adding four to comments to even out the difference between reactions and comments
   const matchedArticles: HottestArticle[] = desktopRow.articles
+    .map((article: Article) => {
+      if (article.reactions.reactions_count === undefined)
+        article.reactions.reactions_count = 0;
+      if (article.reactions.comments_count === undefined)
+        article.reactions.comments_count = 0;
+      return article;
+    })
     .filter(
       (article: Article) =>
         article.reactions.reactions_count >= threshold[0] ||
