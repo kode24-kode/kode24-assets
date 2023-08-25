@@ -11,6 +11,8 @@ import ArticlesRow from './components/ArticlesRow.tsx';
 import ContentsRow from './components/ContentsRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
+import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
+
 export default function FrontContent(frontpageData: Frontpage) {
   // So we don't mutate the original data
   const frontPageDataCopy = { ...frontpageData };
@@ -91,6 +93,9 @@ export default function FrontContent(frontpageData: Frontpage) {
             }}
             firstRow={true}
             hotnessThreshold={[20, 5]}
+          />
+          <CompanyPartnersTile
+            companyPartners={frontpageData.companyPartners}
           />
           {latestContentAboveFirstBanner.length > 0 && (
             <ContentsRow Contents={latestContentAboveFirstBanner} />

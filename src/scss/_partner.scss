@@ -261,3 +261,38 @@
   display: none;
 }
 
+
+#diamond-partners-list-tile {
+  .preview {
+grid-auto-rows: min-content;
+    gap: calc(var(--gutter)) calc(var(--gutter));
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+  }
+  li {
+    width: auto;
+    a {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: var(--gutter);
+      text-align: center;
+    }
+  }
+  img {
+    width: auto;
+    height: auto;
+    max-width: 80%;
+    max-height: auto;
+  }
+  .light {
+    display: var(--showBlockForLight);
+  }
+  .dark {
+    display: var(--showBlockForDark);
+  }
+}
