@@ -265,32 +265,54 @@
 #diamond-partners-list-tile {
   .preview {
 grid-auto-rows: min-content;
-    gap: calc(var(--gutter)) calc(var(--gutter));
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     list-style: none;
     align-items: center;
     justify-content: center;
-  }
-  li {
+    &:hover {
+      img {
+        transform: scale(1);
+        opacity: 0.5;
+        transition: 0.5s ease-in-out;
+      }
+    }
+    li {
     width: auto;
-    a {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: var(--gutter);
-      text-align: center;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: var(--gutter);
+        text-align: center;
+        padding: calc(var(--gutter) / 2);
+        &:hover {
+          img {
+            filter: grayscale(0%) brightness(100%);
+            opacity: 1;
+            transform: scale(1.1) !important;
+            transition: 0.25s ease-in-out;
+          }
+        }
+      }
     }
   }
+
   img {
     width: auto;
     height: auto;
     max-width: 80%;
     max-height: auto;
+    filter: grayscale(100%) brightness(200%);
+
   }
   .light {
     display: var(--showBlockForLight);
+  }
+  .description {
+    display: none;
   }
   .dark {
     display: var(--showBlockForDark);

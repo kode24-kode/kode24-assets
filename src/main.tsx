@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './scss/main.scss';
 import { Frontpage } from './types/index.ts';
 import FullEventsList from './components/FullEventsList.tsx';
@@ -11,7 +12,6 @@ import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounte
 import { addRibbonClassToTop } from './functions/addRibbonClassToTop.ts';
 import { handleImageExpansionClick } from './functions/handleImageExpansionClick.ts';
 import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.ts';
-import CompanyPartnersTop from './components/CompanyPartnersTop.tsx';
 import CommentsTile from './components/CommentsTile.tsx';
 import Search from './components/Search.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
@@ -79,16 +79,6 @@ async function main() {
         <DesktopSidemenuFront frontpageData={FrontpageData} />
       </React.StrictMode>
     );
-
-  const partnersTop = document.createElement('div') as HTMLElement;
-  ReactDOM.createRoot(partnersTop).render(
-    <React.StrictMode>
-      <CompanyPartnersTop
-        companyPartners={[...FrontpageData.companyPartners]}
-      />
-    </React.StrictMode>
-  );
-  document.querySelector('#top-bar')?.after(partnersTop);
 
   const newestCommentsNode = document.createElement('div');
   ReactDOM.createRoot(newestCommentsNode as HTMLElement).render(

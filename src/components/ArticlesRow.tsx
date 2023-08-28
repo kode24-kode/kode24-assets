@@ -5,10 +5,12 @@ export default function ArticlesRow({
   DesktopRowData,
   firstRow,
   hotnessThreshold,
+  listView,
 }: {
   DesktopRowData: DesktopRow;
   firstRow: boolean;
   hotnessThreshold: [number, number];
+  listView: boolean;
 }) {
   const hottestArticle = findHottestArticle(
     DesktopRowData,
@@ -18,7 +20,9 @@ export default function ArticlesRow({
     <div
       className={`row desktop-row ${DesktopRowData.style} ${
         firstRow ? 'first-row' : ''
-      }`}
+      }
+      ${listView ? 'list-view' : ''}
+        `}
     >
       <div
         className={`heading ${

@@ -1,7 +1,7 @@
 /**
- * Draws the middle front content on kode24.
- * This is an annoying implementation, but basically there are three divs in every kode24 page where content should be filled into. in between them there are banner ads from google
- * that are loaded independant of this code. Its stupid.
+ * Draws the front content on kode24.
+ * This is an annoying implementation, but basically there are three divs in every kode24 front page where content should be filled into. in between them there are banner ads from google that come from the server side.
+ * Its a stupid implementation.
  */
 
 import { Frontpage, Content, Listing } from './types/index.ts';
@@ -14,6 +14,7 @@ import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 
 export default function FrontContent(frontpageData: Frontpage) {
+  const listView = false;
   // So we don't mutate the original data
   const frontPageDataCopy = { ...frontpageData };
   /** shuffle content and ads */
@@ -93,15 +94,22 @@ export default function FrontContent(frontpageData: Frontpage) {
             }}
             firstRow={true}
             hotnessThreshold={[20, 5]}
+            listView={listView}
           />
           <CompanyPartnersTile
             companyPartners={frontpageData.companyPartners}
           />
           {latestContentAboveFirstBanner.length > 0 && (
-            <ContentsRow Contents={latestContentAboveFirstBanner} />
+            <ContentsRow
+              Contents={latestContentAboveFirstBanner}
+              listView={listView}
+            />
           )}
           {latestListingsAboveFirstBanner.length > 0 && (
-            <ListingsRow Listings={latestListingsAboveFirstBanner} />
+            <ListingsRow
+              Listings={latestListingsAboveFirstBanner}
+              listView={listView}
+            />
           )}
         </>
       </React.StrictMode>
@@ -123,18 +131,26 @@ export default function FrontContent(frontpageData: Frontpage) {
             }}
             firstRow={false}
             hotnessThreshold={[20, 5]}
+            listView={listView}
           />
           {latestListingsBelowFirstBanner.length > 0 && (
-            <ListingsRow Listings={latestListingsBelowFirstBanner} />
+            <ListingsRow
+              Listings={latestListingsBelowFirstBanner}
+              listView={listView}
+            />
           )}
           {latestContentBelowFirstBanner.length > 0 && (
-            <ContentsRow Contents={latestContentBelowFirstBanner} />
+            <ContentsRow
+              Contents={latestContentBelowFirstBanner}
+              listView={listView}
+            />
           )}
           {latestFrontPageRowBelowFirstBanner && (
             <ArticlesRow
               DesktopRowData={latestFrontPageRowBelowFirstBanner}
               firstRow={false}
               hotnessThreshold={[20, 5]}
+              listView={listView}
             />
           )}
         </>
@@ -162,12 +178,14 @@ export default function FrontContent(frontpageData: Frontpage) {
                     }}
                     firstRow={false}
                     hotnessThreshold={[20, 5]}
+                    listView={listView}
                   />
                   <ArticlesRow
                     DesktopRowData={DesktopRow}
                     firstRow={false}
                     hotnessThreshold={[20, 5]}
                     key={key}
+                    listView={listView}
                   />
                   {latestListingsBelowSecondBanner.length > 0 && (
                     <ListingsRow
@@ -175,6 +193,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                         0,
                         3
                       )}
+                      listView={listView}
                     />
                   )}
                 </div>
