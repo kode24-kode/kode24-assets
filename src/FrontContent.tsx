@@ -50,6 +50,8 @@ export default function FrontContent(frontpageData: Frontpage) {
     // if there are content-articles we try to render them instead of job ads in the first two divs.
     const latestArticlesAboveFirstBanner =
       frontPageDataCopy.latestArticles.splice(0, 3);
+    const latestArticlesSecondRowAboveFirstBanner =
+      frontPageDataCopy.latestArticles.splice(0, 1);
     const latestContentAboveFirstBanner =
       frontPageDataCopy.content.splice(0, 1);
     const latestListingsAboveFirstBanner =
@@ -95,6 +97,22 @@ export default function FrontContent(frontpageData: Frontpage) {
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
+          />
+          <ArticlesRow
+            DesktopRowData={{
+              layout: 'dual',
+              style: '',
+              title: '',
+              description: '',
+              tags: 'artikler',
+              antall: 2,
+              lenke: '',
+              articles: latestArticlesSecondRowAboveFirstBanner,
+            }}
+            firstRow={true}
+            hotnessThreshold={[20, 5]}
+            listView={listView}
+            ad={latestContentAboveFirstBanner[0]}
           />
           <CompanyPartnersTile
             companyPartners={frontpageData.companyPartners}
