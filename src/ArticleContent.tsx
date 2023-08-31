@@ -8,9 +8,12 @@ import ReactDOM from 'react-dom/client';
 import ContentsRow from './components/ContentsRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
+import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   // So we don't mutate the original data
-  const frontPageDataCopy = { ...frontpageData };
+  const frontPageDataCopy = structuredClone(
+    frontpageData
+  ) as Frontpage;
   /** shuffle content and ads */
   frontPageDataCopy.content = shuffleArray(
     frontPageDataCopy.content
@@ -28,25 +31,29 @@ export default function FrontContent(frontpageData: Frontpage) {
   /** Attempts to add job ads before every odd h2-tag in article */
   if (document.querySelector('.article-entity.artikkel')) {
     // draw a listing before each h2
-    const h2s = document.querySelectorAll(
-      '.body-copy h2:nth-of-type(odd)'
-    );
+    const h2s = document.querySelectorAll('.body-copy h2');
     h2s.forEach((h2, key: number) => {
       const listingNode = document.createElement('div');
-      if (key === 0 && frontPageDataCopy.content.length > 0) {
+      if (key === 0) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
-            <ContentsRow
-              Contents={frontPageDataCopy.content.slice(0, 1)}
-            />
+            <>
+              <CompanyPartnersTile
+                companyPartners={frontPageDataCopy.companyPartners}
+              />
+            </>
           </React.StrictMode>
         );
         h2.before(listingNode);
-      } else if (key === 1 && frontPageDataCopy.content.length > 1) {
+      } else if (
+        key === 1 ||
+        (key === 2 && frontPageDataCopy.content.length > 1)
+      ) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow
-              Contents={frontPageDataCopy.content.slice(1, 4)}
+              Contents={frontPageDataCopy.content.splice(0, 1)}
+              listView={false}
             />
           </React.StrictMode>
         );
@@ -56,6 +63,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           <React.StrictMode>
             <ListingsRow
               Listings={frontpageData.listing.listings.splice(0, 2)}
+              listView={false}
             />
           </React.StrictMode>
         );

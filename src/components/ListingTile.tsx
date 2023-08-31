@@ -29,7 +29,7 @@ export default function ListingTile({
         </a>
         <div className="article-preview-text">
           <a itemProp="url" href={Listing.published_url}>
-            <p className="company-name">Annonsørinnhold</p>
+            <p className="company-name">Ledig stilling</p>
             <h1 className="headline">
               <span className="headline-title-wrapper">
                 {Listing.title}

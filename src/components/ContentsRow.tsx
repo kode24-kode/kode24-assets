@@ -15,9 +15,6 @@ export default function ContentsRow({
       ${listView ? 'list-view' : ''}
         `}
     >
-      <div className="heading">
-        <h2 className="heading-title">Annonsørinnhold</h2>
-      </div>
       <div className={getLayoutForCommercialRow(Contents.length)}>
         {Contents.map((content: Content, key: number) => (
           <ContentTile Content={content} key={key} />

@@ -13,9 +13,6 @@ export default function ListingsRow({
         listView ? 'list-view' : ''
       }`}
     >
-      <div className="heading">
-        <h2 className="heading-title">Ledige stillinger</h2>
-      </div>
       <div className={getLayoutForCommercialRow(Listings.length)}>
         {Listings.map((listing: Listing, key: number) => (
           <ListingTile Listing={listing} key={key} />

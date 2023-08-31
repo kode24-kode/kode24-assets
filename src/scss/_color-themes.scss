@@ -17,6 +17,8 @@
   --v2-card-always-black: hsl(230, 8%, 8%);
 
 
+
+
   // labels
   --v2-card-label-background: hsl(245, 14%, 14%);
   --v2-label-color-teal: hsl(180, 100%, 79%);
@@ -38,6 +40,9 @@
 
   --v2-flame-red: hsl(12deg 100% 50% / 25%);
   --v2-flame-red-light: hsl(12deg 100% 50% / 5%);
+
+  // partner toggles
+  --v2-light-toggle-partner-logos: grayscale(100%) brightness(200%);
 }
 
 @mixin light {
@@ -80,5 +85,8 @@
 
     --v2-flame-red: hsl(12deg 100% 50% / 25%);
     --v2-flame-red-light: hsl(12deg 100% 50% / 5%);
+
+    // partner toggles
+    --v2-light-toggle-partner-logos: grayscale(100%) brightness(0%);
 
 }

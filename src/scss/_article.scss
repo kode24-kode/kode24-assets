@@ -498,11 +498,13 @@
     margin-top: 2.5em;
     margin-bottom: 2.5em;
     display: block;
-    border-radius: 0;
-    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    padding: 0;
+    overflow: hidden;
     a {
       padding: 0;
       gap: var(--gutter);
+      align-items: center;
     }
     &:not(.native-advertisement) {
       .standfirst {
@@ -516,28 +518,22 @@
       margin-left: 0;
       margin-right: 0;
       width: 100%;
-      padding: 1.25rem;
+      padding: 0;
       border-radius: 10px;
-    }
-    a {
-      align-items: center;
     }
 
     img,
     figure {
-      border-radius: 10px;
       max-width: 150px;
-      flex: 0 0 150px;
       @media screen and (min-width: $vp-desktop) {
-        flex: 0 0 245px;
-        max-width: 245px;
+        max-width: 200px;
       }
     }
     .headline {
       font-size: 1rem;
       @media screen and (min-width: $vp-desktop) {
-        font-size: 1.4rem;
-        padding: 0;
+        font-size: 1.2rem;
+        padding: var(--gutter) var(--gutter) var(--gutter) 0;
       }
     }
   }

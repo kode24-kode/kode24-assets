@@ -262,9 +262,19 @@
 }
 
 
+.article-entity #diamond-partners-list-tile {
+  @media screen and (min-width: 1024px) {
+    margin-left: calc(var(--gutter) * -4);
+    width: calc(100% + var(--gutter) * 8);
+  }
+}
+
 #diamond-partners-list-tile {
+  display: block;
+
   .preview {
-grid-auto-rows: min-content;
+    margin: 0;
+    grid-auto-rows: min-content;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     list-style: none;
@@ -294,6 +304,9 @@ grid-auto-rows: min-content;
         text-align: center;
         padding: 0;
         margin-bottom: calc(var(--gutter));
+        background-image: none;
+        background-position: 0;
+
         @media screen and (min-width: 1024px) {
           padding: calc(var(--gutter) / 2);
           margin-bottom: calc(var(--gutter));
@@ -315,8 +328,8 @@ grid-auto-rows: min-content;
     height: auto;
     max-width: 80%;
     max-height: auto;
-    filter: grayscale(100%) brightness(200%);
-
+    filter: var(--v2-light-toggle-partner-logos);
+    flex: 1 1 80%;
   }
   .light {
     display: var(--showBlockForLight);
