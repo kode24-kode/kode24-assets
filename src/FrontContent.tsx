@@ -220,14 +220,20 @@ export default function FrontContent(frontpageData: Frontpage) {
                     tags: 'artikler',
                     antall: 2,
                     lenke: '',
-                    articles: frontPageDataCopy.latestArticles.splice(
-                      0,
-                      2
-                    ),
+                    articles:
+                      frontPageDataCopy.content.length > 0 ||
+                      frontPageDataCopy.listing.listings.length > 0
+                        ? frontpageData.latestArticles.splice(0, 1)
+                        : frontpageData.latestArticles.splice(0, 2),
                   }}
-                  firstRow={false}
+                  firstRow={true}
                   hotnessThreshold={[20, 5]}
                   listView={listView}
+                  ad={
+                    frontPageDataCopy.content.length > 0
+                      ? frontpageData.content.splice(0, 1)[0]
+                      : undefined
+                  }
                 />
                 <ArticlesRow
                   DesktopRowData={DesktopRow}

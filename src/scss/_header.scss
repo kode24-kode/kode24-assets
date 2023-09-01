@@ -95,6 +95,7 @@
       }
       .site-title {
         display: inline-block;
+        white-space: nowrap;
         @media screen and (max-width: 1023px) {
           font-size: 0.9rem;
           display: none;

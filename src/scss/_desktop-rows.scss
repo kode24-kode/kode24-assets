@@ -60,7 +60,7 @@
   }
 
   &.commercial {
-    background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-orange));
+    background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
     position: relative;
     flex-direction: column;
     @media screen and (max-width: 830px) {
@@ -102,11 +102,14 @@
       }
       gap: calc(var(--gutter) / 4);
       .preview {
-        background-color: var(--v2-card-background);
+        background-color: hsla(0,0,0,0.5);
         margin-bottom: var(--gutter);
         padding: var(--gutter);
         border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
         margin-top: 0;
+        &:hover {
+          background-color:  hsla(0,0,0,0.3);
+        }
         figure,img {
           max-width: 100%;
         }

@@ -514,6 +514,11 @@
     time {
       display: none;
     }
+    &.commercial-content {
+      .headline {
+        padding: 0;
+      }
+    }
     @media screen and (min-width: $vp-desktop) {
       margin-left: 0;
       margin-right: 0;
