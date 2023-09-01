@@ -43,11 +43,14 @@
       .company-name {
         font-size: 0.8rem;
         margin: 0 0 calc(var(--gutter) / 4) 0;
-        color: var(--v2-card-headline-color);
+        color: var(--v2-card-always-white);
       }
       .byline-name {
-        color: var(--v2-card-headline-color);
+        color: var(--v2-card-always-white);
         font-size: 1rem;
+      }
+      .headline {
+        color: var(--v2-card-always-white);
       }
     }
   }
@@ -63,6 +66,11 @@
     background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
     position: relative;
     flex-direction: column;
+    .headline,
+    .company-name,
+    .byline-info {
+      color: var(--v2-card-always-white);
+    }
     @media screen and (max-width: 830px) {
      &:not(.single-row) {
       padding-right: 0;
