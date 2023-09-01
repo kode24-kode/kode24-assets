@@ -18,7 +18,10 @@
   .heading-title {
     margin-bottom: 0;
     padding: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    @media screen and (min-width: 830px) {
+      font-size: 1.2rem;
+    }
   }
 
 
@@ -38,8 +41,17 @@
 .desktop-row {
 
   &:not(.commercial) {
+
     .commercial-content {
       background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
+      @media screen and (max-width: 830px) {
+        padding: calc(var(--gutter) / 2);
+        margin-left: calc(var(--gutter) / 2 * -1);
+        margin-top: calc(var(--gutter) / 2 * -1);
+        width: calc(100% + var(--gutter) / 2);
+        height: calc(100% + var(--gutter) / 2);
+        border-radius: var(--border-radius);
+      }
       .company-name {
         font-size: 0.8rem;
         margin: 0 0 calc(var(--gutter) / 4) 0;
