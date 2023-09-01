@@ -8,7 +8,6 @@ import { Frontpage, Content, Listing } from './types/index.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ArticlesRow from './components/ArticlesRow.tsx';
-import ContentsRow from './components/ContentsRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
