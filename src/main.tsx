@@ -42,8 +42,9 @@ async function main() {
     JSON.stringify(FrontpageData)
   ) as Frontpage;
 
-  FrontContent(mutableFrontPageData);
-  ArticleContent(mutableFrontPageData);
+  if (document.querySelector('.article-entity.artikkel'))
+    ArticleContent(mutableFrontPageData);
+  else FrontContent(mutableFrontPageData);
 
   addNumberToEventCounterInTopMenu(
     FrontpageData.events.upcomingEvents.length

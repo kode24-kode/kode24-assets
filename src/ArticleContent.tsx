@@ -18,6 +18,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   frontPageDataCopy.content = shuffleArray(
     frontPageDataCopy.content
   ) as [Content];
+  console.log('got contgent', frontPageDataCopy.content);
   // get only premium ads and shuffle them
   frontPageDataCopy.listing.listings = shuffleArray(
     frontPageDataCopy.listing.listings.filter((listing) =>
@@ -46,9 +47,10 @@ export default function FrontContent(frontpageData: Frontpage) {
         );
         h2.before(listingNode);
       } else if (
-        key === 1 ||
-        (key === 2 && frontPageDataCopy.content.length > 1)
+        (key === 1 || key === 2) &&
+        frontPageDataCopy.content.length > 0
       ) {
+        console.log(frontPageDataCopy, 'using this');
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow

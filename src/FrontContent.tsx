@@ -25,7 +25,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   // get only premium ads and shuffle them
   frontPageDataCopy.listing.listings = shuffleArray(
     frontPageDataCopy.listing.listings.filter((listing) =>
-      frontpageData.listing.premiumIds.includes(listing.id)
+      frontPageDataCopy.listing.premiumIds.includes(listing.id)
     )
   ) as [Listing];
 
@@ -47,41 +47,6 @@ export default function FrontContent(frontpageData: Frontpage) {
     articlesBelowFirstBanner &&
     articlesBelowSecondBanner
   ) {
-    // the logic here is that we want to render the first three articles in the first div, then the next three in the second div, and the rest in the third div.
-    // if there are content-articles we try to render them instead of job ads in the first two divs.
-    /**
-    const latestArticlesAboveFirstBanner =
-      frontPageDataCopy.latestArticles.splice(0, 3);
-    const latestArticlesSecondRowAboveFirstBanner =
-      frontPageDataCopy.latestArticles.splice(0, 1);
-    const latestContentAboveFirstBanner =
-      frontPageDataCopy.content.splice(0, 1);
-    const latestListingsAboveFirstBanner =
-      latestContentAboveFirstBanner.length > 0
-        ? []
-        : frontPageDataCopy.listing.listings.splice(0, 1);
-
-    const latestArticlesBelowFirstBanner =
-      frontPageDataCopy.latestArticles.splice(0, 3);
-    const latestContentBelowFirstBanner =
-      frontPageDataCopy.content.splice(0, 3);
-    const latestListingsBelowFirstBanner =
-      latestContentBelowFirstBanner.length > 0
-        ? []
-        : frontPageDataCopy.listing.listings.splice(0, 3);
-    const latestFrontPageRowBelowFirstBanner =
-      frontpageData.frontpage.splice(0, 1)[0] || undefined;
-
-    const latestArticlesBelowSecondBanner = [
-      ...frontPageDataCopy.latestArticles,
-    ]; // should be the remainding articles
-    const latestListingsBelowSecondBanner = [
-      ...frontPageDataCopy.listing.listings,
-    ]; // should be the remainding listings
-    const latestFrontPageRowsBelowSecondBanner = [
-      ...frontpageData.frontpage,
-    ]; // should be the remainding frontpage rows
-    */
     ReactDOM.createRoot(articlesAboveFirstBanner).render(
       <React.StrictMode>
         <>
@@ -94,7 +59,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               tags: 'artikler',
               antall: 3,
               lenke: '',
-              articles: frontpageData.latestArticles.splice(0, 3),
+              articles: frontPageDataCopy.latestArticles.splice(0, 3),
             }}
             firstRow={true}
             hotnessThreshold={[20, 5]}
@@ -112,20 +77,20 @@ export default function FrontContent(frontpageData: Frontpage) {
               articles:
                 frontPageDataCopy.content.length > 0 ||
                 frontPageDataCopy.listing.listings.length > 0
-                  ? frontpageData.latestArticles.splice(0, 1)
-                  : frontpageData.latestArticles.splice(0, 2),
+                  ? frontPageDataCopy.latestArticles.splice(0, 1)
+                  : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
             ad={
               frontPageDataCopy.content.length > 0
-                ? frontpageData.content.splice(0, 1)[0]
+                ? frontPageDataCopy.content.splice(0, 1)[0]
                 : undefined
             }
           />
           <CompanyPartnersTile
-            companyPartners={frontpageData.companyPartners}
+            companyPartners={frontPageDataCopy.companyPartners}
           />
         </>
       </React.StrictMode>
@@ -143,7 +108,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               tags: 'artikler',
               antall: 3,
               lenke: '',
-              articles: frontpageData.latestArticles.splice(0, 3),
+              articles: frontPageDataCopy.latestArticles.splice(0, 3),
             }}
             firstRow={false}
             hotnessThreshold={[20, 5]}
@@ -161,15 +126,15 @@ export default function FrontContent(frontpageData: Frontpage) {
               articles:
                 frontPageDataCopy.content.length > 0 ||
                 frontPageDataCopy.listing.listings.length > 0
-                  ? frontpageData.latestArticles.splice(0, 1)
-                  : frontpageData.latestArticles.splice(0, 2),
+                  ? frontPageDataCopy.latestArticles.splice(0, 1)
+                  : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
             ad={
               frontPageDataCopy.content.length > 0
-                ? frontpageData.content.splice(0, 1)[0]
+                ? frontPageDataCopy.content.splice(0, 1)[0]
                 : undefined
             }
           />
@@ -221,15 +186,21 @@ export default function FrontContent(frontpageData: Frontpage) {
                     lenke: '',
                     articles:
                       frontPageDataCopy.content.length > 0
-                        ? frontpageData.latestArticles.splice(0, 1)
-                        : frontpageData.latestArticles.splice(0, 2),
+                        ? frontPageDataCopy.latestArticles.splice(
+                            0,
+                            1
+                          )
+                        : frontPageDataCopy.latestArticles.splice(
+                            0,
+                            2
+                          ),
                   }}
                   firstRow={true}
                   hotnessThreshold={[20, 5]}
                   listView={listView}
                   ad={
                     frontPageDataCopy.content.length > 0
-                      ? frontpageData.content.splice(0, 1)[0]
+                      ? frontPageDataCopy.content.splice(0, 1)[0]
                       : undefined
                   }
                 />

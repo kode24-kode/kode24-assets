@@ -122,13 +122,13 @@
       }
       gap: calc(var(--gutter) / 4);
       .preview {
-        background-color: hsla(0,0,0,0.5);
+        background-color: hsla(0,0,0,0.1);
         margin-bottom: var(--gutter);
         padding: var(--gutter);
         border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
         margin-top: 0;
         &:hover {
-          background-color:  hsla(0,0,0,0.3);
+          background-color:  hsla(0,0,0,0.05);
         }
         figure,img {
           max-width: 100%;
