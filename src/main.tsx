@@ -35,7 +35,7 @@ async function main() {
 
   // fetch frontpage data
   const response = await fetch(
-    'https://functions.kode24.no/api/frontpage'
+    'https://docs.kode24.no/api/frontpage'
   );
   const FrontpageData: Frontpage = await response.json();
   const mutableFrontPageData = JSON.parse(
