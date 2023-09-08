@@ -271,7 +271,7 @@
 
 #diamond-partners-list-tile {
   display: block;
-
+  margin-bottom: calc(var(--gutter) * 2);
   .preview {
     margin: 0;
     grid-auto-rows: min-content;
