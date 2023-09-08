@@ -20,7 +20,7 @@
     padding: 0;
     font-size: 1rem;
     @media screen and (min-width: 830px) {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
   }
 
@@ -49,7 +49,6 @@
         margin-left: calc(var(--gutter) / 2 * -1);
         margin-top: calc(var(--gutter) / 2 * -1);
         width: calc(100% + var(--gutter) / 2);
-        height: calc(100% + var(--gutter) / 2);
         border-radius: var(--border-radius);
       }
       .company-name {
@@ -122,13 +121,13 @@
       }
       gap: calc(var(--gutter) / 4);
       .preview {
-        background-color: hsla(0,0,0,0.1);
-        margin-bottom: var(--gutter);
+        background-color: hsla(0, 0%, 0%, 0.1);
+        margin-bottom: 0;
         padding: var(--gutter);
         border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
         margin-top: 0;
         &:hover {
-          background-color:  hsla(0,0,0,0.05);
+          background-color:  hsla(0, 0%, 0%, 0.05);
         }
         figure,img {
           max-width: 100%;
@@ -137,7 +136,10 @@
           font-size: 1.4rem;
         }
         @media screen and (max-width: 830px) {
-            flex: 0 0 70%;
+            flex: 0 0 60%;
+            .headline {
+              font-size: 1.1rem;
+            }
         }
         @media screen and (min-width: 830px) {
           margin-bottom: 0;
@@ -241,12 +243,12 @@
     article:first-child {
       grid-column: span 2;
       .headline {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
       }
     }
     article:not(:first-child) {
       .headline {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
       }
     }
     article:nth-child(1n + 6) {
@@ -259,6 +261,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--gutter);
+    align-items: flex-start;
     .preview {
       grid-column: span 1;
     }
@@ -439,7 +442,7 @@
         }
       }
       .headline {
-        font-size: 1.7rem;
+        font-size: 2.4rem;
       }
       figure {
           max-height: calc(var(--image-height)* 1.5);
@@ -506,7 +509,7 @@
           }
 
           figure {
-            max-height: calc(var(--image-height)* 2);
+            max-height: calc(var(--image-height)* 3);
           }
 
           .byline-profile-image {
@@ -521,7 +524,7 @@
         }
         &:not(:first-child) {
           .headline {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
           }
         }
       }

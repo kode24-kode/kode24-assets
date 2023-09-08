@@ -10,6 +10,8 @@ import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
+  (window as any).hljs.highlightAll();
+
   // So we don't mutate the original data
   const frontPageDataCopy = structuredClone(
     frontpageData

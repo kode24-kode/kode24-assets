@@ -15,6 +15,7 @@ import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
   // So we don't mutate the original data
+  let scrolledPastFirst = false;
   const frontPageDataCopy = structuredClone(
     frontpageData
   ) as Frontpage;
@@ -41,6 +42,139 @@ export default function FrontContent(frontpageData: Frontpage) {
   const articlesBelowSecondBanner = document.getElementById(
     'articles-below-second-banner'
   ) as HTMLElement;
+
+  function renderContentBelowFirstBanner() {
+    ReactDOM.createRoot(articlesBelowFirstBanner).render(
+      <React.StrictMode>
+        <>
+          <ArticlesRow
+            DesktopRowData={{
+              layout: 'main-story-with-two-vertical',
+              style: '',
+              title: '',
+              description: '',
+              tags: 'artikler',
+              antall: 3,
+              lenke: '',
+              articles: frontPageDataCopy.latestArticles.splice(0, 3),
+            }}
+            firstRow={false}
+            hotnessThreshold={[30, 10]}
+            listView={listView}
+          />
+          <ArticlesRow
+            DesktopRowData={{
+              layout: 'dual',
+              style: '',
+              title: '',
+              description: '',
+              tags: 'artikler',
+              antall: 2,
+              lenke: '',
+              articles:
+                frontPageDataCopy.content.length > 0 ||
+                frontPageDataCopy.listing.listings.length > 0
+                  ? frontPageDataCopy.latestArticles.splice(0, 1)
+                  : frontPageDataCopy.latestArticles.splice(0, 2),
+            }}
+            firstRow={true}
+            hotnessThreshold={[30, 10]}
+            listView={listView}
+            ad={
+              frontPageDataCopy.content.length > 0
+                ? frontPageDataCopy.content.splice(0, 1)[0]
+                : undefined
+            }
+          />
+          {frontPageDataCopy.listing.listings.length > 0 && (
+            <ListingsRow
+              Listings={frontPageDataCopy.listing.listings.splice(
+                0,
+                3
+              )}
+              listView={listView}
+            />
+          )}
+        </>
+      </React.StrictMode>
+    );
+
+    ReactDOM.createRoot(articlesBelowSecondBanner).render(
+      <React.StrictMode>
+        <>
+          {frontPageDataCopy.frontpage.map((DesktopRow, key) => {
+            return (
+              <div key={key}>
+                <ArticlesRow
+                  DesktopRowData={{
+                    layout: 'main-story-with-two-vertical',
+                    style: '',
+                    title: '',
+                    description: '',
+                    tags: 'artikler',
+                    antall: 3,
+                    lenke: '',
+                    articles: frontPageDataCopy.latestArticles.splice(
+                      0,
+                      3
+                    ),
+                  }}
+                  firstRow={false}
+                  hotnessThreshold={[50, 20]}
+                  listView={listView}
+                />
+                <ArticlesRow
+                  DesktopRowData={{
+                    layout: 'dual',
+                    style: '',
+                    title: '',
+                    description: '',
+                    tags: 'artikler',
+                    antall: 2,
+                    lenke: '',
+                    articles:
+                      frontPageDataCopy.content.length > 0
+                        ? frontPageDataCopy.latestArticles.splice(
+                            0,
+                            1
+                          )
+                        : frontPageDataCopy.latestArticles.splice(
+                            0,
+                            2
+                          ),
+                  }}
+                  firstRow={true}
+                  hotnessThreshold={[50, 20]}
+                  listView={listView}
+                  ad={
+                    frontPageDataCopy.content.length > 0
+                      ? frontPageDataCopy.content.splice(0, 1)[0]
+                      : undefined
+                  }
+                />
+                <ArticlesRow
+                  DesktopRowData={DesktopRow}
+                  firstRow={false}
+                  hotnessThreshold={[50, 20]}
+                  key={key}
+                  listView={listView}
+                />
+                {frontPageDataCopy.listing.listings.length > 0 && (
+                  <ListingsRow
+                    Listings={frontPageDataCopy.listing.listings.splice(
+                      0,
+                      3
+                    )}
+                    listView={listView}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </>
+      </React.StrictMode>
+    );
+  }
 
   if (
     articlesAboveFirstBanner &&
@@ -96,135 +230,11 @@ export default function FrontContent(frontpageData: Frontpage) {
       </React.StrictMode>
     );
 
-    ReactDOM.createRoot(articlesBelowFirstBanner).render(
-      <React.StrictMode>
-        <>
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'main-story-with-two-vertical',
-              style: '',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 3,
-              lenke: '',
-              articles: frontPageDataCopy.latestArticles.splice(0, 3),
-            }}
-            firstRow={false}
-            hotnessThreshold={[20, 5]}
-            listView={listView}
-          />
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'dual',
-              style: '',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 2,
-              lenke: '',
-              articles:
-                frontPageDataCopy.content.length > 0 ||
-                frontPageDataCopy.listing.listings.length > 0
-                  ? frontPageDataCopy.latestArticles.splice(0, 1)
-                  : frontPageDataCopy.latestArticles.splice(0, 2),
-            }}
-            firstRow={true}
-            hotnessThreshold={[20, 5]}
-            listView={listView}
-            ad={
-              frontPageDataCopy.content.length > 0
-                ? frontPageDataCopy.content.splice(0, 1)[0]
-                : undefined
-            }
-          />
-          {frontPageDataCopy.listing.listings.length > 0 && (
-            <ListingsRow
-              Listings={frontPageDataCopy.listing.listings.splice(
-                0,
-                3
-              )}
-              listView={listView}
-            />
-          )}
-        </>
-      </React.StrictMode>
-    );
-
-    ReactDOM.createRoot(articlesBelowSecondBanner).render(
-      <React.StrictMode>
-        <>
-          {frontPageDataCopy.frontpage.map((DesktopRow, key) => {
-            return (
-              <div key={key}>
-                <ArticlesRow
-                  DesktopRowData={{
-                    layout: 'main-story-with-two-vertical',
-                    style: '',
-                    title: '',
-                    description: '',
-                    tags: 'artikler',
-                    antall: 3,
-                    lenke: '',
-                    articles: frontPageDataCopy.latestArticles.splice(
-                      0,
-                      3
-                    ),
-                  }}
-                  firstRow={false}
-                  hotnessThreshold={[20, 5]}
-                  listView={listView}
-                />
-                <ArticlesRow
-                  DesktopRowData={{
-                    layout: 'dual',
-                    style: '',
-                    title: '',
-                    description: '',
-                    tags: 'artikler',
-                    antall: 2,
-                    lenke: '',
-                    articles:
-                      frontPageDataCopy.content.length > 0
-                        ? frontPageDataCopy.latestArticles.splice(
-                            0,
-                            1
-                          )
-                        : frontPageDataCopy.latestArticles.splice(
-                            0,
-                            2
-                          ),
-                  }}
-                  firstRow={true}
-                  hotnessThreshold={[20, 5]}
-                  listView={listView}
-                  ad={
-                    frontPageDataCopy.content.length > 0
-                      ? frontPageDataCopy.content.splice(0, 1)[0]
-                      : undefined
-                  }
-                />
-                <ArticlesRow
-                  DesktopRowData={DesktopRow}
-                  firstRow={false}
-                  hotnessThreshold={[20, 5]}
-                  key={key}
-                  listView={listView}
-                />
-                {frontPageDataCopy.listing.listings.length > 0 && (
-                  <ListingsRow
-                    Listings={frontPageDataCopy.listing.listings.splice(
-                      0,
-                      3
-                    )}
-                    listView={listView}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </>
-      </React.StrictMode>
-    );
+    document.addEventListener('scroll', () => {
+      if (window.scrollY > 100 && !scrolledPastFirst) {
+        scrolledPastFirst = true;
+        renderContentBelowFirstBanner();
+      }
+    });
   }
 }
