@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/javascript-time-ago": "^2.0.3",
+    "@types/node": "^20.5.9",
     "add": "^2.0.6",
     "javascript-time-ago": "^2.5.9",
     "path": "^0.12.7",

@@ -2,18 +2,19 @@ import { Content } from '../types';
 import ContentTile from './ContentTile.tsx';
 export default function ContentsRow({
   Contents,
+  listView,
 }: {
   Contents: Array<Content>;
+  listView: boolean;
 }) {
   return (
     <div
       className={`row desktop-row commercial ${
         Contents.length === 1 ? 'single-row' : ''
-      }`}
+      }
+      ${listView ? 'list-view' : ''}
+        `}
     >
-      <div className="heading">
-        <h2 className="heading-title">Annonsørinnhold</h2>
-      </div>
       <div className={getLayoutForCommercialRow(Contents.length)}>
         {Contents.map((content: Content, key: number) => (
           <ContentTile Content={content} key={key} />

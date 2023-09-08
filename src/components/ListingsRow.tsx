@@ -2,14 +2,17 @@ import { Listing } from '../types';
 import ListingTile from './ListingTile.tsx';
 export default function ListingsRow({
   Listings,
+  listView,
 }: {
   Listings: Array<Listing>;
+  listView: boolean;
 }) {
   return (
-    <div className={`row desktop-row commercial`}>
-      <div className="heading">
-        <h2 className="heading-title">Ledige stillinger</h2>
-      </div>
+    <div
+      className={`row desktop-row commercial ${
+        listView ? 'list-view' : ''
+      }`}
+    >
       <div className={getLayoutForCommercialRow(Listings.length)}>
         {Listings.map((listing: Listing, key: number) => (
           <ListingTile Listing={listing} key={key} />

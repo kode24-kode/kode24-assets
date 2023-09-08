@@ -92,7 +92,7 @@
       @media screen and (min-width: $vp-tablet) {
         line-height: 1.6;
         margin-bottom: 0;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
     h1 {
@@ -116,8 +116,8 @@
       background-color: var(--v2-card-background);
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: calc(var(--gutter) * -1);
+        margin-right: calc(var(--gutter) * -1);
         border-radius: 10px;
         overflow: hidden;
       }
@@ -304,7 +304,7 @@
       background-position: 0 40px;
     }
     @media screen and (min-width: $vp-tablet) {
-      font-size: 1.9rem;
+      font-size: 2rem;
     }
   }
 
@@ -320,8 +320,8 @@
       background-color: var(--v2-card-background);
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: calc(var(--gutter) *-1);
+        margin-right: calc(var(--gutter) *-1);
         border-radius: 10px;
         overflow: hidden;
       }
@@ -340,10 +340,11 @@
           width: 2.4rem;
           height: 2.4rem;
           position: absolute;
-          background-color: var(--v2-card-always-black);
+          background-color: transparent;
           text-align: center;
           line-height: 2.4rem;
           right: 0;
+          font-size: 1rem;
         }
       }
 
@@ -497,11 +498,13 @@
     margin-top: 2.5em;
     margin-bottom: 2.5em;
     display: block;
-    border-radius: 0;
-    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    padding: 0;
+    overflow: hidden;
     a {
       padding: 0;
       gap: var(--gutter);
+      align-items: center;
     }
     &:not(.native-advertisement) {
       .standfirst {
@@ -511,32 +514,31 @@
     time {
       display: none;
     }
+    &.commercial-content {
+      .headline {
+        padding: 0;
+      }
+    }
     @media screen and (min-width: $vp-desktop) {
       margin-left: 0;
       margin-right: 0;
       width: 100%;
-      padding: 1.25rem;
+      padding: 0;
       border-radius: 10px;
-    }
-    a {
-      align-items: center;
     }
 
     img,
     figure {
-      border-radius: 10px;
       max-width: 150px;
-      flex: 0 0 150px;
       @media screen and (min-width: $vp-desktop) {
-        flex: 0 0 245px;
-        max-width: 245px;
+        max-width: 200px;
       }
     }
     .headline {
       font-size: 1rem;
       @media screen and (min-width: $vp-desktop) {
-        font-size: 1.4rem;
-        padding: 0;
+        font-size: 1.2rem;
+        padding: var(--gutter) var(--gutter) var(--gutter) 0;
       }
     }
   }

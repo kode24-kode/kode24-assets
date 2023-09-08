@@ -1,14 +1,19 @@
-import { Article, DesktopRow } from '../types';
+import { Article, Listing, Content, DesktopRow } from '../types';
 import ArticleTile from './ArticleTile.tsx';
+import ContentTile from './ContentTile.tsx';
 import { findHottestArticle } from '../functions/findHottestArticle.tsx';
 export default function ArticlesRow({
   DesktopRowData,
   firstRow,
   hotnessThreshold,
+  listView,
+  ad,
 }: {
   DesktopRowData: DesktopRow;
   firstRow: boolean;
   hotnessThreshold: [number, number];
+  listView: boolean;
+  ad?: Listing | Content | null;
 }) {
   const hottestArticle = findHottestArticle(
     DesktopRowData,
@@ -18,7 +23,9 @@ export default function ArticlesRow({
     <div
       className={`row desktop-row ${DesktopRowData.style} ${
         firstRow ? 'first-row' : ''
-      }`}
+      }
+      ${listView ? 'list-view' : ''}
+        `}
     >
       <div
         className={`heading ${
@@ -52,6 +59,7 @@ export default function ArticlesRow({
             />
           )
         )}
+        {ad && <ContentTile Content={ad} />}
       </div>
     </div>
   );

@@ -1,13 +1,17 @@
 import { Content } from '../types';
 export default function ContentTile({
   Content,
+  inlineToggle,
 }: {
   Content: Content;
+  inlineToggle?: boolean;
 }) {
   return (
     <article
       id={`article_${Content.id}`}
-      className={`preview columns large-12 small-12 medium-12 compact commercial-content`}
+      className={`preview columns large-12 small-12 medium-12 compact commercial-content ${
+        inlineToggle ? 'inline' : ''
+      }`}
       itemScope
       itemType="https://schema.org/ListItem"
       itemProp="itemListElement"

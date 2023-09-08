@@ -9,6 +9,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         front: resolve(__dirname, 'index.html'),
+        article: resolve(__dirname, 'article.html'),
       },
       output: {
         entryFileNames: `assets/[name].js`,

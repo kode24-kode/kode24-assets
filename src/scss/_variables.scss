@@ -42,7 +42,10 @@ html {
   --vp-desktopWide: 1330px;
   --fontMono: "IBM Plex Mono", monospace;
   --fontRegular: "IBM Plex Sans", sans-serif;
-  --gutter: 1.25rem;
+  --gutter: 0.8rem;
+  @media screen and (min-width: 830px) {
+    --gutter: 1.25rem;
+  }
   --border-radius: 0.6rem;
   // variables used by google ads
     --color-adWrapperTitleColor: var(--v2-card-paragraph-color);

@@ -1,0 +1,23 @@
+.hljs {
+  color: var(--v2-card-headline-color);
+}
+
+
+.hljs-section, .hljs-title {
+  color: var(--v2-label-color-pink);
+}
+
+.hljs-deletion, .hljs-number, .hljs-quote, .hljs-selector-class, .hljs-selector-id, .hljs-string, .hljs-template-tag, .hljs-type {
+  color: var(--v2-label-color-purple);
+}
+
+.hljs-addition, .hljs-built_in, .hljs-bullet, .hljs-code {
+  color: (var(--v2-label-color-teal));
+}
+.hljs-tag .hljs-attr, .hljs-tag .hljs-name {
+  color: var(--v2-card-paragraph-color);
+}
+
+.hljs-comment {
+    color: var(--v2-card-paragraph-color);
+}
