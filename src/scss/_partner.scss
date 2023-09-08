@@ -281,9 +281,13 @@
     align-items: center;
     justify-content: center;
     list-style: none;
-    padding: 0;
+    padding: var(--gutter);
+    gap: calc(var(--gutter) * 2);
+
     @media screen and (min-width: 1024px) {
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
+      padding: var(--gutter);
+      gap: calc(var(--gutter));
     }
     &:hover {
       img {
@@ -296,12 +300,6 @@
     width: auto;
 
       a {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: var(--gutter);
-        text-align: center;
         padding: 0;
         margin-bottom: calc(var(--gutter));
         background-image: none;
@@ -324,9 +322,9 @@
   }
 
   img {
-    width: auto;
+    width: 100%;
     height: auto;
-    max-width: 80%;
+    max-width: 100%;
     max-height: fit-content;
     filter: var(--v2-light-toggle-partner-logos);
     flex: 1 1 80%;
