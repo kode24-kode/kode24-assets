@@ -6,30 +6,35 @@
   border-radius: 10px;
   overflow: hidden;
   min-width: 350px;
+
   iframe {
     margin-top: 0 !important;
   }
+
   &:before {
     top: 0;
   }
+
   .settings-alt-2 {
     top: 0 !important;
     background-color: transparent !important;
     color: var(--v2-card-headline-color) !important;
   }
 }
+
 .adunit-wrapper {
   display: flex;
 }
 
 .show-for-medium-up {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: var(--gutter);
   flex-direction: column;
+
   @media only screen and (min-width: 1400px) {
-      flex-direction: row;
-    }
+    flex-direction: row;
+  }
 }
 
 .adunit.small-320x250,
@@ -39,6 +44,7 @@
   min-width: 320px;
   display: inline-block;
 }
+
 .adunit.large-980x300 {
   @media only screen and (min-width: 830px) {
     height: calc(300px + 26px);
