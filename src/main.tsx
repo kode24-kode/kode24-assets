@@ -38,13 +38,10 @@ async function main() {
     'https://docs.kode24.no/api/frontpage'
   );
   const FrontpageData: Frontpage = await response.json();
-  const mutableFrontPageData = JSON.parse(
-    JSON.stringify(FrontpageData)
-  ) as Frontpage;
 
   if (document.querySelector('.article-entity.artikkel'))
-    ArticleContent(mutableFrontPageData);
-  else FrontContent(mutableFrontPageData);
+    ArticleContent(structuredClone(FrontpageData) as Frontpage);
+  FrontContent(structuredClone(FrontpageData) as Frontpage);
 
   addNumberToEventCounterInTopMenu(
     FrontpageData.events.upcomingEvents.length

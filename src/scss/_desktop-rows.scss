@@ -840,6 +840,7 @@
       .dual {
         background-color: var(--v2-card-background) !important;
         border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
+        align-items: stretch;
         .preview {
           margin-bottom: 0 !important;
           &:first-child {

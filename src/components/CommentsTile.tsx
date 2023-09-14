@@ -1,4 +1,5 @@
 import { Comment } from '../types';
+import htmlDecode from '../functions/decodeStringWithSpecialCharacters';
 
 import { getTimeAgo } from '../functions/getTimeAgo';
 
@@ -29,7 +30,7 @@ export default function CommentsTile({
                       </span>
                     </div>
                     <div className="comment-text">
-                      {comment.bodySnippet}
+                      {htmlDecode(comment.bodySnippet)}
                     </div>
                     <div className="comment-article">
                       {comment.articleTitle}
