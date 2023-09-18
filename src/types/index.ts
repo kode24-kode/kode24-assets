@@ -85,7 +85,7 @@ export interface Patreon {
 
 export interface Comment {
   url: string;
-  page_identifier: number;
+  page_identifier: string;
   created_at: string;
   upvotes: number;
   downvotes: number;

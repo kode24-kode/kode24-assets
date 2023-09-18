@@ -61,6 +61,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             firstRow={false}
             hotnessThreshold={[30, 10]}
             listView={listView}
+
           />
           <ArticlesRow
             DesktopRowData={{
@@ -85,6 +86,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                 ? frontPageDataCopy.content.splice(0, 1)[0]
                 : undefined
             }
+
           />
           {frontPageDataCopy.listing.listings.length > 0 && (
             <ListingsRow
@@ -195,9 +197,11 @@ export default function FrontContent(frontpageData: Frontpage) {
               lenke: '',
               articles: frontPageDataCopy.latestArticles.splice(0, 3),
             }}
+
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
+            newestComments={frontPageDataCopy.newestComments}
           />
           <ArticlesRow
             DesktopRowData={{
@@ -213,7 +217,9 @@ export default function FrontContent(frontpageData: Frontpage) {
                 frontPageDataCopy.listing.listings.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
+
             }}
+
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
@@ -222,6 +228,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                 ? frontPageDataCopy.content.splice(0, 1)[0]
                 : undefined
             }
+            newestComments={frontPageDataCopy.newestComments}
           />
           <CompanyPartnersTile
             companyPartners={frontPageDataCopy.companyPartners}

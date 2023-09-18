@@ -1,12 +1,16 @@
-import { Article } from '../types';
+import { Article, Comment } from '../types';
 import ArticleTileSocial from './ArticleTileSocial';
+import CommentTile from './CommentTile';
 export default function ArticleTile({
   Article,
   isHot,
+  comments,
 }: {
   Article: Article;
-  isHot: boolean;
-}) {
+    isHot: boolean;
+  comments: Comment[] | []
+  }) {
+  if(Article.id === "80203162") console.log(Article, comments, Article.reactions.comments_count, comments.length);
   const articleIsToday =
     new Date(Article.published).setHours(0, 0, 0, 0) ==
     new Date().setHours(0, 0, 0, 0)
@@ -79,6 +83,9 @@ export default function ArticleTile({
               </div>
             </div>
             <ArticleTileSocial Article={Article} />
+            {Article.reactions.comments_count > 1 && comments.length > 0 && (
+              <CommentTile comment={comments[0]} showTitle={ false } />
+            )}
           </div>
         </div>
       </div>
