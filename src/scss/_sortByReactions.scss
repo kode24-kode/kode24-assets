@@ -1,0 +1,17 @@
+#sort-latest-articles {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  gap: calc(var(--gutter) / 2);
+  button {
+    background-color: var(--v2-card-background);
+    border: 0;
+    padding: calc(var(--gutter) / 2);
+    color: var(--v2-card-headline-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    &:hover {
+      background-color: var(--v2-card-background-highlight);
+    }
+  }
+}

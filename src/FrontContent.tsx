@@ -15,7 +15,6 @@ import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
   // So we don't mutate the original data
-  let scrolledPastFirst = false;
   const frontPageDataCopy = structuredClone(
     frontpageData
   ) as Frontpage;
@@ -44,6 +43,11 @@ export default function FrontContent(frontpageData: Frontpage) {
   ) as HTMLElement;
 
   function renderContentBelowFirstBanner() {
+    console.log(
+      'we are here',
+      frontPageDataCopy.content,
+      frontPageDataCopy.content.length
+    );
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
         <>
@@ -61,7 +65,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             firstRow={false}
             hotnessThreshold={[30, 10]}
             listView={listView}
-
+            newestComments={frontPageDataCopy.newestComments}
           />
           <ArticlesRow
             DesktopRowData={{
@@ -73,20 +77,19 @@ export default function FrontContent(frontpageData: Frontpage) {
               antall: 2,
               lenke: '',
               articles:
-                frontPageDataCopy.content.length > 0 ||
-                frontPageDataCopy.listing.listings.length > 0
+                frontPageDataCopy.content.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
             firstRow={true}
             hotnessThreshold={[30, 10]}
             listView={listView}
+            newestComments={frontPageDataCopy.newestComments}
             ad={
               frontPageDataCopy.content.length > 0
                 ? frontPageDataCopy.content.splice(0, 1)[0]
                 : undefined
             }
-
           />
           {frontPageDataCopy.listing.listings.length > 0 && (
             <ListingsRow
@@ -124,6 +127,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                   firstRow={false}
                   hotnessThreshold={[50, 20]}
                   listView={listView}
+                  newestComments={frontPageDataCopy.newestComments}
                 />
                 <ArticlesRow
                   DesktopRowData={{
@@ -148,6 +152,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                   firstRow={true}
                   hotnessThreshold={[50, 20]}
                   listView={listView}
+                  newestComments={frontPageDataCopy.newestComments}
                   ad={
                     frontPageDataCopy.content.length > 0
                       ? frontPageDataCopy.content.splice(0, 1)[0]
@@ -160,6 +165,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                   hotnessThreshold={[50, 20]}
                   key={key}
                   listView={listView}
+                  newestComments={frontPageDataCopy.newestComments}
                 />
                 {frontPageDataCopy.listing.listings.length > 0 && (
                   <ListingsRow
@@ -197,7 +203,6 @@ export default function FrontContent(frontpageData: Frontpage) {
               lenke: '',
               articles: frontPageDataCopy.latestArticles.splice(0, 3),
             }}
-
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
@@ -217,9 +222,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                 frontPageDataCopy.listing.listings.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
-
             }}
-
             firstRow={true}
             hotnessThreshold={[20, 5]}
             listView={listView}
@@ -237,11 +240,6 @@ export default function FrontContent(frontpageData: Frontpage) {
       </React.StrictMode>
     );
 
-    document.addEventListener('scroll', () => {
-      if (window.scrollY > 100 && !scrolledPastFirst) {
-        scrolledPastFirst = true;
-        renderContentBelowFirstBanner();
-      }
-    });
+    renderContentBelowFirstBanner();
   }
 }

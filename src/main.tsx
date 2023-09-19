@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './scss/main.scss';
-import { Frontpage } from './types/index.ts';
+import { Frontpage, Article } from './types/index.ts';
 import FullEventsList from './components/FullEventsList.tsx';
 import { adjustLazyImages } from './functions/adjustLazyImages.ts';
 
+import SortByReactions from './components/SortByReactions.tsx';
 import DesktopSidemenuFront from './DesktopSidemenuFront.tsx';
 import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu.ts';
 import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu.ts';
@@ -51,6 +52,53 @@ async function main() {
     FrontpageData.listing.listings.length
   );
 
+  function sortLatestArticlesByToggle(sortingToggle = 'newest') {
+    // grab the DOM-elements for the three content divs
+    const articlesAboveFirstBanner = document.getElementById(
+      'articles-above-first-banner'
+    ) as HTMLElement;
+
+    const articlesBelowFirstBanner = document.getElementById(
+      'articles-below-first-banner'
+    ) as HTMLElement;
+
+    const articlesBelowSecondBanner = document.getElementById(
+      'articles-below-second-banner'
+    ) as HTMLElement;
+
+    articlesAboveFirstBanner.innerHTML = '';
+    articlesBelowFirstBanner.innerHTML = '';
+    articlesBelowSecondBanner.innerHTML = '';
+
+    if (sortingToggle === 'newest') {
+      FrontContent(structuredClone(FrontpageData) as Frontpage);
+    }
+    if (sortingToggle === 'mostReactions') {
+      const frontPageDataSortedByReactions = structuredClone(
+        FrontpageData
+      ) as Frontpage;
+      frontPageDataSortedByReactions.latestArticles =
+        frontPageDataSortedByReactions.latestArticles.sort(
+          (a: Article, b: Article) =>
+            b.reactions.reactions_count - a.reactions.reactions_count
+        );
+      FrontContent(structuredClone(frontPageDataSortedByReactions));
+    }
+    if (sortingToggle === 'mostComments') {
+      const frontPageDataSortedByReactions = structuredClone(
+        FrontpageData
+      ) as Frontpage;
+      frontPageDataSortedByReactions.latestArticles =
+        frontPageDataSortedByReactions.latestArticles.sort(
+          (a: Article, b: Article) =>
+            b.reactions.comments_count - a.reactions.comments_count
+        );
+      FrontContent(structuredClone(frontPageDataSortedByReactions));
+    }
+  }
+
+  const sortingToggle = 'newest';
+
   const desktopSideMenuFront = document.getElementById(
     'desktop-sidemenu-front'
   ) as HTMLElement;
@@ -62,6 +110,20 @@ async function main() {
     'tip-us-call-to-action'
   );
 
+  if (document.getElementById('articles-above-first-banner')) {
+    const sortByReactionsNode = document.createElement('div');
+    ReactDOM.createRoot(sortByReactionsNode).render(
+      <React.StrictMode>
+        <SortByReactions
+          sortingToggle={sortingToggle}
+          sortBySortingToggle={sortLatestArticlesByToggle}
+        />
+      </React.StrictMode>
+    );
+    document
+      .getElementById('articles-above-first-banner')
+      ?.before(sortByReactionsNode);
+  }
   const podcastPlayerNode = document.createElement('div');
   podcastPlayerNode.classList.add('podcast-player');
   ReactDOM.createRoot(podcastPlayerNode).render(

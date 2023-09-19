@@ -1,4 +1,10 @@
-import { Article, Listing, Content, DesktopRow, Comment } from '../types';
+import {
+  Article,
+  Listing,
+  Content,
+  DesktopRow,
+  Comment,
+} from '../types';
 import ArticleTile from './ArticleTile.tsx';
 import ContentTile from './ContentTile.tsx';
 import { findHottestArticle } from '../functions/findHottestArticle.tsx';
@@ -8,20 +14,19 @@ export default function ArticlesRow({
   hotnessThreshold,
   listView,
   ad,
-  newestComments
+  newestComments,
 }: {
   DesktopRowData: DesktopRow;
   firstRow: boolean;
   hotnessThreshold: [number, number];
   listView: boolean;
-    ad?: Listing | Content | null;
-    newestComments?: [Comment] | [];
-  }) {
+  ad?: Listing | Content | null;
+  newestComments?: [Comment] | [];
+}) {
   const hottestArticle = findHottestArticle(
     DesktopRowData,
     hotnessThreshold
   );
-  console.log(DesktopRowData, newestComments, "hest");
   return (
     <div
       className={`row desktop-row ${DesktopRowData.style} ${
@@ -59,7 +64,14 @@ export default function ArticlesRow({
                   ? true
                   : false
               }
-              comments={ newestComments && newestComments.length > 0 ? newestComments.filter((comment : Comment) => comment.page_identifier === article.id) : []}
+              comments={
+                newestComments && newestComments.length > 0
+                  ? newestComments.filter(
+                      (comment: Comment) =>
+                        comment.page_identifier === article.id
+                    )
+                  : []
+              }
             />
           )
         )}
