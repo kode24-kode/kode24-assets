@@ -71,9 +71,11 @@ async function main() {
     articlesBelowSecondBanner.innerHTML = '';
 
     if (sortingToggle === 'newest') {
+      sortingToggle = 'newest';
       FrontContent(structuredClone(FrontpageData) as Frontpage);
     }
     if (sortingToggle === 'mostReactions') {
+      sortingToggle = 'mostReactions';
       const frontPageDataSortedByReactions = structuredClone(
         FrontpageData
       ) as Frontpage;
@@ -85,6 +87,7 @@ async function main() {
       FrontContent(structuredClone(frontPageDataSortedByReactions));
     }
     if (sortingToggle === 'mostComments') {
+      sortingToggle = 'mostComments';
       const frontPageDataSortedByReactions = structuredClone(
         FrontpageData
       ) as Frontpage;

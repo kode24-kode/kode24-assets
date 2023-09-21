@@ -1,12 +1,17 @@
+.card .comment-tile,
+.preview:hover .comment-tile,
+.hot .comment-tile {
+  background-color: var(--v2-background);
+}
+
 .comment-tile {
   background-color: var(--v2-card-background);
   padding: calc(var(--gutter) / 4);
   border-radius: var(--border-radius);
-  margin-bottom: calc(var(--gutter) / 2);
+  margin-bottom: 0;
   display: inline-block;
   gap: calc(var(--gutter) / 2);
 
-  margin-top:calc(var(--gutter) / 4);
 
   .comment-icon {
     margin-right: calc(var(--gutter) / 6);
@@ -82,24 +87,32 @@
 
 }
 
+.desktop-row.card.newest-comments {
+    padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2) calc(var(--gutter)) calc(var(--gutter) / 2);
+  }
+
 .social-component {
   width: 100%;
   margin-bottom: 0;
 
   .heading {}
+  .comment-tile {
+    margin: 0;
+  }
 
   .newest-comments-list {
     list-style: none;
     padding: 0;
     margin: 0;
   }
+  .comment-tile {
+    background-color: transparent;
+  }
 
   .newest-comments-list {
     padding: 0 0 var(--gutter) 0;
 
     @media screen and (min-width: 830px) {
-      margin-left: calc(var(--gutter) * -1);
-      padding: calc(var(--gutter) / 2) calc(var(--gutter)*1.5) 0 calc(var(--gutter)*1.5);
       height: 358px;
       overflow: auto;
     }
@@ -120,7 +133,7 @@
   }
 
   .comment-container {
-
+    padding: calc(var(--gutter) / 2);
     @media screen and (max-width: 830px) {
       &:nth-child(1n + 4) {
         display: none;

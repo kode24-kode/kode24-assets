@@ -378,7 +378,19 @@
         border-radius: var(--border-radius);
 
         &.hot {
-          animation: hotAnimation 2.5s infinite;
+          background-color: var(--v2-card-background);
+          &:before {
+            content: "";
+            left: calc(var(--gutter)*-1 / 4);
+            top: calc(var(--gutter)*-1 / 4);
+            width: calc(100% + var(--gutter) / 2);
+            height: calc(100% + var(--gutter) / 2);
+            background-color: var(--v2-card-background);
+            z-index: -1;
+            border-radius: var(--border-radius);
+            animation: hotAnimation 2.5s infinite;
+            /* filter: blur(10px); */
+          }
         }
 
         &:hover {
@@ -687,7 +699,7 @@
     .article-social {
       padding: 0;
       justify-content: flex-start;
-      gap: calc(var(--gutter) / 4) var(--gutter);
+      gap: calc(var(--gutter) / 2) var(--gutter);
       font-size: 0.8rem;
     }
 

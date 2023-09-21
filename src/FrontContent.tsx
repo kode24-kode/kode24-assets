@@ -218,8 +218,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               antall: 2,
               lenke: '',
               articles:
-                frontPageDataCopy.content.length > 0 ||
-                frontPageDataCopy.listing.listings.length > 0
+                frontPageDataCopy.content.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
