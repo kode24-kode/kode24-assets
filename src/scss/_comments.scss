@@ -1,0 +1,144 @@
+.card .comment-tile,
+.preview:hover .comment-tile {
+  background-color: var(--v2-background);
+}
+
+.comment-tile {
+  background-color: var(--v2-card-background);
+  padding: calc(var(--gutter) / 4);
+  border-radius: var(--border-radius);
+  margin-bottom: 0;
+  display: inline-block;
+  gap: calc(var(--gutter) / 2);
+
+
+  .comment-icon {
+    margin-right: calc(var(--gutter) / 6);
+    transform: translateY(3px);
+    display: inline-block;
+  }
+
+  &.oneline {
+    display: block;
+    font-size: 0.8rem !important;
+    .comment-author {
+      transform: translateY(0);
+      margin-right: calc(var(--gutter) / 6);
+    }
+    .comment-author {
+      float: none;
+      display: inline-block;
+    }
+    .comment-text {
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .comment-author {
+    float: left;
+    padding: calc(var(--gutter) / 8) calc(var(--gutter) / 4) calc(var(--gutter) / 8) calc(var(--gutter) / 8);
+    background-color: var(--v2-card-background-highlight);
+    border-radius: var(--border-radius);
+    margin-right: calc(var(--gutter) / 4);
+    font-size: 0.7rem;
+    white-space: nowrap;
+    display: flex;
+    transform: translateY(2px);
+
+    .comment-avatar {
+      width: 14px;
+      margin-right: calc(var(--gutter) / 4);
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-block;
+    }
+
+    .comment-username {
+      color: var(--v2-card-headline-color);
+
+
+    }
+
+
+
+  }
+
+  .comment-article {
+    margin-top: calc(var(--gutter) / 4);
+    font-size: 0.7rem;
+    color: var(--v2-label-color-pink);
+  }
+
+  .comment-text {
+    line-height: 1.4;
+  }
+
+  .comment-date {
+    margin-top: calc(var(--gutter) / 4);
+    font-size: 0.7rem;
+    color: var(--v2-card-headline-color);
+  }
+
+}
+
+.desktop-row.card.newest-comments {
+    padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2) calc(var(--gutter)) calc(var(--gutter) / 2);
+  }
+
+.social-component {
+  width: 100%;
+  margin-bottom: 0;
+
+  .heading {}
+  .comment-tile {
+    margin: 0;
+  }
+
+  .newest-comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .comment-tile {
+    background-color: transparent;
+  }
+
+  .newest-comments-list {
+    padding: 0 0 var(--gutter) 0;
+
+    @media screen and (min-width: 830px) {
+      height: 358px;
+      overflow: auto;
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--v2-background);
+      border-radius: var(--border-radius);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--v2-label-color-pink);
+      border-radius: var(--border-radius);
+    }
+  }
+
+  .comment-container {
+    padding: calc(var(--gutter) / 2);
+    @media screen and (max-width: 830px) {
+      &:nth-child(1n + 4) {
+        display: none;
+      }
+    }
+  }
+
+
+}

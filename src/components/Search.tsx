@@ -130,7 +130,11 @@ export default function Search() {
           <ul id="search-results-list">
             {searchResults.map((article: Article, key: number) => (
               <li key={key}>
-                <ArticleTile Article={article} isHot={false} />
+                <ArticleTile
+                  Article={article}
+                  isHot={false}
+                  comments={[]}
+                />
               </li>
             ))}
           </ul>

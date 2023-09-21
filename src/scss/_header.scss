@@ -58,6 +58,15 @@
   }
 }
 
+@keyframes dash {
+  from {
+    fill: var(--v2-label-color-pink);
+  }
+  to {
+    fill: var(--v2-label-color-teal);
+  }
+}
+
 #top-bar-logo-type {
   width: 100px;
   path,
@@ -66,6 +75,12 @@
   line {
     fill: var(--v2-card-headline-color);
   }
+
+  stroke-dasharray: 100;
+  animation: dash 5s infinite;
+
+
+
   @media screen and (max-width: 1023px) {
     display: none;
   }
