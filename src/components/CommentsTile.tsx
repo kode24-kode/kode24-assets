@@ -1,8 +1,5 @@
 import { Comment } from '../types';
-import htmlDecode from '../functions/decodeStringWithSpecialCharacters';
 import CommentTile from './CommentTile';
-
-import { getTimeAgo } from '../functions/getTimeAgo';
 
 export default function CommentsTile({
   comments,
@@ -18,7 +15,7 @@ export default function CommentsTile({
         {comments.map((comment: Comment, key: number) => {
           return (
             <li className="comment-container" key={key}>
-              <CommentTile comment={comment} oneLine={ false } />
+              <CommentTile comment={comment} oneLine={false} />
             </li>
           );
         })}
