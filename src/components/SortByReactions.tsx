@@ -34,7 +34,7 @@ export default function SortByReactions({
           {sortingState !== 'newest' && (
             <LightningIcon title="a11y-title" fontSize="1.5rem" />
           )}
-          Siste nytt
+          siste
         </button>
       </li>
       <li>
@@ -51,7 +51,7 @@ export default function SortByReactions({
           {sortingState !== 'mostReactions' && (
             <HeartIcon title="a11y-title" fontSize="1.5rem" />
           )}
-          Reaksjoner
+          reaksjoner
         </button>
       </li>
       <li>
@@ -68,7 +68,7 @@ export default function SortByReactions({
           {sortingState !== 'mostComments' && (
             <Chat2Icon title="a11y-title" fontSize="1.5rem" />
           )}
-          Kommentarer
+          kommentarer
         </button>
       </li>
     </ul>
