@@ -89,7 +89,7 @@ export default function ArticleTile({
               </div>
             </div>
             <ArticleTileSocial Article={Article} />
-            {Article.reactions.comments_count > 1 &&
+            {Article.reactions.comments_count > 0 &&
               comments.length > 0 && (
                 <CommentTile comment={comments[0]} oneLine={true} />
               )}
