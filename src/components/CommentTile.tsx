@@ -11,7 +11,7 @@ export default function CommentTile({
   if (comment.bodySnippet == '') return <></>;
   return (
     <a
-      href={comment.url}
+      href={comment.url + "#hyvor-talk-view"}
       className={`comment-tile ${oneLine ? 'oneline' : ''}`}
     >
       <div className="comment-text">

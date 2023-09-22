@@ -379,6 +379,7 @@
 
         &.hot {
           background-color: var(--v2-background);
+
           &:before {
             content: "";
             left: calc(var(--gutter)*-1 / 4);
@@ -390,6 +391,12 @@
             border-radius: var(--border-radius);
             animation: hotAnimation 2.5s infinite;
             /* filter: blur(10px); */
+          }
+
+          @media (prefers-reduced-motion) {
+            &:before {
+              display: none;
+            }
           }
         }
 
@@ -458,7 +465,8 @@
         }
 
         &:nth-child(2) {
-          margin-top: 0;;
+          margin-top: 0;
+          ;
         }
 
         &:not(:first-child) {
