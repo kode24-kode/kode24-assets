@@ -396,6 +396,8 @@
           @media (prefers-reduced-motion) {
             &:before {
               display: none;
+              width: 0;
+              height: 0;
             }
           }
         }
