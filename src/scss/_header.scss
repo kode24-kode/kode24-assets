@@ -172,6 +172,9 @@
     background-color: var(--v2-card-background-highlight);
     padding: 0.4rem;
     border-radius: 10px;
+    &:hover {
+      background-color: var(--v2-card-background-highlight-2);
+    }
   }
   .icon path,
   .icon rect,

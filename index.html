@@ -243,7 +243,7 @@
                       <svg class="icon kode24-dagen-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
 
-                        <span class="site-title">kode24-dagen 2.0</span></a>
+                        <span class="site-title">kode24-dagen</span></a>
                 </li>
                 <li>
                     <a href="//www.kode24.no/jobb" id="job-menu-item"><svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -278,7 +278,33 @@
     </div>
 </div>
 </header>
-
+    <style>
+      #top-banner-wrapper {
+        display: grid;
+        place-items: center;
+        padding-top: calc(var(--gutter) * 5);
+        margin-bottom: calc(var(--gutter) * -2);
+        padding-left: var(--gutter);
+        padding-right: var(--gutter);
+      }
+      #top-banner-logo {
+        max-width: 100%;
+        display: inline-block;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
+      #top-banner-logo img {
+        display: block;
+      }
+      @media screen and (max-width: 850px) {
+        #top-banner-wrapper {
+          display: none;
+        }
+      }
+      </style>
+    <div id="top-banner-wrapper">
+      <a href="https://www.kode24-dagen.no" id="top-banner-logo"><img src="https://www.dagbladet.no/files/2023/10/09/toppbanner-kode24-dagen2.0.png" /></a>
+    </div>
     <div class="frontpage wide">
         <main class="" id="main-content" role="main" data-pageId="70185540">
             <div id="front-articles-list">
@@ -317,10 +343,6 @@ width: calc(100% - var(--gutter));
 }
 }
 </style>
-
-<a id="top-notification" class="" target="_blank" href="https://www.kode24-dagen.no/">
-Billettene til kode24-dagen 2.0 <span id="utheva">er ute nå!</span> 🥳
-</a>
 
 </div>
 </div>
@@ -381,15 +403,6 @@ Billettene til kode24-dagen 2.0 <span id="utheva">er ute nå!</span> 🥳
             </div>
         </main>
 <aside id="left-menu">
-        <div id="kode24-dagen-banner">
-          <a href="https://www.kode24-dagen.no">
-            <img src="https://www.dagbladet.no/files/2023/06/01/kode24-dagen-mobil-320x250.png" alt="kode24-dagen-banner" style="
-            border-radius: var(--border-radius);
-            display:  block;
-            margin-bottom: var(--gutter);
-        ">
-          </a>
-        </div>
         <div id="tip-us-call-to-action">
           <h2 class="title">Tips oss</h2>
           <p class="description">
