@@ -43,11 +43,6 @@ export default function FrontContent(frontpageData: Frontpage) {
   ) as HTMLElement;
 
   function renderContentBelowFirstBanner() {
-    console.log(
-      'we are here',
-      frontPageDataCopy.content,
-      frontPageDataCopy.content.length
-    );
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
         <>

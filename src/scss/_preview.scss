@@ -4,49 +4,58 @@
   display: block;
   width: 100%;
   cursor: pointer;
+
   .headline {
     span {
       text-decoration: none;
       box-shadow: 0 0 #0000, 0 0 #0000,
         0 0 #0000, 0 0 #0000,
         inset 0 0 0 0 transparent;
-        transition: box-shadow 0.25s ease-in-out;
+      transition: box-shadow 0.25s ease-in-out;
     }
   }
+
   &:hover {
+
     img {
       filter: brightness(1.1);
       transform: scale(1.01);
     }
+
     .headline {
       span {
         text-decoration: none;
         box-shadow: 0 0 #0000, 0 0 #0000,
-        0 0 #0000, 0 0 #0000,
-        inset 0 calc(var(--gutter) / 6 * -1) 0 0 var(--v2-label-color-pink);
+          0 0 #0000, 0 0 #0000,
+          inset 0 calc(var(--gutter) / 6 * -1) 0 0 var(--v2-label-color-pink);
       }
     }
   }
+
   @media screen and (max-width: 830px) {
     border-radius: 0;
     border: 0;
   }
+
   >a {
     position: relative;
     display: flex;
     align-items: flex-start;
     text-decoration: none;
     gap: var(--gutter);
+
     &:hover {
       text-decoration: none;
     }
   }
+
   time {
     font-size: 0.7rem;
     text-transform: uppercase;
     display: block;
     margin-bottom: calc(var(--gutter) / 4);
   }
+
   &:before {
     content: "";
     position: absolute;
@@ -70,12 +79,14 @@
     color: var(--v2-card-headline-color);
     word-break: break-word;
   }
+
   .labels span {
     display: inline-block;
     color: var(--v2-card-paragraph-color);
     margin-bottom: 0.6rem;
     font-family: var(--fontRegular);
   }
+
   .standfirst {
     margin: 0;
     margin-bottom: 0.5rem;
@@ -83,26 +94,30 @@
     position: relative;
     font-family: v(fontRegular);
     font-size: 1.1rem;
+
     @media screen and (max-width: 1023px) {
       font-size: 0.8rem;
     }
   }
 
   figure {
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     padding: 0;
     margin: 0 0 calc(var(--gutter)/2) 0;
     overflow: hidden;
     padding-bottom: 0 !important;
+
     @media screen and (max-width: 1023px) {
       flex: 0 0 128px;
     }
 
     position: relative;
+
     img {
       display: block;
       width: 100%;
       transition: all 0.25s ease-in-out;
+
       &.lazyload {
         width: auto;
         height: auto;

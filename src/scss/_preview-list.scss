@@ -8,7 +8,7 @@
   .preview-calendar-date {
     border: 1px solid var(--v2-card-border-background);
     text-align: center;
-    border-radius: var(--border-radius);
+    border-radius: var(--inner-border-radius);
     .preview-calendar-date-day {
       padding: calc(var(--gutter) / 1.5);
     }
@@ -79,6 +79,7 @@
     figure {
       flex: 0 0 75px;
       margin-bottom: 0;
+      border-radius: var(--inner-border-radius);
       @media screen and (max-width: 1023px) {
         flex: 0 0 50px;
       }
@@ -87,6 +88,7 @@
       position: relative;
       align-items: flex-start;
       gap: calc(var(--gutter) / 1.5);
+      cursor: pointer;
       @media screen and (max-width: 1023px) {
         padding: 0;
       }
@@ -194,7 +196,7 @@
     margin: calc(var(--gutter) / 3) calc(var(--gutter) / 1.5);
     text-decoration: none;
     background-color: transparent;
-    border-radius: var(--border-radius);
+    border-radius: var(--inner-border-radius);
     text-decoration: none;
     &:hover {
       text-decoration: none;
@@ -204,6 +206,10 @@
   .button {
     margin: 0;
     padding: calc(var(--gutter) / 1.5);
+    border-radius: var(--inner-border-radius);
     background-color: var(--v2-card-background-highlight);
+    &:hover {
+      background-color: var(--v2-card-background-highlight-2);
+    }
   }
 }

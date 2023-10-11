@@ -11,7 +11,7 @@ export default function CommentTile({
   if (comment.bodySnippet == '') return <></>;
   return (
     <a
-      href={comment.url + "#hyvor-talk-view"}
+      href={comment.url + '#hyvor-talk-view'}
       className={`comment-tile ${oneLine ? 'oneline' : ''}`}
     >
       <div className="comment-text">
@@ -32,7 +32,7 @@ export default function CommentTile({
       <div className="comment-meta">
         {!oneLine && (
           <div className="comment-date">
-            {getTimeAgo(comment.created_at)}
+            {comment.created_at && getTimeAgo(comment.created_at)}
           </div>
         )}
       </div>

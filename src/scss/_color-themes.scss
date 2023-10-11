@@ -9,6 +9,7 @@
 
   --v2-card-background: hsl(var(--v2-main-color), 14%, 16%);
   --v2-card-background-highlight: hsl(var(--v2-main-color), 14%, 24%);
+  --v2-card-background-highlight-2: hsl(var(--v2-main-color), 14%, 32%);
   --v2-card-border-background: var(--v2-card-background-highlight);
 
   --v2-card-headline-color: hsl(60, 30%, 96%);
@@ -29,7 +30,7 @@
   --v2-label-color-purple: hsl(300, 66%, 43%);
   --v2-label-color-purple-darker: hsl(300, 100%, 40%);
   --v2-label-color-blue: hsl(115, 100%, 75%);
-  --v2-label-color-blue-darker: hsl(115, 100%, 40%);
+  --v2-label-color-blue-darker: hsl(115, 100%, 30%);
   --v2-label-color-yellow: hsl(60, 100%, 75%);
   --v2-label-color-yellow-darker: hsl(60, 100%, 40%);
   --v2-label-color-orange: hsl(35, 100%, 75%);
@@ -56,6 +57,7 @@
 
     --v2-card-background: hsla(0, 0%, 100%, 1);
     --v2-card-background-highlight: hsl(223, 15%, 95%);
+    --v2-card-background-highlight-2: hsl(223, 15%, 90%);
     --v2-card-border-background: hsla(244, 14%, 20%, 0.10);
 
     --v2-card-headline-color: hsl(230, 15%, 20%);
@@ -74,7 +76,7 @@
     --v2-label-color-purple: hsl(300, 66%, 43%);
     --v2-label-color-purple-darker: hsl(300, 100%, 40%);
     --v2-label-color-blue: hsl(115, 100%, 75%);
-    --v2-label-color-blue-darker: hsl(115, 100%, 40%);
+    --v2-label-color-blue-darker: hsl(115, 100%, 30%);
     --v2-label-color-yellow: hsl(60, 100%, 75%);
     --v2-label-color-yellow-darker: hsl(60, 100%, 40%);
     --v2-label-color-orange: hsl(35, 100%, 75%);

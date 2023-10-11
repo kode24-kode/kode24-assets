@@ -21,14 +21,17 @@
   &.oneline {
     display: block;
     font-size: 0.8rem !important;
+
     .comment-author {
       transform: translateY(0);
       margin-right: calc(var(--gutter) / 6);
     }
+
     .comment-author {
       float: none;
       display: inline-block;
     }
+
     .comment-text {
       line-height: 1.4;
       display: -webkit-box;
@@ -87,14 +90,15 @@
 }
 
 .desktop-row.card.newest-comments {
-    padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2) calc(var(--gutter)) calc(var(--gutter) / 2);
-  }
+  padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2) calc(var(--gutter)) calc(var(--gutter) / 2);
+}
 
 .social-component {
   width: 100%;
   margin-bottom: 0;
 
   .heading {}
+
   .comment-tile {
     margin: 0;
   }
@@ -104,6 +108,7 @@
     padding: 0;
     margin: 0;
   }
+
   .comment-tile {
     background-color: transparent;
   }
@@ -133,6 +138,7 @@
 
   .comment-container {
     padding: calc(var(--gutter) / 2);
+
     @media screen and (max-width: 830px) {
       &:nth-child(1n + 4) {
         display: none;

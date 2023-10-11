@@ -40,6 +40,7 @@ export interface Article {
   tags: string;
   subtitle: string;
   frontCropUrl: string;
+  highestRatedComment?: Comment;
   byline: {
     name: string;
     bio: string;
@@ -84,20 +85,21 @@ export interface Patreon {
 }
 
 export interface Comment {
-  url: string;
-  page_identifier: string;
-  created_at: string;
-  upvotes: number;
-  downvotes: number;
+  url?: string;
+  page_identifier?: string;
+  created_at?: string;
+  upvotes?: number;
+  downvotes?: number;
+  rating?: number;
   user: {
-    id: number;
-    type: string;
+    id?: number;
+    type?: string;
     name: string;
-    email: string;
+    email?: string;
     picture: string;
   };
   bodySnippet: string;
-  articleTitle: string;
+  articleTitle?: string;
 }
 
 export interface CompanyPartner {

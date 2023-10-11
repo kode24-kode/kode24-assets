@@ -388,7 +388,7 @@
             height: calc(100% + var(--gutter) / 2);
             background-color: var(--v2-card-background);
             z-index: -1;
-            border-radius: var(--border-radius);
+            border-radius: var(--outer-border-radius);
             animation: hotAnimation 2.5s infinite;
             /* filter: blur(10px); */
           }
@@ -404,6 +404,7 @@
 
         &:hover {
           background-color: var(--v2-card-background);
+          border-radius: var(--outer-border-radius);
         }
       }
     }
