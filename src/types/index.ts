@@ -1,5 +1,3 @@
-import { Url } from 'url';
-
 export interface Listing {
   id: string;
   published_url: string;
