@@ -11,6 +11,7 @@ import ArticlesRow from './components/ArticlesRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
+import structuredClone from '@ungap/structured-clone';
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;

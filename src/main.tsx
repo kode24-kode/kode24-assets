@@ -5,7 +5,7 @@ import './scss/main.scss';
 import { Frontpage, Article } from './types/index.ts';
 import FullEventsList from './components/FullEventsList.tsx';
 import { adjustLazyImages } from './functions/adjustLazyImages.ts';
-
+import structuredClone from '@ungap/structured-clone';
 import SortByReactions from './components/SortByReactions.tsx';
 import DesktopSidemenuFront from './DesktopSidemenuFront.tsx';
 import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu.ts';
