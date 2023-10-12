@@ -47,17 +47,17 @@
 }
 
 @mixin light {
-    --v2-main-color: 216;
+    --v2-main-color: 302;
 
     --v2-header-background: hsla(var(--v2-main-color), 14%, 100%, 0.8);
 
-    --v2-background: hsl(216, 20%, 95%);
+    --v2-background: hsl(302, 20%, 95%);
     --v2-background-highlight: hsl(216, 20%, 95%);
     --v2-background-always-dark: hsl(210, 4%, 10%);
 
     --v2-card-background: hsla(0, 0%, 100%, 1);
-    --v2-card-background-highlight: hsl(223, 15%, 95%);
-    --v2-card-background-highlight-2: hsl(223, 15%, 90%);
+    --v2-card-background-highlight: hsl(var(--v2-main-color), 30%, 95%);
+    --v2-card-background-highlight-2: hsl(var(--v2-main-color), 30%, 90%);
     --v2-card-border-background: hsla(244, 14%, 20%, 0.10);
 
     --v2-card-headline-color: hsl(230, 15%, 20%);
