@@ -9,6 +9,7 @@ import ContentsRow from './components/ContentsRow.tsx';
 import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
+import structuredClone from '@ungap/structured-clone';
 export default function FrontContent(frontpageData: Frontpage) {
   (window as any).hljs.highlightAll();
 
