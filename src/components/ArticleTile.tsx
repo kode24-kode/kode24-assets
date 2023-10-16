@@ -91,7 +91,7 @@ export default function ArticleTile({
             <ArticleTileSocial Article={Article} />
             {Article.highestRatedComment && (
               <CommentTile
-                comment={Article.highestRatedComment}
+                comment={{ ...Article.highestRatedComment, ...{ url: Article.published_url } }}
                 oneLine={true}
               />
             )}
