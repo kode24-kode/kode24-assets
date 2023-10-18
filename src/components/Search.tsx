@@ -1,6 +1,8 @@
 import { Article } from '../types';
 import { useState } from 'react';
 import ArticleTile from './ArticleTile.tsx';
+import { toggleSearchComponent } from '../functions/handleSearchButtonClick.ts';
+import LoadingAnimation from './LoadingAnimation.tsx';
 
 export default function Search() {
   const [searchResults, setSearchResults] = useState<Article[]>([]);
@@ -50,7 +52,7 @@ export default function Search() {
           } as Article)
       )
     );
-    setLoadingSearch(false);
+    //setLoadingSearch(false);
   }
   // updates search results on every keypress
   // and searches if the query is longer than 3 characters
@@ -73,37 +75,53 @@ export default function Search() {
         searchForArticles(searchQuery);
       }}
     >
+      <div id="search-component-buttons">
+        <button
+          aria-label="search button"
+          title="search button"
+          id="search-button"
+          className="button search"
+          onClick={(e) => {
+            e.preventDefault();
+            searchForArticles(searchQuery);
+          }}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="icon"
+          >
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button
+          aria-label="close search button"
+          title="close search button"
+          id="search-button"
+          className="button close"
+          onClick={(e) => {
+            e.preventDefault();
+            toggleSearchComponent();
+          }}
+        >
+          lukk
+        </button>
+      </div>
       <input
-        placeholder="Søk etter.."
+        placeholder="Eks: startlønn frontend..."
         type="search"
         value={searchQuery}
         onChange={(e) => autoSearch(e.target.value)}
       />
-      <button
-        aria-label="search button"
-        title="search button"
-        id="search-button"
-        onClick={(e) => {
-          e.preventDefault();
-          searchForArticles(searchQuery);
-        }}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="icon"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
-      </button>
+
       {searchResults.length === 0 && loadingSearch && (
         <div id="article-search-results">
           <div
@@ -112,6 +130,7 @@ export default function Search() {
           ></div>
           <h2 id="article-search-header">
             Søker etter "{searchQuery}"...
+            <LoadingAnimation />
           </h2>
         </div>
       )}
