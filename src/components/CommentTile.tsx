@@ -9,7 +9,6 @@ export default function CommentTile({
   oneLine?: boolean;
 }) {
   if (comment.bodySnippet == '') return <></>;
-  console.log(comment);
   return (
     <a
       href={comment.url + '#hyvor-talk-view'}
