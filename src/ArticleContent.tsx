@@ -21,7 +21,6 @@ export default function FrontContent(frontpageData: Frontpage) {
   frontPageDataCopy.content = shuffleArray(
     frontPageDataCopy.content
   ) as [Content];
-  console.log('got contgent', frontPageDataCopy.content);
   // get only premium ads and shuffle them
   frontPageDataCopy.listing.listings = shuffleArray(
     frontPageDataCopy.listing.listings.filter((listing) =>

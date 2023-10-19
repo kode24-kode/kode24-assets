@@ -10,7 +10,6 @@ export function handleSearchButtonClick() {
     document
       .getElementById('search-button-mobile')
       ?.addEventListener('click', (event) => {
-        console.log('yo');
         event.preventDefault();
         event.stopPropagation();
         toggleSearchComponent();
