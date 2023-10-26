@@ -14,7 +14,6 @@ export default function ArticlesRow({
   hotnessThreshold,
   listView,
   ad,
-  newestComments,
 }: {
   DesktopRowData: DesktopRow;
   firstRow: boolean;
@@ -63,14 +62,6 @@ export default function ArticlesRow({
                 hottestArticle && hottestArticle === article.id
                   ? true
                   : false
-              }
-              comments={
-                newestComments && newestComments.length > 0
-                  ? newestComments.filter(
-                      (comment: Comment) =>
-                        comment.page_identifier === article.id
-                    )
-                  : []
               }
             />
           )

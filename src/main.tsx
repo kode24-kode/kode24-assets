@@ -38,7 +38,7 @@ async function main() {
 
   // fetch frontpage data
   const response = await fetch(
-    'https://docs.kode24.no/api/frontpage'
+    'https://kode24-functions-beta.onrender.com/api/frontpage'
   );
   const FrontpageData: Frontpage = await response.json();
 
