@@ -12,12 +12,14 @@ export default function Search() {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       resetSearch();
+      console.log('resetting search');
     }
   });
 
   function resetSearch() {
     setSearchResults([]);
     setSearchQuery('');
+    setLoadingSearch(false);
   }
 
   async function searchForArticles(value: string | undefined) {
@@ -57,14 +59,17 @@ export default function Search() {
   // updates search results on every keypress
   // and searches if the query is longer than 3 characters
   // and timeouts the search if the user stops typing
-  let timeout: any = undefined;
+
   function autoSearch(value: string) {
+    setSearchResults([]);
+    setLoadingSearch(false);
     setSearchQuery(value);
-    clearTimeout(timeout);
+    clearTimeout((window as any).currentTimeout);
     if (value.length > 3) {
-      timeout = setTimeout(() => {
+      (window as any).currentTimeout = setTimeout(() => {
+        console.log('searching for articles', value);
         searchForArticles(value);
-      }, 500);
+      }, 1000);
     }
   }
   return (
