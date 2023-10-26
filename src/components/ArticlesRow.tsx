@@ -14,7 +14,6 @@ export default function ArticlesRow({
   hotnessThreshold,
   listView,
   ad,
-  newestComments,
 }: {
   DesktopRowData: DesktopRow;
   firstRow: boolean;
