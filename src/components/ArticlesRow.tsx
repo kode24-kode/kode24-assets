@@ -64,14 +64,6 @@ export default function ArticlesRow({
                   ? true
                   : false
               }
-              comments={
-                newestComments && newestComments.length > 0
-                  ? newestComments.filter(
-                      (comment: Comment) =>
-                        comment.page_identifier === article.id
-                    )
-                  : []
-              }
             />
           )
         )}
