@@ -1,6 +1,7 @@
 import { Comment } from '../types';
 import { getTimeAgo } from '../functions/getTimeAgo';
 import htmlDecode from '../functions/decodeStringWithSpecialCharacters';
+import removeUrlsFromString from '../functions/removeUrlsFromString';
 export default function CommentTile({
   comment,
   oneLine = false,
@@ -25,7 +26,7 @@ export default function CommentTile({
           )}
           <div className="comment-username">{comment.user.name}</div>
         </div>
-        {htmlDecode(comment.bodySnippet)}
+        {htmlDecode(removeUrlsFromString(comment.bodySnippet))}
         {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !=
           '.' && '...'}
       </div>
