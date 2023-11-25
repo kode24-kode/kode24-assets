@@ -37,12 +37,18 @@ export default function CompanyPartnersTile({
                 >
                   <img
                     className="dark"
-                    src={companyPartner.darkLogo}
+                    src={
+                      'https://kode24-image-cache.onrender.com/image?url=' +
+                      companyPartner.darkLogo
+                    }
                     alt={'partner logo ' + companyPartner.slug}
                   />
                   <img
                     className="light"
-                    src={companyPartner.lightLogo}
+                    src={
+                      'https://kode24-image-cache.onrender.com/image?url=' +
+                      companyPartner.lightLogo
+                    }
                     alt={'partner logo ' + companyPartner.slug}
                   />
                   <span className="description">

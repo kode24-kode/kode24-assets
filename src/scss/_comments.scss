@@ -39,6 +39,8 @@
       -webkit-line-clamp: 2;
       overflow: hidden;
       text-overflow: ellipsis;
+      word-wrap: break-word;
+      word-break: break-word;
     }
   }
 
@@ -79,6 +81,8 @@
 
   .comment-text {
     line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
   }
 
   .comment-date {
