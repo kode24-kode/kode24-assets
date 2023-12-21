@@ -224,7 +224,7 @@ async function main() {
       const listing = FrontpageData.listing.listings.find(
         (listing) => listing.id === listingId
       );
-
+      console.log(findDataInSpecialTag(listing.tags, 'jobbmail'));
       if (listing && listing.tags.includes('jobbmail')) {
         const jobbmail = document.createElement('div');
         ReactDOM.createRoot(jobbmail as HTMLElement).render(
@@ -232,7 +232,9 @@ async function main() {
             <QuicksearchComponent
               quicksearchData={{
                 from: 'no-reply@kode24.no',
-                to: findDataInSpecialTag(listing.tags, 'jobbmail'),
+                to:
+                  findDataInSpecialTag(listing.tags, 'jobbmail') ||
+                  '',
                 applicant: '',
                 jobUrl: listing.published_url,
                 jobTitle: listing.title,

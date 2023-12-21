@@ -10,15 +10,24 @@ export default function QuicksearchComponent({
   const [mailStatus, setEmailStatus] = useState('not-sent');
 
   async function handleSubmit() {
+    console.log('submitting');
+    const mailData = JSON.stringify({
+      ...quicksearchData,
+      applicant: emailAddress,
+    } as Quicksearch);
+    console.log(mailData);
+
     setEmailStatus('sending');
+
     const response = await fetch(
       'https://sendmail.kode24.no/api/sendmail',
       {
         method: 'POST',
-        body: JSON.stringify({
-          ...quicksearchData,
-          applicant: emailAddress,
-        } as Quicksearch),
+        headers: {
+          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: mailData,
       }
     );
     await response.json();

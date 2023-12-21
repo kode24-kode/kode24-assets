@@ -8,6 +8,7 @@ export function findDataInSpecialTags(tags: string, tagname: string) {
   tagsArray = tagsArray.filter(
     (tag) => tag.indexOf(tagname + ':') > -1
   );
+
   tagsArray = tagsArray.map((tag) => tag.split(tagname + ':')[1]);
   return tagsArray;
 }
