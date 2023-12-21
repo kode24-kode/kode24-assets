@@ -10,12 +10,10 @@ export default function QuicksearchComponent({
   const [mailStatus, setEmailStatus] = useState('not-sent');
 
   async function handleSubmit() {
-    console.log('submitting');
     const mailData = JSON.stringify({
       ...quicksearchData,
       applicant: emailAddress,
     } as Quicksearch);
-    console.log(mailData);
 
     setEmailStatus('sending');
 
