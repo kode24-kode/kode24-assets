@@ -7,6 +7,11 @@
     padding: var(--gutter);
   }
 }
+
+#front-articles-list .listing-application-header {
+  margin-top: calc(var(--gutter) * 2);
+}
+
 #front-articles-list .listings-application-list-header {
   p a {
     @include underlined;

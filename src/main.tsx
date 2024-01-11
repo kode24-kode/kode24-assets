@@ -204,6 +204,7 @@ async function main() {
       <React.StrictMode>
         <ListingsApplication
           listings={FrontpageData.listing.listings}
+          premiumIds={FrontpageData.listing.premiumIds}
         />
       </React.StrictMode>
     );
