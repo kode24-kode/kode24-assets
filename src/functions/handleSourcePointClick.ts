@@ -19,7 +19,7 @@ export function handleSourcePointClick() {
     document.getElementById('ad-settings')?.addEventListener
   ) {
     document
-      .getElementById('search-button-mobile')
+      .getElementById('ad-settings')
       ?.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
