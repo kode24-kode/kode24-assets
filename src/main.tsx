@@ -14,6 +14,7 @@ import { addRibbonClassToTop } from './functions/addRibbonClassToTop.ts';
 import { handleImageExpansionClick } from './functions/handleImageExpansionClick.ts';
 import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.ts';
 import { handleSearchButtonClick } from './functions/handleSearchButtonClick.ts';
+import { handleSourcePointClick } from './functions/handleSourcePointClick.ts';
 import CommentsTile from './components/CommentsTile.tsx';
 import Search from './components/Search.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
@@ -35,6 +36,7 @@ async function main() {
   handleImageExpansionClick();
   handleHamburgerMenuClick();
   handleSearchButtonClick();
+  handleSourcePointClick();
 
   // fetch frontpage data
   const response = await fetch(
