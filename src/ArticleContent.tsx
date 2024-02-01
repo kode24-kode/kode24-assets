@@ -52,7 +52,6 @@ export default function FrontContent(frontpageData: Frontpage) {
         (key === 1 || key === 2) &&
         frontPageDataCopy.content.length > 0
       ) {
-        console.log(frontPageDataCopy, 'using this');
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow

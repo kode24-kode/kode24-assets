@@ -12,7 +12,6 @@ export default function Search() {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       resetSearch();
-      console.log('resetting search');
     }
   });
 
@@ -67,7 +66,6 @@ export default function Search() {
     clearTimeout((window as any).currentTimeout);
     if (value.length > 3) {
       (window as any).currentTimeout = setTimeout(() => {
-        console.log('searching for articles', value);
         searchForArticles(value);
       }, 1000);
     }

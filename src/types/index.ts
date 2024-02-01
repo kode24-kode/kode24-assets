@@ -107,6 +107,12 @@ export interface CompanyPartner {
   darkLogo: string;
   lightLogo: string;
   tooltip: string;
+  title: string;
+  banner: string;
+  company: {
+    title: string;
+    logo: string;
+  };
 }
 
 export interface Frontpage {
