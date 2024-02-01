@@ -1,8 +1,13 @@
 import { CompanyPartner } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import '@splidejs/react-splide/css';
+
+import { useRef, useEffect } from 'react';
+
 export default function CompanyPartnersTile({
   companyPartners,
 }: {
@@ -11,6 +16,22 @@ export default function CompanyPartnersTile({
   const shuffledCompanyPartners = shuffleArray(
     companyPartners
   ) as Array<CompanyPartner>;
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+  const myRef = useRef(null);
+
+  const play = () => {
+    myRef.current.slickPlay();
+  };
+  const pause = () => {
+    myRef.current.slickPause();
+  };
   return (
     <div
       id="diamond-partners-list-tile"
@@ -27,16 +48,32 @@ export default function CompanyPartnersTile({
         </a>
       </div>
       <div className="partner-slider">
-        <Splide
-          aria-label="hero images"
-          options={{
-            type: 'loop',
-            autoplay: true,
+        <div style={{ textAlign: 'center' }}>
+          <button className="button" onClick={play}>
+            Play
+          </button>
+          <button className="button" onClick={pause}>
+            Pause
+          </button>
+        </div>
+        <Slider
+          id="partner-slider"
+          aria-label="partners"
+          settings={settings}
+          ref={myRef}
+          onInit={(elm) => {
+            console.log(elm, myRef, 'init');
+            if (myRef && myRef.current) {
+              console.log('starting to play');
+              myRef.current.slickPlay();
+            }
+
+            //play();
           }}
         >
           {shuffledCompanyPartners.map(
             (partner: CompanyPartner, key: number) => (
-              <SplideSlide key={key}>
+              <div key={key}>
                 <a
                   href={'https://partner.kode24.no/' + partner.slug}
                   className="partner-slider-item-container"
@@ -67,10 +104,10 @@ export default function CompanyPartnersTile({
                     </div>
                   </div>
                 </a>
-              </SplideSlide>
+              </div>
             )
           )}
-        </Splide>
+        </Slider>
       </div>
       <div className="single">
         <ul className="preview logo-list">
