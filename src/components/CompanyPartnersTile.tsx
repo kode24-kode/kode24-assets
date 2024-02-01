@@ -1,6 +1,7 @@
 import { CompanyPartner } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
+
 import '@splidejs/react-splide/css';
 export default function CompanyPartnersTile({
   companyPartners,
@@ -28,7 +29,10 @@ export default function CompanyPartnersTile({
       <div className="partner-slider">
         <Splide
           aria-label="hero images"
-          data-splide='{"type":"loop"}'
+          options={{
+            type: 'loop',
+            autoplay: true,
+          }}
         >
           {shuffledCompanyPartners.map(
             (partner: CompanyPartner, key: number) => (
@@ -43,13 +47,16 @@ export default function CompanyPartnersTile({
                   <div className="partner-slider-title">
                     <h3
                       className={`partner-slider-title-slogan ${
-                        partner.title.split('').length > 88
+                        partner.title.split('').length > 60
                           ? 'small'
                           : ''
                       }`}
                     >
                       {partner.title}
                     </h3>
+                    <h4 className="partner-slider-company-name">
+                      {partner.company.title}
+                    </h4>
                     <div className="partner-slider-logo-row">
                       <figure className="partner-slider-logo">
                         <img
@@ -57,9 +64,6 @@ export default function CompanyPartnersTile({
                           alt={partner.company.title}
                         />
                       </figure>
-                      <span className="partner-slider-company-name">
-                        {partner.company.title}
-                      </span>
                     </div>
                   </div>
                 </a>

@@ -21,8 +21,19 @@
   background-color: var(--v2-card-background-highlight);
 }
 
+.partner-slider-company-name {
+  margin: 0;
+  text-align: center;
+}
+
 .partner-slider-item-container {
   position: relative;
+}
+
+.splide__arrow {
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 }
 
 .splide__pagination {
@@ -33,7 +44,7 @@
   text-align: center;
   color: var(--v2-card-headline-color);
   font-size: 1.6rem;
-  padding: var(--gutter);
+  padding: calc(var(--gutter) / 2) calc(var(--gutter)) calc(var(--gutter) / 6) calc(var(--gutter));
   margin: 0;
   &.small {
     font-size: 1.2rem;
@@ -55,16 +66,21 @@
   img {
     border-radius: 0;
   }
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
 }
 
 .partner-slider-company-name {
   font-size: 1rem;
+  padding-bottom: calc(var(--gutter) * 2);
 }
 
 .partner-slider-logo {
-  width: 40px;
+  width: 60px;
   border-radius: var(--inner-border-radius);
   margin: 0;
+
 }
 
  .partner-slider-image {
@@ -85,13 +101,13 @@
     margin: 0;
     grid-auto-rows: min-content;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     list-style: none;
     align-items: center;
     justify-content: center;
     list-style: none;
     padding: var(--gutter);
-    gap: calc(var(--gutter) * 2);
+    gap: calc(var(--gutter));
 
     @media screen and (min-width: 1024px) {
       grid-template-columns: repeat(8, 1fr);
