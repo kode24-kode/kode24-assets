@@ -55,58 +55,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="kode24">
-<script>
-  /**
-* Handles clicks on the light switch toggle button
-* on the top right of the page
-*/
-
-  (function handleLightSwitchToggle() {
-    console.log('adjusting light');
-    let theme = localStorage.getItem('theme');
-    setMode(theme);
-
-    if (document.readyState !== 'loading') {
-      listenToLightButtons();
-    } else {
-      document.addEventListener('DOMContentLoaded', listenToLightButtons);
-    }
-
-
-
-
-    function listenToLightButtons() {
-      let lightButton = document.getElementById(
-        'light-switch-toggler-icon-left'
-      );
-      let darkButton = document.getElementById(
-        'light-switch-toggler-icon-right'
-      );
-      lightButton.onclick = () => setMode('light', true);
-      darkButton.onclick = () => setMode('dark', true);
-    }
-
-    function setMode(modeString, updateCookie) {
-      console.log("setting mode", modeString);
-      let HTMLElement = document.documentElement;
-
-      if (modeString === 'light') {
-        HTMLElement?.classList.add('light');
-        HTMLElement?.classList.remove('dark');
-      } else if (modeString === 'dark') {
-        HTMLElement?.classList.remove('light');
-        HTMLElement?.classList.add('dark');
-      } else {
-        HTMLElement?.classList.remove('light', 'dark');
-      }
-
-      if (updateCookie) {
-        localStorage.setItem('theme', modeString);
-        //Cookies.set('theme', modeString, { expires: 3600, path: '' });
-      }
-    }
-  })();
-</script>    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">

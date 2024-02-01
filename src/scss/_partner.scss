@@ -73,14 +73,16 @@
 
 .partner-slider-company-name {
   font-size: 1rem;
-  padding-bottom: calc(var(--gutter) * 2);
+  padding-bottom: var(--gutter);
 }
 
 .partner-slider-logo {
   width: 60px;
   border-radius: var(--inner-border-radius);
   margin: 0;
-
+  img {
+    display: block;
+  }
 }
 
  .partner-slider-image {

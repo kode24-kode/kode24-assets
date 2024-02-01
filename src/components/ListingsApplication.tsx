@@ -8,7 +8,6 @@ export default function ListingsApplication({
   listings: Array<Listing>;
   premiumIds: Array<string>;
 }) {
-  console.log(premiumIds);
   const premiumListings = listings.filter((listing) =>
     premiumIds.includes(listing.id)
   );

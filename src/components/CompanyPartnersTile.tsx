@@ -1,12 +1,7 @@
 import { CompanyPartner } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
-import '@splidejs/react-splide/css';
-
-import { useRef, useEffect } from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 export default function CompanyPartnersTile({
   companyPartners,
@@ -16,21 +11,18 @@ export default function CompanyPartnersTile({
   const shuffledCompanyPartners = shuffleArray(
     companyPartners
   ) as Array<CompanyPartner>;
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
-  const myRef = useRef(null);
-
-  const play = () => {
-    myRef.current.slickPlay();
-  };
-  const pause = () => {
-    myRef.current.slickPause();
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 4000, min: 1024 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+    },
+    mobile: {
+      breakpoint: { max: 1023, min: 0 },
+      items: 1,
+      slidesToSlide: 1, // optional, default to 1.
+      partialVisibilityGutter: 30,
+    },
   };
   return (
     <div
@@ -38,7 +30,9 @@ export default function CompanyPartnersTile({
       className="row desktop-row card single-row"
     >
       <div className="heading">
-        <h2 className="heading-title">Våre partnere 🥰</h2>
+        <h2 className="heading-title">
+          💡 Ny karriere? Bli kjent med våre partnere
+        </h2>
         <a
           href="https://partner.kode24.no"
           target="_blank"
@@ -48,28 +42,20 @@ export default function CompanyPartnersTile({
         </a>
       </div>
       <div className="partner-slider">
-        <div style={{ textAlign: 'center' }}>
-          <button className="button" onClick={play}>
-            Play
-          </button>
-          <button className="button" onClick={pause}>
-            Pause
-          </button>
-        </div>
-        <Slider
-          id="partner-slider"
-          aria-label="partners"
-          settings={settings}
-          ref={myRef}
-          onInit={(elm) => {
-            console.log(elm, myRef, 'init');
-            if (myRef && myRef.current) {
-              console.log('starting to play');
-              myRef.current.slickPlay();
-            }
-
-            //play();
-          }}
+        <Carousel
+          swipeable={true}
+          draggable={false}
+          showDots={false}
+          responsive={responsive}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={8000}
+          keyBoardControl={true}
+          transitionDuration={1000}
+          containerClass="carousel-container"
+          removeArrowOnDeviceType={['tablet', 'mobile']}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
         >
           {shuffledCompanyPartners.map(
             (partner: CompanyPartner, key: number) => (
@@ -107,7 +93,7 @@ export default function CompanyPartnersTile({
               </div>
             )
           )}
-        </Slider>
+        </Carousel>
       </div>
       <div className="single">
         <ul className="preview logo-list">
