@@ -115,6 +115,17 @@ export interface CompanyPartner {
   };
 }
 
+export interface ContentTile {
+  title: string;
+  hideFrom: string;
+  adlink: string;
+  banner: string;
+  company: {
+    name: string;
+    logo: string;
+  };
+}
+
 export interface Frontpage {
   latestArticles: [Article];
   frontpage: [DesktopRow];
@@ -134,6 +145,7 @@ export interface Frontpage {
   };
   newestComments: [Comment];
   companyPartners: [CompanyPartner];
+  contentTiles: [ContentTile];
 }
 
 export interface Quicksearch {

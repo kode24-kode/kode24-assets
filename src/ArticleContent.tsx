@@ -50,12 +50,12 @@ export default function FrontContent(frontpageData: Frontpage) {
         h2.before(listingNode);
       } else if (
         (key === 1 || key === 2) &&
-        frontPageDataCopy.content.length > 0
+        frontPageDataCopy.contentTiles.length > 0
       ) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow
-              Contents={frontPageDataCopy.content.splice(0, 1)}
+              Contents={frontPageDataCopy.contentTiles.splice(0, 1)}
               listView={false}
             />
           </React.StrictMode>

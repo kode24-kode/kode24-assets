@@ -95,9 +95,9 @@
         font-size: 1.4rem;
       }
     }
-    h1 {
+    > h1 {
     }
-    p {
+    > p {
     }
     .row {
       margin: 0 auto;
@@ -109,7 +109,7 @@
         margin: 0 0 1.25rem 0;
       }
     }
-    figure {
+    > figure {
       margin-left: calc(var(--gutter) *-1);
       margin-right: calc(var(--gutter) *-1);
       position: relative;
@@ -268,9 +268,9 @@
     }
   }
   .byline a,
-  p a,
-  ul a,
-  ol a {
+  > p a,
+  > ul a,
+  > ol a {
     text-decoration: none;
     cursor: pointer;
     background-image: linear-gradient(
@@ -399,8 +399,10 @@
       margin: unset;
     }
   }
-  ul,
-  ol {
+  > ul,
+  > ol,
+  .panel ul,
+  .panel ol {
     margin: 0;
     margin-left: 1.1rem;
     line-height: 1.6;

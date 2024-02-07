@@ -1,16 +1,7 @@
 .article-entity #diamond-partners-list-tile {
-  @media screen and (min-width: 1024px) {
-    margin-left: calc(var(--gutter) * -4);
-    width: calc(100% + var(--gutter) * 8);
-  }
 }
 
 .article-entity #diamond-partners-list-tile {
-  .preview {
-    @media screen and (min-width: 1024px) {
-      gap: calc(var(--gutter));
-    }
-  }
 }
 
 #diamond-partners-list-tile {

@@ -73,7 +73,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               antall: 2,
               lenke: '',
               articles:
-                frontPageDataCopy.content.length > 0
+                frontPageDataCopy.contentTiles.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
@@ -82,8 +82,8 @@ export default function FrontContent(frontpageData: Frontpage) {
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
             ad={
-              frontPageDataCopy.content.length > 0
-                ? frontPageDataCopy.content.splice(0, 1)[0]
+              frontPageDataCopy.contentTiles.length > 0
+                ? frontPageDataCopy.contentTiles.splice(0, 1)[0]
                 : undefined
             }
           />
@@ -135,7 +135,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                       antall: 2,
                       lenke: '',
                       articles:
-                        frontPageDataCopy.content.length > 0
+                        frontPageDataCopy.contentTiles.length > 0
                           ? frontPageDataCopy.latestArticles.splice(
                               0,
                               1
@@ -150,8 +150,11 @@ export default function FrontContent(frontpageData: Frontpage) {
                     listView={listView}
                     newestComments={frontPageDataCopy.newestComments}
                     ad={
-                      frontPageDataCopy.content.length > 0
-                        ? frontPageDataCopy.content.splice(0, 1)[0]
+                      frontPageDataCopy.contentTiles.length > 0
+                        ? frontPageDataCopy.contentTiles.splice(
+                            0,
+                            1
+                          )[0]
                         : undefined
                     }
                   />
@@ -222,8 +225,8 @@ export default function FrontContent(frontpageData: Frontpage) {
             hotnessThreshold={[20, 5]}
             listView={listView}
             ad={
-              frontPageDataCopy.content.length > 0
-                ? frontPageDataCopy.content.splice(0, 1)[0]
+              frontPageDataCopy.contentTiles.length > 0
+                ? frontPageDataCopy.contentTiles.splice(0, 1)[0]
                 : undefined
             }
             newestComments={frontPageDataCopy.newestComments}

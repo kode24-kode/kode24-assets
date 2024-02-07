@@ -1,5 +1,6 @@
 import { CompanyPartner } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
+import { getImageCacheUrl } from '../functions/getImageCacheUrl';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -107,18 +108,12 @@ export default function CompanyPartnersTile({
                 >
                   <img
                     className="dark"
-                    src={
-                      'https://kode24-image-cache.onrender.com/image?url=' +
-                      companyPartner.darkLogo
-                    }
+                    src={getImageCacheUrl(companyPartner.darkLogo)}
                     alt={'partner logo ' + companyPartner.slug}
                   />
                   <img
                     className="light"
-                    src={
-                      'https://kode24-image-cache.onrender.com/image?url=' +
-                      companyPartner.lightLogo
-                    }
+                    src={getImageCacheUrl(companyPartner.lightLogo)}
                     alt={'partner logo ' + companyPartner.slug}
                   />
                   <span className="description">

@@ -1,12 +1,13 @@
 import {
   Article,
   Listing,
-  Content,
+  ContentTile,
   DesktopRow,
   Comment,
 } from '../types';
 import ArticleTile from './ArticleTile.tsx';
-import ContentTile from './ContentTile.tsx';
+import ContentTileItem from './ContentTile.tsx';
+import ListingTile from './ListingTile.tsx';
 import { findHottestArticle } from '../functions/findHottestArticle.tsx';
 export default function ArticlesRow({
   DesktopRowData,
@@ -19,7 +20,7 @@ export default function ArticlesRow({
   firstRow: boolean;
   hotnessThreshold: [number, number];
   listView: boolean;
-  ad?: Listing | Content | null;
+  ad?: Listing | ContentTile | null;
   newestComments?: [Comment] | [];
 }) {
   const hottestArticle = findHottestArticle(
@@ -66,7 +67,8 @@ export default function ArticlesRow({
             />
           )
         )}
-        {ad && <ContentTile Content={ad} />}
+        {ad && 'banner' in ad && <ContentTileItem Content={ad} />}
+        {ad && 'id' in ad && <ListingTile Listing={ad} />}
       </div>
     </div>
   );

@@ -1,12 +1,13 @@
-import { Content } from '../types';
-import ContentTile from './ContentTile.tsx';
+import { ContentTile } from '../types';
+import ContentTileItem from './ContentTile.tsx';
 export default function ContentsRow({
   Contents,
   listView,
 }: {
-  Contents: Array<Content>;
+  Contents: Array<ContentTile>;
   listView: boolean;
 }) {
+  console.log('got contents', Contents);
   return (
     <div
       className={`row desktop-row commercial ${
@@ -16,8 +17,8 @@ export default function ContentsRow({
         `}
     >
       <div className={getLayoutForCommercialRow(Contents.length)}>
-        {Contents.map((content: Content, key: number) => (
-          <ContentTile Content={content} key={key} />
+        {Contents.map((content: ContentTile, key: number) => (
+          <ContentTileItem Content={content} key={key} />
         ))}
       </div>
     </div>
