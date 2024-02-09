@@ -398,25 +398,25 @@
     @media screen and (min-width: $vp-desktop) {
       margin: unset;
     }
-  }
-  > ul,
-  > ol,
-  .panel ul,
-  .panel ol {
-    margin: 0;
-    margin-left: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: calc(#{var(--gutter)} * 2);
-    list-style-position: outside;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 0;
+    > ul,
+    > ol,
+    .panel ul,
+    .panel ol {
+      margin: 0;
+      margin-left: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: calc(#{var(--gutter)} * 2);
+      list-style-position: outside;
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 0;
 
-    @media screen and (min-width: $vp-tablet) {
-      font-size: 1.125rem;
-    }
-    li {
-      margin-bottom: 0.8rem;
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 1.125rem;
+      }
+      li {
+        margin-bottom: 0.8rem;
+      }
     }
   }
 
