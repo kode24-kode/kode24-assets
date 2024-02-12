@@ -66,7 +66,10 @@ export default function CompanyPartnersTile({
                   className="partner-slider-item-container"
                 >
                   <div className="partner-slider-image">
-                    <img src={partner.banner} alt={partner.tooltip} />
+                    <img
+                      src={getImageCacheUrl(partner.banner)}
+                      alt={partner.tooltip}
+                    />
                   </div>
                   <div className="partner-slider-title">
                     <h3
