@@ -8,12 +8,15 @@ export default function ListingsApplication({
   listings: Array<Listing>;
   premiumIds: Array<string>;
 }) {
-  const premiumListings = listings.filter((listing) =>
-    premiumIds.includes(listing.id)
+  console.log(listings);
+  const premiumListings = listings.filter(
+    (listing) =>
+      listing.tags.includes('premium') ||
+      listing.tags.includes('fokus')
   );
-  const normalListings = listings.filter(
-    (listing) => !premiumIds.includes(listing.id)
-  );
+  const normalListings = listings
+    .filter((listing) => !listing.tags.includes('premium'))
+    .filter((listing) => !listing.tags.includes('fokus'));
   return (
     <div className="row">
       <section className="listings-application-list-section">
