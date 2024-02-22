@@ -3,12 +3,10 @@ import { findDataInSpecialTags } from '../functions/findDataInSpecialTags';
 import { getTimeAgo } from '../functions/getTimeAgo';
 export default function ListingsApplication({
   listings,
-  premiumIds,
 }: {
   listings: Array<Listing>;
   premiumIds: Array<string>;
 }) {
-  console.log(listings);
   const premiumListings = listings.filter(
     (listing) =>
       listing.tags.includes('premium') ||
