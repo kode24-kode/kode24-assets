@@ -27,6 +27,8 @@ export default function SortByReactions({
             setSortingState('newest');
             sortBySortingToggle('newest');
           }}
+          title="Sorter artikler etter siste artikler"
+          aria-label="Sorter artikler etter siste artikler"
         >
           {sortingState === 'newest' && (
             <LightningFillIcon title="a11y-title" fontSize="1.5rem" />
@@ -44,6 +46,8 @@ export default function SortByReactions({
             setSortingState('mostReactions');
             sortBySortingToggle('mostReactions');
           }}
+          title="Sorter artikler etter mest reaksjoner"
+          aria-label="Sorter artikler etter mest reaksjoner"
         >
           {sortingState === 'mostReactions' && (
             <HeartFillIcon title="a11y-title" fontSize="1.5rem" />
@@ -61,6 +65,8 @@ export default function SortByReactions({
             setSortingState('mostComments');
             sortBySortingToggle('mostComments');
           }}
+          title="Sorter artikler etter mest kommentarer"
+          aria-label="Sorter artikler etter mest kommentarer"
         >
           {sortingState === 'mostComments' && (
             <Chat2FillIcon title="a11y-title" fontSize="1.5rem" />
