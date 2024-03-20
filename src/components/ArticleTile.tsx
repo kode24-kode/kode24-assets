@@ -27,7 +27,12 @@ export default function ArticleTile({
       data-label=""
     >
       <div className="article-content-wrapper">
-        <a itemProp="url" href={Article.published_url}>
+        <a
+          itemProp="url"
+          href={Article.published_url}
+          title={Article.title}
+          aria-label={Article.title}
+        >
           <figure className="">
             <img
               className=""

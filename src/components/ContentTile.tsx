@@ -20,7 +20,12 @@ export default function ContentTileItem({
       data-label=""
     >
       <div className="article-content-wrapper">
-        <a itemProp="url" href={Content.adlink}>
+        <a
+          itemProp="url"
+          href={Content.adlink}
+          title={Content.title}
+          aria-label={Content.title}
+        >
           <figure className="">
             <img
               className=""

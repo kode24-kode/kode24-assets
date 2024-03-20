@@ -13,6 +13,8 @@ export default function CommentTile({
     <a
       href={comment.url + '#hyvor-talk-view'}
       className={`comment-tile ${oneLine ? 'oneline' : ''}`}
+      title="Hopp rett til kommentarer i saken"
+      aria-label="Hopp rett til kommentarer i saken"
     >
       <div className="comment-text">
         {oneLine && <span className="comment-icon">💬</span>}
