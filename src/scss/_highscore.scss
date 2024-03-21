@@ -1,0 +1,71 @@
+.competition-highscore {
+    padding: calc(var(--gutter) / 1.5);
+    background-color: hsl(50.25deg 80.08% 39.46%);
+    margin-bottom: calc(var(--gutter)* 2);
+    border-radius: var(--border-radius);
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom:0;
+      background-image: url(https://www.dagbladet.no/files/2024/03/21/kode24-desktop-easter.png);
+      background-size: cover;
+      background-position: center top;
+      opacity: 0.2;
+    }
+    .mousepad {
+      box-shadow: 0 0 0 1px hsl(50, 86%, 30%);
+      border-radius: var(--border-radius);
+      transform: rotate(-1deg);
+    }
+    a {
+      text-decoration: underline;
+      font-weight: bold;
+      background-color: #feda3e;
+      &:hover {
+        background-color: #ffe469;
+      }
+    }
+    * {
+      position: relative;
+      color: black;
+    }
+    p {
+      line-height: 1.4rem;
+    }
+    h2 {
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      thead tr {
+        text-align: left;
+      }
+      tbody tr {
+        td {
+          border-bottom: 1px solid hsl(50, 86%, 30%);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+        }
+        td:nth-child(1) {
+          width: 50%;
+        }
+        td:nth-child(2) {
+          width: 25%;
+        }
+        td:nth-child(3) {
+          width: 25%;
+        }
+      }
+    }
+    h2 {
+      margin-top: var(--gutter);
+      margin-bottom: var(--gutter);
+    }
+}
+

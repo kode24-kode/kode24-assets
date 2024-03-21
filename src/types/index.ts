@@ -146,6 +146,22 @@ export interface Frontpage {
   newestComments: [Comment];
   companyPartners: [CompanyPartner];
   contentTiles: [ContentTile];
+  easterHighscore?: {
+    users: [HighScoreUser];
+    teams: [HighscoreTeam];
+  };
+}
+
+export interface HighScoreUser {
+  id: number;
+  username: string;
+  totalscore: string;
+}
+
+export interface HighscoreTeam {
+  id: number;
+  name: string;
+  totalscore: string;
 }
 
 export interface Quicksearch {
