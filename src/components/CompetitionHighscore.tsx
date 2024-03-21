@@ -7,8 +7,8 @@ export default function CompetitionHighscore({
   users: [HighScoreUser] | undefined;
   teams: [HighscoreTeam] | undefined;
 }) {
-  const [usersLength, setUsersLength] = useState(10);
-  const [teamsLength, setTeamsLength] = useState(10);
+  const [usersLength] = useState(10);
+  const [teamsLength] = useState(10);
   return (
     <>
       <h2>Bli med i årets påskekrim, vinn musematte!</h2>
