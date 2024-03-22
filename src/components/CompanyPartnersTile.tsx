@@ -69,6 +69,7 @@ export default function CompanyPartnersTile({
                     <img
                       src={getImageCacheUrl(partner.banner)}
                       alt={partner.tooltip}
+                      loading="lazy"
                     />
                   </div>
                   <div className="partner-slider-title">
@@ -89,6 +90,7 @@ export default function CompanyPartnersTile({
                         <img
                           src={partner.company.logo}
                           alt={partner.company.title}
+                          loading="lazy"
                         />
                       </figure>
                     </div>
@@ -113,11 +115,13 @@ export default function CompanyPartnersTile({
                     className="dark"
                     src={getImageCacheUrl(companyPartner.darkLogo)}
                     alt={'partner logo ' + companyPartner.slug}
+                    loading="lazy"
                   />
                   <img
                     className="light"
                     src={getImageCacheUrl(companyPartner.lightLogo)}
                     alt={'partner logo ' + companyPartner.slug}
+                    loading="lazy"
                   />
                   <span className="description">
                     {companyPartner.tooltip}

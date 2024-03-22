@@ -50,6 +50,7 @@ export default function FullEventsList({
                         itemProp="image"
                         alt="logo"
                         src={event.photo}
+                        loading="lazy"
                       />
                     </figure>
                     <div className="article-preview-text">

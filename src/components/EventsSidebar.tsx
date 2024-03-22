@@ -46,6 +46,7 @@ export default function EventsSidebar({
                         itemProp="image"
                         alt="logo"
                         src={event.photo}
+                        loading="lazy"
                       />
                     </figure>
                     <div className="article-preview-text">

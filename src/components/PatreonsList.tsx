@@ -11,14 +11,22 @@ export default function PatreonsList({
       <ul className="patreons-list gold">
         {GoldPatreons.map((patreon, key) => (
           <li key={key} className="patreon">
-            <img src={patreon.logo} alt={patreon.name} />
+            <img
+              src={patreon.logo}
+              alt={patreon.name}
+              loading="lazy"
+            />
           </li>
         ))}
       </ul>
       <ul className="patreons-list silver">
         {SilverPatreons.map((patreon, key) => (
           <li key={key} className="patreon">
-            <img src={patreon.logo} alt={patreon.name} />
+            <img
+              src={patreon.logo}
+              alt={patreon.name}
+              loading="lazy"
+            />
           </li>
         ))}
       </ul>

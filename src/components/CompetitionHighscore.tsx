@@ -16,6 +16,7 @@ export default function CompetitionHighscore({
         className="mousepad"
         src="https://www.dagbladet.no/files/2024/03/21/musematte-trykk.png"
         alt="musematte du kan vinne, illustrert av david skaufjord"
+        loading="lazy"
       />
       <p>
         Hvem har hacket helse-pla-ge.com? TomsConsult trenger din

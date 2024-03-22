@@ -82,6 +82,7 @@ const ListingTile = ({
           src={
             `https://www.kode24.no/images/` + listing.company.imageUrl
           }
+          loading="lazy"
         />
       </figure>
       <div className="listings-application-list-info">
