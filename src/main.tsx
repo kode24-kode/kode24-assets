@@ -25,7 +25,7 @@ import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
-import CompetitionHighscore from './components/CompetitionHighscore.tsx';
+//import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
@@ -143,6 +143,7 @@ async function main() {
   );
   tipUsCallToAction?.after(podcastPlayerNode);
 
+  /**
   const competitionHighscoreNode = document.createElement('div');
   competitionHighscoreNode.classList.add('competition-highscore');
   ReactDOM.createRoot(competitionHighscoreNode).render(
@@ -154,6 +155,7 @@ async function main() {
     </React.StrictMode>
   );
   tipUsCallToAction?.before(competitionHighscoreNode);
+   */
 
   if (desktopSideMenuFront)
     ReactDOM.createRoot(desktopSideMenuFront).render(
