@@ -59,7 +59,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               articles: frontPageDataCopy.latestArticles.splice(0, 3),
             }}
             firstRow={false}
-            hotnessThreshold={[30, 10]}
+            hotnessThreshold={[40, 10]}
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
           />
@@ -78,7 +78,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                   : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
             firstRow={true}
-            hotnessThreshold={[30, 10]}
+            hotnessThreshold={[40, 10]}
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
             ad={
@@ -121,7 +121,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                         frontPageDataCopy.latestArticles.splice(0, 3),
                     }}
                     firstRow={false}
-                    hotnessThreshold={[50, 20]}
+                    hotnessThreshold={[60, 30]}
                     listView={listView}
                     newestComments={frontPageDataCopy.newestComments}
                   />
@@ -146,7 +146,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                             ),
                     }}
                     firstRow={true}
-                    hotnessThreshold={[50, 20]}
+                    hotnessThreshold={[60, 30]}
                     listView={listView}
                     newestComments={frontPageDataCopy.newestComments}
                     ad={
