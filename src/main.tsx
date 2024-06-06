@@ -244,7 +244,7 @@ async function main() {
       const listing = FrontpageData.listing.listings.find(
         (listing) => listing.id === listingId
       );
-      if (listing && listing.tags.includes('jobbmail')) {
+      if (listing && listing?.tags?.includes('jobbmail')) {
         const jobbmail = document.createElement('div');
         ReactDOM.createRoot(jobbmail as HTMLElement).render(
           <React.StrictMode>

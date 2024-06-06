@@ -15,10 +15,13 @@ export default function ListingSidebar({
       data-id={Listing.id}
       data-label=""
     >
-      <a itemProp="url" href={Listing.published_url}>
+      <a
+        itemProp="url"
+        href={'https://www.kodejobb.no' + Listing.published_url}
+      >
         <figure className="">
           <img
-            src={`https://www.kode24.no/images/${Listing.company.imageUrl}`}
+            src={`${Listing.company.imageUrl}`}
             loading="lazy"
             alt={`byline name ${Listing.company.name}`}
           />
@@ -28,7 +31,9 @@ export default function ListingSidebar({
             <div className="labels">
               <span className="label">{Listing.company.name}</span>
             </div>
-            <h1 className="headline">{Listing.title}</h1>
+            <h1 className="headline">
+              {Listing.applicationTitle || Listing.title}
+            </h1>
           </div>
         </div>
       </a>

@@ -4,7 +4,12 @@
  * Its a stupid implementation.
  */
 
-import { Frontpage, Content, Listing } from './types/index.ts';
+import {
+  Frontpage,
+  Content,
+  Listing,
+  ContentTile,
+} from './types/index.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ArticlesRow from './components/ArticlesRow.tsx';
@@ -24,11 +29,10 @@ export default function FrontContent(frontpageData: Frontpage) {
     frontPageDataCopy.content
   ) as [Content];
   // get only premium ads and shuffle them
-  frontPageDataCopy.listing.listings = shuffleArray(
-    frontPageDataCopy.listing.listings.filter((listing) =>
-      frontPageDataCopy.listing.premiumIds.includes(listing.id)
-    )
-  ) as [Listing];
+  const allContentTiles = shuffleArray([
+    ...frontPageDataCopy.contentTiles,
+    ...frontPageDataCopy.jobAdsSanity,
+  ]) as [ContentTile];
 
   // grab the DOM-elements for the three content divs
   const articlesAboveFirstBanner = document.getElementById(
@@ -73,7 +77,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               antall: 2,
               lenke: '',
               articles:
-                frontPageDataCopy.contentTiles.length > 0
+                allContentTiles.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
@@ -82,8 +86,8 @@ export default function FrontContent(frontpageData: Frontpage) {
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
             ad={
-              frontPageDataCopy.contentTiles.length > 0
-                ? frontPageDataCopy.contentTiles.splice(0, 1)[0]
+              allContentTiles.length > 0
+                ? allContentTiles.splice(0, 1)[0]
                 : undefined
             }
           />
@@ -135,7 +139,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                       antall: 2,
                       lenke: '',
                       articles:
-                        frontPageDataCopy.contentTiles.length > 0
+                        allContentTiles.length > 0
                           ? frontPageDataCopy.latestArticles.splice(
                               0,
                               1
@@ -150,11 +154,8 @@ export default function FrontContent(frontpageData: Frontpage) {
                     listView={listView}
                     newestComments={frontPageDataCopy.newestComments}
                     ad={
-                      frontPageDataCopy.contentTiles.length > 0
-                        ? frontPageDataCopy.contentTiles.splice(
-                            0,
-                            1
-                          )[0]
+                      allContentTiles.length > 0
+                        ? allContentTiles.splice(0, 1)[0]
                         : undefined
                     }
                   />
@@ -225,8 +226,8 @@ export default function FrontContent(frontpageData: Frontpage) {
             hotnessThreshold={[20, 5]}
             listView={listView}
             ad={
-              frontPageDataCopy.contentTiles.length > 0
-                ? frontPageDataCopy.contentTiles.splice(0, 1)[0]
+              allContentTiles.length > 0
+                ? allContentTiles.splice(0, 1)[0]
                 : undefined
             }
             newestComments={frontPageDataCopy.newestComments}

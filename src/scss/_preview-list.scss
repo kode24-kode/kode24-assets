@@ -182,6 +182,8 @@
   }
   .preview figure {
     flex: 0 0 50px;
+    display: flex;
+    align-items: center;
   }
 
   h3 {
@@ -203,6 +205,8 @@
       background-color: var(--v2-card-background-highlight);
     }
   }
+
+
   .button {
     margin: 0;
     padding: calc(var(--gutter) / 1.5);

@@ -8,10 +8,13 @@ export default function DesktopSidemenuFront({
   frontpageData: Frontpage;
 }) {
   const premiumJobAds = shuffleArray([
-    ...frontpageData.listing.listings.filter((listing: Listing) =>
-      frontpageData.listing.premiumIds.includes(listing.id)
+    ...frontpageData.jobs.filter(
+      (listing: Listing) =>
+        listing.type &&
+        (listing.type === 'premium' || listing.type === 'fokus')
     ),
   ]) as Listing[];
+
   return (
     <div>
       <ListingsSidebar
@@ -23,7 +26,7 @@ export default function DesktopSidemenuFront({
       />
       <ListingsSidebar
         title="Ledige stillinger"
-        listings={frontpageData.listing.listings}
+        listings={frontpageData.jobs}
       />
     </div>
   );
