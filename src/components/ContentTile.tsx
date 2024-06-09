@@ -7,7 +7,13 @@ export default function ContentTileItem({
   Content: ContentTile;
   inlineToggle?: boolean;
 }) {
-  console.log(Content);
+  if (
+    Content.adlink.includes('stillinger') &&
+    !Content.adlink.includes('kodejobb')
+  ) {
+    Content.adlink = 'https://www.kodejobb.no' + Content.adlink;
+    console.log(Content.adlink, 'hello');
+  }
   return (
     <article
       className={`preview columns large-12 small-12 medium-12 compact commercial-content ${

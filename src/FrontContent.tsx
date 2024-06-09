@@ -24,10 +24,10 @@ export default function FrontContent(frontpageData: Frontpage) {
     frontPageDataCopy.content
   ) as [Content];
   // get only premium ads and shuffle them
-  const allContentTiles = shuffleArray([
-    ...frontPageDataCopy.contentTiles,
-    ...frontPageDataCopy.jobAdsSanity,
-  ]) as [ContentTile];
+  const allContentTiles = [
+    ...shuffleArray(frontPageDataCopy.contentTiles),
+    ...shuffleArray(frontPageDataCopy.jobAdsSanity),
+  ] as [ContentTile];
 
   // grab the DOM-elements for the three content divs
   const articlesAboveFirstBanner = document.getElementById(
