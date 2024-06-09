@@ -55,9 +55,7 @@ async function main() {
     FrontpageData.events.upcomingEvents.length
   );
 
-  addNumberToJobCounterInTopMenu(
-    FrontpageData.listing.listings.length
-  );
+  addNumberToJobCounterInTopMenu(FrontpageData.jobs.length);
 
   function sortLatestArticlesByToggle(sortingToggle = 'newest') {
     // grab the DOM-elements for the three content divs for frontendpages
