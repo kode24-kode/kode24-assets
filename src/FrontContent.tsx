@@ -4,12 +4,7 @@
  * Its a stupid implementation.
  */
 
-import {
-  Frontpage,
-  Content,
-  Listing,
-  ContentTile,
-} from './types/index.ts';
+import { Frontpage, Content, ContentTile } from './types/index.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ArticlesRow from './components/ArticlesRow.tsx';

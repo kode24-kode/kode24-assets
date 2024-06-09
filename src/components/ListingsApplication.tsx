@@ -9,12 +9,12 @@ export default function ListingsApplication({
 }) {
   const premiumListings = listings.filter(
     (listing) =>
-      listing.tags.includes('premium') ||
-      listing.tags.includes('fokus')
+      listing.tags?.includes('premium') ||
+      listing.tags?.includes('fokus')
   );
   const normalListings = listings
-    .filter((listing) => !listing.tags.includes('premium'))
-    .filter((listing) => !listing.tags.includes('fokus'));
+    .filter((listing) => !listing.tags?.includes('premium'))
+    .filter((listing) => !listing.tags?.includes('fokus'));
   return (
     <div className="row">
       <section className="listings-application-list-section">
@@ -93,13 +93,7 @@ const ListingTile = ({
           {listing.company.name}
         </p>
         <div className="listings-application-list-info-details">
-          <div className="listings-application-list-info-location">
-            {findDataInSpecialTags(listing.tags, 'jobbsted').map(
-              (location: string, key: number) => (
-                <span key={key}>{location}</span>
-              )
-            )}
-          </div>
+          <div className="listings-application-list-info-location"></div>
           <time
             className="listings-application-list-info-time"
             dateTime={listing.published}
