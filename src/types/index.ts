@@ -2,17 +2,25 @@ export interface Listing {
   id: string;
   published_url: string;
   title: string;
+  applicationTitle?: string;
   published: string;
   section: string;
   image: string;
-  tags: string;
-  premium: boolean;
-  location: [string];
-  company: {
-    imageUrl: string;
-    name: string;
-    description: string;
-  };
+  tags?: string;
+  type?: string;
+  premium?: boolean;
+  location?: [string];
+  company: Company;
+}
+
+export interface Company {
+  imageUrl: string;
+  name: string;
+  logoReal?: string;
+  logoRealDark?: string;
+  logoBackgroundLight?: string;
+  logoBackgroundDark?: string;
+  description: string;
 }
 export interface Content {
   id: string;
@@ -117,12 +125,17 @@ export interface CompanyPartner {
 
 export interface ContentTile {
   title: string;
+  applicationTitle?: string;
   hideFrom: string;
   adlink: string;
   banner: string;
   company: {
     name: string;
     logo: string;
+    logoReal?: string;
+    logoRealDark?: string;
+    logoBackgroundLight?: string;
+    logoBackgroundDark?: string;
   };
 }
 
@@ -133,6 +146,7 @@ export interface Frontpage {
     listings: [Listing];
     premiumIds: [string];
   };
+  jobs: [Listing];
   content: [Content];
   events: {
     upcomingEvents: [Event];
@@ -146,6 +160,7 @@ export interface Frontpage {
   newestComments: [Comment];
   companyPartners: [CompanyPartner];
   contentTiles: [ContentTile];
+  jobAdsSanity: [ContentTile];
   easterHighscore?: {
     users: [HighScoreUser];
     teams: [HighscoreTeam];
