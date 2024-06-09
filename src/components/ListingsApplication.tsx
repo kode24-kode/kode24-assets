@@ -1,5 +1,4 @@
 import { Listing } from '../types';
-import { findDataInSpecialTags } from '../functions/findDataInSpecialTags';
 import { getTimeAgo } from '../functions/getTimeAgo';
 export default function ListingsApplication({
   listings,
