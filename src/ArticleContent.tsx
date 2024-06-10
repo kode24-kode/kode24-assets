@@ -11,7 +11,6 @@ import {
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ContentsRow from './components/ContentsRow.tsx';
-import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
