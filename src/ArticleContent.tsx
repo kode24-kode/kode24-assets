@@ -64,8 +64,8 @@ export default function FrontContent(frontpageData: Frontpage) {
       } else if (frontpageData.listing.listings.length > 0) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
-            <ListingsRow
-              Listings={frontpageData.listing.listings.splice(0, 2)}
+            <ContentsRow
+              Contents={frontPageDataCopy.jobAdsSanity.splice(0, 2)}
               listView={false}
             />
           </React.StrictMode>
