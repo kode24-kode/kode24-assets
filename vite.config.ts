@@ -1,10 +1,14 @@
+import { sentryVitePlugin } from "@sentry/vite-plugin";
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), sentryVitePlugin({
+    org: "kode24",
+    project: "javascript"
+  })],
   build: {
     rollupOptions: {
       input: {
@@ -17,5 +21,7 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`,
       },
     },
+
+    sourcemap: true
   },
 });
