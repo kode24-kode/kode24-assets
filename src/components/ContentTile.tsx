@@ -32,9 +32,9 @@ export default function ContentTileItem({
           title={Content.title}
           aria-label={Content.title}
         >
-          <figure className="">
+          <figure className="photo">
             <img
-              className=""
+              className="photo"
               itemProp="image"
               loading="lazy"
               alt={`image: ${Content.title}`}

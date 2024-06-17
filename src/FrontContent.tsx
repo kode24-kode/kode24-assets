@@ -86,12 +86,9 @@ export default function FrontContent(frontpageData: Frontpage) {
                 : undefined
             }
           />
-          {frontPageDataCopy.listing.listings.length > 0 && (
+          {frontPageDataCopy.jobs.length > 0 && (
             <ListingsRow
-              Listings={frontPageDataCopy.listing.listings.splice(
-                0,
-                3
-              )}
+              Listings={frontPageDataCopy.jobs.splice(0, 3)}
               listView={listView}
             />
           )}
@@ -162,12 +159,9 @@ export default function FrontContent(frontpageData: Frontpage) {
                     listView={listView}
                     newestComments={frontPageDataCopy.newestComments}
                   />
-                  {frontPageDataCopy.listing.listings.length > 0 && (
+                  {frontPageDataCopy.jobs.length > 0 && (
                     <ListingsRow
-                      Listings={frontPageDataCopy.listing.listings.splice(
-                        0,
-                        3
-                      )}
+                      Listings={frontPageDataCopy.jobs.splice(0, 3)}
                       listView={listView}
                     />
                   )}

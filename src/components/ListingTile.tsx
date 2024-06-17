@@ -1,4 +1,5 @@
 import { Listing } from '../types';
+import { getImageCacheUrl } from '../functions/getImageCacheUrl';
 export default function ListingTile({
   Listing,
 }: {
@@ -17,42 +18,39 @@ export default function ListingTile({
     >
       <div className="article-content-wrapper">
         <a itemProp="url" href={Listing.published_url}>
-          <figure className="">
+          <figure
+            className=""
+            style={{
+              backgroundColor:
+                Listing.company?.logoBackgroundLight || 'white',
+            }}
+          >
             <img
               className=""
               itemProp="image"
               loading="lazy"
               alt={`image: ${Listing.title}`}
-              src={`https://www.kode24.no/images/${Listing.image}.jpg?imageId=${Listing.image}&width=900&compression=80`}
+              src={
+                Listing.company?.logoReal &&
+                Listing.company?.logoReal.includes('.svg')
+                  ? Listing.company?.logoReal
+                  : getImageCacheUrl(
+                      Listing.company?.logoReal ||
+                        Listing.company?.imageUrl
+                    )
+              }
             />
           </figure>
         </a>
         <div className="article-preview-text">
           <a itemProp="url" href={Listing.published_url}>
-            <p className="company-name">Ledig stilling</p>
+            <p className="company-name">{Listing.company.name}</p>
             <h1 className="headline">
               <span className="headline-title-wrapper">
                 {Listing.title}
               </span>
             </h1>
           </a>
-
-          <div className="article-social">
-            <div className="byline-row">
-              <div className="byline-profile-image">
-                <img
-                  src={`https://www.kode24.no/images/${Listing.company.imageUrl}`}
-                  loading="lazy"
-                  alt={`byline name ${Listing.company.name}`}
-                />
-              </div>
-              <div className="byline-info">
-                <div className="byline-name">
-                  {Listing.company.name}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </article>
