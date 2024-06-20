@@ -17,7 +17,7 @@ export default function ListingTile({
       data-label=""
     >
       <div className="article-content-wrapper">
-        <a itemProp="url" href={Listing.published_url}>
+        <a itemProp="url" href={"https://www.kodejobb.no" + Listing.published_url}>
           <figure
             className=""
             style={{
@@ -43,7 +43,7 @@ export default function ListingTile({
           </figure>
         </a>
         <div className="article-preview-text">
-          <a itemProp="url" href={Listing.published_url}>
+          <a itemProp="url" href={"https://www.kodejobb.no" + Listing.published_url}>
             <p className="company-name">{Listing.company.name}</p>
             <h1 className="headline">
               <span className="headline-title-wrapper">
