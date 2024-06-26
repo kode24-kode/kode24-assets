@@ -7,7 +7,6 @@ export default function ContentsRow({
   Contents: Array<ContentTile>;
   listView: boolean;
 }) {
-  console.log('got contents', Contents);
   return (
     <div
       className={`row desktop-row commercial ${

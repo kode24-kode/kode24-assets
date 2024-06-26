@@ -12,7 +12,6 @@ export default function ContentTileItem({
     !Content.adlink.includes('kodejobb')
   ) {
     Content.adlink = 'https://www.kodejobb.no' + Content.adlink;
-    console.log(Content.adlink, 'hello');
   }
   return (
     <article
