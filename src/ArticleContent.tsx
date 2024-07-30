@@ -65,7 +65,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           </React.StrictMode>
         );
         h2.before(listingNode);
-      } else if (frontpageData.listing.listings.length > 0) {
+      } else if (frontPageDataCopy.jobAdsSanity.length > 0) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentsRow

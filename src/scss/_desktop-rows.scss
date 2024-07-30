@@ -77,6 +77,10 @@
 
       .headline {
         color: var(--v2-card-always-white);
+        font-family: var(--v2-font-body);
+        font-weight: bold;
+        letter-spacing: 0 !important;
+        font-size: 1.3em;
       }
     }
   }
@@ -98,8 +102,15 @@
     .company-name,
     .byline-info {
       color: var(--v2-card-always-white);
+      font: var(--v2-font-body);
     }
-
+    .headline {
+      font-weight: bold;
+      letter-spacing: 0 !important;
+    }
+    .byline-profile-image img {
+        max-width: 100% !important;
+    }
     @media screen and (max-width: 830px) {
       &:not(.single-row) {
         padding-right: 0;
@@ -133,6 +144,11 @@
     .triple,
     .dual,
     .single {
+      align-items: stretch;
+      .logo {
+        max-width: 100%;
+        object-fit: contain;
+      }
       @media screen and (max-width: 830px) {
         display: flex;
         overflow: scroll;
@@ -155,16 +171,6 @@
 
         &:hover {
           background-color: hsla(0, 0%, 0%, 0.05);
-        }
-
-        img {
-          max-width: 100%;
-          max-height: 100%;
-          object-fit: cover;
-          min-height: auto;
-          min-width: auto;
-          width: auto;
-          height: auto;
         }
 
 
