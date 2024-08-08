@@ -551,3 +551,10 @@
     width: calc(100% + var(--gutter) * 2);
   }
 }
+
+
+#hyvor-talk-view {
+  max-width: 90%;
+  overflow-x: hidden;
+  margin: 0 auto;
+}

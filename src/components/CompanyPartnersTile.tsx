@@ -85,15 +85,6 @@ export default function CompanyPartnersTile({
                     <h4 className="partner-slider-company-name">
                       {partner.company.title}
                     </h4>
-                    <div className="partner-slider-logo-row">
-                      <figure className="partner-slider-logo">
-                        <img
-                          src={partner.company.logo}
-                          alt={partner.company.title}
-                          loading="lazy"
-                        />
-                      </figure>
-                    </div>
                   </div>
                 </a>
               </div>
