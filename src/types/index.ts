@@ -18,6 +18,7 @@ export interface Company {
   name: string;
   logoReal?: string;
   logoRealDark?: string;
+  logoWithoutSize?: string;
   logoBackgroundLight?: string;
   logoBackgroundDark?: string;
   description: string;

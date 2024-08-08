@@ -5,6 +5,8 @@ export default function ListingTile({
 }: {
   Listing: Listing;
 }) {
+  console.log('Listing', Listing);
+
   return (
     <article
       id={`article_${Listing.id}`}
@@ -34,12 +36,12 @@ export default function ListingTile({
               loading="lazy"
               alt={`image: ${Listing.title}`}
               src={
-                Listing.company?.logoReal &&
-                Listing.company?.logoReal.includes('.svg')
-                  ? Listing.company?.logoReal
+                Listing.company?.logoWithoutSize &&
+                Listing.company?.logoWithoutSize.includes('.svg')
+                  ? Listing.company?.logoWithoutSize
                   : getImageCacheUrl(
-                      Listing.company?.logoReal ||
-                        Listing.company?.imageUrl
+                      Listing.company?.logoWithoutSize +
+                        '?w=300&fit=max' || Listing.company?.imageUrl
                     )
               }
             />
