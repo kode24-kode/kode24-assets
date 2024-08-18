@@ -13,6 +13,7 @@ export default function ContentTileItem({
   ) {
     Content.adlink = 'https://www.kodejobb.no' + Content.adlink;
   }
+  console.log(Content);
   return (
     <article
       className={`preview columns large-12 small-12 medium-12 compact commercial-content ${
@@ -31,13 +32,19 @@ export default function ContentTileItem({
           title={Content.title}
           aria-label={Content.title}
         >
-          <figure className="photo">
+          <figure className={`${Content.banner ? 'photo' : 'logo'}`}>
             <img
               className="photo"
               itemProp="image"
               loading="lazy"
               alt={`image: ${Content.title}`}
-              src={getImageCacheUrl(Content.banner)}
+              src={getImageCacheUrl(
+                Content.banner ||
+                  Content.company.logo.replace(
+                    'w=100&fit=max',
+                    'fm=webp&w=100'
+                  )
+              )}
             />
           </figure>
         </a>

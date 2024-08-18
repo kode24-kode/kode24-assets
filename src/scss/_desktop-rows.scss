@@ -49,6 +49,21 @@
   display: none;
 }
 
+.preview figure.logo {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  height: calc(var(--image-height));
+  padding: var(--gutter);
+  align-items: center;
+  img {
+    border-radius: 0;
+    max-height: calc(var(--image-height));
+    height: auto;
+    width: auto;
+  }
+}
+
 .desktop-row {
 
   &:not(.commercial) {
@@ -568,6 +583,20 @@
 
       figure {
         max-height: calc(var(--image-height)* 1.5);
+        &.logo {
+          background-color: white;
+          display: flex;
+          justify-content: center;
+          height: calc(var(--image-height)* 1.5);
+          padding: var(--gutter);
+          align-items: center;
+          img {
+            border-radius: 0;
+            max-height: calc(var(--image-height)* 1.5);
+            height: auto;
+            width: auto;
+          }
+        }
 
       }
     }
