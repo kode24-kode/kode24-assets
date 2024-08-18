@@ -581,8 +581,11 @@
         font-size: 2.4rem;
       }
 
-      figure {
+      figure,
+      figure.logo img {
         max-height: calc(var(--image-height)* 1.5);
+      }
+      figure {
         &.logo {
           background-color: white;
           display: flex;
@@ -592,7 +595,6 @@
           align-items: center;
           img {
             border-radius: 0;
-            max-height: calc(var(--image-height)* 1.5);
             height: auto;
             width: auto;
           }
