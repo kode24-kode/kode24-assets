@@ -1,0 +1,66 @@
+#top-bar-ad {
+  display: flex;
+  justify-content: center;
+  grid-auto-flow: column;
+  padding: 0;
+  padding: 0 0 calc(var(--gutter) * 2) 0;
+
+  .top-bar-ad-content {
+    position: relative;
+    display: block;
+  }
+  .fading-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    &.first {
+      opacity: 0;
+      animation: fadeFirst 8s infinite;
+    }
+    &.second {
+      opacity: 0;
+      animation: fadeSecond 8s infinite;
+    }
+  }
+  .top-bar-ad-desktop {
+    display: none;
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
+  }
+  .top-bar-ad-mobile {
+    display: block;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+}
+
+// keyframe fade between two images
+@keyframes fadeFirst {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0;
+  }
+}
+
+// keyframe fade between two images
+@keyframes fadeSecond {
+  0% {
+    opacity: 0;
+  }
+  45% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  95% {
+    opacity: 1;
+  }
+}
