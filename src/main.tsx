@@ -25,6 +25,7 @@ import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
+import TopBarAd from './components/TopBarAd.tsx';
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
 import * as Sentry from '@sentry/react';
@@ -46,6 +47,19 @@ Sentry.init({
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
+  /**
+   * Always check if there is a batter on top and draw it
+   */
+
+  const topBarAd = document.getElementById('top-bar-ad');
+  if (topBarAd) {
+    ReactDOM.createRoot(topBarAd).render(
+      <React.StrictMode>
+        <TopBarAd />
+      </React.StrictMode>
+    );
+  }
+
   // the functions below should run regardless.
 
   // only if commercial content
