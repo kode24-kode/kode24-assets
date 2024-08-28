@@ -16,7 +16,7 @@ const mobile = {
 };
 
 const link =
-  'https://docs.google.com/forms/d/1QckO3zQSvmmjVXSUJgyoEWMV1jUD_tY4flxxXU5NTjU/viewform?edit_requested=true';
+  'https://www.finn.no/jobbeifinn/teknologi/female-developer-of-the-year-2024';
 const TopBarAd = () => {
   return (
     <a href={link} className="top-bar-ad-content" target="_blank">
