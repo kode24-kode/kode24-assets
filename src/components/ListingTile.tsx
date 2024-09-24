@@ -35,15 +35,10 @@ export default function ListingTile({
               itemProp="image"
               loading="lazy"
               alt={`image: ${Listing.title}`}
-              src={
-                Listing.company?.logoWithoutSize &&
-                Listing.company?.logoWithoutSize.includes('.svg')
-                  ? Listing.company?.logoWithoutSize
-                  : getImageCacheUrl(
-                      Listing.company?.logoWithoutSize +
-                        '?w=300&fit=max' || Listing.company?.imageUrl
-                    )
-              }
+              src={getImageCacheUrl(
+                Listing.company?.logoWithoutSize + '?w=300&fit=max' ||
+                  Listing.company?.imageUrl
+              )}
             />
           </figure>
         </a>
