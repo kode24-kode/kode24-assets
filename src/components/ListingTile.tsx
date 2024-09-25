@@ -36,8 +36,13 @@ export default function ListingTile({
               loading="lazy"
               alt={`image: ${Listing.title}`}
               src={getImageCacheUrl(
-                Listing.company?.logoWithoutSize + '?w=300&fit=max' ||
-                  Listing.company?.imageUrl
+                Listing.company?.logoWithoutSize
+                  ? Listing.company?.logoWithoutSize +
+                      '?w=300&fit=max'
+                  : Listing.company?.imageUrl.replace(
+                      'w=100',
+                      'w=300'
+                    )
               )}
             />
           </figure>
