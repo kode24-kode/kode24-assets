@@ -5,8 +5,6 @@ export default function ListingTile({
 }: {
   Listing: Listing;
 }) {
-  console.log('Listing', Listing);
-
   return (
     <article
       id={`article_${Listing.id}`}
