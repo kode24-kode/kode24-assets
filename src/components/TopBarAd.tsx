@@ -1,50 +1,38 @@
+import { Snow } from './Snow';
+
 const desktop = {
   background:
-    'https://www.dagbladet.no/files/2024/08/20/kode24-FINN_banner_1700x100-background.png',
-  text2:
-    'https://www.dagbladet.no/files/2024/08/20/kode24-FINN_banner_1700x100-text1.png',
-  text1:
-    'https://www.dagbladet.no/files/2024/08/20/kode24-FINN_banner_1700x100-text2.png',
+    'https://www.dagbladet.no/files/2024/12/04/julebanner-backgrounddesktop.jpg',
 };
 const mobile = {
   background:
-    'https://www.dagbladet.no/files/2024/08/20/kode24-FemaleDeveloper_kvadrat%20400x400-background.png',
-  text2:
-    'https://www.dagbladet.no/files/2024/08/20/kode24-FemaleDeveloper_kvadrat%20400x400-text1.png',
-  text1:
-    'https://www.dagbladet.no/files/2024/08/20/kode24-FemaleDeveloper_kvadrat%20400x400-text2.png',
+    'https://www.dagbladet.no/files/2024/12/04/julebanner-backgroundmobile.jpg',
 };
 
-const link =
-  'https://www.finn.no/jobbeifinn/teknologi/female-developer-of-the-year-2024';
+const link = 'https://www.konsulent2000.com';
 const TopBarAd = () => {
   return (
     <a href={link} className="top-bar-ad-content" target="_blank">
+      <Snow />
+      <div className="top-bar-ad-content-information">
+        <p className="title">kode24s julekalender er i gang!</p>
+        <p className="description">
+          Hjelp Tomsconsult med å få unna konsulentoppgaver før jul.
+          Vinnermuligheter hver dag. 🏆
+        </p>
+        <a
+          href="https://konsulent2000.com/"
+          target="_blank"
+          className="retro-button"
+        >
+          Bli med!
+        </a>
+      </div>
       <div className="top-bar-ad-desktop">
         <img src={desktop.background} alt="background" />
-        <img
-          src={desktop.text1}
-          alt="text1"
-          className="fading-image first"
-        />
-        <img
-          src={desktop.text2}
-          alt="text1"
-          className="fading-image second"
-        />
       </div>
       <div className="top-bar-ad-mobile">
         <img src={mobile.background} alt="background" />
-        <img
-          src={mobile.text1}
-          alt="text1"
-          className="fading-image center first"
-        />
-        <img
-          src={mobile.text2}
-          alt="text1"
-          className="fading-image center second"
-        />
       </div>
     </a>
   );
