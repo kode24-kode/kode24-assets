@@ -2,13 +2,17 @@ import { Listing } from '../types';
 import { getImageCacheUrl } from '../functions/getImageCacheUrl';
 export default function ListingTile({
   Listing,
+  layout,
+  size,
 }: {
   Listing: Listing;
+  layout: string;
+  size: 'big' | 'small';
 }) {
   return (
     <article
       id={`article_${Listing.id}`}
-      className={`preview columns large-12 small-12 medium-12 compact commercial-content`}
+      className={`relative ${layout}`}
       itemScope
       itemType="https://schema.org/ListItem"
       itemProp="itemListElement"
@@ -51,7 +55,7 @@ export default function ListingTile({
             href={'https://www.kodejobb.no' + Listing.published_url}
           >
             <p className="company-name">{Listing.company.name}</p>
-            <h1 className="headline">
+            <h1 className="headline text-3xl">
               <span className="headline-title-wrapper">
                 {Listing.title}
               </span>

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import './scss/main.scss';
+//import './scss/main.scss';
+import './main.css';
 import { Frontpage, Article } from './types/index.ts';
 import FullEventsList from './components/FullEventsList.tsx';
 import { adjustLazyImages } from './functions/adjustLazyImages.ts';
@@ -193,22 +194,9 @@ async function main() {
       </React.StrictMode>
     );
 
-  const newestCommentsNode = document.createElement('div');
-  ReactDOM.createRoot(newestCommentsNode as HTMLElement).render(
-    <React.StrictMode>
-      <CommentsTile comments={FrontpageData.newestComments} />
-    </React.StrictMode>
-  );
-  const firstBanner = document.querySelectorAll(
-    '.show-for-medium-up'
-  );
-
-  if (firstBanner && firstBanner.length > 0) {
-    firstBanner[0].prepend(newestCommentsNode);
-  }
-
   const searchNode = document.createElement('div');
   searchNode.id = 'search-component-wrapper';
+  searchNode.setAttribute('class', 'w-full');
   ReactDOM.createRoot(searchNode as HTMLElement).render(
     <React.StrictMode>
       <Search />

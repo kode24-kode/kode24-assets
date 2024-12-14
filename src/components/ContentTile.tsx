@@ -3,9 +3,13 @@ import { getImageCacheUrl } from '../functions/getImageCacheUrl';
 export default function ContentTileItem({
   Content,
   inlineToggle,
+  layout,
+  size,
 }: {
   Content: ContentTile;
   inlineToggle?: boolean;
+  layout: string;
+  size: 'big' | 'small';
 }) {
   if (
     Content.adlink.includes('stillinger') &&
@@ -16,23 +20,26 @@ export default function ContentTileItem({
 
   return (
     <article
-      className={`preview columns large-12 small-12 medium-12 compact commercial-content ${
-        inlineToggle ? 'inline' : ''
-      }`}
+      className={`relative ${layout} ${inlineToggle ? 'inline' : ''}`}
       itemScope
       itemType="https://schema.org/ListItem"
       itemProp="itemListElement"
       role="article"
       data-label=""
     >
-      <div className="article-content-wrapper">
+      <div className="article-content-wrapper flex flex-col gap-4">
         <a
+          className="flex gap-4"
           itemProp="url"
           href={Content.adlink}
           title={Content.title}
           aria-label={Content.title}
         >
-          <figure className={`${Content.banner ? 'photo' : 'logo'}`}>
+          <figure
+            className={`${
+              Content.banner ? 'photo' : 'logo'
+            } rounded-md overflow-hidden`}
+          >
             <img
               className="photo"
               itemProp="image"
@@ -48,10 +55,12 @@ export default function ContentTileItem({
             />
           </figure>
         </a>
-        <div className="article-preview-text">
+        <div className="article-preview-text flex flex-col gap-4">
           <a itemProp="url" href={Content.adlink}>
-            <p className="company-name">Annonsørinnhold</p>
-            <h1 className="headline">
+            <p className="company-name absolute left-2 -top-3 bg-gradient-to-b from-pink-500 to-purple-600 p-2 rounded-md text-white">
+              Annonsørinnhold
+            </p>
+            <h1 className="headline text-4xl">
               <span className="headline-title-wrapper">
                 {Content.title}
               </span>
@@ -59,8 +68,8 @@ export default function ContentTileItem({
           </a>
 
           <div className="article-social">
-            <div className="byline-row">
-              <div className="byline-profile-image">
+            <div className="byline-row flex items-center gap-2">
+              <div className="byline-profile-image rounded-full overflow-hidden w-10">
                 <img
                   src={getImageCacheUrl(Content.company.logo)}
                   loading="lazy"

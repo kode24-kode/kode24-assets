@@ -77,8 +77,12 @@ export default function Search() {
         e.preventDefault();
         searchForArticles(searchQuery);
       }}
+      className="flex gap-2 bg-slate-100 items-center px-2 rounded w-full"
     >
-      <div id="search-component-buttons">
+      <div
+        id="search-component-buttons"
+        className="flex items-center"
+      >
         <button
           aria-label="search button"
           title="search button"
@@ -99,7 +103,7 @@ export default function Search() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="icon"
+            className="icon stroke-2 stroke-slate-400"
           >
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
@@ -109,7 +113,7 @@ export default function Search() {
           aria-label="close search button"
           title="close search button"
           id="search-button"
-          className="button close"
+          className="button close hidden"
           onClick={(e) => {
             e.preventDefault();
             toggleSearchComponent();
@@ -123,6 +127,7 @@ export default function Search() {
         type="search"
         value={searchQuery}
         onChange={(e) => autoSearch(e.target.value)}
+        className="bg-transparent p-2 w-full"
       />
 
       {searchResults.length === 0 && loadingSearch && (

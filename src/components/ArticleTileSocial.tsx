@@ -12,15 +12,15 @@ export default function ArticleTileSocial({
     typeof Article.reactions.reactions_count == 'number'
   ) {
     return (
-      <div className="social-buttons">
+      <div className="social-buttons flex items-center gap-4">
         {Article.reactions.reactions_count > 0 && (
-          <div className="article-social-reactions article-social-item">
+          <div className="article-social-reactions article-social-item flex items-center">
             <a
               href={`https://www.kode24.no/${Article.id}#hyvor-talk-view`}
-              className="reaction-button reaction"
+              className="reaction-button reaction flex items-center bg-slate-200 p-2 gap-4 rounded-md"
             >
               <span
-                className="reaction-icons-summary"
+                className="reaction-icons-summary flex items-center 0 text-xl flex-row-reverse"
                 aria-hidden="true"
               >
                 {Article.reactions.reactions
@@ -46,10 +46,10 @@ export default function ArticleTileSocial({
           </div>
         )}
         {Article.reactions.comments_count > 0 && (
-          <div className="article-social-reactions article-social-item">
+          <div className="article-social-reactions article-social-item flex items-center bg-slate-200 p-2 gap-4 rounded-md">
             <a
               href={`https://www.kode24.no/${Article.id}#hyvor-talk-view`}
-              className="reaction-button reaction"
+              className="reaction-button reaction flex gap-2 text-slate-600"
             >
               <span
                 className="reaction-icons-summary"

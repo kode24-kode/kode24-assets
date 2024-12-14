@@ -3,26 +3,35 @@ export default function ArticleTileSocialIcons({
 }: {
   emojiId: number;
 }) {
-  switch (emojiId) {
-    case 0:
-      return <FlameEmoji />;
-    case 1:
-      return <HeartEmoji />;
-    case 2:
-      return <ShockEmoji />;
-    case 3:
-      return <CryEmoji />;
-    case 4:
-      return <LaughEmoji />;
-    case 5:
-      return AngryEmoji();
-  }
-  return <FlameEmoji />;
+  return (
+    <span
+      className={`z-${emojiId} bg-slate-600 p-1 rounded-full -mr-2`}
+    >
+      {(() => {
+        switch (emojiId) {
+          case 0:
+            return <FlameEmoji />;
+          case 1:
+            return <HeartEmoji />;
+          case 2:
+            return <ShockEmoji />;
+          case 3:
+            return <CryEmoji />;
+          case 4:
+            return <LaughEmoji />;
+          case 5:
+            return <AngryEmoji />;
+          default:
+            return <FlameEmoji />;
+        }
+      })()}
+    </span>
+  );
 }
 
 const FlameEmoji = () => (
   <svg
-    className="reaction-icon"
+    className="w-4 h-4 reaction-iconbg-white rounded-full"
     aria-hidden="true"
     version="1.1"
     viewBox="0 0 25 25"
@@ -38,7 +47,7 @@ const FlameEmoji = () => (
 
 const HeartEmoji = () => (
   <svg
-    className="reaction-icon"
+    className="w-4 h-4 reaction-icon"
     aria-hidden="true"
     version="1.1"
     viewBox="0 0 25 25"
@@ -77,7 +86,7 @@ const HeartEmoji = () => (
 
 const LaughEmoji = () => (
   <svg
-    className="reaction-icon"
+    className="w-4 h-4 reaction-icon"
     aria-hidden="true"
     version="1.1"
     viewBox="0 0 25 25"
@@ -138,7 +147,7 @@ const LaughEmoji = () => (
 
 const ShockEmoji = () => (
   <svg
-    className="reaction-icon"
+    className="w-4 h-4 reaction-icon"
     aria-hidden="true"
     version="1.1"
     viewBox="0 0 25 25"
@@ -172,7 +181,7 @@ const ShockEmoji = () => (
 
 const CryEmoji = () => (
   <svg
-    className="reaction-icon"
+    className="w-4 h-4 reaction-icon"
     aria-hidden="true"
     version="1.1"
     viewBox="0 0 25 25"
@@ -232,7 +241,7 @@ const CryEmoji = () => (
 );
 const AngryEmoji = () => (
   <svg
-    className="reaction-icon"
+    className="w-4 h-4 reaction-icon"
     aria-hidden="true"
     version="1.1"
     viewBox="0 0 25 25"

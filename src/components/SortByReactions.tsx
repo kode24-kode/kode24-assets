@@ -19,10 +19,15 @@ export default function SortByReactions({
   const [sortingState, setSortingState] = useState(sortingToggle);
 
   return (
-    <ul id="sort-latest-articles">
+    <ul
+      id="sort-latest-articles"
+      className="flex gap-2 p-4 justify-center"
+    >
       <li>
         <button
-          className={sortingState === 'newest' ? 'active' : ''}
+          className={`flex items-center gap-1 p-2 bg-slate-200 rounded-md ${
+            sortingState === 'newest' ? 'bg-slate-600 text-white' : ''
+          }`}
           onClick={() => {
             setSortingState('newest');
             sortBySortingToggle('newest');
@@ -41,7 +46,11 @@ export default function SortByReactions({
       </li>
       <li>
         <button
-          className={sortingState === 'mostReactions' ? 'active' : ''}
+          className={`flex items-center gap-1 p-2 bg-slate-200 rounded-md  ${
+            sortingState === 'mostReactions'
+              ? 'bg-slate-600 text-white'
+              : ''
+          }`}
           onClick={() => {
             setSortingState('mostReactions');
             sortBySortingToggle('mostReactions');
@@ -60,7 +69,11 @@ export default function SortByReactions({
       </li>
       <li>
         <button
-          className={sortingState === 'mostComments' ? 'active' : ''}
+          className={`flex items-center gap-1 p-2 bg-slate-200 rounded-md  ${
+            sortingState === 'mostComments'
+              ? 'bg-slate-600 text-white'
+              : ''
+          }`}
           onClick={() => {
             setSortingState('mostComments');
             sortBySortingToggle('mostComments');

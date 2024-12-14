@@ -3,9 +3,13 @@ import ArticleTileSocial from './ArticleTileSocial';
 import CommentTile from './CommentTile';
 export default function ArticleTile({
   Article,
+  layout,
+  size,
   isHot,
 }: {
   Article: Article;
+  layout: string;
+  size: 'big' | 'small';
   isHot: boolean;
 }) {
   const articleIsToday =
@@ -16,9 +20,7 @@ export default function ArticleTile({
   return (
     <article
       id={`article_${Article.id}`}
-      className={`preview columns large-12 small-12 medium-12 compact ${
-        isHot ? 'hot' : ''
-      }`}
+      className={`relative ${layout} ${isHot ? 'hot' : ''}`}
       itemScope
       itemType="https://schema.org/ListItem"
       itemProp="itemListElement"
@@ -26,7 +28,7 @@ export default function ArticleTile({
       data-id={Article.id}
       data-label=""
     >
-      <div className="article-content-wrapper">
+      <div className="article-content-wrapper flex flex-col gap-2">
         <a
           itemProp="url"
           href={Article.published_url}
@@ -43,9 +45,12 @@ export default function ArticleTile({
             />
           </figure>
         </a>
-        <div className="article-preview-text">
+        <div className="article-preview-text p-2 flex flex-col gap-2">
           <a itemProp="url" href={Article.published_url}>
-            <time className="published" dateTime={Article.published}>
+            <time
+              className="published bg-slate-50 rounded-md p-2 text-slate-600 text-sm absolute -top-3 left-3"
+              dateTime={Article.published}
+            >
               {articleIsToday
                 ? `I dag, ${new Intl.DateTimeFormat('no-NB', {
                     timeStyle: 'short',
@@ -61,16 +66,20 @@ export default function ArticleTile({
             `}
             </time>
 
-            <h1 className="headline">
+            <h1
+              className={`  ${
+                size === 'big' ? 'text-6xl' : 'text-2xl'
+              } headline`}
+            >
               <span className="headline-title-wrapper">
                 {Article.title}
               </span>
             </h1>
           </a>
 
-          <div className="article-social">
-            <div className="byline-row">
-              <div className="byline-profile-image">
+          <div className="article-social flex items-center justify-start gap-4">
+            <div className="byline-row bg-slate-100 p-2 rounded-md flex items-center gap-2">
+              <div className="byline-profile-image w-10 h-10 rounded-full overflow-hidden">
                 <img
                   src={`https://www.kode24.no/images/${Article.byline.imageUrl}`}
                   loading="lazy"
@@ -78,13 +87,17 @@ export default function ArticleTile({
                 />
               </div>
               <div className="byline-info">
-                <div className="byline-name">
+                <div className="byline-name text-slate-900 text-sm">
                   {Article.byline.name}
                 </div>
-                <div className="byline-bio">{Article.byline.bio}</div>
+                <div className="byline-bio text-slate-600/75 text-xs">
+                  {Article.byline.bio}
+                </div>
               </div>
             </div>
             <ArticleTileSocial Article={Article} />
+          </div>
+          <div>
             {Article.highestRatedComment && (
               <CommentTile
                 comment={{

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i|IBM+Plex+Sans:400,400i,500,500i");
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 /**
   fetches the user's preferred color scheme
@@ -39,7 +39,7 @@ html {
   --vp-tablet: 830px;
   --vp-desktop: 1025px;
   --vp-desktopWide: 1330px;
-  --fontMono: "IBM Plex Mono", monospace;
+  --fontMono: "DM Mono", monospace;
   --fontRegular: "IBM Plex Sans", sans-serif;
   --gutter: 0.8rem;
 

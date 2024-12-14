@@ -12,7 +12,7 @@ import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
-
+import CommentsTile from './components/CommentsTile.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
   // So we don't mutate the original data
@@ -48,7 +48,7 @@ export default function FrontContent(frontpageData: Frontpage) {
         <>
           <ArticlesRow
             DesktopRowData={{
-              layout: 'main-story-with-two-vertical',
+              layout: 'main-story-double-column',
               style: '',
               title: '',
               description: '',
@@ -64,7 +64,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           />
           <ArticlesRow
             DesktopRowData={{
-              layout: 'dual',
+              layout: 'main-story-double-column',
               style: '',
               title: '',
               description: '',
@@ -106,7 +106,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                 <div key={key}>
                   <ArticlesRow
                     DesktopRowData={{
-                      layout: 'main-story-with-two-vertical',
+                      layout: 'bg-yellow-100',
                       style: '',
                       title: '',
                       description: '',
@@ -183,7 +183,7 @@ export default function FrontContent(frontpageData: Frontpage) {
         <>
           <ArticlesRow
             DesktopRowData={{
-              layout: 'main-story-with-two-vertical',
+              layout: 'main-story-double-column',
               style: '',
               title: '',
               description: '',
@@ -197,9 +197,10 @@ export default function FrontContent(frontpageData: Frontpage) {
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
           />
+          <CommentsTile comments={frontPageDataCopy.newestComments} />
           <ArticlesRow
             DesktopRowData={{
-              layout: 'dual',
+              layout: 'dual-column',
               style: '',
               title: '',
               description: '',

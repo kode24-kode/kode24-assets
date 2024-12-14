@@ -29,8 +29,8 @@ export default function ArticlesRow({
   );
   return (
     <div
-      className={`row desktop-row ${DesktopRowData.style} ${
-        firstRow ? 'first-row' : ''
+      className={`row desktop-row mb-16 ${DesktopRowData.style} ${
+        firstRow ? '' : ''
       }
       ${listView ? 'list-view' : ''}
         `}
@@ -53,22 +53,53 @@ export default function ArticlesRow({
           </>
         )}
       </div>
-      <div className={DesktopRowData.layout}>
+      <div
+        className={`
+          grid grid-cols-6 gap-8 auto-cols-min
+        `}
+      >
         {DesktopRowData.articles.map(
-          (article: Article, key: number) => (
-            <ArticleTile
-              Article={article}
-              key={key}
-              isHot={
-                hottestArticle && hottestArticle === article.id
-                  ? true
-                  : false
-              }
-            />
-          )
+          (article: Article, key: number) => {
+            let layout = '';
+            if (
+              DesktopRowData.layout === 'main-story-double-column'
+            ) {
+              layout =
+                key === 0
+                  ? 'col-span-4 row-span-2'
+                  : 'col-span-2 row-span-1';
+            } else {
+              layout = 'col-span-3';
+            }
+            return (
+              <ArticleTile
+                Article={article}
+                key={key}
+                layout={layout}
+                size={(layout = key === 0 ? 'big' : 'small')}
+                isHot={
+                  hottestArticle && hottestArticle === article.id
+                    ? true
+                    : false
+                }
+              />
+            );
+          }
         )}
-        {ad && 'banner' in ad && <ContentTileItem Content={ad} />}
-        {ad && 'id' in ad && <ListingTile Listing={ad} />}
+        {ad && 'banner' in ad && (
+          <ContentTileItem
+            Content={ad}
+            layout={'col-span-3'}
+            size={'big'}
+          />
+        )}
+        {ad && 'id' in ad && (
+          <ListingTile
+            Listing={ad}
+            layout={'col-span-3'}
+            size={'big'}
+          />
+        )}
       </div>
     </div>
   );
