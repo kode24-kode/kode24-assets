@@ -29,7 +29,9 @@ export default function CommentTile({
               className="comment-avatar"
             />
           )}
-          <div className="comment-username">{comment.user.name}</div>
+          <div className="comment-username whitespace-nowrap">
+            {comment.user.name}
+          </div>
         </div>
         <div className="truncate ml-1 text-sm">
           {htmlDecode(comment.bodySnippet)}

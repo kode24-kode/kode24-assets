@@ -21,7 +21,7 @@ export default function SortByReactions({
   return (
     <ul
       id="sort-latest-articles"
-      className="flex gap-2 p-4 justify-center"
+      className="flex gap-2 py-4 justify-start"
     >
       <li>
         <button
