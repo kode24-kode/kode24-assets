@@ -28,13 +28,7 @@ export default function ArticlesRow({
     hotnessThreshold
   );
   return (
-    <div
-      className={`row desktop-row mb-16 ${DesktopRowData.style} ${
-        firstRow ? '' : ''
-      }
-      ${listView ? 'list-view' : ''}
-        `}
-    >
+    <div className={`row desktop-row mb-16`}>
       <div
         className={`heading ${
           DesktopRowData.title ? '' : 'no-title'
@@ -55,7 +49,7 @@ export default function ArticlesRow({
       </div>
       <div
         className={`
-          grid grid-cols-6 gap-8 auto-cols-min
+          max-w-screen-xl mx-auto grid grid-cols-6 gap-8 auto-cols-min
         `}
       >
         {DesktopRowData.articles.map(
@@ -76,6 +70,7 @@ export default function ArticlesRow({
                 Article={article}
                 key={key}
                 layout={layout}
+                style={DesktopRowData.style}
                 size={(layout = key === 0 ? 'big' : 'small')}
                 isHot={
                   hottestArticle && hottestArticle === article.id

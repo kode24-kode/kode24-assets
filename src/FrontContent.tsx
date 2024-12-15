@@ -184,7 +184,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           <ArticlesRow
             DesktopRowData={{
               layout: 'main-story-double-column',
-              style: '',
+              style: 'inverse',
               title: '',
               description: '',
               tags: 'artikler',
@@ -201,7 +201,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           <ArticlesRow
             DesktopRowData={{
               layout: 'dual-column',
-              style: '',
+              style: 'inverse',
               title: '',
               description: '',
               tags: 'artikler',

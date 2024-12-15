@@ -6,11 +6,13 @@ export default function ArticleTile({
   layout,
   size,
   isHot,
+  style,
 }: {
   Article: Article;
   layout: string;
   size: 'big' | 'small';
   isHot: boolean;
+  style: string;
 }) {
   const articleIsToday =
     new Date(Article.published).setHours(0, 0, 0, 0) ==
@@ -20,7 +22,7 @@ export default function ArticleTile({
   return (
     <article
       id={`article_${Article.id}`}
-      className={`relative ${layout} ${isHot ? 'hot' : ''}`}
+      className={`relative ${layout} ${isHot ? 'hot' : ''} ${style}`}
       itemScope
       itemType="https://schema.org/ListItem"
       itemProp="itemListElement"
@@ -37,7 +39,7 @@ export default function ArticleTile({
         >
           <figure className="">
             <img
-              className=""
+              className="rounded"
               itemProp="image"
               loading="lazy"
               alt={`image: {Article.title}`}
@@ -48,7 +50,11 @@ export default function ArticleTile({
         <div className="article-preview-text p-2 flex flex-col gap-2">
           <a itemProp="url" href={Article.published_url}>
             <time
-              className="published bg-slate-50 rounded-md p-2 text-slate-600 text-sm absolute -top-3 left-3"
+              className={`published ${
+                style === 'inverse' && 'bg-slate-800 text-slate-300'
+              } ${
+                !style && 'bg-slate-50 text-slate-600'
+              } rounded-md p-2  text-sm absolute -top-3 right-3`}
               dateTime={Article.published}
             >
               {articleIsToday
@@ -67,9 +73,10 @@ export default function ArticleTile({
             </time>
 
             <h1
-              className={`  ${
-                size === 'big' ? 'text-6xl' : 'text-2xl'
-              } headline`}
+              className={`
+                ${style === 'inverse' && ' text-slate-100'}
+                ${!style && 'text-slate-700'}
+                ${size === 'big' ? 'text-6xl' : 'text-2xl'} headline`}
             >
               <span className="headline-title-wrapper">
                 {Article.title}
@@ -78,7 +85,11 @@ export default function ArticleTile({
           </a>
 
           <div className="article-social flex items-center justify-start gap-4">
-            <div className="byline-row bg-slate-100 p-2 rounded-md flex items-center gap-2">
+            <div
+              className={
+                'byline-row p-2 rounded-md flex items-center gap-2'
+              }
+            >
               <div className="byline-profile-image w-10 h-10 rounded-full overflow-hidden">
                 <img
                   src={`https://www.kode24.no/images/${Article.byline.imageUrl}`}
@@ -87,15 +98,26 @@ export default function ArticleTile({
                 />
               </div>
               <div className="byline-info">
-                <div className="byline-name text-slate-900 text-sm">
+                <div
+                  className={`byline-name
+                    ${style === 'inverse' && ' text-pink-500'}
+                    ${!style && 'text-slate-700'}
+                  text-sm`}
+                >
                   {Article.byline.name}
                 </div>
-                <div className="byline-bio text-slate-600/75 text-xs">
+                <div
+                  className={`byline-bio ${
+                    style === 'inverse' && ' text-slate-500/75'
+                  }
+                  ${!style && 'text-slate-700'}
+                     text-xs`}
+                >
                   {Article.byline.bio}
                 </div>
               </div>
             </div>
-            <ArticleTileSocial Article={Article} />
+            <ArticleTileSocial Article={Article} style={style} />
           </div>
           <div>
             {Article.highestRatedComment && (

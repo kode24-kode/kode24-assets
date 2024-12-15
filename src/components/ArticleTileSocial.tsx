@@ -2,8 +2,10 @@ import { Article } from '../types';
 import ArticleTileSocialIcons from './ArticleTileSocialIcons';
 export default function ArticleTileSocial({
   Article,
+  style,
 }: {
   Article: Article;
+  style: string;
 }) {
   if (
     Article.reactions &&
@@ -17,7 +19,10 @@ export default function ArticleTileSocial({
           <div className="article-social-reactions article-social-item flex items-center">
             <a
               href={`https://www.kode24.no/${Article.id}#hyvor-talk-view`}
-              className="reaction-button reaction flex items-center bg-slate-200 p-2 gap-4 rounded-md"
+              className={`reaction-button reaction flex items-center ${
+                style === 'inverse' && ' bg-slate-800'
+              }
+                    ${!style && 'bg-slate-100'} p-2 gap-4 rounded-md`}
             >
               <span
                 className="reaction-icons-summary flex items-center 0 text-xl flex-row-reverse"
@@ -39,7 +44,13 @@ export default function ArticleTileSocial({
                     />
                   ))}
               </span>
-              <span className="reaction-count">
+              <span
+                className={`${
+                  style === 'inverse' && ' text-slate-200'
+                }
+                    ${!style && 'text-slate-600'}
+                reaction-count`}
+              >
                 {Article.reactions.reactions_count}
               </span>
             </a>
