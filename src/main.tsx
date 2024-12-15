@@ -162,7 +162,7 @@ async function main() {
     );
     document
       .getElementById('articles-above-first-banner')
-      ?.before(sortByReactionsNode);
+      ?.append(sortByReactionsNode);
   }
   const podcastPlayerNode = document.createElement('div');
   podcastPlayerNode.classList.add('podcast-player');

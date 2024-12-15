@@ -13,6 +13,8 @@ import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
 import CommentsTile from './components/CommentsTile.tsx';
+import SortByReactions from './components/SortByReactions.tsx';
+import TopPhoto from './components/TopPhoto.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
   // So we don't mutate the original data
@@ -180,7 +182,10 @@ export default function FrontContent(frontpageData: Frontpage) {
   ) {
     ReactDOM.createRoot(articlesAboveFirstBanner).render(
       <React.StrictMode>
-        <>
+        <div>
+          <TopPhoto
+            imageUrl={`https://www.kode24.no/images/${frontPageDataCopy.latestArticles[0].image}.jpg${frontPageDataCopy.latestArticles[0].frontCropUrl}&width=960&height=600`}
+          />
           <ArticlesRow
             DesktopRowData={{
               layout: 'main-story-double-column',
@@ -198,6 +203,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             newestComments={frontPageDataCopy.newestComments}
           />
           <CommentsTile comments={frontPageDataCopy.newestComments} />
+          <div className="w-80 bg-blue-200 h-20">hello</div>
           <ArticlesRow
             DesktopRowData={{
               layout: 'dual-column',
@@ -225,7 +231,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           <CompanyPartnersTile
             companyPartners={frontPageDataCopy.companyPartners}
           />
-        </>
+        </div>
       </React.StrictMode>
     );
 

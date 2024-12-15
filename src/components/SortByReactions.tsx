@@ -19,7 +19,7 @@ export default function SortByReactions({
   const [sortingState, setSortingState] = useState(sortingToggle);
 
   return (
-    <div className="max-w-screen-xl mx-auto mb-4">
+    <div className="max-w-screen-xl mx-auto mb-4 relative">
       <ul
         id="sort-latest-articles"
         className="flex gap-2 py-4 justify-start"
