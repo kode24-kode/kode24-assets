@@ -86,6 +86,7 @@ export default function ArticlesRow({
             Content={ad}
             layout={'col-span-3'}
             size={'big'}
+            style={DesktopRowData.style}
           />
         )}
         {ad && 'id' in ad && (
@@ -93,6 +94,7 @@ export default function ArticlesRow({
             Listing={ad}
             layout={'col-span-3'}
             size={'big'}
+            style={DesktopRowData.style}
           />
         )}
       </div>

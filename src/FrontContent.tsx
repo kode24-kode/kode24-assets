@@ -202,8 +202,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
           />
-          <CommentsTile comments={frontPageDataCopy.newestComments} />
-          <div className="w-80 bg-blue-200 h-20">hello</div>
+
           <ArticlesRow
             DesktopRowData={{
               layout: 'dual-column',
@@ -228,6 +227,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             }
             newestComments={frontPageDataCopy.newestComments}
           />
+          <CommentsTile comments={frontPageDataCopy.newestComments} />
           <CompanyPartnersTile
             companyPartners={frontPageDataCopy.companyPartners}
           />

@@ -5,11 +5,13 @@ export default function ContentTileItem({
   inlineToggle,
   layout,
   size,
+  style,
 }: {
   Content: ContentTile;
   inlineToggle?: boolean;
   layout: string;
   size: 'big' | 'small';
+  style: string;
 }) {
   if (
     Content.adlink.includes('stillinger') &&
@@ -60,7 +62,13 @@ export default function ContentTileItem({
             <p className="company-name absolute left-2 -top-3 bg-gradient-to-b from-pink-500 to-purple-600 p-2 rounded-md text-white">
               Annonsørinnhold
             </p>
-            <h1 className="headline text-4xl">
+            <h1
+              className={`
+                ${style === 'inverse' && ' text-slate-100'}
+                ${!style && 'text-slate-700'}
+
+              headline text-3xl`}
+            >
               <span className="headline-title-wrapper">
                 {Content.title}
               </span>
@@ -77,7 +85,11 @@ export default function ContentTileItem({
                 />
               </div>
               <div className="byline-info">
-                <div className="byline-name">
+                <div
+                  className={`text-base ${
+                    style === 'inverse' && ' text-slate-100'
+                  }${!style && 'text-slate-700'}`}
+                >
                   {Content.company.name}
                 </div>
               </div>

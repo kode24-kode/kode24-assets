@@ -4,10 +4,12 @@ export default function ListingTile({
   Listing,
   layout,
   size,
+  style,
 }: {
   Listing: Listing;
   layout: string;
   size: 'big' | 'small';
+  style: string;
 }) {
   return (
     <article
@@ -55,7 +57,13 @@ export default function ListingTile({
             href={'https://www.kodejobb.no' + Listing.published_url}
           >
             <p className="company-name">{Listing.company.name}</p>
-            <h1 className="headline text-3xl">
+            <h1
+              className={`
+                ${style === 'inverse' && ' text-slate-100'}
+                ${!style && 'text-slate-700'}
+
+              headline text-3xl`}
+            >
               <span className="headline-title-wrapper">
                 {Listing.title}
               </span>
