@@ -62,6 +62,8 @@ export default function ArticlesRow({
                 key === 0
                   ? 'col-span-4 row-span-2'
                   : 'col-span-2 row-span-1';
+            } else if (DesktopRowData.layout === 'list') {
+              layout = 'col-span-6 border-b pb-8'; // full width if list
             } else {
               layout = 'col-span-3';
             }
@@ -69,9 +71,16 @@ export default function ArticlesRow({
               <ArticleTile
                 Article={article}
                 key={key}
+                horisontal={
+                  DesktopRowData.layout === 'list' ? true : false
+                }
                 layout={layout}
                 style={DesktopRowData.style}
-                size={(layout = key === 0 ? 'big' : 'small')}
+                size={
+                  key === 0 && DesktopRowData.layout !== 'list'
+                    ? 'big'
+                    : 'small'
+                }
                 isHot={
                   hottestArticle && hottestArticle === article.id
                     ? true

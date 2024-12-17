@@ -7,12 +7,14 @@ export default function ArticleTile({
   size,
   isHot,
   style,
+  horisontal = false,
 }: {
   Article: Article;
   layout: string;
   size: 'big' | 'small';
   isHot: boolean;
   style: string;
+  horisontal: boolean;
 }) {
   const articleIsToday =
     new Date(Article.published).setHours(0, 0, 0, 0) ==
@@ -30,14 +32,17 @@ export default function ArticleTile({
       data-id={Article.id}
       data-label=""
     >
-      <div className="article-content-wrapper flex flex-col gap-2">
+      <div
+        className={`${horisontal ? '' : 'flex-col'}
+        article-content-wrapper flex  gap-2`}
+      >
         <a
           itemProp="url"
           href={Article.published_url}
           title={Article.title}
           aria-label={Article.title}
         >
-          <figure className="">
+          <figure className={`${horisontal === true && 'w-80'}`}>
             <img
               className="rounded"
               itemProp="image"
@@ -47,14 +52,16 @@ export default function ArticleTile({
             />
           </figure>
         </a>
-        <div className="article-preview-text p-2 flex flex-col gap-2">
+        <div
+          className={`article-preview-text p-2 flex flex-col gap-2 max-w-full overflow-hidden`}
+        >
           <a itemProp="url" href={Article.published_url}>
             <time
               className={`published ${
                 style === 'inverse' && 'bg-slate-800 text-slate-300'
-              } ${
-                !style && 'bg-slate-50 text-slate-600'
-              } rounded-md p-2  text-sm absolute -top-3 right-3`}
+              } ${!style && 'bg-slate-50 text-slate-600'}
+              ${horisontal === true ? 'left-3' : 'right-3'}
+                rounded-md p-2  text-sm absolute -top-3`}
               dateTime={Article.published}
             >
               {articleIsToday
@@ -74,9 +81,12 @@ export default function ArticleTile({
 
             <h1
               className={`
+                font-bold
                 ${style === 'inverse' && ' text-slate-100'}
                 ${!style && 'text-slate-700'}
-                ${size === 'big' ? 'text-6xl' : 'text-2xl'} headline`}
+                ${size === 'big' ? 'text-6xl' : 'text-2xl'} headline
+                ${horisontal === true ? 'text-3xl' : ''}
+                `}
             >
               <span className="headline-title-wrapper">
                 {Article.title}
@@ -122,6 +132,7 @@ export default function ArticleTile({
           <div>
             {Article.highestRatedComment && (
               <CommentTile
+                style={style}
                 comment={{
                   ...Article.highestRatedComment,
                   ...{ url: Article.published_url },

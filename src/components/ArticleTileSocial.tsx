@@ -57,10 +57,15 @@ export default function ArticleTileSocial({
           </div>
         )}
         {Article.reactions.comments_count > 0 && (
-          <div className="article-social-reactions article-social-item flex items-center bg-slate-200 p-2 gap-4 rounded-md">
+          <div
+            className={`
+          ${style === 'inverse' && 'bg-slate-800 text-slate-100'}
+                    ${!style && 'bg-slate-200 text-slate-600'}
+          article-social-reactions article-social-item flex items-center p-2 gap-4 rounded-md`}
+          >
             <a
               href={`https://www.kode24.no/${Article.id}#hyvor-talk-view`}
-              className="reaction-button reaction flex gap-2 text-slate-600"
+              className="reaction-button reaction flex gap-2 "
             >
               <span
                 className="reaction-icons-summary"

@@ -4,17 +4,19 @@ import htmlDecode from '../functions/decodeStringWithSpecialCharacters';
 export default function CommentTile({
   comment,
   oneLine = false,
+  style,
 }: {
   comment: Comment;
   oneLine?: boolean;
+  style?: string;
 }) {
   if (comment.bodySnippet == '') return <></>;
   return (
     <a
       href={comment.url + '#hyvor-talk-view'}
-      className={`block rounded-md comment-tile bg-slate-200 p-2 ${
-        oneLine ? 'oneline' : ''
-      }`}
+      className={`block rounded-md comment-tile p-2
+        ${style === 'inverse' && 'bg-slate-800 text-slate-300'}
+        ${!style && 'bg-slate-200'} ${oneLine ? 'oneline' : ''}`}
       title="Hopp rett til kommentarer i saken"
       aria-label="Hopp rett til kommentarer i saken"
     >
@@ -22,7 +24,12 @@ export default function CommentTile({
         {oneLine && (
           <span className="comment-icon inline-block">💬</span>
         )}
-        <div className="ml-1 comment-author inline-block px-2 py-1 rounded-md text-sm bg-slate-300">
+        <div
+          className={`
+          ${style === 'inverse' && 'bg-slate-700 text-slate-200'}
+          ${!style && 'bg-slate-300 p-2'}
+          ml-1 comment-author inline-block px-2 py-1 rounded-md text-sm `}
+        >
           {!oneLine && (
             <img
               src={comment.user.picture}
@@ -33,7 +40,7 @@ export default function CommentTile({
             {comment.user.name}
           </div>
         </div>
-        <div className="truncate ml-1 text-sm">
+        <div className="max-w-full truncate ml-1 text-sm">
           {htmlDecode(comment.bodySnippet)}
           {comment.bodySnippet.charAt(
             comment.bodySnippet.length - 1

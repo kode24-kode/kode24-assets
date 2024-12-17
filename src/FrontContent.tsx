@@ -4,7 +4,12 @@
  * Its a stupid implementation.
  */
 
-import { Frontpage, Content, ContentTile } from './types/index.ts';
+import {
+  Frontpage,
+  Content,
+  ContentTile,
+  Listing,
+} from './types/index.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ArticlesRow from './components/ArticlesRow.tsx';
@@ -14,6 +19,7 @@ import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
 import CommentsTile from './components/CommentsTile.tsx';
 import SortByReactions from './components/SortByReactions.tsx';
+import PremiumListing from './components/PremiumListing.tsx';
 import TopPhoto from './components/TopPhoto.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
@@ -48,10 +54,60 @@ export default function FrontContent(frontpageData: Frontpage) {
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
         <>
+          <div className="flex gap-8 max-w-screen-xl mx-auto items-start justify-between">
+            <ArticlesRow
+              DesktopRowData={{
+                layout: 'list',
+                style: '',
+                title: '',
+                description: '',
+                tags: 'artikler',
+                antall: 3,
+                lenke: '',
+                articles: frontPageDataCopy.latestArticles,
+              }}
+              firstRow={false}
+              hotnessThreshold={[40, 10]}
+              listView={listView}
+              newestComments={frontPageDataCopy.newestComments}
+            />
+            <PremiumListing
+              Listings={
+                shuffleArray([
+                  ...frontpageData.jobs.filter(
+                    (listing: Listing) =>
+                      listing.type &&
+                      (listing.type === 'premium' ||
+                        listing.type === 'fokus')
+                  ),
+                ]) as Listing[]
+              }
+            />
+          </div>
+        </>
+      </React.StrictMode>
+    );
+
+    ReactDOM.createRoot(articlesBelowSecondBanner).render(
+      <React.StrictMode></React.StrictMode>
+    );
+  }
+
+  if (
+    articlesAboveFirstBanner &&
+    articlesBelowFirstBanner &&
+    articlesBelowSecondBanner
+  ) {
+    ReactDOM.createRoot(articlesAboveFirstBanner).render(
+      <React.StrictMode>
+        <div>
+          <TopPhoto
+            imageUrl={`https://www.kode24.no/images/${frontPageDataCopy.latestArticles[0].image}.jpg${frontPageDataCopy.latestArticles[0].frontCropUrl}&width=960&height=600`}
+          />
           <ArticlesRow
             DesktopRowData={{
               layout: 'main-story-double-column',
-              style: '',
+              style: 'inverse',
               title: '',
               description: '',
               tags: 'artikler',
@@ -59,47 +115,61 @@ export default function FrontContent(frontpageData: Frontpage) {
               lenke: '',
               articles: frontPageDataCopy.latestArticles.splice(0, 3),
             }}
-            firstRow={false}
-            hotnessThreshold={[40, 10]}
+            firstRow={true}
+            hotnessThreshold={[20, 5]}
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
           />
+
           <ArticlesRow
             DesktopRowData={{
-              layout: 'main-story-double-column',
-              style: '',
+              layout: 'dual-column',
+              style: 'inverse',
               title: '',
               description: '',
               tags: 'artikler',
               antall: 2,
               lenke: '',
               articles:
-                allContentTiles.length > 0
+                frontPageDataCopy.content.length > 0
                   ? frontPageDataCopy.latestArticles.splice(0, 1)
                   : frontPageDataCopy.latestArticles.splice(0, 2),
             }}
             firstRow={true}
-            hotnessThreshold={[40, 10]}
+            hotnessThreshold={[20, 5]}
             listView={listView}
-            newestComments={frontPageDataCopy.newestComments}
             ad={
               allContentTiles.length > 0
                 ? allContentTiles.splice(0, 1)[0]
                 : undefined
             }
+            newestComments={frontPageDataCopy.newestComments}
           />
-          {frontPageDataCopy.jobs.length > 0 && (
-            <ListingsRow
-              Listings={frontPageDataCopy.jobs.splice(0, 3)}
-              listView={listView}
-            />
-          )}
-        </>
+        </div>
       </React.StrictMode>
     );
 
-    ReactDOM.createRoot(articlesBelowSecondBanner).render(
-      <React.StrictMode>
+    renderContentBelowFirstBanner();
+  }
+}
+
+/**
+ *
+ *
+ * <PremiumListing
+          <CommentsTile comments={frontPageDataCopy.newestComments} />
+          <CompanyPartnersTile
+            companyPartners={frontPageDataCopy.companyPartners}
+          />
+ */
+
+/**
+
+
+
+
+
+
         <>
           {frontPageDataCopy.frontpage &&
             frontPageDataCopy.frontpage.map &&
@@ -161,80 +231,9 @@ export default function FrontContent(frontpageData: Frontpage) {
                     listView={listView}
                     newestComments={frontPageDataCopy.newestComments}
                   />
-                  {frontPageDataCopy.jobs.length > 0 && (
-                    <ListingsRow
-                      Listings={frontPageDataCopy.jobs.splice(0, 3)}
-                      listView={listView}
-                    />
-                  )}
                 </div>
               );
             })}
         </>
-      </React.StrictMode>
-    );
-  }
 
-  if (
-    articlesAboveFirstBanner &&
-    articlesBelowFirstBanner &&
-    articlesBelowSecondBanner
-  ) {
-    ReactDOM.createRoot(articlesAboveFirstBanner).render(
-      <React.StrictMode>
-        <div>
-          <TopPhoto
-            imageUrl={`https://www.kode24.no/images/${frontPageDataCopy.latestArticles[0].image}.jpg${frontPageDataCopy.latestArticles[0].frontCropUrl}&width=960&height=600`}
-          />
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'main-story-double-column',
-              style: 'inverse',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 3,
-              lenke: '',
-              articles: frontPageDataCopy.latestArticles.splice(0, 3),
-            }}
-            firstRow={true}
-            hotnessThreshold={[20, 5]}
-            listView={listView}
-            newestComments={frontPageDataCopy.newestComments}
-          />
-
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'dual-column',
-              style: 'inverse',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 2,
-              lenke: '',
-              articles:
-                frontPageDataCopy.content.length > 0
-                  ? frontPageDataCopy.latestArticles.splice(0, 1)
-                  : frontPageDataCopy.latestArticles.splice(0, 2),
-            }}
-            firstRow={true}
-            hotnessThreshold={[20, 5]}
-            listView={listView}
-            ad={
-              allContentTiles.length > 0
-                ? allContentTiles.splice(0, 1)[0]
-                : undefined
-            }
-            newestComments={frontPageDataCopy.newestComments}
-          />
-          <CommentsTile comments={frontPageDataCopy.newestComments} />
-          <CompanyPartnersTile
-            companyPartners={frontPageDataCopy.companyPartners}
-          />
-        </div>
-      </React.StrictMode>
-    );
-
-    renderContentBelowFirstBanner();
-  }
-}
+ */
