@@ -107,20 +107,20 @@ const companyAds: Array<Partner> = [
     },
     ads: [
       {
-        title:
-          'Vi er kåret til en av verdens mest ettertraktede arbeidsgivere!',
+        title: 'Innebandy på onsdag og styrketrening på fredag?',
         url: 'https://partner.kode24.no/skatteetaten?id=1',
         image:
           'https://www.dagbladet.no/files/2025/01/13/kode24-skatteetaten-8.png',
       },
       {
-        title: 'Hva har en etisk hacker i ryggsekken?',
+        title: 'Har du hørt om omvendt referansesjekk?',
         url: 'https://partner.kode24.no/skatteetaten?id=2',
         image:
           'https://www.dagbladet.no/files/2025/01/13/kode24-skatteetaten-2.png',
       },
       {
-        title: 'Konsulent eller inhouse? Du velger!',
+        title:
+          'Vi er i gang med noen av landets største og mest spennende IT-prosjekter',
         url: 'https://partner.kode24.no/skatteetaten?id=3',
         image:
           'https://www.dagbladet.no/files/2025/01/13/kode24-skatteteaten-3.png',
