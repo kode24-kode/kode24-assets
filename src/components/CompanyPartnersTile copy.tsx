@@ -1,7 +1,5 @@
 import { CompanyPartner } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
 
 export default function CompanyPartnersTile({
   companyPartners,
@@ -16,10 +14,13 @@ export default function CompanyPartnersTile({
       id="diamond-partners-list-tile"
       className="row desktop-row card single-row"
     >
-      <div className="bg-slate-200 single relative w-svw left-1/2 -translate-x-1/2 mb-16 p-8 flex flex-col justify-center">
-        <div className="heading pb-8 flex flex-col justify-center items-center">
-          <h3 className="heading-title heading-title text flex justify-center text-2xl px-8 m-0 uppercase font-bold">
-            Våre partnere, som støtter kode24
+      <div className="single relative min-h-svh bg-slate-200 w-svw left-1/2 -translate-x-1/2 mb-16 p-8 flex flex-col justify-center">
+        <div className="heading pb-14 pt-8 flex flex-col justify-center items-center">
+          <h2 className="heading-title heading-title text flex justify-center text-5xl px-8 mb-4">
+            💡 Ny karriere?
+          </h2>
+          <h3 className="heading-title heading-title text flex justify-center text-2xl px-8 m-0">
+            Disse firmaene støtter kode24.no
           </h3>
         </div>
         <ul className="preview logo-list flex gap-4 flex-wrap justify-center items-center">
@@ -32,7 +33,7 @@ export default function CompanyPartnersTile({
                   }
                 >
                   <img
-                    className="w-48 max-h-60 px-2 py-2"
+                    className="w-72 max-h-60 px-8 py-8"
                     src={'/logos/' + companyPartner.slug + '.svg'}
                     alt={'partner logo ' + companyPartner.slug}
                     loading="lazy"

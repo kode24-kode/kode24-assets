@@ -9,6 +9,7 @@ import ArticleTile from './ArticleTile.tsx';
 import ContentTileItem from './ContentTile.tsx';
 import ListingTile from './ListingTile.tsx';
 import { findHottestArticle } from '../functions/findHottestArticle.tsx';
+import { useState } from 'react';
 export default function ArticlesRow({
   DesktopRowData,
   firstRow,
@@ -27,6 +28,7 @@ export default function ArticlesRow({
     DesktopRowData,
     hotnessThreshold
   );
+  const [numberOfArticles, setNumberOfArticles] = useState(10);
   return (
     <div className={`row desktop-row mb-16`}>
       <div
@@ -52,8 +54,9 @@ export default function ArticlesRow({
           max-w-screen-xl mx-auto grid grid-cols-6 gap-8 auto-cols-min
         `}
       >
-        {DesktopRowData.articles.map(
-          (article: Article, key: number) => {
+        {DesktopRowData.articles
+          .slice(0, numberOfArticles)
+          .map((article: Article, key: number) => {
             let layout = '';
             if (
               DesktopRowData.layout === 'main-story-double-column'
@@ -88,8 +91,7 @@ export default function ArticlesRow({
                 }
               />
             );
-          }
-        )}
+          })}
         {ad && 'banner' in ad && (
           <ContentTileItem
             Content={ad}
@@ -107,6 +109,14 @@ export default function ArticlesRow({
           />
         )}
       </div>
+      {DesktopRowData.articles.length > numberOfArticles && (
+        <button
+          className="w-full bg-slate-300 p-4 rounded-md font-bold"
+          onClick={() => setNumberOfArticles((prev) => prev + 5)}
+        >
+          Vi flere +
+        </button>
+      )}
     </div>
   );
 }

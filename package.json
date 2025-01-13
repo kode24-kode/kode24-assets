@@ -13,6 +13,7 @@
     "@navikt/aksel-icons": "^5.5.0",
     "@sentry/react": "^8.9.2",
     "@sentry/vite-plugin": "^2.18.0",
+    "@tailwindcss/typography": "^0.5.15",
     "@types/javascript-time-ago": "^2.0.3",
     "@types/node": "^20.5.9",
     "@types/ungap__structured-clone": "^0.3.0",

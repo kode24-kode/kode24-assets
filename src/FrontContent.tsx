@@ -54,7 +54,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
         <>
-          <div className="flex gap-8 max-w-screen-xl mx-auto items-start justify-between">
+          <div className="flex gap-8 max-w-screen-xl mx-auto items-start justify-between pt-16">
             <ArticlesRow
               DesktopRowData={{
                 layout: 'list',
@@ -84,6 +84,9 @@ export default function FrontContent(frontpageData: Frontpage) {
               }
             />
           </div>
+          <CompanyPartnersTile
+            companyPartners={frontPageDataCopy.companyPartners}
+          />
         </>
       </React.StrictMode>
     );
