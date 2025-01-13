@@ -88,6 +88,8 @@
       .byline-name {
         color: var(--v2-card-always-white);
         font-size: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .headline {

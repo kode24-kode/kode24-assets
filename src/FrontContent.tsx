@@ -12,6 +12,7 @@ import ListingsRow from './components/ListingsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
+import PartnerAdTile from './components/PartnerAdTile.tsx';
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
@@ -93,6 +94,9 @@ export default function FrontContent(frontpageData: Frontpage) {
             />
           )}
         </>
+        <CompanyPartnersTile
+          companyPartners={frontPageDataCopy.companyPartners}
+        />
       </React.StrictMode>
     );
 
@@ -221,9 +225,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             }
             newestComments={frontPageDataCopy.newestComments}
           />
-          <CompanyPartnersTile
-            companyPartners={frontPageDataCopy.companyPartners}
-          />
+          <PartnerAdTile />
         </>
       </React.StrictMode>
     );
