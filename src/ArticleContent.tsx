@@ -12,7 +12,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ContentsRow from './components/ContentsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
-import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
+import PartnerAdTile from './components/PartnerAdTile.tsx';
 import structuredClone from '@ungap/structured-clone';
 export default function FrontContent(frontpageData: Frontpage) {
   (window as any).hljs.highlightAll();
@@ -45,9 +45,7 @@ export default function FrontContent(frontpageData: Frontpage) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <>
-              <CompanyPartnersTile
-                companyPartners={frontPageDataCopy.companyPartners}
-              />
+              <PartnerAdTile />
             </>
           </React.StrictMode>
         );
