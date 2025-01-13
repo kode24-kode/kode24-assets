@@ -1,7 +1,5 @@
 import { CompanyPartner } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
-import { getImageCacheUrl } from '../functions/getImageCacheUrl';
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import PartnerTile from './PartnerTile';
 
