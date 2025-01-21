@@ -40,7 +40,7 @@ const companyAds: Array<Partner> = [
           'Vi bygger et lite konsulenthus i det store konsulenthuset, nysgjerrig?',
         url: 'https://partner.kode24.no/capgemini?id=2',
         image:
-          'https://www.dagbladet.no/files/2025/01/13/kode24-capgemini-2.png',
+          'https://www.dagbladet.no/files/2025/01/13/kode24-capgemini-8.jpg',
       },
       {
         title:
