@@ -30,7 +30,7 @@ const companyAds: Array<Partner> = [
     ads: [
       {
         title:
-          'På jakt etter jobb i Fredrikstad, Sandefjord, Kristiansand, Stavanger, Bergen, Oslo, Trondheim eller Lillehammer?',
+          'På jakt etter jobb i Fredrikstad, Sandefjord, Kristiansand, Stavanger, Bergen, Oslo, eller Trondheim?',
         url: 'https://partner.kode24.no/capgemini?id=1',
         image:
           'https://www.dagbladet.no/files/2025/01/13/kode24-capgemini-1.png',
