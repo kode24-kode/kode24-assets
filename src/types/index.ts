@@ -23,6 +23,21 @@ export interface Company {
   logoBackgroundDark?: string;
   description: string;
 }
+
+export interface partnerAd {
+  title: string;
+  url: string;
+  banner: string;
+  uniqueValue: string | undefined;
+}
+export interface partnerAds {
+  slug: string;
+  company: {
+    logo: string;
+    title: string;
+  };
+  ads: Array<partnerAd>;
+}
 export interface Content {
   id: string;
   published_url: string;
@@ -162,6 +177,7 @@ export interface Frontpage {
   companyPartners: [CompanyPartner];
   contentTiles: [ContentTile];
   jobAdsSanity: [ContentTile];
+  partnerAdsSanity: [partnerAds];
   easterHighscore?: {
     users: [HighScoreUser];
     teams: [HighscoreTeam];

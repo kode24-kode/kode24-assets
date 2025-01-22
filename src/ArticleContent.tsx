@@ -45,7 +45,9 @@ export default function FrontContent(frontpageData: Frontpage) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <>
-              <PartnerAdTile />
+              <PartnerAdTile
+                partnerAds={frontPageDataCopy.partnerAdsSanity}
+              />
             </>
           </React.StrictMode>
         );

@@ -225,7 +225,9 @@ export default function FrontContent(frontpageData: Frontpage) {
             }
             newestComments={frontPageDataCopy.newestComments}
           />
-          <PartnerAdTile />
+          <PartnerAdTile
+            partnerAds={frontPageDataCopy.partnerAdsSanity}
+          />
         </>
       </React.StrictMode>
     );

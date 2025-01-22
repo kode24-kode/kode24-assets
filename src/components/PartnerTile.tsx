@@ -1,15 +1,13 @@
-import { CompanyPartner } from '../types';
+import { partnerAds, partnerAd } from '../types';
 import { getImageCacheUrl } from '../functions/getImageCacheUrl';
-
-type PartnerAd = { title: string; url: string; image: string };
+import { shuffleArray } from '../functions/shuffleArray';
 
 export default function PartnerTileItem({
   partner,
-  ad,
 }: {
-  partner: CompanyPartner['company'];
-  ad: PartnerAd;
+  partner: partnerAds;
 }) {
+  const ad = shuffleArray(partner.ads)[0] as partnerAd;
   return (
     <article
       className={`preview columns large-12 small-12 medium-12 compact commercial-content partner-tile-wide`}
@@ -22,7 +20,7 @@ export default function PartnerTileItem({
       <div className="article-content-wrapper">
         <a
           itemProp="url"
-          href={ad.url}
+          href={`https://partner.kode24.no/${partner.slug}?id=${ad.uniqueValue}`}
           title={ad.title}
           aria-label={ad.title}
         >
@@ -32,7 +30,7 @@ export default function PartnerTileItem({
               itemProp="image"
               loading="lazy"
               alt={`image: ${ad.title}`}
-              src={ad.image}
+              src={getImageCacheUrl(ad.banner)}
             />
           </figure>
         </a>
@@ -50,13 +48,15 @@ export default function PartnerTileItem({
             <div className="byline-row">
               <div className="byline-profile-image">
                 <img
-                  src={getImageCacheUrl(partner.logo)}
+                  src={getImageCacheUrl(partner.company.logo)}
                   loading="lazy"
-                  alt={`byline name ${partner.title}`}
+                  alt={`byline name ${partner.company.title}`}
                 />
               </div>
               <div className="byline-info">
-                <div className="byline-name">{partner.title}</div>
+                <div className="byline-name">
+                  {partner.company.title}
+                </div>
               </div>
             </div>
           </div>
