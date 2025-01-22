@@ -1,4 +1,4 @@
-import { partnerAds, partnerAd } from '../types';
+import { partnerAds } from '../types';
 import { shuffleArray } from '../functions/shuffleArray';
 import 'react-multi-carousel/lib/styles.css';
 import PartnerTile from './PartnerTile';
