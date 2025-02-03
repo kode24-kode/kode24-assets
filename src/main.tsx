@@ -25,7 +25,6 @@ import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
-import TopBarAd from './components/TopBarAd.tsx';
 import TopBanner from './components/TopBanner.tsx';
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
