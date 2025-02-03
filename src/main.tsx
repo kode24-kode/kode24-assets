@@ -26,6 +26,7 @@ import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
 import TopBarAd from './components/TopBarAd.tsx';
+import TopBanner from './components/TopBanner.tsx';
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
@@ -48,19 +49,6 @@ Sentry.init({
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
-  /**
-   * Always check if there is a batter on top and draw it
-   */
-
-  const topBarAd = document.getElementById('top-bar-ad');
-  if (topBarAd) {
-    ReactDOM.createRoot(topBarAd).render(
-      <React.StrictMode>
-        <TopBarAd />
-      </React.StrictMode>
-    );
-  }
-
   // the functions below should run regardless.
 
   // only if commercial content
@@ -78,6 +66,26 @@ async function main() {
     'https://docs.kode24.no/api/frontpage'
   );
   const FrontpageData: Frontpage = await response.json();
+
+  /**
+   * Always check if there is a batter on top and draw it
+   */
+  const topBanners =
+    FrontpageData.bannerAds?.filter(
+      (banner) => banner.adFormat === 'desktop-topbanner_1540x300'
+    ) || [];
+  const topBarAd = document.createElement('div');
+
+  if (topBanners.length > 0) {
+    document.querySelector('.frontpage')?.before(topBarAd);
+    topBarAd.classList.add('top-bar-ad');
+    topBarAd.setAttribute('id', 'top-bar-ad');
+    ReactDOM.createRoot(topBarAd).render(
+      <React.StrictMode>
+        <TopBanner ads={topBanners} />
+      </React.StrictMode>
+    );
+  }
 
   if (document.querySelector('.article-entity.artikkel'))
     ArticleContent(structuredClone(FrontpageData) as Frontpage);

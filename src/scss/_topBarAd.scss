@@ -3,8 +3,11 @@
   justify-content: center;
   grid-auto-flow: column;
   padding: 0;
-  padding: 0 0 calc(var(--gutter) * 2) 0;
+  padding-top: 0;
+  padding: 0 max(var(--gutter), 50vw - 860px);
+  padding-bottom: calc(var(--gutter) * 2);
   position: relative;
+
 
   .top-bar-ad-content {
     position: relative;

@@ -182,6 +182,7 @@ export interface Frontpage {
     users: [HighScoreUser];
     teams: [HighscoreTeam];
   };
+  bannerAds: [bannerAd];
 }
 
 export interface HighScoreUser {
@@ -202,4 +203,12 @@ export interface Quicksearch {
   applicant: string;
   jobUrl: string;
   jobTitle: string;
+}
+export interface bannerAd {
+  title: string;
+  hideFrom: string;
+  adlink: URL;
+  adFormat: string;
+  banner: URL;
+  bannerVideo?: URL;
 }
