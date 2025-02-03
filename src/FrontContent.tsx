@@ -13,7 +13,6 @@ import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
 import PartnerAdTile from './components/PartnerAdTile.tsx';
-import TopBanner from './components/TopBanner.tsx';
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
