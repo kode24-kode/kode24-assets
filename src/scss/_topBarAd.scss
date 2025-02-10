@@ -15,6 +15,21 @@
       border-top-left-radius: var(--border-radius);
       border-top-right-radius: var(--border-radius);
   }
+    &.desktop {
+    display: none;
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
+  }
+  &.mobile {
+    display: block;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+    img {
+      width: 100%;
+    }
+  }
 }
 #top-bar-ad {
   display: flex;

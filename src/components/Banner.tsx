@@ -1,24 +1,16 @@
+// For the ad type topbanner
 /**
- * @module TopBanner
- * @category Components
- * @description TopBanner component renders a banner at the top of kode24 at either 1920x300 or 320x250
- * @component TopBanner
+ * @component Banner
  * @example
  * return (
- *  <TopBanner />
+ * <Banner ads={} mobileToggle={true} />
  * )
- * @param {string} props - props description
- * @return {JSX.Element} - React component
- * @exports page
- * @exports TopBanner
- * @exports default
  *
  */
-
 import type { bannerAd } from '../types/index';
 import { shuffleArray } from '../functions/shuffleArray';
 import { useEffect } from 'react';
-const TopBarAd = ({
+const Banner = ({
   ads,
   mobileToggle,
 }: {
@@ -42,7 +34,11 @@ const TopBarAd = ({
     window.location.href = ad.adlink.toString();
   };
   return (
-    <div className="banner-listing">
+    <div
+      className={`banner-listing ${
+        mobileToggle ? 'mobile' : 'desktop'
+      }`}
+    >
       <a
         href={ad.adlink.toString()}
         className="top-bar-ad-content"
@@ -51,7 +47,7 @@ const TopBarAd = ({
       >
         <div
           className={`${
-            mobileToggle ? 'top-bar-ad-mobile' : 'top-bar-ad-desktop'
+            mobileToggle ? 'display-mobile' : 'display-desktop'
           }`}
         >
           <img src={ad.banner.toString()} alt="background" />
@@ -61,4 +57,4 @@ const TopBarAd = ({
   );
 };
 
-export default TopBarAd;
+export default Banner;

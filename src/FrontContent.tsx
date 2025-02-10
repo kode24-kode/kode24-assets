@@ -13,6 +13,7 @@ import { shuffleArray } from './functions/shuffleArray.ts';
 import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
 import PartnerAdTile from './components/PartnerAdTile.tsx';
+import Banner from './components/Banner.tsx';
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
@@ -43,10 +44,24 @@ export default function FrontContent(frontpageData: Frontpage) {
     'articles-below-second-banner'
   ) as HTMLElement;
 
+  const bannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === 'desktop-brandboard_980x600'
+  );
+
+  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === 'mobile-banner_320x250'
+  );
+
   function renderContentBelowFirstBanner() {
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
         <>
+          {bannerAds.length > 0 && (
+            <Banner ads={bannerAds} mobileToggle={false} />
+          )}
+          {mobileBannerAds.length > 0 && (
+            <Banner ads={mobileBannerAds} mobileToggle={true} />
+          )}
           <ArticlesRow
             DesktopRowData={{
               layout: 'main-story-with-two-vertical',
