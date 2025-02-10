@@ -73,15 +73,32 @@ async function main() {
     FrontpageData.bannerAds?.filter(
       (banner) => banner.adFormat === 'desktop-topbanner_1540x300'
     ) || [];
-  const topBarAd = document.createElement('div');
+  const topBannersMobile =
+    FrontpageData.bannerAds?.filter(
+      (banner) => banner.adFormat === 'mobile-topbanner_320x250'
+    ) || [];
 
   if (topBanners.length > 0) {
+    const topBarAd = document.createElement('div');
     document.querySelector('.frontpage')?.before(topBarAd);
-    topBarAd.classList.add('top-bar-ad');
+    topBarAd.classList.add('top-bar-ad', 'desktop');
     topBarAd.setAttribute('id', 'top-bar-ad');
     ReactDOM.createRoot(topBarAd).render(
       <React.StrictMode>
         <TopBanner ads={topBanners} />
+      </React.StrictMode>
+    );
+  }
+
+  if (topBannersMobile.length > 0) {
+    const topBarAd = document.createElement('div');
+    document.querySelector('.frontpage')?.before(topBarAd);
+    topBarAd.classList.add('top-bar-ad', 'mobile');
+    topBarAd.setAttribute('id', 'top-bar-ad');
+    console.log('mobile topbanners', topBannersMobile);
+    ReactDOM.createRoot(topBarAd).render(
+      <React.StrictMode>
+        <TopBanner ads={topBannersMobile} mobileToggle={true} />
       </React.StrictMode>
     );
   }

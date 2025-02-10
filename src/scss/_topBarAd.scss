@@ -44,16 +44,19 @@
       animation: fadeSecond 8s infinite;
     }
   }
-  .top-bar-ad-desktop {
+  &.desktop {
     display: none;
     @media screen and (min-width: 1024px) {
       display: block;
     }
   }
-  .top-bar-ad-mobile {
+  &.mobile {
     display: block;
     @media screen and (min-width: 1024px) {
       display: none;
+    }
+    img {
+      width: 100%;
     }
   }
 }
