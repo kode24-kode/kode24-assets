@@ -14,6 +14,7 @@ import ContentsRow from './components/ContentsRow.tsx';
 import { shuffleArray } from './functions/shuffleArray.ts';
 import PartnerAdTile from './components/PartnerAdTile.tsx';
 import structuredClone from '@ungap/structured-clone';
+import Banner from './components/Banner.tsx';
 export default function FrontContent(frontpageData: Frontpage) {
   (window as any).hljs.highlightAll();
 
@@ -36,6 +37,33 @@ export default function FrontContent(frontpageData: Frontpage) {
 
   /** This part should only occur in articles */
   /** Attempts to add job ads before every odd h2-tag in article */
+
+  const bannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === 'desktop-brandboard_980x600'
+  );
+
+  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === 'mobile-banner_320x250'
+  );
+
+  // create node for banners and add before #hyvor-talk-view
+  const bannerNode = document.createElement('div');
+  ReactDOM.createRoot(bannerNode as HTMLElement).render(
+    <React.StrictMode>
+      <>
+        {bannerAds.length > 0 && (
+          <Banner ads={bannerAds} mobileToggle={false} />
+        )}
+        {mobileBannerAds.length > 0 && (
+          <Banner ads={mobileBannerAds} mobileToggle={true} />
+        )}
+      </>
+    </React.StrictMode>
+  );
+
+  document?.getElementById('hyvor-talk-view')?.before(bannerNode);
+  console.log(bannerNode);
+
   if (document.querySelector('.article-entity.artikkel')) {
     // draw a listing before each h2
     const h2s = document.querySelectorAll('.body-copy h2');
