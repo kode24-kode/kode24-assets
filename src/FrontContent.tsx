@@ -123,6 +123,15 @@ export default function FrontContent(frontpageData: Frontpage) {
             frontPageDataCopy.frontpage.map((DesktopRow, key) => {
               return (
                 <div key={key}>
+                  {bannerAds.length > 0 && (
+                    <Banner ads={bannerAds} mobileToggle={false} />
+                  )}
+                  {mobileBannerAds.length > 0 && (
+                    <Banner
+                      ads={mobileBannerAds}
+                      mobileToggle={true}
+                    />
+                  )}
                   <ArticlesRow
                     DesktopRowData={{
                       layout: 'main-story-with-two-vertical',
