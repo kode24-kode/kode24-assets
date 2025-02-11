@@ -35,24 +35,26 @@ const Banner = ({
   };
   return (
     <div
-      className={`banner-listing ${
+      className={`banner-container ${
         mobileToggle ? 'mobile' : 'desktop'
       }`}
     >
-      <a
-        href={ad.adlink.toString()}
-        className="top-bar-ad-content"
-        target="_blank"
-        onClick={handleClick}
-      >
-        <div
-          className={`${
-            mobileToggle ? 'display-mobile' : 'display-desktop'
-          }`}
+      <div className={`banner-listing`}>
+        <a
+          href={ad.adlink.toString()}
+          className="top-bar-ad-content"
+          target="_blank"
+          onClick={handleClick}
         >
-          <img src={ad.banner.toString()} alt="background" />
-        </div>
-      </a>
+          <div
+            className={`${
+              mobileToggle ? 'display-mobile' : 'display-desktop'
+            }`}
+          >
+            <img src={ad.banner.toString()} alt="background" />
+          </div>
+        </a>
+      </div>
     </div>
   );
 };

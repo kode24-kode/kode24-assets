@@ -42,21 +42,29 @@ const TopBarAd = ({
     window.location.href = ad.adlink.toString();
   };
   return (
-    <div className="banner-listing">
-      <a
-        href={ad.adlink.toString()}
-        className="top-bar-ad-content"
-        target="_blank"
-        onClick={handleClick}
-      >
-        <div
-          className={`${
-            mobileToggle ? 'top-bar-ad-mobile' : 'top-bar-ad-desktop'
-          }`}
+    <div
+      className={`banner-container ${
+        mobileToggle ? 'mobile' : 'desktop'
+      }`}
+    >
+      <div className={`banner-listing`}>
+        <a
+          href={ad.adlink.toString()}
+          className="top-bar-ad-content"
+          target="_blank"
+          onClick={handleClick}
         >
-          <img src={ad.banner.toString()} alt="background" />
-        </div>
-      </a>
+          <div
+            className={`${
+              mobileToggle
+                ? 'top-bar-ad-mobile'
+                : 'top-bar-ad-desktop'
+            }`}
+          >
+            <img src={ad.banner.toString()} alt="background" />
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
