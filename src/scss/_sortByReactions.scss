@@ -1,11 +1,12 @@
 #sort-latest-articles {
-  display: flex;
+  display: inline-flex;
   list-style: none;
-  padding: calc(var(--gutter) / 2);
+  padding: calc(var(--gutter) / 4);
   border-radius: var(--border-radius);
   overflow: hidden;
-  width: calc(100% - calc(var(--gutter) * 2));
-  margin: 0 auto;
+  max-width: calc(100% - calc(var(--gutter)));
+  width: auto;
+  margin: 0 auto var(--gutter) auto;
   background-color: var(--v2-card-background);
 
   @media screen and (max-width: 750px) {
@@ -13,7 +14,9 @@
     border-top: 0;
     border-right: 0;
     justify-content: center;
-
+    padding: calc(var(--gutter) / 2);
+    display: flex;
+    width: calc(100% - calc(var(--gutter) * 2));
     li {
       width: 100%;
     }
@@ -33,6 +36,10 @@
     justify-content: center;
     cursor: pointer;
     border-radius: var(--inner-border-radius);
+    @media screen and (min-width: 1024px) {
+      padding: calc(var(--gutter) / 3) calc(var(--gutter) / 1.5);
+    }
+
     svg {
       margin-right: calc(var(--gutter) / 4);
     }
