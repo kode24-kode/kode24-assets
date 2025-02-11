@@ -3,6 +3,7 @@
     display: none;
     @media screen and (min-width: 1024px) {
       display: flex;
+      margin: var(--gutter) 0 var(--gutter) 0;
     }
   }
   img {
