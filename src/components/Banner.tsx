@@ -19,21 +19,17 @@ const Banner = ({
 }) => {
   const ad = shuffleArray(ads)[0] as bannerAd;
   useEffect(() => {
-    if (plausible) {
-      plausible('annonse_visning', {
-        props: { annonse: ad.title },
-      });
-    }
+    plausible?.('annonse_visning', {
+      props: { annonse: ad.title },
+    });
   }, [ad]);
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     event.preventDefault(); // Prevent the default anchor behavior
-    if (plausible) {
-      plausible('annonse_klikk', {
-        props: { annonse: ad.title },
-      });
-    }
+    plausible?.('annonse_klikk', {
+      props: { annonse: ad.title },
+    });
     // Navigate to the ad link after running the function
     window.location.href = ad.adlink.toString();
   };
