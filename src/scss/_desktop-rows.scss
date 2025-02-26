@@ -69,31 +69,23 @@
   &:not(.commercial) {
 
     .commercial-content {
-      background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
+      background: var(--v2-card-background);
 
-      @media screen and (max-width: 830px) {
-        padding: calc(var(--gutter) / 2);
-        margin-left: calc(var(--gutter) / 2 * -1);
-        margin-top: calc(var(--gutter) / 2 * -1);
-        width: calc(100% + var(--gutter) / 2);
-        border-radius: var(--border-radius);
-      }
+
 
       .company-name {
         font-size: 0.8rem;
         margin: 0 0 calc(var(--gutter) / 4) 0;
-        color: var(--v2-card-always-white);
+        color: var(--v2-card-headline-color);
       }
 
       .byline-name {
-        color: var(--v2-card-always-white);
         font-size: 1rem;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
       .headline {
-        color: var(--v2-card-always-white);
         font-family: var(--v2-font-body);
         font-weight: bold;
         letter-spacing: 0 !important;
@@ -111,14 +103,14 @@
   }
 
   &.commercial {
-    background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
+    //background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
     position: relative;
     flex-direction: column;
 
     .headline,
     .company-name,
     .byline-info {
-      color: var(--v2-card-always-white);
+
       font: var(--v2-font-body);
     }
     .headline {
@@ -149,7 +141,7 @@
     }
 
     .heading-title {
-      color: var(--v2-card-background);
+      color: var(--v2-card-headline-color);
     }
 
     .single {
@@ -180,14 +172,14 @@
         height: 100%;
       }
       .preview {
-        background-color: hsla(0, 0%, 0%, 0.1);
+        background-color: var(--v2-card-background);
         margin-bottom: 0;
         padding: var(--gutter);
         border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
         margin-top: 0;
 
         &:hover {
-          background-color: hsla(0, 0%, 0%, 0.05);
+          background-color: var(--v2-card-background-hover);
         }
 
 
