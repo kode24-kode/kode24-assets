@@ -52,6 +52,11 @@ export default function FrontContent(frontpageData: Frontpage) {
     (ad) => ad.adFormat === 'mobile-banner_320x250'
   );
 
+  const topBannersMobile =
+    frontPageDataCopy.bannerAds?.filter(
+      (banner) => banner.adFormat === 'mobile-topbanner_320x250'
+    ) || [];
+
   function renderContentBelowFirstBanner() {
     ReactDOM.createRoot(articlesBelowFirstBanner).render(
       <React.StrictMode>
@@ -225,6 +230,9 @@ export default function FrontContent(frontpageData: Frontpage) {
             listView={listView}
             newestComments={frontPageDataCopy.newestComments}
           />
+          {topBannersMobile.length > 0 && (
+            <Banner ads={mobileBannerAds} mobileToggle={true} />
+          )}
           <ArticlesRow
             DesktopRowData={{
               layout: 'dual',
@@ -249,6 +257,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             }
             newestComments={frontPageDataCopy.newestComments}
           />
+
           <PartnerAdTile
             partnerAds={frontPageDataCopy.partnerAdsSanity}
           />
