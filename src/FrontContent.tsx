@@ -231,7 +231,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             newestComments={frontPageDataCopy.newestComments}
           />
           {topBannersMobile.length > 0 && (
-            <Banner ads={mobileBannerAds} mobileToggle={true} />
+            <Banner ads={topBannersMobile} mobileToggle={true} />
           )}
           <ArticlesRow
             DesktopRowData={{
