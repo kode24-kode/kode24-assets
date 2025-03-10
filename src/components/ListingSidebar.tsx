@@ -1,4 +1,5 @@
 import { Listing } from '../types';
+import { getImageCacheUrl } from '../functions/getImageCacheUrl';
 export default function ListingSidebar({
   Listing,
 }: {
@@ -21,7 +22,7 @@ export default function ListingSidebar({
       >
         <figure className="">
           <img
-            src={`${Listing.company.imageUrl}`}
+            src={getImageCacheUrl(`${Listing.company.imageUrl}`)}
             loading="lazy"
             alt={`byline name ${Listing.company.name}`}
           />
