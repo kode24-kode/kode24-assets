@@ -10,6 +10,7 @@
 import type { bannerAd } from '../types/index';
 import { shuffleArray } from '../functions/shuffleArray';
 import { useEffect } from 'react';
+import { getImageCacheUrl } from '../functions/getImageCacheUrl';
 const Banner = ({
   ads,
   mobileToggle,
@@ -55,7 +56,10 @@ const Banner = ({
               mobileToggle ? 'display-mobile' : 'display-desktop'
             }`}
           >
-            <img src={ad.banner.toString()} alt="background" />
+            <img
+              src={getImageCacheUrl(ad.banner.toString())}
+              alt="background"
+            />
           </div>
         </a>
       </div>
