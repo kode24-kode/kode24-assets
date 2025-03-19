@@ -1,6 +1,6 @@
 import { Article } from '../types';
 import ArticleTileSocial from './ArticleTileSocial';
-import CommentTile from './CommentTile';
+import { CommentTileSnippet } from './CommentTile';
 export default function ArticleTile({
   Article,
   isHot,
@@ -86,12 +86,11 @@ export default function ArticleTile({
             </div>
             <ArticleTileSocial Article={Article} />
             {Article.highestRatedComment && (
-              <CommentTile
+              <CommentTileSnippet
                 comment={{
                   ...Article.highestRatedComment,
                   ...{ url: Article.published_url },
                 }}
-                oneLine={true}
               />
             )}
           </div>

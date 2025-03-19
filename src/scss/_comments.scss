@@ -37,6 +37,15 @@
       }
     }
   }
+  .comment-username-inline {
+    display: inline-block;
+    background: var(--v2-background);
+    padding: 0.1em 0.2em;
+    font-size: 0.9em;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    margin-right: calc(var(--gutter) / 4);
+  }
 }
 
 .newest-comments-list {

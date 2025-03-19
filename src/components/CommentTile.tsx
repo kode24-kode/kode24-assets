@@ -41,4 +41,34 @@ export default function CommentTile({
   );
 }
 
+export function CommentTileSnippet({
+  comment,
+}: {
+  comment: Comment;
+}) {
+  if (comment.bodySnippet == '') return <></>;
+  return (
+    <a
+      href={comment.url + '#hyvor-talk-view'}
+      className={`comment-tile`}
+      title="Hopp rett til kommentarer i saken"
+      aria-label="Hopp rett til kommentarer i saken"
+    >
+      <div className="comment-inline">
+        <div className="comment-main">
+          <div className="comment-snippet">
+            <div className="comment-username-inline">
+              {comment.user.name}
+            </div>
+            {htmlDecode(comment.bodySnippet)}
+            {comment.bodySnippet.charAt(
+              comment.bodySnippet.length - 1
+            ) != '.' && '...'}
+          </div>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 //<div className="comment-article">{comment.articleTitle}</div>
