@@ -49,7 +49,12 @@ export default function ContentTileItem({
           </figure>
         </a>
         <div className="article-preview-text">
-          <a itemProp="url" href={Content.adlink}>
+          <a
+            itemProp="url"
+            href={Content.adlink}
+            title={Content.title}
+            aria-label={Content.title}
+          >
             <p className="company-name">Annonsørinnhold</p>
             <h1 className="headline">
               <span className="headline-title-wrapper">

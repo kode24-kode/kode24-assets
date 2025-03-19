@@ -36,7 +36,12 @@ export default function PartnerTileItem({
             </figure>
           </a>
           <div className="article-preview-text">
-            <a itemProp="url" href={ad.url}>
+            <a
+              itemProp="url"
+              href={`https://partner.kode24.no/${partner.slug}?id=${ad.uniqueValue}`}
+              title={ad.title}
+              aria-label={ad.title}
+            >
               <p className="company-name">Annonsørinnhold</p>
               <h1 className="headline">
                 <span className="headline-title-wrapper">
