@@ -201,10 +201,6 @@ async function main() {
       </React.StrictMode>
     );
 
-  if (firstBanner && firstBanner.length > 0) {
-    firstBanner[0].prepend(newestCommentsNode);
-  }
-
   const searchNode = document.createElement('div');
   searchNode.id = 'search-component-wrapper';
   ReactDOM.createRoot(searchNode as HTMLElement).render(
