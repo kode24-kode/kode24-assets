@@ -120,7 +120,7 @@ export interface Comment {
     type?: string;
     name: string;
     email?: string;
-    picture: string;
+    picture_url: string;
   };
   bodySnippet: string;
   articleTitle?: string;

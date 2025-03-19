@@ -14,6 +14,7 @@ import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
 import structuredClone from '@ungap/structured-clone';
 import PartnerAdTile from './components/PartnerAdTile.tsx';
 import Banner from './components/Banner.tsx';
+import CommentsTile from './components/CommentsTile.tsx';
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
@@ -257,10 +258,10 @@ export default function FrontContent(frontpageData: Frontpage) {
             }
             newestComments={frontPageDataCopy.newestComments}
           />
-
           <PartnerAdTile
             partnerAds={frontPageDataCopy.partnerAdsSanity}
           />
+          <CommentsTile comments={frontPageDataCopy.newestComments} />
         </>
       </React.StrictMode>
     );

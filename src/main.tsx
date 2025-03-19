@@ -15,7 +15,7 @@ import { handleImageExpansionClick } from './functions/handleImageExpansionClick
 import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.ts';
 import { handleSearchButtonClick } from './functions/handleSearchButtonClick.ts';
 import { handleSourcePointClick } from './functions/handleSourcePointClick.ts';
-import CommentsTile from './components/CommentsTile.tsx';
+
 import Search from './components/Search.tsx';
 import { getArticleId } from './functions/getArticleId.tsx';
 import QuicksearchComponent from './components/Quicksearch.tsx';
@@ -200,16 +200,6 @@ async function main() {
         <DesktopSidemenuFront frontpageData={FrontpageData} />
       </React.StrictMode>
     );
-
-  const newestCommentsNode = document.createElement('div');
-  ReactDOM.createRoot(newestCommentsNode as HTMLElement).render(
-    <React.StrictMode>
-      <CommentsTile comments={FrontpageData.newestComments} />
-    </React.StrictMode>
-  );
-  const firstBanner = document.querySelectorAll(
-    '.show-for-medium-up'
-  );
 
   if (firstBanner && firstBanner.length > 0) {
     firstBanner[0].prepend(newestCommentsNode);

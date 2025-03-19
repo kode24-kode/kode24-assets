@@ -16,31 +16,29 @@ export default function CommentTile({
       title="Hopp rett til kommentarer i saken"
       aria-label="Hopp rett til kommentarer i saken"
     >
-      <div className="comment-text">
-        {oneLine && <span className="comment-icon">💬</span>}
-        <div className="comment-author">
-          {!oneLine && (
-            <img
-              src={comment.user.picture}
-              className="comment-avatar"
-            />
-          )}
-          <div className="comment-username">{comment.user.name}</div>
+      <div className="comment-inline">
+        <div className="comment-avatar">
+          <img src={comment.user.picture_url} className="" />
         </div>
-        {htmlDecode(comment.bodySnippet)}
-        {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !=
-          '.' && '...'}
-      </div>
-      <div className="comment-meta">
-        {!oneLine && (
-          <div className="comment-date">
-            {comment.created_at && getTimeAgo(comment.created_at)}
+        <div className="comment-main">
+          <div className="comment-posted">
+            <div className="comment-username">
+              {comment.user.name}
+            </div>
+            <div className="comment-date">
+              {comment.created_at && getTimeAgo(comment.created_at)}
+            </div>
           </div>
-        )}
+          <div className="comment-snippet">
+            {htmlDecode(comment.bodySnippet)}
+            {comment.bodySnippet.charAt(
+              comment.bodySnippet.length - 1
+            ) != '.' && '...'}
+          </div>
+        </div>
       </div>
-      {!oneLine && (
-        <div className="comment-article">{comment.articleTitle}</div>
-      )}
     </a>
   );
 }
+
+//<div className="comment-article">{comment.articleTitle}</div>
