@@ -10,22 +10,22 @@
   z-index: 100;
   padding: 0 var(--gutter);
   border-bottom: 1px var(--v2-card-border-background);
-  transform: scaleY(-1);
+
 
   @media screen and (min-width: 830px) {
+    transform: scaleY(-1);
     display: flex;
     justify-content: space-between;
     gap: calc(var(--gutter) * 2);
+    &:hover {
+      transform: scaleY(1)
+    }
   }
   @media screen and (min-width: 1200px) {
     display: grid;
     grid-template-columns: minmax(160px, 260px) minmax(0, 986px) 310px;
     padding: 0 max(var(--gutter), 50vw - 860px);
   }
-}
-
-#top-bar:hover {
-  transform: scaleY(1);
 }
 
 .light #top-bar {
