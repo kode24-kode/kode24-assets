@@ -13,13 +13,9 @@
 
 
   @media screen and (min-width: 830px) {
-    transform: scaleY(-1);
     display: flex;
     justify-content: space-between;
     gap: calc(var(--gutter) * 2);
-    &:hover {
-      transform: scaleY(1)
-    }
   }
   @media screen and (min-width: 1200px) {
     display: grid;

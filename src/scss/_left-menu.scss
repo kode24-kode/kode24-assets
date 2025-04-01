@@ -40,10 +40,6 @@
   width: 100%;
   display: none;
   padding: var(--gutter);
-  transform: scaleX(-1);
-  &:hover {
-    transform: scaleX(1);
-  }
   @media screen and (min-width: 830px) {
     background-color: none;
   }
