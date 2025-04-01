@@ -1,5 +1,3 @@
-
-
 #top-bar {
   display: flex;
   width: 100%;
@@ -12,6 +10,7 @@
   z-index: 100;
   padding: 0 var(--gutter);
   border-bottom: 1px var(--v2-card-border-background);
+  transform: scaleY(-1);
 
   @media screen and (min-width: 830px) {
     display: flex;
@@ -24,6 +23,11 @@
     padding: 0 max(var(--gutter), 50vw - 860px);
   }
 }
+
+#top-bar:hover {
+  transform: scaleY(1);
+}
+
 .light #top-bar {
   background-color: rgba(255, 255, 255, 0.8);
   border-bottom-color: hsl(200deg 4% 24% / 20%);
