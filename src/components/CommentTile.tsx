@@ -18,7 +18,13 @@ export default function CommentTile({
     >
       <div className="comment-inline">
         <div className="comment-avatar">
-          <img src={comment.user.picture_url} className="" />
+          <img
+            src={comment.user.picture_url}
+            alt="user photo"
+            className=""
+            width="20"
+            height="20"
+          />
         </div>
         <div className="comment-main">
           <div className="comment-posted">

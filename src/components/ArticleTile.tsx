@@ -75,6 +75,8 @@ export default function ArticleTile({
                   src={`https://www.kode24.no/images/${Article.byline.imageUrl}`}
                   loading="lazy"
                   alt={`byline name ${Article.byline.name}`}
+                  width="20"
+                  height="20"
                 />
               </div>
               <div className="byline-info">
