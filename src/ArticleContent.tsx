@@ -62,7 +62,6 @@ export default function FrontContent(frontpageData: Frontpage) {
   );
 
   document?.getElementById('hyvor-talk-view')?.before(bannerNode);
-  console.log(bannerNode);
 
   if (document.querySelector('.article-entity.artikkel')) {
     // draw a listing before each h2

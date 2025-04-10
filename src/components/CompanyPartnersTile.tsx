@@ -109,7 +109,6 @@ export default function CompanyPartnersTile({
         >
           {shuffledCompanyPartners.map(
             (partner: CompanyPartner, key: number) => {
-              console.log(partner.banner);
               return (
                 <div key={key}>
                   <a
