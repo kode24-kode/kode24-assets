@@ -266,6 +266,6 @@ export default function FrontContent(frontpageData: Frontpage) {
       </React.StrictMode>
     );
 
-    //renderContentBelowFirstBanner();
+    renderContentBelowFirstBanner();
   }
 }
