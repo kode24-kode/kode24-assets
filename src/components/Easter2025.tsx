@@ -5,7 +5,7 @@ export default function EasterComponent ({task} : {task: EasterTask}) {
       <h1>🐥Dagens påskerebus🐥</h1>
       {task.error && (
         <div>
-          <p>Første rebusoppgave kommer mandag 15. april, følg med!</p>
+          <p>Første rebusoppgave kommer mandag 14. april, følg med!</p>
         </div>
       )}
       {!task.error && (
