@@ -14,7 +14,7 @@ export interface Listing {
 }
 
 export interface EasterTask {
-  task: string,
+  task: [string],
   date?: string,
   progressLength?: number,
   error?: string,
