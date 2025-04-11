@@ -25,6 +25,7 @@ import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
+import EasterTeaser from './components/Easter2025.tsx'
 import TopBanner from './components/TopBanner.tsx';
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
@@ -171,7 +172,16 @@ async function main() {
       .getElementById('articles-above-first-banner')
       ?.before(sortByReactionsNode);
   }
+  const easter2025Node = document.createElement('div');
   const podcastPlayerNode = document.createElement('div');
+
+  easter2025Node.classList.add('easter-teaser');
+  ReactDOM.createRoot(easter2025Node).render(
+    <React.StrictMode>
+      <EasterTeaser task={FrontpageData.easter2025} />
+    </React.StrictMode>
+  );
+
   podcastPlayerNode.classList.add('podcast-player');
   ReactDOM.createRoot(podcastPlayerNode).render(
     <React.StrictMode>
@@ -179,7 +189,7 @@ async function main() {
     </React.StrictMode>
   );
   tipUsCallToAction?.after(podcastPlayerNode);
-
+  tipUsCallToAction?.after(easter2025Node);
   /**
   const competitionHighscoreNode = document.createElement('div');
   competitionHighscoreNode.classList.add('competition-highscore');
