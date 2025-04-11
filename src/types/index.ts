@@ -22,7 +22,7 @@ export interface EasterTask {
     {
       word_index: number,
       word: string,
-      updated_at: date,
+      updated_at: Date,
       username: string
     }
   ]

@@ -1,5 +1,5 @@
 import { EasterTask } from "../types"
-export default function EasterComponent ({task}) {
+export default function EasterComponent ({task} : {task: EasterTask}) {
   return (
     <div id="easter-teaser">
       <h1>🐥Dagens påskerebus🐥</h1>
@@ -9,7 +9,7 @@ export default function EasterComponent ({task}) {
         </div>
       )}
       {!task.error && (
-        <div>{task.task.map((task, key) => (
+        <div>{task.task.map((task : string, key : number) => (
           <p key={key}>{task}</p>
         ))}</div>
       )}
