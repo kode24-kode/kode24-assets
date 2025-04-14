@@ -268,36 +268,6 @@ async function main() {
       ?.getElementById('main-content')
       ?.classList.add('section-list');
   }
-
-  /** This part only runs if we are in a job listing */
-  if (document.querySelector('.article-entity.jobb')) {
-    const listingId = getArticleId();
-    if (listingId) {
-      // attempt to find listing and see if it has a quick search tag
-      const listing = FrontpageData.listing.listings.find(
-        (listing) => listing.id === listingId
-      );
-      if (listing && listing?.tags?.includes('jobbmail')) {
-        const jobbmail = document.createElement('div');
-        ReactDOM.createRoot(jobbmail as HTMLElement).render(
-          <React.StrictMode>
-            <QuicksearchComponent
-              quicksearchData={{
-                from: 'no-reply@kode24.no',
-                to:
-                  findDataInSpecialTag(listing.tags, 'jobbmail') ||
-                  '',
-                applicant: '',
-                jobUrl: listing.published_url,
-                jobTitle: listing.title,
-              }}
-            />
-          </React.StrictMode>
-        );
-        document.querySelector('.body-copy')?.append(jobbmail);
-      }
-    }
-  }
 }
 
 main();
