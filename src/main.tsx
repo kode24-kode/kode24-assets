@@ -17,9 +17,6 @@ import { handleSearchButtonClick } from './functions/handleSearchButtonClick.ts'
 import { handleSourcePointClick } from './functions/handleSourcePointClick.ts';
 
 import Search from './components/Search.tsx';
-import { getArticleId } from './functions/getArticleId.tsx';
-import QuicksearchComponent from './components/Quicksearch.tsx';
-import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
 import ListingsApplication from './components/ListingsApplication.tsx';
 import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
