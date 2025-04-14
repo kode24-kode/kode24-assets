@@ -26,6 +26,7 @@
       background-color: oklch(68.1% .162 75.834);
       border-radius: var(--border-radius);
       padding: calc(var(--gutter) / 1.5);
+      display: inline-block;
     }
   }
   a {
