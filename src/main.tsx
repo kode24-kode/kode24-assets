@@ -175,7 +175,7 @@ async function main() {
   easter2025Node.classList.add('easter-teaser');
   ReactDOM.createRoot(easter2025Node).render(
     <React.StrictMode>
-      <EasterTeaser task={FrontpageData.easter2025} />
+      <EasterTeaser />
     </React.StrictMode>
   );
 
