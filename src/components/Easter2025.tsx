@@ -1,4 +1,3 @@
-import { EasterTask } from "../types"
 export default function EasterComponent () {
   return (
     <div id="easter-teaser">
