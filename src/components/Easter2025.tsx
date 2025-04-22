@@ -2,27 +2,13 @@ import { EasterTask } from "../types"
 export default function EasterComponent ({task} : {task: EasterTask}) {
   return (
     <div id="easter-teaser">
-      <h1>🐥Dagens påskerebus🐥</h1>
-      {task.error && (
-        <div>
-          <p>Første rebusoppgave kommer mandag 14. april, følg med!</p>
-        </div>
-      )}
-      {!task.error && (
-        <div>{task.task.map((task : string, key : number) => (
-          <p key={key}>{task}</p>
-        ))}</div>
-      )}
-      {!task.error && (
-        <div className="counter">
-          <span>{task.progressLength} har svart hittil</span>
-        </div>
-      )}
-      {!task.error && (
-        <div className="controls">
-          <a className="button" href="https://www.kode24.no/paaskerebus-2025">Løs oppgaven</a>
-        </div>
-      )}
+      <h1>🐥Påskerebus 🐥</h1>
+      <div>
+        <p>Trekking i påskerebusen er ferdig, men du kan fortsatt prøve å løse den!</p>
+      </div>
+      <div className="controls">
+        <a className="button" href="https://www.kode24.no/paaskerebus-2025">Løs oppgavene</a>
+      </div>
     </div>
   )
 }
