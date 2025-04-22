@@ -1,5 +1,5 @@
 import { EasterTask } from "../types"
-export default function EasterComponent ({task} : {task: EasterTask}) {
+export default function EasterComponent () {
   return (
     <div id="easter-teaser">
       <h1>🐥Påskerebus 🐥</h1>
