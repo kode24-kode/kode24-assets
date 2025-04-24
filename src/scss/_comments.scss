@@ -10,6 +10,7 @@
     .comment-avatar {
       width: 32px;
       height: 32px;
+      flex: 0 0 32px;
       border-radius: 50%;
       overflow: hidden;
       img {
@@ -30,6 +31,13 @@
       .comment-username {
         font-weight: bold;
 
+      }
+
+      .comment-article {
+        background-color: var(--v2-background);
+        padding: calc(var(--gutter) / 4);
+        font-size: 0.8rem;
+        border-radius: var(--border-radius);
       }
       .comment-date {
         color: var(--v2-card-paragraph-color);
