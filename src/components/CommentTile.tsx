@@ -43,7 +43,7 @@ export default function CommentTile({
           </div>
           <div className="comment-article">
             {comment.articleTitle}
-        < /div>
+          </div>
         </div>
       </div>
     </a>
