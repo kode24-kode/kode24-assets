@@ -129,7 +129,7 @@ const FrontPageContent = ({
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [showAllToggle, frontPageDataCopy.latestArticles]);
 
   return (
     <>
