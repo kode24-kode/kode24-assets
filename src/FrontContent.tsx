@@ -117,6 +117,9 @@ const FrontPageContent = ({
     ...frontPageDataCopy.frontpage,
   ] as DesktopRow[];
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
     const handleScroll = () => {
       const scrollTop =
         window.scrollY || document.documentElement.scrollTop;
