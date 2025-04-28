@@ -43,6 +43,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     'articles-above-first-banner'
   ) as HTMLElement;
 
+  /**
   const articlesBelowFirstBanner = document.getElementById(
     'articles-below-first-banner'
   ) as HTMLElement;
@@ -50,6 +51,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   const articlesBelowSecondBanner = document.getElementById(
     'articles-below-second-banner'
   ) as HTMLElement;
+   */
 
   const bannerAds = frontPageDataCopy.bannerAds.filter(
     (ad) => ad.adFormat === 'desktop-brandboard_980x600'
@@ -105,9 +107,10 @@ const FrontPageContent = ({
   allContentTiles: ContentTile[];
   listView: boolean;
 }) => {
-  const [showAllContent, setShowAllContent] = useState(false);
+  const [latestArticlesCopy, setLatestArticlesCopy] = useState([
+    frontPageDataCopy.latestArticles[0],
+  ]);
   const latestArticles = [...frontPageDataCopy.latestArticles];
-  const latestArticlesCopy = [...frontPageDataCopy.latestArticles];
   const jobs = [...frontPageDataCopy.jobs];
 
   const desktopRows = [
@@ -117,8 +120,8 @@ const FrontPageContent = ({
     const handleScroll = () => {
       const scrollTop =
         window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > 200) {
-        setShowAllContent(true);
+      if (scrollTop > 400) {
+        setLatestArticlesCopy([...frontPageDataCopy.latestArticles]);
       }
     };
     window.addEventListener('scroll', handleScroll);
