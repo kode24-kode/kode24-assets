@@ -17,14 +17,12 @@ import { handleSearchButtonClick } from './functions/handleSearchButtonClick.ts'
 import { handleSourcePointClick } from './functions/handleSourcePointClick.ts';
 
 import Search from './components/Search.tsx';
-import { getArticleId } from './functions/getArticleId.tsx';
-import QuicksearchComponent from './components/Quicksearch.tsx';
-import { findDataInSpecialTag } from './functions/findDataInSpecialTag.ts';
 import ListingsApplication from './components/ListingsApplication.tsx';
 import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
+import EasterTeaser from './components/Easter2025.tsx';
 import TopBanner from './components/TopBanner.tsx';
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
@@ -97,6 +95,7 @@ async function main() {
   addNumberToJobCounterInTopMenu(FrontpageData.jobs.length);
 
   function sortLatestArticlesByToggle(sortingToggle = 'newest') {
+    /**
     // grab the DOM-elements for the three content divs for frontendpages
     const articlesAboveFirstBanner = document.getElementById(
       'articles-above-first-banner'
@@ -109,10 +108,11 @@ async function main() {
     const articlesBelowSecondBanner = document.getElementById(
       'articles-below-second-banner'
     ) as HTMLElement;
+     */
 
-    articlesAboveFirstBanner.innerHTML = '';
-    articlesBelowFirstBanner.innerHTML = '';
-    articlesBelowSecondBanner.innerHTML = '';
+    //articlesAboveFirstBanner.innerHTML = '';
+    //articlesBelowFirstBanner.innerHTML = '';
+    //articlesBelowSecondBanner.innerHTML = '';
 
     if (sortingToggle === 'newest') {
       sortingToggle = 'newest';
@@ -171,7 +171,16 @@ async function main() {
       .getElementById('articles-above-first-banner')
       ?.before(sortByReactionsNode);
   }
+  const easter2025Node = document.createElement('div');
   const podcastPlayerNode = document.createElement('div');
+
+  easter2025Node.classList.add('easter-teaser');
+  ReactDOM.createRoot(easter2025Node).render(
+    <React.StrictMode>
+      <EasterTeaser />
+    </React.StrictMode>
+  );
+
   podcastPlayerNode.classList.add('podcast-player');
   ReactDOM.createRoot(podcastPlayerNode).render(
     <React.StrictMode>
@@ -179,7 +188,7 @@ async function main() {
     </React.StrictMode>
   );
   tipUsCallToAction?.after(podcastPlayerNode);
-
+  tipUsCallToAction?.after(easter2025Node);
   /**
   const competitionHighscoreNode = document.createElement('div');
   competitionHighscoreNode.classList.add('competition-highscore');

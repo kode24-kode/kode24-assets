@@ -41,6 +41,9 @@ export default function CommentTile({
               comment.bodySnippet.length - 1
             ) != '.' && '...'}
           </div>
+          <div className="comment-article">
+            {comment.articleTitle}
+          </div>
         </div>
       </div>
     </a>

@@ -4,7 +4,12 @@
  * Its a stupid implementation.
  */
 
-import { Frontpage, Content, ContentTile } from './types/index.ts';
+import {
+  Frontpage,
+  Content,
+  ContentTile,
+  DesktopRow,
+} from './types/index.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import ArticlesRow from './components/ArticlesRow.tsx';
@@ -15,6 +20,7 @@ import structuredClone from '@ungap/structured-clone';
 import PartnerAdTile from './components/PartnerAdTile.tsx';
 import Banner from './components/Banner.tsx';
 import CommentsTile from './components/CommentsTile.tsx';
+import { useEffect, useState } from 'react';
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
@@ -37,6 +43,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     'articles-above-first-banner'
   ) as HTMLElement;
 
+  /**
   const articlesBelowFirstBanner = document.getElementById(
     'articles-below-first-banner'
   ) as HTMLElement;
@@ -44,6 +51,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   const articlesBelowSecondBanner = document.getElementById(
     'articles-below-second-banner'
   ) as HTMLElement;
+   */
 
   const bannerAds = frontPageDataCopy.bannerAds.filter(
     (ad) => ad.adFormat === 'desktop-brandboard_980x600'
@@ -58,214 +66,171 @@ export default function FrontContent(frontpageData: Frontpage) {
       (banner) => banner.adFormat === 'mobile-topbanner_320x250'
     ) || [];
 
+  /**
   function renderContentBelowFirstBanner() {
-    ReactDOM.createRoot(articlesBelowFirstBanner).render(
+
+
+    );
+  }
+   */
+
+  if (articlesAboveFirstBanner) {
+    ReactDOM.createRoot(articlesAboveFirstBanner).render(
       <React.StrictMode>
-        <>
-          {bannerAds.length > 0 && (
-            <Banner ads={bannerAds} mobileToggle={false} />
-          )}
-          {mobileBannerAds.length > 0 && (
-            <Banner ads={mobileBannerAds} mobileToggle={true} />
-          )}
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'main-story-with-two-vertical',
-              style: '',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 3,
-              lenke: '',
-              articles: frontPageDataCopy.latestArticles.splice(0, 3),
-            }}
-            firstRow={false}
-            hotnessThreshold={[40, 10]}
-            listView={listView}
-            newestComments={frontPageDataCopy.newestComments}
-          />
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'dual',
-              style: '',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 2,
-              lenke: '',
-              articles:
-                allContentTiles.length > 0
-                  ? frontPageDataCopy.latestArticles.splice(0, 1)
-                  : frontPageDataCopy.latestArticles.splice(0, 2),
-            }}
-            firstRow={true}
-            hotnessThreshold={[40, 10]}
-            listView={listView}
-            newestComments={frontPageDataCopy.newestComments}
-            ad={
-              allContentTiles.length > 0
-                ? allContentTiles.splice(0, 1)[0]
-                : undefined
-            }
-          />
-          {frontPageDataCopy.jobs.length > 0 && (
-            <ListingsRow
-              Listings={frontPageDataCopy.jobs.splice(0, 3)}
-              listView={listView}
-            />
-          )}
-        </>
-        <CompanyPartnersTile
-          companyPartners={frontPageDataCopy.companyPartners}
+        <FrontPageContent
+          frontPageDataCopy={frontPageDataCopy}
+          bannerAds={bannerAds}
+          mobileBannerAds={mobileBannerAds}
+          topBannersMobile={topBannersMobile}
+          allContentTiles={allContentTiles}
+          listView={listView}
         />
       </React.StrictMode>
     );
 
-    ReactDOM.createRoot(articlesBelowSecondBanner).render(
-      <React.StrictMode>
-        <>
-          {frontPageDataCopy.frontpage &&
-            frontPageDataCopy.frontpage.map &&
-            frontPageDataCopy.frontpage.map((DesktopRow, key) => {
-              return (
-                <div key={key}>
-                  {bannerAds.length > 0 && (
-                    <Banner ads={bannerAds} mobileToggle={false} />
-                  )}
-                  {mobileBannerAds.length > 0 && (
-                    <Banner
-                      ads={mobileBannerAds}
-                      mobileToggle={true}
-                    />
-                  )}
-                  <ArticlesRow
-                    DesktopRowData={{
-                      layout: 'main-story-with-two-vertical',
-                      style: '',
-                      title: '',
-                      description: '',
-                      tags: 'artikler',
-                      antall: 3,
-                      lenke: '',
-                      articles:
-                        frontPageDataCopy.latestArticles.splice(0, 3),
-                    }}
-                    firstRow={false}
-                    hotnessThreshold={[60, 30]}
-                    listView={listView}
-                    newestComments={frontPageDataCopy.newestComments}
-                  />
-                  <ArticlesRow
-                    DesktopRowData={{
-                      layout: 'dual',
-                      style: '',
-                      title: '',
-                      description: '',
-                      tags: 'artikler',
-                      antall: 2,
-                      lenke: '',
-                      articles:
-                        allContentTiles.length > 0
-                          ? frontPageDataCopy.latestArticles.splice(
-                              0,
-                              1
-                            )
-                          : frontPageDataCopy.latestArticles.splice(
-                              0,
-                              2
-                            ),
-                    }}
-                    firstRow={true}
-                    hotnessThreshold={[60, 30]}
-                    listView={listView}
-                    newestComments={frontPageDataCopy.newestComments}
-                    ad={
-                      allContentTiles.length > 0
-                        ? allContentTiles.splice(0, 1)[0]
-                        : undefined
-                    }
-                  />
-                  <ArticlesRow
-                    DesktopRowData={DesktopRow}
-                    firstRow={false}
-                    hotnessThreshold={[50, 20]}
-                    key={key}
-                    listView={listView}
-                    newestComments={frontPageDataCopy.newestComments}
-                  />
-                  {frontPageDataCopy.jobs.length > 0 && (
-                    <ListingsRow
-                      Listings={frontPageDataCopy.jobs.splice(0, 3)}
-                      listView={listView}
-                    />
-                  )}
-                </div>
-              );
-            })}
-        </>
-      </React.StrictMode>
-    );
-  }
-
-  if (
-    articlesAboveFirstBanner &&
-    articlesBelowFirstBanner &&
-    articlesBelowSecondBanner
-  ) {
-    ReactDOM.createRoot(articlesAboveFirstBanner).render(
-      <React.StrictMode>
-        <>
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'main-story-with-two-vertical',
-              style: '',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 3,
-              lenke: '',
-              articles: frontPageDataCopy.latestArticles.splice(0, 3),
-            }}
-            firstRow={true}
-            hotnessThreshold={[20, 5]}
-            listView={listView}
-            newestComments={frontPageDataCopy.newestComments}
-          />
-          {topBannersMobile.length > 0 && (
-            <Banner ads={topBannersMobile} mobileToggle={true} />
-          )}
-          <ArticlesRow
-            DesktopRowData={{
-              layout: 'dual',
-              style: '',
-              title: '',
-              description: '',
-              tags: 'artikler',
-              antall: 2,
-              lenke: '',
-              articles:
-                frontPageDataCopy.content.length > 0
-                  ? frontPageDataCopy.latestArticles.splice(0, 1)
-                  : frontPageDataCopy.latestArticles.splice(0, 2),
-            }}
-            firstRow={true}
-            hotnessThreshold={[20, 5]}
-            listView={listView}
-            ad={
-              allContentTiles.length > 0
-                ? allContentTiles.splice(0, 1)[0]
-                : undefined
-            }
-            newestComments={frontPageDataCopy.newestComments}
-          />
-          <PartnerAdTile
-            partnerAds={frontPageDataCopy.partnerAdsSanity}
-          />
-          <CommentsTile comments={frontPageDataCopy.newestComments} />
-        </>
-      </React.StrictMode>
-    );
-
-    renderContentBelowFirstBanner();
+    //renderContentBelowFirstBanner();
   }
 }
+
+const FrontPageContent = ({
+  frontPageDataCopy,
+  bannerAds,
+  mobileBannerAds,
+  topBannersMobile,
+  allContentTiles,
+  listView,
+}: {
+  frontPageDataCopy: Frontpage;
+  bannerAds: any[];
+  mobileBannerAds: any[];
+  topBannersMobile: any[];
+  allContentTiles: ContentTile[];
+  listView: boolean;
+}) => {
+  const [latestArticlesCopy, setLatestArticlesCopy] = useState([
+    frontPageDataCopy.latestArticles[0],
+  ]);
+  const latestArticles = [...frontPageDataCopy.latestArticles];
+  const jobs = [...frontPageDataCopy.jobs];
+
+  const desktopRows = [
+    ...frontPageDataCopy.frontpage,
+  ] as DesktopRow[];
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.scrollY || document.documentElement.scrollTop;
+      if (scrollTop > 400) {
+        setLatestArticlesCopy([...frontPageDataCopy.latestArticles]);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  return (
+    <>
+      {latestArticlesCopy.map((_, index) => {
+        return (
+          <section key={index}>
+            {latestArticles.length >= 1 && (
+              <div key={index}>
+                <ArticlesRow
+                  DesktopRowData={{
+                    layout: 'main-story-with-two-vertical',
+                    style: '',
+                    title: '',
+                    description: '',
+                    tags: 'artikler',
+                    antall: 3,
+                    lenke: '',
+                    articles: latestArticles.splice(0, 3),
+                  }}
+                  firstRow={false}
+                  hotnessThreshold={[60, 30]}
+                  listView={listView}
+                  newestComments={frontPageDataCopy.newestComments}
+                />
+                {index === 0 && topBannersMobile.length > 0 && (
+                  <Banner
+                    ads={topBannersMobile}
+                    mobileToggle={true}
+                  />
+                )}
+                {bannerAds.length > 0 && (
+                  <Banner ads={bannerAds} mobileToggle={false} />
+                )}
+                {index > 0 && mobileBannerAds.length > 0 && (
+                  <Banner ads={mobileBannerAds} mobileToggle={true} />
+                )}
+              </div>
+            )}
+            {latestArticles.length >= 2 && (
+              <ArticlesRow
+                DesktopRowData={{
+                  layout: 'dual',
+                  style: '',
+                  title: '',
+                  description: '',
+                  tags: 'artikler',
+                  antall: 2,
+                  lenke: '',
+                  articles:
+                    allContentTiles.length > 0
+                      ? latestArticles.splice(0, 1)
+                      : latestArticles.splice(0, 2),
+                }}
+                firstRow={true}
+                hotnessThreshold={[60, 30]}
+                listView={listView}
+                newestComments={frontPageDataCopy.newestComments}
+                ad={
+                  allContentTiles.length > 0
+                    ? allContentTiles.splice(0, 1)[0]
+                    : undefined
+                }
+              />
+            )}
+            <div>
+              {index === 0 && (
+                <>
+                  <PartnerAdTile
+                    partnerAds={frontPageDataCopy.partnerAdsSanity}
+                  />
+                  <CommentsTile
+                    comments={frontPageDataCopy.newestComments}
+                  />
+                </>
+              )}
+            </div>
+
+            {desktopRows.length > 0 && (
+              <ArticlesRow
+                DesktopRowData={desktopRows.splice(0, 1)[0]}
+                firstRow={false}
+                hotnessThreshold={[50, 20]}
+                listView={listView}
+                newestComments={frontPageDataCopy.newestComments}
+              />
+            )}
+            {index === 0 && (
+              <CompanyPartnersTile
+                companyPartners={frontPageDataCopy.companyPartners}
+              />
+            )}
+            <>
+              {jobs.length > 0 && (
+                <ListingsRow
+                  Listings={jobs.splice(0, 3)}
+                  listView={listView}
+                />
+              )}
+            </>
+          </section>
+        );
+      })}
+    </>
+  );
+};

@@ -13,6 +13,21 @@ export interface Listing {
   company: Company;
 }
 
+export interface EasterTask {
+  task: [string],
+  date?: string,
+  progressLength?: number,
+  error?: string,
+  progress?: [
+    {
+      word_index: number,
+      word: string,
+      updated_at: Date,
+      username: string
+    }
+  ]
+}
+
 export interface Company {
   imageUrl: string;
   name: string;
@@ -183,6 +198,7 @@ export interface Frontpage {
     teams: [HighscoreTeam];
   };
   bannerAds: [bannerAd];
+  easter2025: EasterTask;
 }
 
 export interface HighScoreUser {

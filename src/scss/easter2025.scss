@@ -1,0 +1,38 @@
+#easter-teaser {
+
+  background-color: oklch(55.4% .135 66.442);
+  margin-bottom: calc(var(--gutter)* 2);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  font-family: "Comic Sans MS";
+  h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: oklch(85.2% .199 91.936);
+    padding: calc(var(--gutter) / 1.5);
+  }
+  p {
+    padding: 0 calc(var(--gutter) / 1.5) 0 calc(var(--gutter) / 1.5);
+    color: oklch(94.5% .129 101.54);
+  }
+  .controls {
+    padding: calc(var(--gutter) / 1.5);
+  }
+  .counter {
+    padding: calc(var(--gutter) / 1.5);
+    span {
+      background-color: oklch(68.1% .162 75.834);
+      border-radius: var(--border-radius);
+      padding: calc(var(--gutter) / 1.5);
+      display: inline-block;
+    }
+  }
+  a {
+    color: black;
+    font-weight: bold;
+    background-color: oklch(94.5% .129 101.54);
+
+  }
+}

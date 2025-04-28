@@ -70,7 +70,8 @@
 
     .commercial-content {
       background: var(--v2-card-background);
-
+      padding: var(--gutter);
+      border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
 
 
       .company-name {
