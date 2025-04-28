@@ -22,7 +22,7 @@ import FrontContent from './FrontContent.tsx';
 import ArticleContent from './ArticleContent.tsx';
 import PatreonsList from './components/PatreonsList.tsx';
 import PodcastPlayer from './components/PodcastPlayer.tsx';
-import EasterTeaser from './components/Easter2025.tsx'
+import EasterTeaser from './components/Easter2025.tsx';
 import TopBanner from './components/TopBanner.tsx';
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
@@ -95,6 +95,7 @@ async function main() {
   addNumberToJobCounterInTopMenu(FrontpageData.jobs.length);
 
   function sortLatestArticlesByToggle(sortingToggle = 'newest') {
+    /**
     // grab the DOM-elements for the three content divs for frontendpages
     const articlesAboveFirstBanner = document.getElementById(
       'articles-above-first-banner'
@@ -107,10 +108,11 @@ async function main() {
     const articlesBelowSecondBanner = document.getElementById(
       'articles-below-second-banner'
     ) as HTMLElement;
+     */
 
-    articlesAboveFirstBanner.innerHTML = '';
-    articlesBelowFirstBanner.innerHTML = '';
-    articlesBelowSecondBanner.innerHTML = '';
+    //articlesAboveFirstBanner.innerHTML = '';
+    //articlesBelowFirstBanner.innerHTML = '';
+    //articlesBelowSecondBanner.innerHTML = '';
 
     if (sortingToggle === 'newest') {
       sortingToggle = 'newest';
