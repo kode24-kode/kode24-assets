@@ -112,7 +112,7 @@ const FrontPageContent = ({
   ]);
   const latestArticles = [...frontPageDataCopy.latestArticles];
   const jobs = [...frontPageDataCopy.jobs];
-
+  const [showAllToggle, setShowAllToggle] = useState(false);
   const desktopRows = [
     ...frontPageDataCopy.frontpage,
   ] as DesktopRow[];
@@ -120,8 +120,9 @@ const FrontPageContent = ({
     const handleScroll = () => {
       const scrollTop =
         window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > 400) {
+      if (scrollTop > 400 && !showAllToggle) {
         setLatestArticlesCopy([...frontPageDataCopy.latestArticles]);
+        setShowAllToggle(true);
       }
     };
     window.addEventListener('scroll', handleScroll);
