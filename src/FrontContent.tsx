@@ -167,9 +167,7 @@ const FrontPageContent = ({
                     mobileToggle={true}
                   />
                 )}
-                {bannerAds.length > 0 && (
-                  <Banner ads={[...bannerAds]} mobileToggle={false} />
-                )}
+
                 {topBannersMobile.length <= 0 &&
                   mobileBannerAds.length > 0 && (
                     <Banner
@@ -205,20 +203,23 @@ const FrontPageContent = ({
                 }
               />
             )}
+            {bannerAds.length > 0 && (
+              <Banner ads={[...bannerAds]} mobileToggle={false} />
+            )}
             <div>
               {index === 0 && (
                 <>
-                  <PartnerAdTile
-                    partnerAds={frontPageDataCopy.partnerAdsSanity}
-                  />
                   <CommentsTile
                     comments={frontPageDataCopy.newestComments}
+                  />
+                  <PartnerAdTile
+                    partnerAds={frontPageDataCopy.partnerAdsSanity}
                   />
                 </>
               )}
             </div>
 
-            {desktopRows.length > 0 && (
+            {index !== 0 && desktopRows.length > 0 && (
               <ArticlesRow
                 DesktopRowData={desktopRows.splice(0, 1)[0]}
                 firstRow={false}
@@ -227,7 +228,7 @@ const FrontPageContent = ({
                 newestComments={frontPageDataCopy.newestComments}
               />
             )}
-            {index === 0 && (
+            {index === 1 && (
               <CompanyPartnersTile
                 companyPartners={frontPageDataCopy.companyPartners}
               />
