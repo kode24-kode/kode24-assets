@@ -5,8 +5,11 @@
 }
 
 #diamond-partners-list-tile {
-  display: block;
+  display: none;
   margin-bottom: calc(var(--gutter) * 2);
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
 
 .partner-slider {
   background-color: var(--v2-card-background-highlight);
