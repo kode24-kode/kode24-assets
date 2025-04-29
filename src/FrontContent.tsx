@@ -51,7 +51,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   const articlesBelowSecondBanner = document.getElementById(
     'articles-below-second-banner'
   ) as HTMLElement;
-   */
+
 
   const bannerAds = frontPageDataCopy.bannerAds.filter(
     (ad) => ad.adFormat === 'desktop-brandboard_980x600'
@@ -65,7 +65,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     frontPageDataCopy.bannerAds?.filter(
       (banner) => banner.adFormat === 'mobile-topbanner_320x250'
     ) || [];
-
+*/
   /**
   function renderContentBelowFirstBanner() {
 
@@ -79,9 +79,6 @@ export default function FrontContent(frontpageData: Frontpage) {
       <React.StrictMode>
         <FrontPageContent
           frontPageDataCopy={frontPageDataCopy}
-          bannerAds={bannerAds}
-          mobileBannerAds={mobileBannerAds}
-          topBannersMobile={topBannersMobile}
           allContentTiles={allContentTiles}
           listView={listView}
         />
@@ -94,20 +91,14 @@ export default function FrontContent(frontpageData: Frontpage) {
 
 const FrontPageContent = ({
   frontPageDataCopy,
-  bannerAds,
-  mobileBannerAds,
-  topBannersMobile,
+
   allContentTiles,
   listView,
 }: {
   frontPageDataCopy: Frontpage;
-  bannerAds: any[];
-  mobileBannerAds: any[];
-  topBannersMobile: any[];
   allContentTiles: ContentTile[];
   listView: boolean;
 }) => {
-  console.log('frontpagebanner', mobileBannerAds, topBannersMobile);
   const [latestArticlesCopy, setLatestArticlesCopy] = useState([
     frontPageDataCopy.latestArticles[0],
   ]);
@@ -118,7 +109,17 @@ const FrontPageContent = ({
   const desktopRows = [
     ...frontPageDataCopy.frontpage,
   ] as DesktopRow[];
+  const topBannersMobile =
+    frontPageDataCopy.bannerAds?.filter(
+      (banner) => banner.adFormat === 'mobile-topbanner_320x250'
+    ) || [];
+  const bannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === 'desktop-brandboard_980x600'
+  );
 
+  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === 'mobile-banner_320x250'
+  );
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
