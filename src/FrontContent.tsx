@@ -107,15 +107,18 @@ const FrontPageContent = ({
   allContentTiles: ContentTile[];
   listView: boolean;
 }) => {
+  console.log('frontpagebanner', mobileBannerAds, topBannersMobile);
   const [latestArticlesCopy, setLatestArticlesCopy] = useState([
     frontPageDataCopy.latestArticles[0],
   ]);
   const latestArticles = [...frontPageDataCopy.latestArticles];
   const jobs = [...frontPageDataCopy.jobs];
   const [showAllToggle, setShowAllToggle] = useState(false);
+  const allAds = [...allContentTiles];
   const desktopRows = [
     ...frontPageDataCopy.frontpage,
   ] as DesktopRow[];
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -166,9 +169,13 @@ const FrontPageContent = ({
                 {bannerAds.length > 0 && (
                   <Banner ads={bannerAds} mobileToggle={false} />
                 )}
-                {index > 0 && mobileBannerAds.length > 0 && (
-                  <Banner ads={mobileBannerAds} mobileToggle={true} />
-                )}
+                {topBannersMobile.length <= 0 &&
+                  mobileBannerAds.length > 0 && (
+                    <Banner
+                      ads={mobileBannerAds}
+                      mobileToggle={true}
+                    />
+                  )}
               </div>
             )}
             {latestArticles.length >= 2 && (
@@ -182,7 +189,7 @@ const FrontPageContent = ({
                   antall: 2,
                   lenke: '',
                   articles:
-                    allContentTiles.length > 0
+                    allAds.length > 0
                       ? latestArticles.splice(0, 1)
                       : latestArticles.splice(0, 2),
                 }}
@@ -191,8 +198,8 @@ const FrontPageContent = ({
                 listView={listView}
                 newestComments={frontPageDataCopy.newestComments}
                 ad={
-                  allContentTiles.length > 0
-                    ? allContentTiles.splice(0, 1)[0]
+                  allAds.length > 0
+                    ? allAds.splice(0, 1)[0]
                     : undefined
                 }
               />

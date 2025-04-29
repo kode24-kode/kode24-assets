@@ -58,9 +58,13 @@
   }
 }
 
+.newest-comments {
+  margin-bottom: calc(var(--gutter) * 2);
+}
+
 .newest-comments-list {
   list-style: none;
-  margin: 0;
+  margin: 0 0 var(--gutter) 0;
   padding: calc(var(--gutter) / 2);
   max-height: 300px;
   overflow-y: auto;
