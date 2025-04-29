@@ -128,7 +128,7 @@ const FrontPageContent = ({
     const handleScroll = () => {
       const scrollTop =
         window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > 0 && !showAllToggle) {
+      if (scrollTop > 200 && !showAllToggle) {
         setLatestArticlesCopy([...frontPageDataCopy.latestArticles]);
         setShowAllToggle(true);
       }
