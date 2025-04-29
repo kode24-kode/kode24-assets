@@ -203,7 +203,7 @@ const FrontPageContent = ({
                 }
               />
             )}
-            {bannerAds.length > 0 && (
+            {bannerAds.length > 0 && latestArticles.length > 0 && (
               <Banner ads={[...bannerAds]} mobileToggle={false} />
             )}
             <div>
