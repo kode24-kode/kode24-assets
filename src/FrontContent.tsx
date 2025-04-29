@@ -9,6 +9,7 @@ import {
   Content,
   ContentTile,
   DesktopRow,
+  bannerAd,
 } from './types/index.ts';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -57,10 +58,11 @@ export default function FrontContent(frontpageData: Frontpage) {
     (ad) => ad.adFormat === 'desktop-brandboard_980x600'
   );
 
+  **/
   const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
     (ad) => ad.adFormat === 'mobile-banner_320x250'
-  );
-
+  ) as bannerAd[];
+  /**
   const topBannersMobile =
     frontPageDataCopy.bannerAds?.filter(
       (banner) => banner.adFormat === 'mobile-topbanner_320x250'
@@ -81,6 +83,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           frontPageDataCopy={frontPageDataCopy}
           allContentTiles={allContentTiles}
           listView={listView}
+          mobileBannerAds={mobileBannerAds}
         />
       </React.StrictMode>
     );
@@ -91,12 +94,13 @@ export default function FrontContent(frontpageData: Frontpage) {
 
 const FrontPageContent = ({
   frontPageDataCopy,
-
+  mobileBannerAds,
   allContentTiles,
   listView,
 }: {
   frontPageDataCopy: Frontpage;
   allContentTiles: ContentTile[];
+  mobileBannerAds: bannerAd[];
   listView: boolean;
 }) => {
   const [latestArticlesCopy, setLatestArticlesCopy] = useState([
@@ -117,9 +121,6 @@ const FrontPageContent = ({
     (ad) => ad.adFormat === 'desktop-brandboard_980x600'
   );
 
-  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === 'mobile-banner_320x250'
-  );
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -127,7 +128,7 @@ const FrontPageContent = ({
     const handleScroll = () => {
       const scrollTop =
         window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > 400 && !showAllToggle) {
+      if (scrollTop > 0 && !showAllToggle) {
         setLatestArticlesCopy([...frontPageDataCopy.latestArticles]);
         setShowAllToggle(true);
       }
