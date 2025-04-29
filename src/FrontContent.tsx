@@ -163,7 +163,7 @@ const FrontPageContent = ({
                 />
                 {index === 0 && topBannersMobile.length > 0 && (
                   <Banner
-                    ads={topBannersMobile}
+                    ads={[...topBannersMobile]}
                     mobileToggle={true}
                   />
                 )}
