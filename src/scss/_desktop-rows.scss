@@ -90,7 +90,10 @@
         font-family: var(--v2-font-body);
         font-weight: bold;
         letter-spacing: 0 !important;
-        font-size: 2em;
+        font-size: 1.4rem;
+        @media screen and (min-width:1024px) {
+          font-size: 2rem;
+        }
       }
     }
   }
