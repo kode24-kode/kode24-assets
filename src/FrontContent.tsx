@@ -168,12 +168,12 @@ const FrontPageContent = ({
                   />
                 )}
                 {bannerAds.length > 0 && (
-                  <Banner ads={bannerAds} mobileToggle={false} />
+                  <Banner ads={[...bannerAds]} mobileToggle={false} />
                 )}
                 {topBannersMobile.length <= 0 &&
                   mobileBannerAds.length > 0 && (
                     <Banner
-                      ads={mobileBannerAds}
+                      ads={[...mobileBannerAds]}
                       mobileToggle={true}
                     />
                   )}
