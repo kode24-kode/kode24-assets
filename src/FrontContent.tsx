@@ -162,14 +162,17 @@ const FrontPageContent = ({
                   listView={listView}
                   newestComments={frontPageDataCopy.newestComments}
                 />
-                {index === 0 && topBannersMobile.length > 0 && (
-                  <Banner
-                    ads={[...topBannersMobile]}
-                    mobileToggle={true}
-                  />
-                )}
+                {index === 0 &&
+                  latestArticlesCopy.length > 1 &&
+                  topBannersMobile.length > 0 && (
+                    <Banner
+                      ads={[...topBannersMobile]}
+                      mobileToggle={true}
+                    />
+                  )}
 
                 {topBannersMobile.length <= 0 &&
+                  latestArticlesCopy.length > 1 &&
                   mobileBannerAds.length > 0 && (
                     <Banner
                       ads={[...mobileBannerAds]}
