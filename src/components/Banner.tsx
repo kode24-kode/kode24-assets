@@ -18,8 +18,7 @@ const Banner = ({
   ads: bannerAd[];
   mobileToggle?: boolean;
 }) => {
-  const adsCopy = [...ads];
-  const ad = shuffleArray(adsCopy)[0] as bannerAd;
+  const ad = shuffleArray(ads)[0] as bannerAd;
   useEffect(() => {
     if (typeof plausible !== 'undefined') {
       plausible('annonse_visning', {
