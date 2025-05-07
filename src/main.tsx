@@ -22,7 +22,6 @@ import FrontContent from "./FrontContent.tsx";
 import ArticleContent from "./ArticleContent.tsx";
 import PatreonsList from "./components/PatreonsList.tsx";
 import PodcastPlayer from "./components/PodcastPlayer.tsx";
-import EasterTeaser from "./components/Easter2025.tsx";
 import TopBanner from "./components/TopBanner.tsx";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
