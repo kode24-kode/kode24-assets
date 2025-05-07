@@ -1,36 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import './scss/main.scss';
-import { Frontpage, Article } from './types/index.ts';
-import FullEventsList from './components/FullEventsList.tsx';
-import { adjustLazyImages } from './functions/adjustLazyImages.ts';
-import structuredClone from '@ungap/structured-clone';
-import SortByReactions from './components/SortByReactions.tsx';
-import DesktopSidemenuFront from './DesktopSidemenuFront.tsx';
-import { addNumberToEventCounterInTopMenu } from './functions/addNumberToEventCounterInTopMenu.ts';
-import { addNumberToJobCounterInTopMenu } from './functions/addNumberToJobCounterInTopMenu.ts';
-import { addRibbonClassToTop } from './functions/addRibbonClassToTop.ts';
-import { handleImageExpansionClick } from './functions/handleImageExpansionClick.ts';
-import { handleHamburgerMenuClick } from './functions/handleHamburgerMenuClick.ts';
-import { handleSearchButtonClick } from './functions/handleSearchButtonClick.ts';
-import { handleSourcePointClick } from './functions/handleSourcePointClick.ts';
+import "./scss/main.scss";
+import { Frontpage, Article } from "./types/index.ts";
+import FullEventsList from "./components/FullEventsList.tsx";
+import { adjustLazyImages } from "./functions/adjustLazyImages.ts";
+import structuredClone from "@ungap/structured-clone";
+import SortByReactions from "./components/SortByReactions.tsx";
+import DesktopSidemenuFront from "./DesktopSidemenuFront.tsx";
+import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu.ts";
+import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu.ts";
+import { addRibbonClassToTop } from "./functions/addRibbonClassToTop.ts";
+import { handleImageExpansionClick } from "./functions/handleImageExpansionClick.ts";
+import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick.ts";
+import { handleSearchButtonClick } from "./functions/handleSearchButtonClick.ts";
+import { handleSourcePointClick } from "./functions/handleSourcePointClick.ts";
 
-import Search from './components/Search.tsx';
-import ListingsApplication from './components/ListingsApplication.tsx';
-import FrontContent from './FrontContent.tsx';
-import ArticleContent from './ArticleContent.tsx';
-import PatreonsList from './components/PatreonsList.tsx';
-import PodcastPlayer from './components/PodcastPlayer.tsx';
-import EasterTeaser from './components/Easter2025.tsx';
-import TopBanner from './components/TopBanner.tsx';
+import Search from "./components/Search.tsx";
+import ListingsApplication from "./components/ListingsApplication.tsx";
+import FrontContent from "./FrontContent.tsx";
+import ArticleContent from "./ArticleContent.tsx";
+import PatreonsList from "./components/PatreonsList.tsx";
+import PodcastPlayer from "./components/PodcastPlayer.tsx";
+import EasterTeaser from "./components/Easter2025.tsx";
+import TopBanner from "./components/TopBanner.tsx";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
-import * as Sentry from '@sentry/react';
+import * as Sentry from "@sentry/react";
 
 Sentry.init({
-  dsn: 'https://88c129afe0da75f1811037da951b4bb3@o4507420043182080.ingest.de.sentry.io/4507420049145937',
+  dsn: "https://88c129afe0da75f1811037da951b4bb3@o4507420043182080.ingest.de.sentry.io/4507420049145937",
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.replayIntegration(),
@@ -38,7 +38,7 @@ Sentry.init({
   // Performance Monitoring
   tracesSampleRate: 1.0, //  Capture 100% of the transactions
   // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
-  tracePropagationTargets: ['localhost', /^https:\/\/kode24\.no/],
+  tracePropagationTargets: ["localhost", /^https:\/\/kode24\.no/],
   // Session Replay
   replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
   replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
@@ -59,9 +59,7 @@ async function main() {
   handleSourcePointClick();
 
   // fetch frontpage data
-  const response = await fetch(
-    'https://docs.kode24.no/api/frontpage'
-  );
+  const response = await fetch("https://docs.kode24.no/api/frontpage");
   const FrontpageData: Frontpage = await response.json();
 
   /**
@@ -69,14 +67,14 @@ async function main() {
    */
   const topBanners =
     FrontpageData.bannerAds?.filter(
-      (banner) => banner.adFormat === 'desktop-topbanner_1540x300'
+      (banner) => banner.adFormat === "desktop-topbanner_1540x300"
     ) || [];
 
   if (topBanners.length > 0) {
-    const topBarAd = document.createElement('div');
-    document.querySelector('.frontpage')?.before(topBarAd);
-    topBarAd.classList.add('top-bar-ad', 'desktop');
-    topBarAd.setAttribute('id', 'top-bar-ad');
+    const topBarAd = document.createElement("div");
+    document.querySelector(".frontpage")?.before(topBarAd);
+    topBarAd.classList.add("top-bar-ad", "desktop");
+    topBarAd.setAttribute("id", "top-bar-ad");
     ReactDOM.createRoot(topBarAd).render(
       <React.StrictMode>
         <TopBanner ads={topBanners} />
@@ -84,17 +82,15 @@ async function main() {
     );
   }
 
-  if (document.querySelector('.article-entity.artikkel'))
+  if (document.querySelector(".article-entity.artikkel"))
     ArticleContent(structuredClone(FrontpageData) as Frontpage);
   FrontContent(structuredClone(FrontpageData) as Frontpage);
 
-  addNumberToEventCounterInTopMenu(
-    FrontpageData.events.upcomingEvents.length
-  );
+  addNumberToEventCounterInTopMenu(FrontpageData.events.upcomingEvents.length);
 
   addNumberToJobCounterInTopMenu(FrontpageData.jobs.length);
 
-  function sortLatestArticlesByToggle(sortingToggle = 'newest') {
+  function sortLatestArticlesByToggle(sortingToggle = "newest") {
     /**
     // grab the DOM-elements for the three content divs for frontendpages
     const articlesAboveFirstBanner = document.getElementById(
@@ -114,12 +110,12 @@ async function main() {
     //articlesBelowFirstBanner.innerHTML = '';
     //articlesBelowSecondBanner.innerHTML = '';
 
-    if (sortingToggle === 'newest') {
-      sortingToggle = 'newest';
+    if (sortingToggle === "newest") {
+      sortingToggle = "newest";
       FrontContent(structuredClone(FrontpageData) as Frontpage);
     }
-    if (sortingToggle === 'mostReactions') {
-      sortingToggle = 'mostReactions';
+    if (sortingToggle === "mostReactions") {
+      sortingToggle = "mostReactions";
       const frontPageDataSortedByReactions = structuredClone(
         FrontpageData
       ) as Frontpage;
@@ -130,8 +126,8 @@ async function main() {
         );
       FrontContent(structuredClone(frontPageDataSortedByReactions));
     }
-    if (sortingToggle === 'mostComments') {
-      sortingToggle = 'mostComments';
+    if (sortingToggle === "mostComments") {
+      sortingToggle = "mostComments";
       const frontPageDataSortedByReactions = structuredClone(
         FrontpageData
       ) as Frontpage;
@@ -144,21 +140,19 @@ async function main() {
     }
   }
 
-  const sortingToggle = 'newest';
+  const sortingToggle = "newest";
 
   const desktopSideMenuFront = document.getElementById(
-    'desktop-sidemenu-front'
+    "desktop-sidemenu-front"
   ) as HTMLElement;
 
-  const eventsList = document.getElementById('events-list');
-  const listingList = document.getElementById('listings-application');
-  const leftMenu = document.getElementById('left-menu');
-  const tipUsCallToAction = document.getElementById(
-    'tip-us-call-to-action'
-  );
+  const eventsList = document.getElementById("events-list");
+  const listingList = document.getElementById("listings-application");
+  const leftMenu = document.getElementById("left-menu");
+  const tipUsCallToAction = document.getElementById("tip-us-call-to-action");
 
-  if (document.getElementById('articles-above-first-banner')) {
-    const sortByReactionsNode = document.createElement('div');
+  if (document.getElementById("articles-above-first-banner")) {
+    const sortByReactionsNode = document.createElement("div");
     ReactDOM.createRoot(sortByReactionsNode).render(
       <React.StrictMode>
         <SortByReactions
@@ -168,20 +162,13 @@ async function main() {
       </React.StrictMode>
     );
     document
-      .getElementById('articles-above-first-banner')
+      .getElementById("articles-above-first-banner")
       ?.before(sortByReactionsNode);
   }
-  const easter2025Node = document.createElement('div');
-  const podcastPlayerNode = document.createElement('div');
+  const easter2025Node = document.createElement("div");
+  const podcastPlayerNode = document.createElement("div");
 
-  easter2025Node.classList.add('easter-teaser');
-  ReactDOM.createRoot(easter2025Node).render(
-    <React.StrictMode>
-      <EasterTeaser />
-    </React.StrictMode>
-  );
-
-  podcastPlayerNode.classList.add('podcast-player');
+  podcastPlayerNode.classList.add("podcast-player");
   ReactDOM.createRoot(podcastPlayerNode).render(
     <React.StrictMode>
       <PodcastPlayer />
@@ -210,22 +197,20 @@ async function main() {
       </React.StrictMode>
     );
 
-  const searchNode = document.createElement('div');
-  searchNode.id = 'search-component-wrapper';
+  const searchNode = document.createElement("div");
+  searchNode.id = "search-component-wrapper";
   ReactDOM.createRoot(searchNode as HTMLElement).render(
     <React.StrictMode>
       <Search />
     </React.StrictMode>
   );
-  document.querySelector('#nav-top')?.append(searchNode);
+  document.querySelector("#nav-top")?.append(searchNode);
 
   /** this part only occurs if the div "event-list" is present */
   if (eventsList) {
     ReactDOM.createRoot(eventsList).render(
       <React.StrictMode>
-        <FullEventsList
-          events={FrontpageData.events.upcomingEvents}
-        />
+        <FullEventsList events={FrontpageData.events.upcomingEvents} />
       </React.StrictMode>
     );
   }
@@ -236,7 +221,7 @@ async function main() {
     FrontpageData.partners.goldPatreon &&
     FrontpageData.partners.silverPatreon
   ) {
-    const newNode = document.createElement('div');
+    const newNode = document.createElement("div");
     ReactDOM.createRoot(newNode).render(
       <React.StrictMode>
         <PatreonsList
@@ -262,10 +247,8 @@ async function main() {
   }
 
   /** Add class for topic pages */
-  if (window.location.pathname.includes('/emne')) {
-    document
-      ?.getElementById('main-content')
-      ?.classList.add('section-list');
+  if (window.location.pathname.includes("/emne")) {
+    document?.getElementById("main-content")?.classList.add("section-list");
   }
 }
 
