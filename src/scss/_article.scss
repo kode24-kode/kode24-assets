@@ -50,7 +50,9 @@
       flex: 0 0 280px;
     }
   }
-
+  .headline {
+    font-family: var(--fontMono);
+  }
   header.row {
     padding: 0 var(--gutter);
     width: 100%;
@@ -292,7 +294,7 @@
   .row:not(header) {
     display: flex;
   }
-
+  .bodytext,
   .body-copy {
     padding: var(--gutter) !important;
 
@@ -498,7 +500,7 @@
       padding: 0.8rem;
     }
   }
-
+  .bodytext .preview,
   .body-copy .preview {
     background: var(--v2-card-background);
     transition: all 0.1s ease-in-out;
