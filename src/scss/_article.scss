@@ -392,6 +392,7 @@
       text-rendering: optimizeLegibility;
       margin: 0;
       margin-bottom: calc(var(--gutter));
+      padding-inline: unset;
     }
     @media screen and (min-width: $vp-tablet) {
       flex: 0 0 670px;
