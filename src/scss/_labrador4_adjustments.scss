@@ -46,6 +46,9 @@ body {
 
 article.column .bylines {
   border-top: 0;
+  .byline {
+    padding-top: 0;
+  }
 }
 article.column .content .flash:before {
   background-color: var(--v2-label-color-pink);
