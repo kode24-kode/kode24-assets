@@ -7,6 +7,9 @@
   .kicker {
     color: var(--v2-card-paragraph-color);
   }
+  .border_width_0 {
+    padding: 0;
+  }
 }
 
 h1,
@@ -26,4 +29,17 @@ body {
 
 .row .row {
   margin-bottom: 0;
+}
+
+.row .columns.large-6,
+.row .columns.large-5,
+.row .columns.large-7 {
+  margin-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  article.column .content figure.desktop-floatLeft,
+  article.column .content figure.desktop-floatRight {
+    margin-right: calc(.7rem * 2);
+  }
 }
