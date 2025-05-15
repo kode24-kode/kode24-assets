@@ -47,3 +47,58 @@ body {
 article.column .bylines {
   border-top: 0;
 }
+article.column .content .flash:before {
+  background-color: var(--v2-label-color-pink);
+}
+
+.bg-gray {
+  background-color: var(--v2-card-background);
+}
+.bg-pink {
+  background-color: var(--v2-color-pink-darker);
+}
+
+.bg-purple {
+  background-color: var(--v2-label-color-purple-darker);
+}
+
+.bg-teal {
+  background-color: var(--v2-label-color-teal-darker);
+}
+.bg-blue {
+  background-color: var(--v2-label-color-mint-darker);
+}
+.bg-yellow {
+  background-color: var(--v2-label-color-yellow-darker);
+}
+.bg-orange {
+  background-color: var(--v2-label-color-orange-darker);
+}
+
+.text-regular {
+  color: var(--v2-card-headline-color);
+}
+
+.text-pink {
+  color: var(--v2-label-color-pink);
+}
+
+.text-purple {
+  color: var(--v2-label-color-purple);
+}
+.text-teal {
+  color: var(--v2-label-color-teal);
+}
+.text-blue {
+  color: var(--v2-label-color-mint);
+}
+.text-yellow {
+  color: var(--v2-label-color-yellow);
+}
+.text-orange {
+  color: var(--v2-label-color-orange);
+}
+
+
+
+
