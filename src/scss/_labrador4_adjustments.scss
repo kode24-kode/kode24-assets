@@ -1,6 +1,7 @@
 .page-content {
   .headline {
     color: var(--v2-card-headline-color);
+    font-family: var(--fontMono);
   }
   .subtitle,
   .kicker {
@@ -8,8 +9,17 @@
   }
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: unset;
+}
 .font-IBMPlexMono {
   font-family: var(--fontMono);
 }
 
-
+body {
+  color: var(--v2-card-headline-color);
+}
