@@ -62,6 +62,7 @@ article.column .bylines {
   border-top: 0;
   .byline {
     padding-top: 0;
+    margin-right: 0.7rem
   }
 }
 
@@ -121,6 +122,6 @@ article.column .content .flash:before {
   color: var(--v2-label-color-orange);
 }
 
-
-
-
+.large-12 .large-12+.large-12 {
+  margin-top: 0.7rem;
+}

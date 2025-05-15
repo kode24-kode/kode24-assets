@@ -4,41 +4,12 @@ html {
   content: "🐥 piip piip kodeordet er datan "
 }
 
-@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,500,500i|IBM+Plex+Sans:400,400i,500,500i");
+
 
 /**
   fetches the user's preferred color scheme
   adds a toggle for block elements that should be hidden according to theme
 */
-@media (prefers-color-scheme: dark) {
-  html {
-    @include dark;
-    --showBlockForLight: none;
-    --showBlockForDark: block;
-  }
-}
-
-
-@media (prefers-color-scheme: light) {
-  html {
-    @include light;
-    --showBlockForLight: block;
-    --showBlockForDark: none;
-  }
-}
-
-html.dark {
-  @include dark;
-  --showBlockForLight: none;
-  --showBlockForDark: block;
-}
-
-html.light {
-  @include light;
-  --showBlockForLight: block;
-  --showBlockForDark: none;
-}
-
 
 
 html {
