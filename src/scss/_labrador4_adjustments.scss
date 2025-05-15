@@ -10,6 +10,20 @@
   .border_width_0 {
     padding: 0;
   }
+  .fullwidthTarget {
+    border-radius: var(--border-radius);
+  }
+  .bg-pink,
+  .bg-purple,
+  .bg-teal,
+  .bg-blue,
+  .bg-yellow,
+  .bg-orange {
+    .fullwidthTarget {
+      border-radius: none;
+    }
+    border-radius: var(--border-radius);
+  }
 }
 
 h1,
