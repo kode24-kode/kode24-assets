@@ -20,7 +20,7 @@
   .bg-yellow,
   .bg-orange {
     .fullwidthTarget {
-      border-radius: none;
+      border-radius: 0;
     }
     border-radius: var(--border-radius);
   }
@@ -64,6 +64,11 @@ article.column .bylines {
     padding-top: 0;
   }
 }
+
+article.column .content figure {
+  margin-bottom: 0;
+}
+
 article.column .content .flash:before {
   background-color: var(--v2-label-color-pink);
 }
