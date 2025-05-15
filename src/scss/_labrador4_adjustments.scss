@@ -2,6 +2,9 @@
   .headline {
     color: var(--v2-card-headline-color);
     font-family: var(--fontMono);
+    line-height: 1.2;
+    letter-spacing: -1px;
+    font-weight: 500;
   }
   .subtitle,
   .kicker {
