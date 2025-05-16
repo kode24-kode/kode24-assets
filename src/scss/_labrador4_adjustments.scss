@@ -87,3 +87,23 @@ article.column .content .flash:before {
 .large-12 .large-12+.large-12 {
   margin-top: 0.7rem;
 }
+
+.article-reactions {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  background-color: var(--v2-card-background);
+  padding: calc(0.7rem / 2);
+  border-radius: var(--border-radius);
+  display: flex;
+  gap: calc(0.7rem / 2);
+  font-size: 0.9rem;
+  span {
+    display: flex;
+    align-items: center;
+    gap: calc(0.7rem / 8);
+    svg {
+      font-size: 1.1rem;
+    }
+  }
+}
