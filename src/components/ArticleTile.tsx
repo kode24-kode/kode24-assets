@@ -1,6 +1,6 @@
-import { Article } from '../types';
-import ArticleTileSocial from './ArticleTileSocial';
-import { CommentTileSnippet } from './CommentTile';
+import { Article } from "../types";
+import ArticleTileSocial from "./ArticleTileSocial";
+import { CommentTileSnippet } from "./CommentTile";
 export default function ArticleTile({
   Article,
   isHot,
@@ -17,7 +17,7 @@ export default function ArticleTile({
     <article
       id={`article_${Article.id}`}
       className={`preview columns large-12 small-12 medium-12 compact ${
-        isHot ? 'hot' : ''
+        isHot ? "hot" : ""
       }`}
       itemScope
       itemType="https://schema.org/ListItem"
@@ -46,25 +46,27 @@ export default function ArticleTile({
         <div className="article-preview-text">
           <a itemProp="url" href={Article.published_url}>
             <time className="published" dateTime={Article.published}>
-              {articleIsToday
-                ? `I dag, ${new Intl.DateTimeFormat('no-NB', {
-                    timeStyle: 'short',
-                    timeZone: 'Europe/Oslo',
-                  }).format(new Date(Article.published))}`
-                : `
-              ${new Intl.DateTimeFormat('no-NB', {
-                weekday: 'long',
-                month: 'long',
-                day: 'numeric',
-                timeZone: 'Europe/Oslo',
-              }).format(new Date(Article.published))}
-            `}
+              {Article.published && (
+                <>
+                  {articleIsToday
+                    ? `I dag, ${new Intl.DateTimeFormat("no-NB", {
+                        timeStyle: "short",
+                        timeZone: "Europe/Oslo",
+                      }).format(new Date(Article.published))}`
+                    : `
+                    ${new Intl.DateTimeFormat("no-NB", {
+                      weekday: "long",
+                      month: "long",
+                      day: "numeric",
+                      timeZone: "Europe/Oslo",
+                    }).format(new Date(Article.published))}
+                  `}
+                </>
+              )}
             </time>
 
             <h1 className="headline">
-              <span className="headline-title-wrapper">
-                {Article.title}
-              </span>
+              <span className="headline-title-wrapper">{Article.title}</span>
             </h1>
           </a>
 
@@ -80,9 +82,7 @@ export default function ArticleTile({
                 />
               </div>
               <div className="byline-info">
-                <div className="byline-name">
-                  {Article.byline.name}
-                </div>
+                <div className="byline-name">{Article.byline.name}</div>
                 <div className="byline-bio">{Article.byline.bio}</div>
               </div>
             </div>

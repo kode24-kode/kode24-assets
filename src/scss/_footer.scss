@@ -20,7 +20,7 @@
   }
   .columns {
     @media screen and (min-width: $vp-desktop) {
-      padding: calc(var(--gutter) * 6);
+      padding: calc(var(--gutter));
     }
   }
   ul,

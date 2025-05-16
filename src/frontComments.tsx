@@ -28,11 +28,7 @@ export default function FrontComments(latestArticles: Article[]) {
         const mediaFigure = article.querySelector(".media figure");
         if (mediaFigure) {
           mediaFigure.appendChild(commentNode); // Append the commentNode to the .media figure element
-        } else {
-          console.warn("No .media figure found in article", article);
         }
-
-        console.log("fant artikkel", articleData); // Do something with the instance number
       }
     }
   });
