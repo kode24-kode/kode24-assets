@@ -5,6 +5,9 @@
     line-height: 1.2;
     letter-spacing: -1px;
     font-weight: 500;
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+    padding: 0;
   }
   .subtitle,
   .kicker {
@@ -61,8 +64,9 @@ body {
   }
 }
 
-article.column .bylines {
+.page-content article.column .bylines {
   border-top: 0;
+  margin-top: 0.7rem;
   .byline {
     padding-top: 0;
 
