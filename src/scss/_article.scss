@@ -584,13 +584,16 @@
     p {
       color: var(--v2-card-paragraph-color);
     }
+    h2,h3 {
+      margin-top: var(--gutter);
+    }
   }
   .meta::before {
     display: none;
   }
   .meta {
     max-width: 670px;
-    margin: 0 auto;
+    margin: var(--gutter) auto;
   }
   .bylines {
     border-bottom: 0;
