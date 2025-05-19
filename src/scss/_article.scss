@@ -565,3 +565,14 @@
   overflow-x: hidden;
   margin: 0 auto;
 }
+
+.article-entity {
+  .headerImage {
+    border-radius: var(--border-radius);
+
+  }
+}
+
+.front-page.wide article:not([class*=bg-]) {
+  background: transparent !important;
+}
