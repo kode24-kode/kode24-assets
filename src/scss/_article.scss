@@ -569,7 +569,11 @@
 .article-entity {
   .headerImage {
     border-radius: var(--border-radius);
+    overflow: hidden;
+  }
 
+  .meta {
+    opacity: 1;
   }
   .bodytext {
     max-width: 100%;
@@ -577,12 +581,20 @@
       max-width: 670px;
       margin: 0 auto;
     }
+    p {
+      color: var(--v2-card-paragraph-color);
+    }
   }
   .meta::before {
     display: none;
   }
+  .meta {
+    max-width: 670px;
+    margin: 0 auto;
+  }
   .bylines {
     border-bottom: 0;
+
     .content {
 
       display: flex;
@@ -597,6 +609,11 @@
 }
 .frontpage.wide article {
   background-color: transparent !important;
+  .articleHeader {
+    .subtitle {
+      color: var(--v2-card-paragraph-color);
+    }
+  }
 }
 .front-page.wide article:not([class*=bg-]) {
   background-color: transparent !important;
