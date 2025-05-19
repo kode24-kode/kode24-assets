@@ -578,6 +578,22 @@
       margin: 0 auto;
     }
   }
+  .meta::before {
+    display: none;
+  }
+  .bylines {
+    border-bottom: 0;
+    .content {
+
+      display: flex;
+      gap: 0.7rem;
+      align-items: center;
+      picture {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    }
+  }
 }
 
 .front-page.wide article:not([class*=bg-]) {
