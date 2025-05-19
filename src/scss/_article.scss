@@ -565,8 +565,24 @@
   overflow-x: hidden;
   margin: 0 auto;
 }
+/** new stuff */
+.quotebox {
+  position: relative;
 
+  .content h3 {
+    font-weight: bold;
+    margin-top: var(--gutter);
+    margin-bottom: var(--gutter);
+    font-family: var(--fontMono);
+    background: linear-gradient(45deg,
+        var(--v2-label-color-pink),
+        var(--v2-label-color-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
 .article-entity {
+
   .headerImage {
     border-radius: var(--border-radius);
     overflow: hidden;
