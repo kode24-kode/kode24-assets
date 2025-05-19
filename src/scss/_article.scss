@@ -586,6 +586,7 @@
     }
     h2,h3 {
       margin-top: var(--gutter);
+      margin-bottom: calc(var(--gutter) / 2);
     }
   }
   .meta::before {
