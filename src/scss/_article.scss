@@ -570,7 +570,7 @@
   position: relative;
 
   .content h3 {
-    font-weight: bold;
+
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     font-family: var(--fontMono);
@@ -579,6 +579,12 @@
         var(--v2-label-color-purple));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    &:before {
+      content: "«"
+    }
+    &:after {
+      content: "»"
+    }
   }
 }
 .article-entity {
