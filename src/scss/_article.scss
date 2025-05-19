@@ -571,6 +571,13 @@
     border-radius: var(--border-radius);
 
   }
+  .bodytext {
+    max-width: 100%;
+    p, h2, h3 {
+      max-width: 670px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .front-page.wide article:not([class*=bg-]) {
