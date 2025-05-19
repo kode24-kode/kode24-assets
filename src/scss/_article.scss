@@ -595,7 +595,9 @@
     }
   }
 }
-
+.frontpage.wide article {
+  background-color: transparent !important;
+}
 .front-page.wide article:not([class*=bg-]) {
-  background: transparent !important;
+  background-color: transparent !important;
 }
