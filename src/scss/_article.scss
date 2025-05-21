@@ -695,9 +695,19 @@
     overflow: hidden;
     padding: 0;
     margin: var(--gutter) auto;
+    max-width: 670px;
+    border-radius: var(--border-radius);
     .headline, .subtitle {
       margin: var(--gutter) 0;
       padding: 0 var(--gutter);
+    }
+    a {
+      display: flex;
+      gap: var(--gutter);
+      align-items: center;
+    }
+    .subtitle, kicker {
+      display: none;
     }
 
 
