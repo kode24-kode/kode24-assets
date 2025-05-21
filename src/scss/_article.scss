@@ -667,7 +667,7 @@
     max-width: 670px;
     margin: 0 auto;
     .toggle {
-      display: none;
+      display: none !important;
     }
     .content {
       padding: 0;
