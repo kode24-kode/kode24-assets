@@ -713,3 +713,8 @@
   }
 
 }
+
+article .meta .social button:hover,
+article .meta .social a:hover {
+  border-color: var(--v2-label-color-pink);
+}
