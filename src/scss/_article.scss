@@ -663,6 +663,7 @@
     border-radius: 10px;
     padding: 0;
     max-width: 670px;
+    overflow: hidden;
 
     margin: var(--gutter) auto;
     float: none;
@@ -672,7 +673,7 @@
     }
     .content {
       padding: var(--gutter);
-      margin-bottom: 0;
+      margin-bottom: 0 !important;
     }
     h2 {
       margin-top: 0;
