@@ -594,6 +594,10 @@
   }
 }
 .article-entity {
+  .headline {
+      font-family: var(--fontMono);
+      color: var(--v2-card-headline-color)
+  }
 
   .headerImage {
     border-radius: var(--border-radius);
@@ -615,6 +619,7 @@
     h2,h3 {
       margin-top: var(--gutter);
       margin-bottom: calc(var(--gutter) / 2);
+      font-family: var(--fontMono)
     }
   }
   .meta::before {
