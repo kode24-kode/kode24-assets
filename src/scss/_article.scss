@@ -661,7 +661,7 @@
   .factbox {
     background: var(--v2-card-background);
     border-radius: 10px;
-    padding: var(--gutter);
+    padding: 0;
     max-width: 670px;
 
     margin: var(--gutter) auto;
@@ -671,7 +671,7 @@
       display: none !important;
     }
     .content {
-      padding: 0;
+      padding: var(--gutter);
       margin-bottom: 0;
     }
     h2 {
@@ -679,7 +679,7 @@
     }
   }
   .social {
-    display: none;
+    display: none !important;
   }
 }
 .frontpage.wide article {
