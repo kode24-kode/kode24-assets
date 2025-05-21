@@ -604,6 +604,7 @@
   }
 }
 .article-entity {
+  margin-bottom: calc(var(--gutter) * 2);
   .headline {
       font-family: var(--fontMono);
       color: var(--v2-card-headline-color)
