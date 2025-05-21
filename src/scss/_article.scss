@@ -690,13 +690,16 @@
     display: none !important;
   }
   article.column {
-    background-color: var(--v2-card-background) !important;
+
     border-radius: var(--border-radius);
     overflow: hidden;
     padding: 0;
     margin: var(--gutter) auto;
     max-width: 670px;
     border-radius: var(--border-radius);
+    .content {
+      background-color: var(--v2-card-background) !important;
+    }
     .headline, .subtitle {
       margin: var(--gutter) 0;
       padding: 0 var(--gutter);
@@ -713,6 +716,7 @@
 
     figure {
       margin-top: 0;
+      border-radius: 0;
     }
   }
 }
