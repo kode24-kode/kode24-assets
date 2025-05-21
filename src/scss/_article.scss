@@ -663,3 +663,7 @@
 .front-page.wide article:not([class*=bg-]) {
   background-color: transparent !important;
 }
+
+.font-weight-normal {
+  font-weight: var(--lab-font-weight-normal, 500) !important;
+}
