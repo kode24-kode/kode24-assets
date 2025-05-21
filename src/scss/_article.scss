@@ -584,12 +584,18 @@
       display: inline-block;
       position: relative;
       margin-right: calc(var(--gutter) / 2);
+      background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     &:after {
       content: "»";
       display: inline-block;
       position: relative;
       margin-right: calc(var(--gutter) / 2);
+      background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
