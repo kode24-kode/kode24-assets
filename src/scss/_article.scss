@@ -3,7 +3,6 @@
   max-width: 980px;
   margin: 0 auto;
   width: 100%;
-}
 
 .facebook-comments {
   display: none;
@@ -672,16 +671,22 @@
 
         .copy {
           padding: calc(var(--gutter)) calc(var(--gutter));
+        }
+      }
+    }
   }
 }
+
 .frontpage.wide article {
   background-color: transparent !important;
+
   .articleHeader {
     .subtitle {
       color: var(--v2-card-paragraph-color);
     }
   }
 }
+
 .front-page.wide article:not([class*=bg-]) {
   background-color: transparent !important;
 }
