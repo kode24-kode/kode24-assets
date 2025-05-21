@@ -609,6 +609,11 @@
       color: var(--v2-card-headline-color)
   }
 
+  .articleHeader {
+    padding: 0;
+    margin: 0;
+  }
+
   .headerImage {
     border-radius: var(--border-radius);
     overflow: hidden;
