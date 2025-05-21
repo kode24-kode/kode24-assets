@@ -672,6 +672,11 @@
     .toggle {
       display: none !important;
     }
+    .fact {
+      a {
+        color: var(--v2-card-headline-color)
+      }
+    }
     .content {
       padding: var(--gutter);
       margin-bottom: 0 !important;
