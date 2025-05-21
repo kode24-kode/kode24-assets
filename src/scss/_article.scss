@@ -673,3 +673,20 @@
 .font-weight-normal {
   font-weight: var(--lab-font-weight-normal, 500) !important;
 }
+
+.articleFooter .tags {
+  max-width: 670px;
+  margin: 0 auto;
+  a {
+    background-color: transparent;
+    border: 1px solid var(--v2-card-background);
+    color: var(--v2-card-paragraph-color);
+    border-radius: var(--border-radius);
+    &:hover {
+      background-color: var(--v2-card-background);
+      color: var(--v2-card-paragraph-color);
+      border-color: var(--v2-label-color-pink);
+    }
+  }
+
+}
