@@ -284,3 +284,8 @@
     75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
     100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
 }
+
+/** oppdatert **/
+#search-component input {
+  margin-bottom: 0;
+}
