@@ -693,6 +693,14 @@
     background-color: var(--v2-card-background);
     border-radius: var(--border-radius);
     overflow: hidden;
+    padding: 0;
+    .headline, .subtitle {
+      margin-top: var(--gutter);
+      margin-bottom: var(--gutter);
+      padding: 0 var(--gutter);
+    }
+
+
     figure {
       margin-top: 0;
     }
