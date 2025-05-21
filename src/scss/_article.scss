@@ -657,6 +657,9 @@
     padding: var(--gutter);
     max-width: 670px;
     margin: 0 auto;
+    .toggle {
+      display: none;
+    }
   }
 }
 .frontpage.wide article {
