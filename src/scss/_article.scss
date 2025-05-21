@@ -650,12 +650,13 @@
     }
   }
   .factbox {
-
-        margin-top: var(--gutter);
-        margin-bottom: var(--gutter);
-        background: var(--v2-card-background);
-        border-radius: 10px;
-        padding: var(--gutter);
+    margin-top: var(--gutter);
+    margin-bottom: var(--gutter);
+    background: var(--v2-card-background);
+    border-radius: 10px;
+    padding: var(--gutter);
+    max-width: 670px;
+    margin: 0 auto;
   }
 }
 .frontpage.wide article {
