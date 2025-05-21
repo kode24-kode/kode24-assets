@@ -711,6 +711,10 @@
     .headline, .subtitle {
       margin: var(--gutter) var(--gutter) var(--gutter) 0;
       padding: 0;
+      font-size: 16px;
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 30px;
+      }
     }
     a {
       display: flex;
