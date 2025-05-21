@@ -596,6 +596,10 @@
       background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-purple));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      width: auto;
+      left: auto;
+      bottom: auto;
+      top: auto;
     }
   }
 }
