@@ -690,7 +690,7 @@
     display: none !important;
   }
   article.column {
-    background-color: var(--v2-card-background);
+    background-color: var(--v2-card-background) !important;
     border-radius: var(--border-radius);
     overflow: hidden;
     padding: 0;
