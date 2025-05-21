@@ -680,6 +680,9 @@
       margin-top: 0;
     }
   }
+  .factbox + h2 {
+    margin-top: calc(var(--gutter) * 2);
+  }
   figure {
     padding: 0;
   }
