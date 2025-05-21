@@ -664,6 +664,16 @@
     .toggle {
       display: none;
     }
+    .content {
+      padding: 0;
+      margin-bottom: 0;
+    }
+    h2 {
+      margin-top: 0;
+    }
+  }
+  .social {
+    display: none;
   }
 }
 .frontpage.wide article {
