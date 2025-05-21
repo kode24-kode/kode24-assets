@@ -694,6 +694,7 @@
     border-radius: var(--border-radius);
     overflow: hidden;
     padding: 0;
+    margin: var(--gutter) auto;
     .headline, .subtitle {
       margin: var(--gutter) 0;
       padding: 0 var(--gutter);
