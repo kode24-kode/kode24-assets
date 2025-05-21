@@ -689,6 +689,14 @@
   .social {
     display: none !important;
   }
+  article.column {
+    background-color: var(--v2-card-background);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    figure {
+      margin-top: 0;
+    }
+  }
 }
 .frontpage.wide article {
   background-color: transparent !important;
