@@ -697,11 +697,14 @@
     margin: var(--gutter) auto;
     max-width: 670px;
     border-radius: var(--border-radius);
+    .media {
+      max-width: 100%;
+    }
     .content {
       background-color: var(--v2-card-background) !important;
     }
     .headline, .subtitle {
-      margin: var(--gutter) 0;
+      margin: var(--gutter) var(--gutter) var(--gutter) 0;
       padding: 0;
     }
     a {
