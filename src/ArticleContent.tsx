@@ -58,7 +58,7 @@ export default function FrontContent(frontpageData: Frontpage) {
 
   if (document.querySelector(".article-entity:not(.is-editor)")) {
     // draw a listing before each h2
-    const h2s = document.querySelectorAll(".body-copy h2");
+    const h2s = document.querySelectorAll(".bodytext h2");
     h2s.forEach((h2, key: number) => {
       const listingNode = document.createElement("div");
       if (key === 0) {
