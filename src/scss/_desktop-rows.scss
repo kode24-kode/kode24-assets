@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 0 var(--gutter) 0;
+  width: 100%;
 
   &.no-title {
     display: none;
@@ -69,7 +70,7 @@
   &:not(.commercial) {
 
     .commercial-content {
-      background: var(--v2-card-background);
+      background: var(--v2-card-background) !important;
       padding: var(--gutter);
       border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
 
@@ -163,6 +164,9 @@
         max-width: 100%;
         object-fit: contain;
       }
+      article {
+        background-color: var(--v2-card-background) !important;
+      }
       @media screen and (max-width: 830px) {
         display: flex;
         overflow: scroll;
@@ -172,7 +176,7 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      gap: calc(var(--gutter) / 4);
+      gap: calc(var(--gutter));
       .article-content-wrapper {
         height: 100%;
       }
@@ -266,7 +270,7 @@
       margin-left: 0;
 
       .preview {
-        @media screen and (max-width: 830px) {}
+
 
         padding: 0;
         flex: 0 0 100%;
@@ -275,6 +279,9 @@
           display: flex;
           align-items: stretch;
           gap: var(--gutter);
+          @media screen and (max-width: 830px) {
+            flex-direction: column;
+          }
 
           >a {
             flex: 1;
@@ -283,6 +290,9 @@
             align-items: stretch;
             max-height: 100%;
             position: relative;
+            @media screen and (max-width: 830px) {
+                width: 100%;
+            }
 
             figure {
               width: 100%;
@@ -307,7 +317,9 @@
           .article-preview-text {
             flex: 1;
             padding: var(--gutter) var(--gutter) var(--gutter) 0;
-
+            @media screen and (max-width: 830px) {
+                padding: 0 var(--gutter) var(--gutter) var(--gutter);
+            }
           }
 
         }
@@ -321,7 +333,7 @@
   }
 
   .button {
-    background-color: var(--v2-card-background-highlight);
+    background-color: var(--v2-card-background);
   }
 
   .main-story-with-two-vertical,

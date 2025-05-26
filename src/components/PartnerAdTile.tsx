@@ -1,7 +1,7 @@
-import { partnerAds } from '../types';
-import { shuffleArray } from '../functions/shuffleArray';
-import 'react-multi-carousel/lib/styles.css';
-import PartnerTile from './PartnerTile';
+import { partnerAds } from "../types";
+import { shuffleArray } from "../functions/shuffleArray";
+import "react-multi-carousel/lib/styles.css";
+import PartnerTile from "./PartnerTile";
 
 export default function PartnerAdTile({
   partnerAds,
@@ -11,7 +11,7 @@ export default function PartnerAdTile({
   const partner = shuffleArray(partnerAds)[0] as partnerAds;
 
   return (
-    <div id="" className="row desktop-row">
+    <div id="" className="row desktop-row commercial single-row">
       <div className="single">
         <PartnerTile partner={partner} />
       </div>

@@ -469,8 +469,8 @@
 
 
   twitter-widget {
-    margin-top: 2.5rem !important;
-    margin-bottom: 2.5rem !important;
+    margin-top: 2.54rem !important;
+    margin-bottom: 2.54rem !important;
   }
 
   .flex-video {
@@ -495,8 +495,7 @@
   .body-copy .preview {
     background: var(--v2-card-background);
     transition: all 0.1s ease-in-out;
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
+
     display: block;
     border-radius: var(--border-radius);
     padding: 0;
@@ -603,6 +602,22 @@
   .articleHeader {
     padding: 0;
     margin: 0;
+  }
+
+  .desktop-row {
+    margin-top: 2.5rem;
+    &.commercial {
+      background-color: transparent;
+    }
+    .single {
+      background-color: var(--v2-card-background);
+    }
+    .dual {
+      background-color: transparent;
+      article {
+        background-color: var(--v2-card-background) !important;
+      }
+    }
   }
 
   .headerImage {
