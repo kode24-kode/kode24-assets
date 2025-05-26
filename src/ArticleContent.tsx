@@ -2,30 +2,23 @@
  * Injects job listings and commercial articles into articles on kode24
  */
 
-import {
-  Frontpage,
-  Content,
-  Listing,
-  ContentTile,
-} from './types/index.ts';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import ContentsRow from './components/ContentsRow.tsx';
-import { shuffleArray } from './functions/shuffleArray.ts';
-import PartnerAdTile from './components/PartnerAdTile.tsx';
-import structuredClone from '@ungap/structured-clone';
-import Banner from './components/Banner.tsx';
+import { Frontpage, Content, Listing, ContentTile } from "./types/index.ts";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import ContentsRow from "./components/ContentsRow.tsx";
+import { shuffleArray } from "./functions/shuffleArray.ts";
+import PartnerAdTile from "./components/PartnerAdTile.tsx";
+import structuredClone from "@ungap/structured-clone";
+import Banner from "./components/Banner.tsx";
 export default function FrontContent(frontpageData: Frontpage) {
   (window as any).hljs.highlightAll();
 
   // So we don't mutate the original data
-  const frontPageDataCopy = structuredClone(
-    frontpageData
-  ) as Frontpage;
+  const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
   /** shuffle content and ads */
-  frontPageDataCopy.content = shuffleArray(
-    frontPageDataCopy.content
-  ) as [Content];
+  frontPageDataCopy.content = shuffleArray(frontPageDataCopy.content) as [
+    Content
+  ];
   // get only premium ads and shuffle them
   frontPageDataCopy.listing.listings = shuffleArray(
     frontPageDataCopy.listing.listings.filter((listing) =>
@@ -39,15 +32,15 @@ export default function FrontContent(frontpageData: Frontpage) {
   /** Attempts to add job ads before every odd h2-tag in article */
 
   const bannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === 'desktop-brandboard_980x600'
+    (ad) => ad.adFormat === "desktop-brandboard_980x600"
   );
 
   const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === 'mobile-banner_320x250'
+    (ad) => ad.adFormat === "mobile-banner_320x250"
   );
 
   // create node for banners and add before #hyvor-talk-view
-  const bannerNode = document.createElement('div');
+  const bannerNode = document.createElement("div");
   ReactDOM.createRoot(bannerNode as HTMLElement).render(
     <React.StrictMode>
       <>
@@ -61,20 +54,18 @@ export default function FrontContent(frontpageData: Frontpage) {
     </React.StrictMode>
   );
 
-  document?.getElementById('hyvor-talk-view')?.before(bannerNode);
+  document?.getElementById("hyvor-talk-view")?.before(bannerNode);
 
-  if (document.querySelector('.article-entity.artikkel')) {
+  if (document.querySelector(".article-entity:not(.is-editor)")) {
     // draw a listing before each h2
-    const h2s = document.querySelectorAll('.body-copy h2');
+    const h2s = document.querySelectorAll(".body-copy h2");
     h2s.forEach((h2, key: number) => {
-      const listingNode = document.createElement('div');
+      const listingNode = document.createElement("div");
       if (key === 0) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <>
-              <PartnerAdTile
-                partnerAds={frontPageDataCopy.partnerAdsSanity}
-              />
+              <PartnerAdTile partnerAds={frontPageDataCopy.partnerAdsSanity} />
             </>
           </React.StrictMode>
         );
