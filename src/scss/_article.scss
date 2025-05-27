@@ -53,7 +53,7 @@
   .headline {
     font-family: var(--fontMono);
     padding: 0 var(--gutter);
-    margin-top: var(--gutter) 0 var(--gutter) 0;
+    margin: var(--gutter) 0 var(--gutter) 0;
     @media screen and (min-width: $vp-tablet) {
         padding: 0;
       }
