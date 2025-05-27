@@ -9,6 +9,11 @@
     margin-bottom: 0.7rem;
     padding: 0;
   }
+  .floatingText {
+    .headline {
+      color: var(--v2-card-always-white)
+    }
+  }
   .subtitle,
   .kicker {
     color: var(--v2-card-paragraph-color);
@@ -125,5 +130,12 @@ a {
     width: calc(100vw - var(--lab-scrollbar-width));
     left: calc(50% - (100vw - var(--lab-scrollbar-width)) / 2);
     border-radius: 0;
+    .fullwidthTarget {
+      border-radius: 0;
+    }
   }
+}
+
+#articles-above-first-banner {
+  padding: 0 var(--gutter);
 }

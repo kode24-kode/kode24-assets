@@ -60,6 +60,9 @@
 
 .newest-comments {
   margin-bottom: calc(var(--gutter) * 2);
+  .heading {
+    margin-bottom: var(--gutter);
+  }
 }
 
 .newest-comments-list {

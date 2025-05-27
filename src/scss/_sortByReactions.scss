@@ -17,7 +17,8 @@
     justify-content: center;
     padding: calc(var(--gutter) / 2);
     display: flex;
-    width: 100%;
+    margin: 0 var(--gutter);
+    width: auto;
     max-width: 100%;
     li {
       width: 100%;
