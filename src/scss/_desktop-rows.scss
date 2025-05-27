@@ -174,7 +174,10 @@
     }
 
     .single {
-
+      @media screen and (min-width: 1024px) {
+        border-radius: var(--border-radius);
+        overflow: hidden;
+      }
       .preview {
         max-width: 100%;
       }
