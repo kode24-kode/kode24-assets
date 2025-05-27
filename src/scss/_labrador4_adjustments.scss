@@ -119,3 +119,11 @@ a {
     text-decoration: underline;
   }
 }
+
+.page-content .mobile-fullWidth {
+  @media screen and (max-width: 1024px) {
+    width: calc(100vw - var(--lab-scrollbar-width));
+    left: calc(50% - (100vw - var(--lab-scrollbar-width)) / 2);
+    border-radius: 0;
+  }
+}
