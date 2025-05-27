@@ -8,6 +8,7 @@
   width: auto;
   margin: 0 auto var(--gutter) auto;
   background-color: var(--v2-card-background);
+  font-size: 0.9rem;
 
   @media screen and (max-width: 750px) {
     border-left: 0;
@@ -16,7 +17,8 @@
     justify-content: center;
     padding: calc(var(--gutter) / 2);
     display: flex;
-    width: calc(100% - calc(var(--gutter) * 2));
+    width: 100%;
+    max-width: 100%;
     li {
       width: 100%;
     }

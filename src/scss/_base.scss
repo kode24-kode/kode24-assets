@@ -11,7 +11,7 @@ body {
   background-color: var(--v2-background);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-top: calc(var(--gutter) * 5);
+  padding-top: calc(var(--gutter) * 4);
   &::-webkit-scrollbar-track {
     background: var(--v2-card-border-background);
     border-radius: 0;

@@ -2,14 +2,26 @@
 
 .desktop-row {
   --image-height: 170px;
-  padding: var(--gutter);
+  padding: 0;
+  .columns {
+    padding: 0;
+  }
+  &:not(.commercial) {
+    .dual {
+      margin-bottom: var(--gutter);
+    }
+    article {
+        margin-top: calc(var(--gutter))
+      }
+  }
+
 }
 
 .desktop-row .heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 var(--gutter) 0;
+  padding: 0 0 0 0;
   width: 100%;
 
   &.no-title {
@@ -101,6 +113,9 @@
 
   &.card {
     background-color: var(--v2-card-background);
+    margin-left: calc(var(--gutter) * -1);
+    width: calc(100% + var(--gutter) * 2);
+    padding: var(--gutter);
   }
 
   &.border {
@@ -108,9 +123,17 @@
   }
 
   &.commercial {
-    //background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
-    position: relative;
-    flex-direction: column;
+    padding: 0;
+    margin-top: calc(var(--gutter) * 2);
+    margin-bottom: calc(var(--gutter) * 2) !important;
+    &:not(.single-row) {
+      margin-left: calc((var(--gutter)) * -1);
+      width: calc(100% + var(--gutter) * 2);
+      //background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
+      position: relative;
+      flex-direction: column;
+
+    }
 
     .headline,
     .company-name,
@@ -129,12 +152,12 @@
     @media screen and (max-width: 830px) {
       &:not(.single-row) {
         padding-right: 0;
+
       }
     }
 
     .heading {
-      padding-right: 0;
-      padding-top: 0;
+      padding: var(--gutter);
     }
 
     &:before {
@@ -151,6 +174,7 @@
     }
 
     .single {
+
       .preview {
         max-width: 100%;
       }
@@ -171,7 +195,6 @@
         display: flex;
         overflow: scroll;
         padding-right: var(--gutter);
-        margin-left: calc(var(--gutter) * -1);
         padding-left: var(--gutter);
         -webkit-overflow-scrolling: touch;
       }
@@ -233,6 +256,10 @@
 
     .triple,
     .dual {
+
+
+      @media screen and (min-width: 830px) {
+      }
       .preview {
         padding: 0;
         overflow: hidden;
@@ -996,6 +1023,18 @@
 
       .headline {
         font-size: 1.4rem !important;
+      }
+    }
+  }
+}
+.article-entity {
+  .desktop-row {
+  &.commercial {
+      padding: 0;
+
+      &:not(.single-row) {
+        margin-left: calc((var(--gutter) * 2) * -1);
+        width: calc(100% + var(--gutter) * 4);
       }
     }
   }

@@ -34,7 +34,7 @@
 
   max-width: 100%;
   color: var(--v2-card-paragraph-color);
-  margin-top: calc(var(--gutter) * 1.5);
+  margin-top: 0;
   @media screen and (min-width: 830px) {
     margin-top: 0;
   }
@@ -52,6 +52,11 @@
   }
   .headline {
     font-family: var(--fontMono);
+    padding: 0 var(--gutter);
+    margin-top: var(--gutter) 0 var(--gutter) 0;
+    @media screen and (min-width: $vp-tablet) {
+        padding: 0;
+      }
   }
   header.row {
     padding: 0 var(--gutter);
@@ -541,11 +546,6 @@
       }
     }
   }
-
-  .desktop-row {
-    margin-left: calc(var(--gutter) * -1);
-    width: calc(100% + var(--gutter) * 2);
-  }
 }
 
 
@@ -621,12 +621,19 @@
   }
 
   .headerImage {
-    border-radius: var(--border-radius);
+
     overflow: hidden;
+    @media screen and (min-width:1024) {
+      border-radius: var(--border-radius);
+    }
   }
 
   .meta {
     opacity: 1;
+    padding: var(--gutter);
+    @media screen and ($vp-tablet) {
+      padding: 0;
+    }
   }
   .bodytext {
     max-width: 100%;
@@ -741,8 +748,13 @@
 .frontpage.wide article {
   background-color: transparent !important;
   .articleHeader {
+
     .subtitle {
       color: var(--v2-card-paragraph-color);
+      padding: 0 var(--gutter);
+      @media screen and (min-width: $vp-tablet) {
+        padding: 0;
+      }
     }
   }
 }
