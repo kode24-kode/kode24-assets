@@ -118,11 +118,11 @@
       }
     }
     figure {
+      width: calc(100% + var(--gutter) * 2);
       margin-left: calc(var(--gutter) *-1);
       margin-right: calc(var(--gutter) *-1);
       position: relative;
       background-color: var(--v2-card-background);
-      width: calc(100% + var(--gutter) * 2);
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
         margin-left: calc(var(--gutter) * -1);
@@ -331,6 +331,7 @@
     margin-bottom: 2.5rem;
     position: relative;
     background-color: var(--v2-card-background);
+    width: calc(100% + var(--gutter) * 2);
     @media screen and (min-width: $vp-tablet) {
       font-size: 1.9rem;
       margin-left: calc(var(--gutter) *-1);
