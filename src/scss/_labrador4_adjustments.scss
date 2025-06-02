@@ -139,3 +139,40 @@ a {
 #articles-above-first-banner {
   padding: 0 var(--gutter);
 }
+
+@media (prefers-color-scheme: dark) {
+  #light-switch-toggler-icon-left {
+
+  }
+  #light-switch-toggler-icon-right {
+    display: none;
+  }
+  html.light {
+    #light-switch-toggler-icon-left {
+      display: none;
+    }
+
+      #light-switch-toggler-icon-right {
+        display: block;
+      }
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  #light-switch-toggler-icon-left {
+    display: none;
+  }
+
+  #light-switch-toggler-icon-right {
+  }
+
+  html.dark {
+    #light-switch-toggler-icon-left {
+      display: block;
+    }
+
+    #light-switch-toggler-icon-right {
+      display: none;
+    }
+  }
+}

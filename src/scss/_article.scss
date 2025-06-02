@@ -122,7 +122,7 @@
       margin-right: calc(var(--gutter) *-1);
       position: relative;
       background-color: var(--v2-card-background);
-      width: 100%;
+      width: calc(100% + var(--gutter) * 2);
       @media screen and (min-width: $vp-tablet) {
         font-size: 1.9rem;
         margin-left: calc(var(--gutter) * -1);
@@ -132,6 +132,7 @@
       }
       @media screen and (min-width: $vp-desktop) {
         margin: 0;
+        width: 100%;
         border-radius: 10px;
         overflow: hidden;
       }
@@ -705,6 +706,9 @@
   }
   .social {
     display: none !important;
+  }
+  .collapsableContent {
+    max-height: 100% !important;
   }
   article.column {
 
