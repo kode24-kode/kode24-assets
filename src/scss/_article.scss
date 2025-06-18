@@ -54,6 +54,7 @@
     font-family: var(--fontMono);
     padding: 0 var(--gutter);
     margin: var(--gutter) 0 var(--gutter) 0;
+    font-weight: 500;
     @media screen and (min-width: $vp-tablet) {
         padding: 0;
       }
@@ -652,6 +653,12 @@
       font-family: var(--fontMono)
     }
   }
+  .column {
+    float: none;
+  }
+  .large-6 {
+    width: 100%;
+  }
   .meta::before {
     display: none;
   }
@@ -724,6 +731,7 @@
     }
     figure {
       margin: 0;
+      max-width: 100%;
     }
     .content {
       background-color: var(--v2-card-background) !important;
@@ -756,7 +764,9 @@
 .frontpage.wide article {
   background-color: transparent !important;
   .articleHeader {
-
+    .dates .dateLabel {
+      display: none;
+    }
     .subtitle {
       color: var(--v2-card-paragraph-color);
       padding: 0 var(--gutter);

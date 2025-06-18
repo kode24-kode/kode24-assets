@@ -56,6 +56,9 @@ body {
 .row .row {
   margin-bottom: 0;
 }
+.row.hasContentPadding {
+  margin-bottom: calc(var(--gutter) * 2)
+}
 
 .row .columns.large-6,
 .row .columns.large-5,
@@ -138,7 +141,9 @@ a {
 }
 
 #articles-above-first-banner {
-  padding: 0 var(--gutter);
+  @media screen and (max-width: 1024px) {
+    padding: 0 var(--gutter);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -175,5 +180,11 @@ a {
     #light-switch-toggler-icon-right {
       display: none;
     }
+  }
+}
+.content.mobile-fullWidth {
+  .headline,
+  .description {
+
   }
 }

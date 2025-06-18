@@ -10,29 +10,28 @@ import {
   ContentTile,
   DesktopRow,
   bannerAd,
-} from './types/index.ts';
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import ArticlesRow from './components/ArticlesRow.tsx';
-import ListingsRow from './components/ListingsRow.tsx';
-import { shuffleArray } from './functions/shuffleArray.ts';
-import CompanyPartnersTile from './components/CompanyPartnersTile.tsx';
-import structuredClone from '@ungap/structured-clone';
-import PartnerAdTile from './components/PartnerAdTile.tsx';
-import Banner from './components/Banner.tsx';
-import CommentsTile from './components/CommentsTile.tsx';
-import { useEffect, useState } from 'react';
+} from "./types/index.ts";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import ArticlesRow from "./components/ArticlesRow.tsx";
+import ListingsRow from "./components/ListingsRow.tsx";
+import { shuffleArray } from "./functions/shuffleArray.ts";
+import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
+import structuredClone from "@ungap/structured-clone";
+import PartnerAdTile from "./components/PartnerAdTile.tsx";
+import Banner from "./components/Banner.tsx";
+import CommentsTile from "./components/CommentsTile.tsx";
+import { useEffect, useState } from "react";
+import LabradorFrontCommercial from "./labradorFrontCommercial.tsx";
 
 export default function FrontContent(frontpageData: Frontpage) {
   const listView = false;
   // So we don't mutate the original data
-  const frontPageDataCopy = structuredClone(
-    frontpageData
-  ) as Frontpage;
+  const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
   /** shuffle content and ads */
-  frontPageDataCopy.content = shuffleArray(
-    frontPageDataCopy.content
-  ) as [Content];
+  frontPageDataCopy.content = shuffleArray(frontPageDataCopy.content) as [
+    Content
+  ];
   // get only premium ads and shuffle them
   const allContentTiles = [
     ...shuffleArray(frontPageDataCopy.contentTiles),
@@ -41,7 +40,7 @@ export default function FrontContent(frontpageData: Frontpage) {
 
   // grab the DOM-elements for the three content divs
   const articlesAboveFirstBanner = document.getElementById(
-    'articles-above-first-banner'
+    "articles-above-first-banner"
   ) as HTMLElement;
 
   /**
@@ -60,7 +59,7 @@ export default function FrontContent(frontpageData: Frontpage) {
 
   **/
   const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === 'mobile-banner_320x250'
+    (ad) => ad.adFormat === "mobile-banner_320x250"
   ) as bannerAd[];
   /**
   const topBannersMobile =
@@ -90,6 +89,7 @@ export default function FrontContent(frontpageData: Frontpage) {
 
     //renderContentBelowFirstBanner();
   }
+  LabradorFrontCommercial(frontPageDataCopy);
 }
 
 const FrontPageContent = ({
@@ -110,15 +110,13 @@ const FrontPageContent = ({
   const jobs = [...frontPageDataCopy.jobs];
   const [showAllToggle, setShowAllToggle] = useState(false);
   const allAds = [...allContentTiles];
-  const desktopRows = [
-    ...frontPageDataCopy.frontpage,
-  ] as DesktopRow[];
+  const desktopRows = [...frontPageDataCopy.frontpage] as DesktopRow[];
   const topBannersMobile =
     frontPageDataCopy.bannerAds?.filter(
-      (banner) => banner.adFormat === 'mobile-topbanner_320x250'
+      (banner) => banner.adFormat === "mobile-topbanner_320x250"
     ) || [];
   const bannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === 'desktop-brandboard_980x600'
+    (ad) => ad.adFormat === "desktop-brandboard_980x600"
   );
 
   useEffect(() => {
@@ -126,16 +124,15 @@ const FrontPageContent = ({
   }, []);
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop =
-        window.scrollY || document.documentElement.scrollTop;
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
       if (scrollTop > 200 && !showAllToggle) {
         setLatestArticlesCopy([...frontPageDataCopy.latestArticles]);
         setShowAllToggle(true);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [showAllToggle, frontPageDataCopy.latestArticles]);
 
@@ -148,13 +145,13 @@ const FrontPageContent = ({
               <div key={index}>
                 <ArticlesRow
                   DesktopRowData={{
-                    layout: 'main-story-with-two-vertical',
-                    style: '',
-                    title: '',
-                    description: '',
-                    tags: 'artikler',
+                    layout: "main-story-with-two-vertical",
+                    style: "",
+                    title: "",
+                    description: "",
+                    tags: "artikler",
                     antall: 3,
-                    lenke: '',
+                    lenke: "",
                     articles: latestArticles.splice(0, 3),
                   }}
                   firstRow={false}
@@ -165,32 +162,26 @@ const FrontPageContent = ({
                 {index === 0 &&
                   latestArticlesCopy.length > 1 &&
                   topBannersMobile.length > 0 && (
-                    <Banner
-                      ads={[...topBannersMobile]}
-                      mobileToggle={true}
-                    />
+                    <Banner ads={[...topBannersMobile]} mobileToggle={true} />
                   )}
 
                 {topBannersMobile.length <= 0 &&
                   latestArticlesCopy.length > 1 &&
                   mobileBannerAds.length > 0 && (
-                    <Banner
-                      ads={[...mobileBannerAds]}
-                      mobileToggle={true}
-                    />
+                    <Banner ads={[...mobileBannerAds]} mobileToggle={true} />
                   )}
               </div>
             )}
             {latestArticles.length >= 2 && (
               <ArticlesRow
                 DesktopRowData={{
-                  layout: 'dual',
-                  style: '',
-                  title: '',
-                  description: '',
-                  tags: 'artikler',
+                  layout: "dual",
+                  style: "",
+                  title: "",
+                  description: "",
+                  tags: "artikler",
                   antall: 2,
-                  lenke: '',
+                  lenke: "",
                   articles:
                     allAds.length > 0
                       ? latestArticles.splice(0, 1)
@@ -200,11 +191,7 @@ const FrontPageContent = ({
                 hotnessThreshold={[60, 30]}
                 listView={listView}
                 newestComments={frontPageDataCopy.newestComments}
-                ad={
-                  allAds.length > 0
-                    ? allAds.splice(0, 1)[0]
-                    : undefined
-                }
+                ad={allAds.length > 0 ? allAds.splice(0, 1)[0] : undefined}
               />
             )}
             {bannerAds.length > 0 && latestArticles.length > 0 && (
@@ -213,9 +200,7 @@ const FrontPageContent = ({
             <div>
               {index === 0 && (
                 <>
-                  <CommentsTile
-                    comments={frontPageDataCopy.newestComments}
-                  />
+                  <CommentsTile comments={frontPageDataCopy.newestComments} />
                   <PartnerAdTile
                     partnerAds={frontPageDataCopy.partnerAdsSanity}
                   />
@@ -239,10 +224,7 @@ const FrontPageContent = ({
             )}
             <>
               {jobs.length > 0 && (
-                <ListingsRow
-                  Listings={jobs.splice(0, 3)}
-                  listView={listView}
-                />
+                <ListingsRow Listings={jobs.splice(0, 3)} listView={listView} />
               )}
             </>
           </section>

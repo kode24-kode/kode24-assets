@@ -44,11 +44,7 @@
   #top-bar-logo-icon-wrapper {
     border-radius: 100%;
     padding: 7px;
-    background-image: linear-gradient(
-      var(--v2-label-color-pink-lighter),
-      var( --v2-label-color-pink),
-
-    );
+    background-color: var(--v2-label-color-pink);
     width: 40px;
     height: 40px;
     svg {
@@ -146,7 +142,7 @@
     }
   }
   .counter {
-    background-color: var(--v2-label-color-purple-darker);
+    background-color: var(--v2-label-color-pink);
     position: absolute;
     color: var(--v2-card-always-white);
     padding: 1px 6px;

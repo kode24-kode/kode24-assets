@@ -10,6 +10,18 @@
   background-color: var(--v2-card-background);
   font-size: 0.9rem;
 
+  .title {
+    text-transform: uppercase;
+    padding: calc(var(--gutter) / 1.5);
+    @media screen and (min-width: 1024px) {
+      padding: calc(var(--gutter) / 3) calc(var(--gutter) / 1.5);
+    }
+  }
+  li {
+    display: flex;
+    align-items: center;
+  }
+
   @media screen and (max-width: 750px) {
     border-left: 0;
     border-top: 0;

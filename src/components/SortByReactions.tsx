@@ -5,9 +5,9 @@ import {
   Chat2FillIcon,
   HeartIcon,
   HeartFillIcon,
-} from '@navikt/aksel-icons';
+} from "@navikt/aksel-icons";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function SortByReactions({
   sortingToggle,
@@ -20,20 +20,21 @@ export default function SortByReactions({
 
   return (
     <ul id="sort-latest-articles">
+      <li className="title">Feed</li>
       <li>
         <button
-          className={sortingState === 'newest' ? 'active' : ''}
+          className={sortingState === "newest" ? "active" : ""}
           onClick={() => {
-            setSortingState('newest');
-            sortBySortingToggle('newest');
+            setSortingState("newest");
+            sortBySortingToggle("newest");
           }}
           title="Sorter artikler etter siste artikler"
           aria-label="Sorter artikler etter siste artikler"
         >
-          {sortingState === 'newest' && (
+          {sortingState === "newest" && (
             <LightningFillIcon title="a11y-title" fontSize="1.5rem" />
           )}
-          {sortingState !== 'newest' && (
+          {sortingState !== "newest" && (
             <LightningIcon title="a11y-title" fontSize="1.5rem" />
           )}
           siste
@@ -41,18 +42,18 @@ export default function SortByReactions({
       </li>
       <li>
         <button
-          className={sortingState === 'mostReactions' ? 'active' : ''}
+          className={sortingState === "mostReactions" ? "active" : ""}
           onClick={() => {
-            setSortingState('mostReactions');
-            sortBySortingToggle('mostReactions');
+            setSortingState("mostReactions");
+            sortBySortingToggle("mostReactions");
           }}
           title="Sorter artikler etter mest reaksjoner"
           aria-label="Sorter artikler etter mest reaksjoner"
         >
-          {sortingState === 'mostReactions' && (
+          {sortingState === "mostReactions" && (
             <HeartFillIcon title="a11y-title" fontSize="1.5rem" />
           )}
-          {sortingState !== 'mostReactions' && (
+          {sortingState !== "mostReactions" && (
             <HeartIcon title="a11y-title" fontSize="1.5rem" />
           )}
           reaksjoner
@@ -60,18 +61,18 @@ export default function SortByReactions({
       </li>
       <li>
         <button
-          className={sortingState === 'mostComments' ? 'active' : ''}
+          className={sortingState === "mostComments" ? "active" : ""}
           onClick={() => {
-            setSortingState('mostComments');
-            sortBySortingToggle('mostComments');
+            setSortingState("mostComments");
+            sortBySortingToggle("mostComments");
           }}
           title="Sorter artikler etter mest kommentarer"
           aria-label="Sorter artikler etter mest kommentarer"
         >
-          {sortingState === 'mostComments' && (
+          {sortingState === "mostComments" && (
             <Chat2FillIcon title="a11y-title" fontSize="1.5rem" />
           )}
-          {sortingState !== 'mostComments' && (
+          {sortingState !== "mostComments" && (
             <Chat2Icon title="a11y-title" fontSize="1.5rem" />
           )}
           kommentarer
