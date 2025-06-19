@@ -31,9 +31,12 @@ export default function LabradorFrontCommercial(frontPageData: Frontpage) {
     createBannerNode(mobileBrandBoardBanners, true, ".page-content");
     createBannerNode(brandBoardBanners, false, ".page-content");
   }
+
+  /**
   articles.forEach((article: Element) => {
     console.log("hello");
   });
+   */
 }
 
 /**
