@@ -123,7 +123,7 @@ async function main() {
     );
   }
 
-  if (document.querySelector(".article-entity:not(.is-editor)"))
+  if (!document.querySelectorAll(".is-editor"))
     ArticleContent(structuredClone(FrontpageData) as Frontpage);
   FrontContent(structuredClone(FrontpageData) as Frontpage);
 

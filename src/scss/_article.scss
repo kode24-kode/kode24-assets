@@ -629,7 +629,7 @@
       padding: 0 var(--gutter) !important;
       @media screen and (min-width: 1024px) {
           border-radius: var(--border-radius);
-          padding: 0;
+          padding: 0 !important;
       }
 
   }

@@ -13,7 +13,8 @@ import Banner from "./components/Banner.tsx";
 export default function FrontContent(frontpageData: Frontpage) {
   (window as any).hljs.highlightAll();
 
-  if (document.querySelector(".article-entity:not(.is-editor)")) {
+  if (!document.querySelectorAll(".is-editor")) {
+    console.log("we are not in editor");
     // So we don't mutate the original data
     const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
     /** shuffle content and ads */
