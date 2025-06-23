@@ -8,7 +8,7 @@
   width: auto;
   margin: 0 auto var(--gutter) auto;
   background-color: var(--v2-card-background);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 
   .title {
     text-transform: uppercase;
@@ -51,8 +51,14 @@
     justify-content: center;
     cursor: pointer;
     border-radius: var(--inner-border-radius);
+    span {
+      display: none;
+    }
     @media screen and (min-width: 1024px) {
       padding: calc(var(--gutter) / 3) calc(var(--gutter) / 1.5);
+      span {
+          display: inline-block;
+        }
     }
 
     svg {

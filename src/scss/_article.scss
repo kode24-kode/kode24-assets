@@ -603,9 +603,10 @@
   ul,
     ol,
     .factbox ul,
-    .factbox ol {
+    .factbox ol,
+    .factbox p {
       max-width: 670px;
-      margin: calc(var(--gutter) * 2) auto;
+      margin: 0 auto;
       padding-inline: 0;
 
       @media screen and (min-width: $vp-tablet) {
