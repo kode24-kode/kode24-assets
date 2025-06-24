@@ -1,5 +1,5 @@
-import { Listing } from '../types';
-import { getTimeAgo } from '../functions/getTimeAgo';
+import { Listing } from "../types";
+import { getTimeAgo } from "../functions/getTimeAgo";
 export default function ListingsApplication({
   listings,
 }: {
@@ -8,21 +8,20 @@ export default function ListingsApplication({
 }) {
   const premiumListings = listings.filter(
     (listing) =>
-      listing.tags?.includes('premium') ||
-      listing.tags?.includes('fokus')
+      listing.tags?.includes("premium") || listing.tags?.includes("fokus")
   );
   const normalListings = listings
-    .filter((listing) => !listing.tags?.includes('premium'))
-    .filter((listing) => !listing.tags?.includes('fokus'));
+    .filter((listing) => !listing.tags?.includes("premium"))
+    .filter((listing) => !listing.tags?.includes("fokus"));
   return (
     <div className="row">
       <section className="listings-application-list-section">
         <div className="listings-application-list-header">
           <p>
-            Vil du rykke inn en stilling? Gå til{' '}
+            Vil du rykke inn en stilling? Gå til{" "}
             <a href="https://docs.google.com/forms/d/e/1FAIpQLScU7RouC4P8eCSWs7-0TfBv7GjQWWXsWol5FCY4YTsJ8LapyA/viewform?fbclid=IwAR0OLNR9eSxwxVFj1Btdux5umE_GPZB_gxHXK6KzXDMon3YGsubSfmGDydE">
               bestillingsskjemaet
-            </a>{' '}
+            </a>{" "}
             eller&nbsp;
             <a href="https://www.kode24.no/annonse/priser-pa-annonser-og-content-pa-kode24/70244826">
               trykk her for priser og kontaktinformasjon
@@ -36,9 +35,7 @@ export default function ListingsApplication({
             Bestillingsskjema 💼
           </a>
         </div>
-        <h2 className="listing-application-header">
-          Utvalgte stillinger
-        </h2>
+        <h2 className="listing-application-header">Utvalgte stillinger</h2>
         <div className="listings-application-list">
           {premiumListings.map((listing: Listing, key: number) => (
             <li className="listing-application-list-item" key={key}>
@@ -46,9 +43,7 @@ export default function ListingsApplication({
             </li>
           ))}
         </div>
-        <h2 className="listing-application-header">
-          Ledige stillinger
-        </h2>
+        <h2 className="listing-application-header">Ledige stillinger</h2>
         <div className="listings-application-list">
           {normalListings.map((listing: Listing, key: number) => (
             <li className="listing-application-list-item" key={key}>
@@ -66,21 +61,19 @@ const ListingTile = ({
   listingType,
 }: {
   listing: Listing;
-  listingType?: 'premium' | 'normal';
+  listingType?: "premium" | "normal";
 }) => {
   return (
     <a
       target="_blank"
       rel="noreferrer"
-      href={'https://kode24.no/' + listing.id}
-      className={`${listingType === 'premium' ? 'premium' : ''}`}
+      href={"https://kode24.no/" + listing.id}
+      className={`${listingType === "premium" ? "premium" : ""}`}
     >
       <figure className="listing-application-list-figure">
         <img
           alt="company logo"
-          src={
-            `https://www.kode24.no/images/` + listing.company.imageUrl
-          }
+          src={`https://image-www.kode24.no/images/` + listing.company.imageUrl}
           loading="lazy"
         />
       </figure>

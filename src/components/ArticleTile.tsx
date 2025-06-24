@@ -39,7 +39,7 @@ export default function ArticleTile({
               itemProp="image"
               loading="lazy"
               alt={`image: {Article.title}`}
-              src={`https://www.kode24.no/images/${Article.image}.jpg${Article.frontCropUrl}&width=960&height=600`}
+              src={`https://image-www.kode24.no/images/${Article.image}.jpg${Article.frontCropUrl}&width=960&height=600`}
             />
           </figure>
         </a>
@@ -74,7 +74,7 @@ export default function ArticleTile({
             <div className="byline-row">
               <div className="byline-profile-image">
                 <img
-                  src={`https://www.kode24.no/images/${Article.byline.imageUrl}`}
+                  src={`https://image-www.kode24.no/images/${Article.byline.imageUrl}`}
                   loading="lazy"
                   alt={`byline name ${Article.byline.name}`}
                   width="20"
