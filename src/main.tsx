@@ -123,8 +123,10 @@ async function main() {
     );
   }
 
-  if (!document.querySelectorAll(".is-editor"))
+  if (!document.querySelector(".is-editor")) {
+    console.log("yo yo");
     ArticleContent(structuredClone(FrontpageData) as Frontpage);
+  }
   FrontContent(structuredClone(FrontpageData) as Frontpage);
 
   addNumberToEventCounterInTopMenu(FrontpageData.events.upcomingEvents.length);

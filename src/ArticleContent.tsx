@@ -11,9 +11,10 @@ import PartnerAdTile from "./components/PartnerAdTile.tsx";
 import structuredClone from "@ungap/structured-clone";
 import Banner from "./components/Banner.tsx";
 export default function FrontContent(frontpageData: Frontpage) {
-  (window as any).hljs.highlightAll();
-
-  if (!document.querySelectorAll(".is-editor")) {
+  setTimeout(() => {
+    (window as any).hljs.highlightAll();
+  }, 1000);
+  if (!document.querySelector(".is-editor")) {
     console.log("we are not in editor");
     // So we don't mutate the original data
     const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
