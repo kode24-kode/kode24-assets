@@ -41,8 +41,15 @@ img {
   max-width: 100%;
 }
 a {
-  color: var(--v2-card-paragraph-color);
+  color: var(--v2-card-headline-color);
   text-decoration: none;
+
+  *,
+  &:hover,
+  &:hover * {
+    color: var(--v2-card-headline-color);
+    text-decoration: none !important;
+  }
 }
 
 
@@ -86,4 +93,20 @@ a {
     overflow: visible;
     padding-bottom: 6px;
     color: var(--v2-card-paragraph-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  color: var(--v2-card-headline-color)
+}
+
+
+
+
+.color_mobile_no_bg_color {
+  color: var(--v2-card-headline-color) !important
 }

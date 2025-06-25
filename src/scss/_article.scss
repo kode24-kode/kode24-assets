@@ -598,7 +598,8 @@
     }
   }
 }
-.article-entity {
+
+.resp_fonts .article-entity {
 
   ul,
     ol,
@@ -783,7 +784,7 @@
     max-width: 670px;
     border-radius: var(--border-radius);
     .media {
-      max-width: 100%;
+      max-width: 50%;
     }
     figure {
       margin: 0;
@@ -817,7 +818,8 @@
     }
   }
 }
-.frontpage.wide article {
+.frontpage.wide .page-content article,
+.frontpage.wide main>article {
   background-color: transparent !important;
   .articleHeader {
 

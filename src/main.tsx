@@ -26,25 +26,9 @@ import TopBanner from "./components/TopBanner.tsx";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
-import * as Sentry from "@sentry/react";
-
-Sentry.init({
-  dsn: "https://88c129afe0da75f1811037da951b4bb3@o4507420043182080.ingest.de.sentry.io/4507420049145937",
-  integrations: [
-    Sentry.browserTracingIntegration(),
-    Sentry.replayIntegration(),
-  ],
-  // Performance Monitoring
-  tracesSampleRate: 1.0, //  Capture 100% of the transactions
-  // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
-  tracePropagationTargets: ["localhost", /^https:\/\/kode24\.no/],
-  // Session Replay
-  replaysSessionSampleRate: 0.1, // This sets the sample rate at 10%. You may want to change it to 100% while in development and then sample at a lower rate in production.
-  replaysOnErrorSampleRate: 1.0, // If you're not already sampling the entire session, change the sample rate to 100% when sampling sessions where errors occur.
-});
-
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
+  console.log("got to main");
   // the functions below should run regardless.
 
   // only if commercial content
@@ -122,9 +106,9 @@ async function main() {
       </React.StrictMode>
     );
   }
-
+  console.log("before loading ads");
   if (!document.querySelector(".is-editor")) {
-    console.log("yo yo");
+    console.log("loading ads");
     ArticleContent(structuredClone(FrontpageData) as Frontpage);
   }
   FrontContent(structuredClone(FrontpageData) as Frontpage);

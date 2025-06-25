@@ -29,7 +29,7 @@
     justify-content: center;
     padding: calc(var(--gutter) / 2);
     display: flex;
-    margin: 0 var(--gutter);
+    margin: var(--gutter) var(--gutter) 0 var(--gutter);
     width: auto;
     max-width: 100%;
     li {

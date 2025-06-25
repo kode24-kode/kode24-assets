@@ -78,7 +78,12 @@
 }
 
 .desktop-row {
-
+  .commercial-content .headline {
+    padding: 0 !important;
+  }
+  .byline-row {
+    max-width: 100%;
+  }
   &:not(.commercial) {
 
     .commercial-content {
@@ -104,6 +109,7 @@
         font-weight: bold;
         letter-spacing: 0 !important;
         font-size: 1.4rem;
+        padding: 0;
         @media screen and (min-width:1024px) {
           font-size: 2rem;
         }
