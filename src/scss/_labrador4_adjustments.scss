@@ -24,6 +24,10 @@
   .fullwidthTarget {
     border-radius: var(--border-radius);
   }
+  .content.fullwidthTarget {
+    display: flex;
+    justify-content: center;
+  }
   .bg-pink,
   .bg-purple,
   .bg-teal,
