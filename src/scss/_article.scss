@@ -598,18 +598,22 @@
     }
   }
 }
+.article .imagezoom figure .content {
+  flex-direction: column;
+
+  .fullwidthTarget {
+    flex: 1 1 100%;
+  }
+
+  .caption {
+    flex: 1 1;
+    padding: var(--gutter);
+    background-color: var(--v2-background)
+  }
+}
 
 .resp_fonts .article-entity {
-  .imagezoom figure .content {
-    flex-direction: column;
-    .fullwidthTarget {
-      flex:  1 1 100%;
-    }
-    .caption {
-      flex: 1 1 100%;
-      padding: var(--gutter);
-    }
-  }
+
   ul,
     ol,
     .factbox ul,
@@ -695,6 +699,7 @@
     p, h2, h3 {
       max-width: 670px;
       margin: 0 auto;
+      padding: .4em 0;
     }
     p {
       color: var(--v2-card-paragraph-color);

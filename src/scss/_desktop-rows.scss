@@ -134,12 +134,13 @@
     margin-bottom: calc(var(--gutter) * 2) !important;
     overflow: hidden;
     &:not(.single-row) {
-      margin-left: calc((var(--gutter)) * -1);
-      width: calc(100% + var(--gutter) * 2);
-      //background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
-      position: relative;
-      flex-direction: column;
-
+      @media screen and (min-width:1024px) {
+        margin-left: calc((var(--gutter)) * -1);
+        width: calc(100% + var(--gutter) * 2);
+        //background: linear-gradient(45deg, var(--v2-label-color-pink-darker) 32%, var(--v2-label-color-orange-darker));
+        position: relative;
+        flex-direction: column;
+      }
     }
 
     .headline,
@@ -1052,8 +1053,11 @@
       padding: 0;
 
       &:not(.single-row) {
-        margin-left: calc((var(--gutter) * 2) * -1);
-        width: calc(100% + var(--gutter) * 4);
+        @media screen and (min-width: 1024px) {
+          margin-left: calc((var(--gutter) * 2) * -1);
+          width: calc(100% + var(--gutter) * 4);
+        }
+
       }
     }
   }

@@ -2,13 +2,7 @@
  * Injects job listings and commercial articles into articles on kode24
  */
 
-import {
-  Frontpage,
-  Content,
-  Listing,
-  ContentTile,
-  ListingTile,
-} from "./types/index.ts";
+import { Frontpage, Content, Listing, ContentTile } from "./types/index.ts";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import ContentsRow from "./components/ContentsRow.tsx";
