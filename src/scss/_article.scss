@@ -603,6 +603,8 @@
 
   .fullwidthTarget {
     flex: 1 1 100%;
+
+
   }
 
   .caption {
@@ -699,10 +701,11 @@
     p, h2, h3 {
       max-width: 670px;
       margin: 0 auto;
-      padding: .4em 0;
+
     }
     p {
       color: var(--v2-card-paragraph-color);
+      padding: 0 0 .4em 0;
     }
     h2,h3 {
       margin-top: calc(var(--gutter) * 2);
@@ -823,13 +826,25 @@
     .subtitle, kicker {
       display: none;
     }
-
-
     figure {
       margin-top: 0;
       border-radius: 0;
       margin-right: 0 !important;
     }
+
+  }
+
+
+
+
+
+
+
+
+
+  .content.fullWidthTarget {
+    display: flex;
+    justify-content: center;
   }
 }
 .frontpage.wide .page-content article,
