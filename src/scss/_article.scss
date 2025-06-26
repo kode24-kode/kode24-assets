@@ -600,7 +600,16 @@
 }
 
 .resp_fonts .article-entity {
-
+  .imagezoom figure .content {
+    flex-direction: column;
+    .fullwidthTarget {
+      flex:  1 1 100%;
+    }
+    .caption {
+      flex: 1 1 100%;
+      padding: var(--gutter);
+    }
+  }
   ul,
     ol,
     .factbox ul,

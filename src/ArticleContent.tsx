@@ -2,10 +2,17 @@
  * Injects job listings and commercial articles into articles on kode24
  */
 
-import { Frontpage, Content, Listing, ContentTile } from "./types/index.ts";
+import {
+  Frontpage,
+  Content,
+  Listing,
+  ContentTile,
+  ListingTile,
+} from "./types/index.ts";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import ContentsRow from "./components/ContentsRow.tsx";
+import ListingsRow from "./components/ListingsRow";
 import { shuffleArray } from "./functions/shuffleArray.ts";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
 import structuredClone from "@ungap/structured-clone";
@@ -54,6 +61,12 @@ export default function FrontContent(frontpageData: Frontpage) {
             <Banner ads={mobileBannerAds} mobileToggle={true} />
           )}
         </>
+        {bannerAds.length <= 0 && mobileBannerAds.length <= 0 && (
+          <ListingsRow
+            Listings={shuffleArray([...frontPageDataCopy.jobs]) as Listing[]}
+            listView={false}
+          />
+        )}
       </React.StrictMode>
     );
 
@@ -102,5 +115,18 @@ export default function FrontContent(frontpageData: Frontpage) {
         h2.before(listingNode);
       }
     });
+    // draw job ads before comments
+    const listingNode = document.createElement("div");
+
+    const jobs = shuffleArray([...frontPageDataCopy.jobs]);
+    console.log("yo", jobs);
+    ReactDOM.createRoot(listingNode as HTMLElement).render(
+      <React.StrictMode>
+        <>
+          <ListingsRow Listings={jobs as Listing[]} listView={false} />
+        </>
+      </React.StrictMode>
+    );
+    document.querySelector(".article-entity")?.append(listingNode);
   }
 }

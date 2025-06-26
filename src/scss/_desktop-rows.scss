@@ -199,9 +199,14 @@
         object-fit: contain;
       }
       article {
-        background-color: var(--v2-card-background) !important;
+      background-color: var(--v2-card-background) !important;
+    }
+    @media screen and (min-width: 104px) {
+      article:nth-child(n+4) {
+        display: none;
       }
-      @media screen and (max-width: 830px) {
+    }
+    @media screen and (max-width: 830px) {
         display: flex;
         overflow: scroll;
         padding-right: var(--gutter);
@@ -988,7 +993,11 @@
       background-color: var(--v2-card-background) !important;
       border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
       align-items: stretch;
-
+      @media screen and (min-width: 104px) {
+        article:nth-child(n+4) {
+          display: none;
+        }
+      }
       .preview {
         margin-bottom: 0 !important;
 
