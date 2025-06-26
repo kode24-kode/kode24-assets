@@ -15,7 +15,7 @@
       display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: var(--gutter);
-        padding: calc(var(--gutter) * 4) max(var(--gutter), 50vw - 860px);
+
     }
   }
   .columns {
