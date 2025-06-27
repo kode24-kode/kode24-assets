@@ -23,6 +23,7 @@ import ArticleContent from "./ArticleContent.tsx";
 import PatreonsList from "./components/PatreonsList.tsx";
 import PodcastPlayer from "./components/PodcastPlayer.tsx";
 import TopBanner from "./components/TopBanner.tsx";
+import Sourcepoint from "./components/Sourcepoint.tsx";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
