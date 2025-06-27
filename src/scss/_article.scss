@@ -554,12 +554,24 @@
 }
 
 
-#hyvor-talk-view {
-  max-width: 90%;
+section.comments #hyvor-talk-view {
   overflow-x: hidden;
   margin: 0 auto;
+  padding: 0;
+  hyvor-talk-comments {
+    @media screen and (max-width:800px) {
+      padding: 0 var(--gutter);
+    }
+  }
 }
 /** new stuff */
+
+.content.fullWidthTarget {
+  display: flex;
+  justify-content: center;
+
+}
+
 .quotebox {
   position: relative;
 
@@ -614,7 +626,11 @@
   }
 }
 
+
 .resp_fonts .article-entity {
+
+
+
 
   ul,
     ol,
@@ -705,7 +721,7 @@
     }
     p {
       color: var(--v2-card-paragraph-color);
-      padding: 0 0 .4em 0;
+      padding: .4em 0 .4em 0;
     }
     h2,h3 {
       margin-top: calc(var(--gutter) * 2);
@@ -842,10 +858,7 @@
 
 
 
-  .content.fullWidthTarget {
-    display: flex;
-    justify-content: center;
-  }
+
 }
 .frontpage.wide .page-content article,
 .frontpage.wide main>article {
