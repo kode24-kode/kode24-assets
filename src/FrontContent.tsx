@@ -75,7 +75,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   }
    */
 
-  if (articlesAboveFirstBanner) {
+  if (articlesAboveFirstBanner && !document.querySelector(".section_annonse")) {
     ReactDOM.createRoot(articlesAboveFirstBanner).render(
       <React.StrictMode>
         <FrontPageContent

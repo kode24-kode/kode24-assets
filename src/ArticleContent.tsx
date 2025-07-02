@@ -15,8 +15,11 @@ export default function FrontContent(frontpageData: Frontpage) {
   setTimeout(() => {
     (window as any).hljs.highlightAll();
   }, 1000);
-  if (!document.querySelector(".is-editor")) {
-    console.log("we are not in editor");
+  if (
+    !document.querySelector(".is-editor") &&
+    !document.querySelector(".section_annonse")
+  ) {
+    console.log("we are not in editor and it is not an ad");
     // So we don't mutate the original data
     const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
     /** shuffle content and ads */
