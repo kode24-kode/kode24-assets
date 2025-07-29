@@ -23,7 +23,6 @@ import ArticleContent from "./ArticleContent.tsx";
 import PatreonsList from "./components/PatreonsList.tsx";
 import PodcastPlayer from "./components/PodcastPlayer.tsx";
 import TopBanner from "./components/TopBanner.tsx";
-import Sourcepoint from "./components/Sourcepoint.tsx";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
@@ -45,48 +44,6 @@ async function main() {
   // fetch frontpage data
   const response = await fetch("https://docs.kode24.no/api/frontpage");
   const FrontpageData: Frontpage = await response.json();
-  FrontpageData.latestArticles.push({
-    id: "100042",
-    title: "",
-    published: "",
-    section: "",
-    image: "",
-    published_url: "/artikkel/na-kommer-partiene-med-egne-ai-boter/100042",
-    tags: "",
-    subtitle: "",
-    frontCropUrl: "",
-    byline: {
-      name: "",
-      bio: "",
-      imageUrl: "",
-    },
-    reactions: {
-      reactions: [1, 1, 0, 0, 0, 0],
-      comments_count: 4,
-      reactions_count: 2,
-    },
-  });
-  FrontpageData.latestArticles.push({
-    id: "100042",
-    title: "",
-    published: "",
-    section: "",
-    image: "",
-    published_url: "/artikkel/na-kommer-partiene-med-egne-ai-boter/100042",
-    tags: "",
-    subtitle: "",
-    frontCropUrl: "",
-    byline: {
-      name: "",
-      bio: "",
-      imageUrl: "",
-    },
-    reactions: {
-      reactions: [1, 1, 0, 0, 0, 0],
-      comments_count: 4,
-      reactions_count: 2,
-    },
-  });
   FrontComments(FrontpageData.latestArticles);
   /**
    * Always check if there is a batter on top and draw it
