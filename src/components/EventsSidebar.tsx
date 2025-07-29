@@ -1,4 +1,11 @@
 import { Event } from "../types";
+
+function extractParam(url: string, paramName = "id") {
+  const regex = new RegExp(`[?&]${paramName}=([^&]+)`);
+  const match = url.match(regex);
+  return match ? match[1] : null;
+}
+
 export default function EventsSidebar({ events }: { events: Array<Event> }) {
   return (
     <div className="row">
@@ -41,7 +48,10 @@ export default function EventsSidebar({ events }: { events: Array<Event> }) {
                       <img
                         itemProp="image"
                         alt="logo"
-                        src={`https://kode24-image-cache.onrender.com/image?url=${event.photo}`}
+                        src={`https://lh3.googleusercontent.com/d/${extractParam(
+                          event.photo,
+                          "id"
+                        )}=${extractParam(event.photo, "sz")}?authuser=0`}
                         loading="lazy"
                       />
                     </figure>
