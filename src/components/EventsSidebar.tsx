@@ -1,9 +1,5 @@
-import { Event } from '../types';
-export default function EventsSidebar({
-  events,
-}: {
-  events: Array<Event>;
-}) {
+import { Event } from "../types";
+export default function EventsSidebar({ events }: { events: Array<Event> }) {
   return (
     <div className="row">
       <article className="preview preview-list job-list">
@@ -34,8 +30,8 @@ export default function EventsSidebar({
                       {date.getDate()}
                     </div>
                     <div className="preview-calendar-date-month">
-                      {date.toLocaleString('en-US', {
-                        month: 'short',
+                      {date.toLocaleString("en-US", {
+                        month: "short",
                       })}
                     </div>
                   </div>
@@ -45,19 +41,17 @@ export default function EventsSidebar({
                       <img
                         itemProp="image"
                         alt="logo"
-                        src={event.photo}
+                        src={`https://kode24-image-cache.onrender.com/image?url=${event.photo}`}
                         loading="lazy"
                       />
                     </figure>
                     <div className="article-preview-text">
                       <div className="labels">
-                        <span className="label">
-                          {event.arrangedBy}
-                        </span>
+                        <span className="label">{event.arrangedBy}</span>
                       </div>
                       <h1 className="headline">{event.name}</h1>
                       <p className="standfirst">
-                        ({event.digital ? 'Digitalt' : 'Fysisk'})
+                        ({event.digital ? "Digitalt" : "Fysisk"})
                       </p>
                     </div>
                   </div>
