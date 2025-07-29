@@ -28,7 +28,6 @@ import TopBanner from "./components/TopBanner.tsx";
 
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
-  console.log("got to main");
   // the functions below should run regardless.
 
   // only if commercial content
@@ -64,9 +63,8 @@ async function main() {
       </React.StrictMode>
     );
   }
-  console.log("before loading ads");
+
   if (!document.querySelector(".is-editor")) {
-    console.log("loading ads");
     ArticleContent(structuredClone(FrontpageData) as Frontpage);
   }
   FrontContent(structuredClone(FrontpageData) as Frontpage);

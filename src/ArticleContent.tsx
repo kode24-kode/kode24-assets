@@ -19,7 +19,6 @@ export default function FrontContent(frontpageData: Frontpage) {
     !document.querySelector(".is-editor") &&
     !document.querySelector(".section_annonse")
   ) {
-    console.log("we are not in editor and it is not an ad");
     // So we don't mutate the original data
     const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
     /** shuffle content and ads */
@@ -116,7 +115,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     const listingNode = document.createElement("div");
 
     const jobs = shuffleArray([...frontPageDataCopy.jobs]);
-    console.log("yo", jobs);
+
     ReactDOM.createRoot(listingNode as HTMLElement).render(
       <React.StrictMode>
         <>

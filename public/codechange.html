@@ -91,14 +91,14 @@
         function updateOutPutList(codestring) {
             codestring = codestring.reverse();
             codestring.forEach(function (code) {
-                console.log('fis');
+
                 $("#previous-outputs").append($('<pre class="code-highlight"></pre>').text(codestring));
             });
         }
 
         $(function () {
             var previouscodes = localStorage.getItem("previouscodes");
-            console.log(previouscodes);
+
             if (previouscodes)
                 previouscodes = JSON.parse(previouscodes);
             else {
@@ -127,12 +127,12 @@
 
             $("#copy").on("click", function (event) {
                 var codestring = $("#code-output").text();
-                console.log(codestring, "hest1");
+
                 $("#copy").text($("#copy").text() + " 👍");
                 copyToClipboard($("#code-output"));
-                console.log(codestring, "hest");
+
                 previouscodes.push(codestring);
-                console.log(codestring, previouscodes, JSON.stringify(previouscodes));
+
                 localStorage.setItem("previouscodes", JSON.stringify(previouscodes));
                 updateOutPutList(previouscodes);
             });

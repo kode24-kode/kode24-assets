@@ -6,7 +6,7 @@ import { resolve } from "path";
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), "");
-  console.log(env.LOCAL_BUILD, env.LOCAL_OUTDIR);
+
   const isLocal = env.LOCAL_BUILD === "true";
   const localOutDir = env.LOCAL_OUTDIR;
 

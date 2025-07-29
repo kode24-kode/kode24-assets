@@ -26,7 +26,7 @@ export default function LabradorFrontCommercial(frontPageData: Frontpage) {
   ) as bannerAd[];
   const articles = document.querySelectorAll(".page-content article");
   // if we have at least one labrador article, draw a banner underneath it
-  console.log("hello fresh");
+
   if (articles.length > 0) {
     createBannerNode(mobileBrandBoardBanners, true, ".page-content");
     createBannerNode(brandBoardBanners, false, ".page-content");
@@ -34,7 +34,7 @@ export default function LabradorFrontCommercial(frontPageData: Frontpage) {
 
   /**
   articles.forEach((article: Element) => {
-    console.log("hello");
+
   });
    */
 }
@@ -51,7 +51,6 @@ function createBannerNode(
   mobileToggle: boolean,
   appendToNode: string
 ) {
-  console.log("got here", appendToNode);
   const commentNode = document.createElement("div");
   ReactDOM.createRoot(commentNode).render(
     <Banner ads={bannerAds} mobileToggle={mobileToggle} />
