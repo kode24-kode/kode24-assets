@@ -671,9 +671,13 @@ section.comments #hyvor-talk-view {
     padding: 0;
     margin: 0;
   }
-
+  .bodytext .desktop-row.commercial {
+    margin-left: calc((var(--columns-gutter) + var(--gutter))*-1);
+    width: calc(100% + (var(--columns-gutter) + var(--gutter))*2);
+  }
   .desktop-row {
     margin-top: 2.5rem;
+
     &.commercial {
       background-color: transparent;
     }

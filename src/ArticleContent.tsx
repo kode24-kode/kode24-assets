@@ -100,7 +100,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             <ContentsRow
               Contents={
                 shuffleArray([
-                  ...frontPageDataCopy.jobAdsSanity.splice(0, 3),
+                  ...frontPageDataCopy.jobAdsSanity,
                 ]) as ContentTile[]
               }
               listView={false}

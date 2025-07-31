@@ -1,10 +1,6 @@
-import { Listing } from '../types';
-import { getImageCacheUrl } from '../functions/getImageCacheUrl';
-export default function ListingTile({
-  Listing,
-}: {
-  Listing: Listing;
-}) {
+import { Listing } from "../types";
+import { getImageCacheUrl } from "../functions/getImageCacheUrl";
+export default function ListingTile({ Listing }: { Listing: Listing }) {
   return (
     <article
       id={`article_${Listing.id}`}
@@ -19,13 +15,12 @@ export default function ListingTile({
       <div className="article-content-wrapper">
         <a
           itemProp="url"
-          href={'https://www.kodejobb.no' + Listing.published_url}
+          href={"https://www.kodejobb.no" + Listing.published_url}
         >
           <figure
             className=""
             style={{
-              backgroundColor:
-                Listing.company?.logoBackgroundLight || 'white',
+              backgroundColor: Listing.company?.logoBackgroundLight || "white",
             }}
           >
             <img
@@ -35,12 +30,8 @@ export default function ListingTile({
               alt={`image: ${Listing.title}`}
               src={getImageCacheUrl(
                 Listing.company?.logoWithoutSize
-                  ? Listing.company?.logoWithoutSize +
-                      '?w=300&fit=max'
-                  : Listing.company?.imageUrl.replace(
-                      'w=100',
-                      'w=300'
-                    )
+                  ? Listing.company?.logoWithoutSize + "?w=300&fit=max"
+                  : Listing.company?.imageUrl.replace("w=100", "w=300")
               )}
             />
           </figure>
@@ -48,14 +39,15 @@ export default function ListingTile({
         <div className="article-preview-text">
           <a
             itemProp="url"
-            href={'https://www.kodejobb.no' + Listing.published_url}
+            href={"https://www.kodejobb.no" + Listing.published_url}
           >
             <p className="company-name">{Listing.company.name}</p>
             <h1 className="headline">
               <span className="headline-title-wrapper">
-                {Listing.title}
+                {Listing.applicationTitle}
               </span>
             </h1>
+            <p>{Listing.title}</p>
           </a>
         </div>
       </div>

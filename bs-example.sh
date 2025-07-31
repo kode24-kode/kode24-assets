@@ -15,7 +15,7 @@ yarn build
 # source ~/.zshrc   # if alias lives here
 # source ~/.bashrc  # or this if you're using bash
 
-echo "🔄 Synker view-resources til my_cluster..."
-rsync -avz --progress --delete ~/Repos/view-resources -e ssh my_cluster:/home/cust
+#echo "🔄 Synker view-resources til my_cluster..."
+#rsync -avz --progress --delete ~/Repos/view-resources -e ssh my_cluster:/home/cust
 
 echo "✅ Ferdig!"

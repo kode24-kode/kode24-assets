@@ -90,6 +90,15 @@ body {
   }
 }
 
+.bylines {
+  @media (min-width: 1024px) {
+    flex-wrap: wrap;
+    .byline {
+      flex: 0 0 calc(100%/3);
+    }
+  }
+}
+
 article.column .content figure {
   margin-bottom: 0;
 }
@@ -201,3 +210,4 @@ a {
   display: flex;
   justify-content: center;
 }
+
