@@ -92,11 +92,20 @@ body {
 
 .bylines {
   @media (min-width: 1024px) {
+
     flex-wrap: wrap;
     .byline {
-      flex: 0 0 calc(100%/3);
+      figure {
+        flex: 0 0 42px;
+      }
+      flex: 1 1 100%;
+        /* standard: ta 100% bredde */
+      &:not(:only-child) {
+        max-width: calc(100%/3);
+      }
     }
   }
+
 }
 
 article.column .content figure {
