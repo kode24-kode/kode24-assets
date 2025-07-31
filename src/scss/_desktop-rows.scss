@@ -1068,9 +1068,10 @@
   .commercial {
     overflow: visible;
     .triple {
-      margin-left: calc(var(--gutter) * -1);
-      margin-right: calc(var(--gutter) * -1);
-
+      @media screen and (max-width: 800) {
+        margin-left: calc(var(--gutter) * -1);
+        margin-right: calc(var(--gutter) * -1);
+      }
     }
   }
 }
