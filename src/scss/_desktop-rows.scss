@@ -42,7 +42,7 @@
     font-size: 1rem;
 
     @media screen and (min-width: 830px) {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
 
@@ -108,7 +108,7 @@
         font-family: var(--v2-font-body);
         font-weight: bold;
         letter-spacing: 0 !important;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         padding: 0;
         @media screen and (min-width:1024px) {
           font-size: 2rem;
@@ -395,13 +395,13 @@
       grid-column: span 2;
 
       .headline {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
     }
 
     article:not(:first-child) {
       .headline {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
       }
     }
 
@@ -527,7 +527,7 @@
 
     .triple {
       .headline {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
       }
 
       article:not(:first-child) {}
@@ -1067,10 +1067,11 @@
   .commercial {
     overflow: visible;
     .triple {
-      @media screen and (max-width: 800) {
+      @media screen and (max-width: 800px) {
         margin-left: calc(var(--gutter) * -1);
         margin-right: calc(var(--gutter) * -1);
       }
     }
   }
 }
+

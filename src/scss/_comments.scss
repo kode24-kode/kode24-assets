@@ -10,7 +10,11 @@
       margin-bottom: calc(var(--gutter) / 2)
   }
   .comment-snippet {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    @media screen and (min-width:1024px) {
+      font-size: 1rem;
+    }
   }
   .comment-inline {
     display: flex;

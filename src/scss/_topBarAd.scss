@@ -12,6 +12,7 @@
   &.mobile {
     display: flex;
     padding-top: var(--gutter);
+    margin-bottom: var(--gutter);
     @media screen and (min-width: 1024px) {
       display: none;
     }
