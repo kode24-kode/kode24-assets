@@ -100,8 +100,8 @@
 
       .byline-name {
         font-size: 1rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        word-break: break-all;
+        line-height: 1.1;
       }
 
       .headline {
