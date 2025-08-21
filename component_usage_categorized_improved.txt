@@ -1,0 +1,47 @@
+Component usage by category (improved):
+========================================
+
+📂 FREQUENTLY USED (5 components):
+------------------------------
+  • ArticleTile (imports: 0, usage: 6)
+  • Banner (imports: 2, usage: 21)
+  • ListingTile (imports: 0, usage: 12)
+  • ListingsRow (imports: 2, usage: 7)
+  • TopBanner (imports: 0, usage: 6)
+
+📂 OCCASIONALLY USED (15 components):
+------------------------------
+  • ArticleTileSocial (imports: 0, usage: 4)
+  • ArticlesRow (imports: 0, usage: 3)
+  • CommentTile (imports: 0, usage: 4)
+  • CommentsTile (imports: 0, usage: 3)
+  • ContentTile (imports: 0, usage: 5)
+  • ContentsRow (imports: 0, usage: 2)
+  • FullEventsList (imports: 0, usage: 3)
+  • ListingSidebar (imports: 0, usage: 3)
+  • ListingsSidebar (imports: 0, usage: 2)
+  • LoadingAnimation (imports: 0, usage: 3)
+  • PartnerAdTile (imports: 0, usage: 4)
+  • PartnerTile (imports: 0, usage: 3)
+  • PodcastPlayer (imports: 0, usage: 3)
+  • Search (imports: 0, usage: 3)
+  • Snow (imports: 0, usage: 3)
+
+📂 RARELY USED (7 components):
+------------------------------
+  • ArticleTileSocialIcons (imports: 0, usage: 1)
+  • CompanyPartnersTile (imports: 0, usage: 1)
+  • CompetitionHighscore (imports: 0, usage: 1)
+  • EventsSidebar (imports: 0, usage: 1)
+  • ListingsApplication (imports: 0, usage: 1)
+  • PatreonsList (imports: 0, usage: 1)
+  • SortByReactions (imports: 0, usage: 1)
+
+📂 UNUSED (5 components):
+------------------------------
+  • Easter2025 (imports: 0, usage: 0)
+  • Quicksearch (imports: 0, usage: 0)
+  • Sourcepoint (imports: 0, usage: 0)
+  • TopBarAd (imports: 0, usage: 0)
+  • TopBarAdFinn (imports: 0, usage: 0)
+

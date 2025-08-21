@@ -122,14 +122,28 @@ article.column .content .flash:before {
 
 .article-reactions {
   position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
+  top: 0rem;
+  right: 0rem;
   background-color: var(--v2-card-background);
   padding: calc(0.7rem / 2);
   border-radius: var(--border-radius);
   display: flex;
   gap: calc(0.7rem / 2);
   font-size: 0.9rem;
+  &.on-fire {
+
+    animation: flicker 0.15s infinite alternate;
+    background: linear-gradient(180deg, #ffcc00, #ff6600, #cc0000);
+    background-size: 200% 200%;
+    animation: fireGlow 1.5s infinite alternate, flicker 4s infinite alternate;
+    box-shadow: 0 0 10px rgba(255, 100, 0, 0.8),
+      0 0 20px rgba(255, 140, 0, 0.6),
+      0 0 30px rgba(255, 0, 0, 0.4);
+  }
+  @media screen and (min-width: 1024px) {
+    top: -0.4rem;
+    right: -0.4rem;
+  }
   span {
     display: flex;
     align-items: center;
@@ -137,6 +151,44 @@ article.column .content .flash:before {
     svg {
       font-size: 1.1rem;
     }
+  }
+}
+
+/* Glow shift */
+@keyframes fireGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Flicker effect */
+@keyframes flicker {
+  0% {
+    filter: brightness(1);
+  }
+
+  25% {
+    filter: brightness(1.2);
+  }
+
+  50% {
+    filter: brightness(0.9);
+  }
+
+  75% {
+    filter: brightness(1.3);
+  }
+
+  100% {
+    filter: brightness(1);
   }
 }
 

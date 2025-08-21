@@ -1,0 +1,186 @@
+Component Usage Analysis
+========================================
+
+📦 ArticleTile
+   ❌ No imports found
+   🔧 Usage (4):
+      📍 src/components/ArticlesRow.tsx:59
+      📍 src/components/ArticleTile.tsx:89
+      📍 src/components/ArticleTileSocial.tsx:36
+      📍 src/components/Search.tsx:155
+
+📦 ArticleTileSocial
+   ❌ No imports found
+   🔧 Usage (2):
+      📍 src/components/ArticleTile.tsx:89
+      📍 src/components/ArticleTileSocial.tsx:36
+
+📦 ArticleTileSocialIcons
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/components/ArticleTileSocial.tsx:36
+
+📦 ArticlesRow
+   ❌ No imports found
+   🔧 Usage (3):
+      📍 src/FrontContent.tsx:146
+      📍 src/FrontContent.tsx:176
+      📍 src/FrontContent.tsx:212
+
+📦 Banner
+   📥 Imports (2):
+      📍 src/labradorFrontCommercial.tsx:5
+      📍 src/labradorFrontCommercial.tsx:5
+   🔧 Usage (7):
+      📍 src/labradorFrontCommercial.tsx:56
+      📍 src/FrontContent.tsx:165
+      📍 src/FrontContent.tsx:171
+      📍 src/FrontContent.tsx:198
+      📍 src/ArticleContent.tsx:54
+      📍 src/ArticleContent.tsx:57
+      📍 src/components/Banner.tsx:6
+
+📦 CommentTile
+   ❌ No imports found
+   🔧 Usage (2):
+      📍 src/components/ArticleTile.tsx:91
+      📍 src/components/CommentsTile.tsx:24
+
+📦 CommentsTile
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/FrontContent.tsx:203
+
+📦 CompanyPartnersTile
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/FrontContent.tsx:221
+
+📦 CompetitionHighscore
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:167
+
+📦 ContentTile
+   ❌ No imports found
+   🔧 Usage (3):
+      📍 src/components/ArticlesRow.tsx:70
+      📍 src/components/ContentsRow.tsx:7
+      📍 src/components/ContentsRow.tsx:20
+
+📦 ContentsRow
+   ❌ No imports found
+   🔧 Usage (2):
+      📍 src/ArticleContent.tsx:90
+      📍 src/ArticleContent.tsx:100
+
+📦 Easter2025
+   ❌ No imports found
+   ❌ No JSX usage found
+
+📦 EventsSidebar
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/DesktopSidemenuFront.tsx:24
+
+📦 FullEventsList
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:196
+
+📦 ListingSidebar
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/components/ListingsSidebar.tsx:24
+
+📦 ListingTile
+   ❌ No imports found
+   🔧 Usage (4):
+      📍 src/components/ListingsRow.tsx:28
+      📍 src/components/ArticlesRow.tsx:71
+      📍 src/components/ListingsApplication.tsx:42
+      📍 src/components/ListingsApplication.tsx:50
+
+📦 ListingsApplication
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:224
+
+📦 ListingsRow
+   📥 Imports (2):
+      📍 src/ArticleContent.tsx:9
+      📍 src/ArticleContent.tsx:9
+   🔧 Usage (3):
+      📍 src/FrontContent.tsx:227
+      📍 src/ArticleContent.tsx:61
+      📍 src/ArticleContent.tsx:122
+
+📦 ListingsSidebar
+   ❌ No imports found
+   🔧 Usage (2):
+      📍 src/DesktopSidemenuFront.tsx:20
+      📍 src/DesktopSidemenuFront.tsx:27
+
+📦 LoadingAnimation
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/components/Search.tsx:136
+
+📦 PartnerAdTile
+   ❌ No imports found
+   🔧 Usage (2):
+      📍 src/FrontContent.tsx:204
+      📍 src/ArticleContent.tsx:79
+
+📦 PartnerTile
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/components/PartnerAdTile.tsx:16
+
+📦 PatreonsList
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:210
+
+📦 PodcastPlayer
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:157
+
+📦 Quicksearch
+   ❌ No imports found
+   ❌ No JSX usage found
+
+📦 Search
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:187
+
+📦 Snow
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/components/TopBarAd.tsx:16
+
+📦 SortByReactions
+   ❌ No imports found
+   🔧 Usage (1):
+      📍 src/main.tsx:141
+
+📦 Sourcepoint
+   ❌ No imports found
+   ❌ No JSX usage found
+
+📦 TopBanner
+   ❌ No imports found
+   🔧 Usage (2):
+      📍 src/main.tsx:62
+      📍 src/components/TopBanner.tsx:8
+
+📦 TopBarAd
+   ❌ No imports found
+   ❌ No JSX usage found
+
+📦 TopBarAdFinn
+   ❌ No imports found
+   ❌ No JSX usage found
+

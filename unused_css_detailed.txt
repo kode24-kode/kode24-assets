@@ -1,0 +1,561 @@
+Potentially unused CSS classes with locations:
+============================================================
+
+🔴 ad-company-logo
+   📍 src/scss/_related-articles.scss:55
+
+🔴 ad-image
+   📍 src/scss/_article.scss:269
+   📍 src/scss/_related-articles.scss:10
+
+🔴 ad-text
+   📍 src/scss/_related-articles.scss:51
+
+🔴 added
+   📍 src/scss/_social-row.scss:107
+   📍 src/scss/_social-row.scss:113
+   📍 src/scss/_social-row.scss:119
+   📍 src/scss/_social-row.scss:125
+   📍 src/scss/_social-row.scss:131
+   📍 src/scss/_social-row.scss:137
+
+🔴 adunit
+   📍 src/scss/_adunit.scss:2
+   📍 src/scss/_adunit.scss:40
+   📍 src/scss/_adunit.scss:41
+   📍 src/scss/_adunit.scss:42
+   📍 src/scss/_adunit.scss:48
+
+🔴 adunit-wrapper
+   📍 src/scss/_adunit.scss:25
+
+🔴 article-image
+   📍 src/scss/_related-articles.scss:117
+
+🔴 article-social-tags
+   📍 src/scss/_social-row.scss:88
+
+🔴 article-tags
+   📍 src/scss/_related-articles.scss:119
+
+🔴 aside-desktop
+   📍 src/scss/_article.scss:48
+   📍 src/scss/_commercial-article-overrides.scss:6
+
+🔴 banner-container
+   📍 src/scss/_topBarAd.scss:1
+
+🔴 bg-blue
+   📍 src/scss/_labrador4_adjustments.scss:35
+
+🔴 bg-teal
+   📍 src/scss/_labrador4_adjustments.scss:34
+
+🔴 bg-yellow
+   📍 src/scss/_labrador4_adjustments.scss:36
+
+🔴 bodytext-content-box
+   📍 src/scss/_labrador-overrides.scss:11
+
+🔴 border
+   📍 src/scss/_desktop-rows.scss:127
+
+🔴 border_width_0
+   📍 src/scss/_labrador4_adjustments.scss:22
+
+🔴 call-to-action
+   📍 src/scss/_preview-list.scss:97
+   📍 src/scss/_preview-list.scss:156
+
+🔴 cities
+   📍 src/scss/_related-articles.scss:67
+   📍 src/scss/_related-articles.scss:90
+
+🔴 comments
+   📍 src/scss/_article.scss:557
+
+🔴 commercial-content
+   📍 src/scss/_desktop-rows.scss:81
+   📍 src/scss/_desktop-rows.scss:89
+   📍 src/scss/_article.scss:526
+
+🔴 company-information
+   📍 src/scss/_topbanner.scss:73
+
+🔴 company-league-table
+   📍 src/scss/_company-league.scss:1
+
+🔴 company-league-table-wrapper
+   📍 src/scss/_company-league.scss:27
+
+🔴 copy
+   📍 src/scss/_panel.scss:29
+
+🔴 cross-site-legend
+   📍 src/scss/_footer.scss:83
+   📍 src/scss/_base.scss:76
+
+🔴 desktop-floatRight
+   📍 src/scss/_labrador4_adjustments.scss:76
+
+🔴 dual-extra-dual
+   📍 src/scss/_desktop-rows.scss:414
+   📍 src/scss/_desktop-rows.scss:476
+   📍 src/scss/_desktop-rows.scss:625
+   📍 src/scss/_desktop-rows.scss:660
+
+🔴 dummy-article
+   📍 src/scss/_desktop-rows.scss:916
+
+🔴 dummy-aside-content
+   📍 src/scss/_sidebar.scss:8
+
+🔴 dummy-byline
+   📍 src/scss/_desktop-rows.scss:929
+   📍 src/scss/_desktop-rows.scss:958
+
+🔴 dummy-desktop-row
+   📍 src/scss/_desktop-rows.scss:905
+
+🔴 dummy-image
+   📍 src/scss/_desktop-rows.scss:918
+   📍 src/scss/_desktop-rows.scss:935
+
+🔴 dummy-style
+   📍 src/scss/_desktop-rows.scss:908
+
+🔴 dummy-time
+   📍 src/scss/_desktop-rows.scss:944
+
+🔴 dummy-title
+   📍 src/scss/_desktop-rows.scss:924
+   📍 src/scss/_desktop-rows.scss:951
+
+🔴 facebook-comments
+   📍 src/scss/_article.scss:2
+   📍 src/scss/_article.scss:8
+   📍 src/scss/_article.scss:19
+
+🔴 flash
+   📍 src/scss/_labrador4_adjustments.scss:115
+
+🔴 flex-video
+   📍 src/scss/_article.scss:486
+
+🔴 font-IBMPlexMono
+   📍 src/scss/_labrador4_adjustments.scss:53
+
+🔴 font-weight-normal
+   📍 src/scss/_article.scss:888
+
+🔴 footer-content
+   📍 src/scss/_article.scss:20
+   📍 src/scss/_related-articles.scss:1
+
+🔴 footer-content-related
+   📍 src/scss/_related-articles.scss:2
+
+🔴 footer-content-wrap
+   📍 src/scss/_related-articles.scss:15
+
+🔴 front-page
+   📍 src/scss/_article.scss:884
+
+🔴 full-bleed
+   📍 src/scss/_article.scss:161
+   📍 src/scss/_labrador-overrides.scss:19
+   📍 src/scss/_labrador-overrides.scss:34
+
+🔴 fullWidthTarget
+   📍 src/scss/_article.scss:569
+
+🔴 google-search
+   📍 src/scss/_google-search.scss:1
+
+🔴 gs-fileFormatType
+   📍 src/scss/_google-search.scss:10
+
+🔴 gs-image
+   📍 src/scss/_google-search.scss:32
+
+🔴 gs-image-box
+   📍 src/scss/_google-search.scss:39
+
+🔴 gs-imageResult
+   📍 src/scss/_google-search.scss:5
+   📍 src/scss/_google-search.scss:9
+   📍 src/scss/_google-search.scss:19
+   📍 src/scss/_google-search.scss:20
+   📍 src/scss/_google-search.scss:45
+   📍 src/scss/_google-search.scss:46
+
+🔴 gs-result
+   📍 src/scss/_google-search.scss:17
+   📍 src/scss/_google-search.scss:18
+   📍 src/scss/_google-search.scss:43
+   📍 src/scss/_google-search.scss:44
+   📍 src/scss/_google-search.scss:97
+   📍 src/scss/_google-search.scss:98
+   📍 src/scss/_google-search.scss:125
+   📍 src/scss/_google-search.scss:126
+
+🔴 gs-snippet
+   📍 src/scss/_google-search.scss:8
+   📍 src/scss/_google-search.scss:9
+
+🔴 gs-spelling
+   📍 src/scss/_google-search.scss:96
+
+🔴 gs-title
+   📍 src/scss/_google-search.scss:17
+   📍 src/scss/_google-search.scss:18
+   📍 src/scss/_google-search.scss:19
+   📍 src/scss/_google-search.scss:20
+   📍 src/scss/_google-search.scss:43
+   📍 src/scss/_google-search.scss:44
+   📍 src/scss/_google-search.scss:45
+   📍 src/scss/_google-search.scss:46
+   📍 src/scss/_google-search.scss:95
+   📍 src/scss/_google-search.scss:97
+   📍 src/scss/_google-search.scss:98
+   📍 src/scss/_google-search.scss:125
+   📍 src/scss/_google-search.scss:126
+
+🔴 gs-visibleUrl
+   📍 src/scss/_google-search.scss:4
+   📍 src/scss/_google-search.scss:5
+
+🔴 gs-web-image-box
+   📍 src/scss/_google-search.scss:39
+
+🔴 gs-web-image-box-landscape
+   📍 src/scss/_google-search.scss:39
+
+🔴 gs-webResult
+   📍 src/scss/_google-search.scss:4
+   📍 src/scss/_google-search.scss:8
+   📍 src/scss/_google-search.scss:17
+   📍 src/scss/_google-search.scss:18
+   📍 src/scss/_google-search.scss:43
+   📍 src/scss/_google-search.scss:44
+
+🔴 gsc-above-wrapper-area
+   📍 src/scss/_google-search.scss:75
+
+🔴 gsc-adBlock
+   📍 src/scss/_google-search.scss:50
+
+🔴 gsc-control-cse
+   📍 src/scss/_google-search.scss:90
+   📍 src/scss/_google-search.scss:91
+   📍 src/scss/_google-search.scss:96
+   📍 src/scss/_google-search.scss:97
+   📍 src/scss/_google-search.scss:98
+   📍 src/scss/_google-search.scss:103
+
+🔴 gsc-cursor-box
+   📍 src/scss/_google-search.scss:13
+   📍 src/scss/_google-search.scss:106
+   📍 src/scss/_google-search.scss:130
+   📍 src/scss/_google-search.scss:131
+   📍 src/scss/_google-search.scss:145
+
+🔴 gsc-cursor-current-page
+   📍 src/scss/_google-search.scss:130
+   📍 src/scss/_google-search.scss:145
+
+🔴 gsc-cursor-page
+   📍 src/scss/_google-search.scss:13
+   📍 src/scss/_google-search.scss:106
+   📍 src/scss/_google-search.scss:131
+
+🔴 gsc-imageResult
+   📍 src/scss/_google-search.scss:105
+
+🔴 gsc-input
+   📍 src/scss/_google-search.scss:63
+
+🔴 gsc-orderby
+   📍 src/scss/_google-search.scss:71
+
+🔴 gsc-result
+   📍 src/scss/_google-search.scss:95
+   📍 src/scss/_google-search.scss:104
+   📍 src/scss/_google-search.scss:107
+
+🔴 gsc-results
+   📍 src/scss/_google-search.scss:13
+   📍 src/scss/_google-search.scss:105
+   📍 src/scss/_google-search.scss:106
+   📍 src/scss/_google-search.scss:130
+   📍 src/scss/_google-search.scss:131
+   📍 src/scss/_google-search.scss:145
+   📍 src/scss/_google-search.scss:153
+
+🔴 gsc-search-box
+   📍 src/scss/_google-search.scss:63
+
+🔴 gsc-search-box-tools
+   📍 src/scss/_google-search.scss:63
+
+🔴 gsc-search-button
+   📍 src/scss/_google-search.scss:53
+   📍 src/scss/_google-search.scss:54
+
+🔴 gsc-table-cell-thumbnail
+   📍 src/scss/_google-search.scss:149
+
+🔴 gsc-table-result
+   📍 src/scss/_google-search.scss:91
+
+🔴 gsc-thumbnail
+   📍 src/scss/_google-search.scss:149
+
+🔴 gsc-webResult
+   📍 src/scss/_google-search.scss:104
+   📍 src/scss/_google-search.scss:107
+
+🔴 has-section-title
+   📍 src/scss/_panel.scss:11
+
+🔴 heading-description
+   📍 src/scss/_desktop-rows.scss:51
+   📍 src/scss/_desktop-rows.scss:434
+   📍 src/scss/_desktop-rows.scss:439
+
+🔴 hljs
+   📍 src/scss/_article.scss:493
+   📍 src/scss/_hljs.scss:1
+
+🔴 hljs-addition
+   📍 src/scss/_hljs.scss:14
+
+🔴 hljs-attr
+   📍 src/scss/_hljs.scss:17
+
+🔴 hljs-built_in
+   📍 src/scss/_hljs.scss:14
+
+🔴 hljs-bullet
+   📍 src/scss/_hljs.scss:14
+
+🔴 hljs-code
+   📍 src/scss/_hljs.scss:14
+
+🔴 hljs-comment
+   📍 src/scss/_hljs.scss:21
+
+🔴 hljs-deletion
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-name
+   📍 src/scss/_hljs.scss:17
+
+🔴 hljs-number
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-quote
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-section
+   📍 src/scss/_hljs.scss:6
+
+🔴 hljs-selector-class
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-selector-id
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-string
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-tag
+   📍 src/scss/_hljs.scss:17
+   📍 src/scss/_hljs.scss:17
+
+🔴 hljs-template-tag
+   📍 src/scss/_hljs.scss:10
+
+🔴 hljs-title
+   📍 src/scss/_hljs.scss:6
+
+🔴 hljs-type
+   📍 src/scss/_hljs.scss:10
+
+🔴 image-contain
+   📍 src/scss/_topbanner.scss:77
+
+🔴 imagezoom
+   📍 src/scss/_article.scss:613
+
+🔴 in-article-listing
+   📍 src/scss/_commercial-article-overrides.scss:5
+   📍 src/scss/_commercial-article-overrides.scss:15
+
+🔴 job
+   📍 src/scss/_native-advertisement.scss:30
+   📍 src/scss/_native-advertisement.scss:65
+
+🔴 labFn-edit
+   📍 src/scss/_labrador-overrides.scss:28
+
+🔴 labFn-empty-placeholder
+   📍 src/scss/_labrador-overrides.scss:15
+   📍 src/scss/_labrador-overrides.scss:20
+
+🔴 large-320x250
+   📍 src/scss/_adunit.scss:42
+
+🔴 large-980x300
+   📍 src/scss/_adunit.scss:48
+
+🔴 loader
+   📍 src/scss/_search.scss:252
+   📍 src/scss/_search.scss:261
+
+🔴 main-story-with-two-vertical-extra-triple
+   📍 src/scss/_desktop-rows.scss:384
+   📍 src/scss/_desktop-rows.scss:425
+   📍 src/scss/_desktop-rows.scss:472
+   📍 src/scss/_desktop-rows.scss:521
+   📍 src/scss/_desktop-rows.scss:702
+   📍 src/scss/_desktop-rows.scss:895
+
+🔴 main-story-with-vertical-list
+   📍 src/scss/_desktop-rows.scss:383
+   📍 src/scss/_desktop-rows.scss:473
+   📍 src/scss/_desktop-rows.scss:536
+   📍 src/scss/_desktop-rows.scss:1024
+
+🔴 main-story-with-vertical-list-extra-triple
+   📍 src/scss/_desktop-rows.scss:474
+   📍 src/scss/_desktop-rows.scss:537
+   📍 src/scss/_desktop-rows.scss:887
+
+🔴 marquee-container
+   📍 src/scss/_marquee.scss:2
+
+🔴 medium-320x250
+   📍 src/scss/_adunit.scss:41
+
+🔴 native-advertisement
+   📍 src/scss/_article.scss:518
+   📍 src/scss/_native-advertisement.scss:1
+   📍 src/scss/_native-advertisement.scss:11
+   📍 src/scss/_native-advertisement.scss:12
+   📍 src/scss/_native-advertisement.scss:64
+   📍 src/scss/_native-advertisement.scss:80
+   📍 src/scss/_native-advertisement.scss:101
+   📍 src/scss/_native-advertisement.scss:102
+
+🔴 navigation
+   📍 src/scss/_left-menu.scss:56
+
+🔴 newest-comments
+   📍 src/scss/_comments.scss:71
+   📍 src/scss/_comments.scss:91
+
+🔴 on-fire
+   📍 src/scss/_labrador4_adjustments.scss:133
+
+🔴 only-main-row
+   📍 src/scss/_front.scss:54
+
+🔴 panel
+   📍 src/scss/_article.scss:419
+   📍 src/scss/_article.scss:420
+   📍 src/scss/_panel.scss:1
+
+🔴 partner-slider-logo
+   📍 src/scss/_partner.scss:73
+
+🔴 partner-slider-logo-row
+   📍 src/scss/_partner.scss:48
+
+🔴 partner-slider-title-slogan
+   📍 src/scss/_partner.scss:37
+
+🔴 partner-tile-wide
+   📍 src/scss/_partner.scss:171
+
+🔴 png
+   📍 src/scss/_highscore.scss:14
+
+🔴 premium-ad
+   📍 src/scss/_article.scss:266
+   📍 src/scss/_related-articles.scss:44
+
+🔴 reverse
+   📍 src/scss/_desktop-rows.scss:745
+
+🔴 section-title
+   📍 src/scss/_panel.scss:15
+   📍 src/scss/_labrador-overrides.scss:3
+
+🔴 settings-alt-2
+   📍 src/scss/_adunit.scss:18
+
+🔴 shoot
+   📍 src/scss/_quick-job-search.scss:50
+
+🔴 show-for-medium-up
+   📍 src/scss/_adunit.scss:29
+
+🔴 small-320x250
+   📍 src/scss/_adunit.scss:40
+
+🔴 small-5
+   📍 src/scss/_footer.scss:53
+
+🔴 small-7
+   📍 src/scss/_footer.scss:50
+
+🔴 social-tag
+   📍 src/scss/_social-row.scss:92
+   📍 src/scss/_social-row.scss:108
+   📍 src/scss/_social-row.scss:114
+   📍 src/scss/_social-row.scss:120
+   📍 src/scss/_social-row.scss:126
+   📍 src/scss/_social-row.scss:132
+   📍 src/scss/_social-row.scss:138
+
+🔴 splide__arrow
+   📍 src/scss/_partner.scss:27
+
+🔴 splide__pagination
+   📍 src/scss/_partner.scss:33
+
+🔴 text-center
+   📍 src/scss/_article.scss:170
+   📍 src/scss/_labrador-overrides.scss:36
+   📍 src/scss/_base.scss:57
+
+🔴 text-right
+   📍 src/scss/_labrador-overrides.scss:37
+
+🔴 top-banner
+   📍 src/scss/_topbanner.scss:2
+
+🔴 top-listing
+   📍 src/scss/_topbanner.scss:72
+
+🔴 top-profile
+   📍 src/scss/_topbanner.scss:1
+   📍 src/scss/_topbanner.scss:18
+   📍 src/scss/_commercial-article-overrides.scss:4
+   📍 src/scss/_commercial-article-overrides.scss:14
+
+🔴 trans
+   📍 src/scss/_pride.scss:5
+
+🔴 two-col
+   📍 src/scss/_related-articles.scss:21
+   📍 src/scss/_related-articles.scss:29
+
+🔴 ukraine
+   📍 src/scss/_pride.scss:11
+
+🔴 with-ribbon
+   📍 src/scss/_front.scss:23
+   📍 src/scss/_front.scss:50
+

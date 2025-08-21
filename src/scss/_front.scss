@@ -17,7 +17,7 @@
   }
   @media screen and (min-width: 830px) {
     padding: 0 max(var(--gutter), 50vw - 860px);
-    grid-template-columns: minmax(160px, 160px) minmax(0, 986px);
+    grid-template-columns: minmax(160px, 160px) 986px;
     gap: calc(var(--gutter) * 2);
 
     &.with-ribbon {
@@ -32,7 +32,7 @@
     }
   }
   @media screen and (min-width: 1200px) {
-    grid-template-columns: minmax(160px, 260px) minmax(722px, 986px) 310px;
+    grid-template-columns: minmax(160px, 260px) 986px minmax(240px ,310px);
     #desktop-sidemenu-front {
         display: block;
       }

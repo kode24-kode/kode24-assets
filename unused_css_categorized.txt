@@ -1,0 +1,166 @@
+Unused CSS classes by category:
+========================================
+
+📂 ADVERTISING (14 classes):
+------------------------------
+  • ad-company-logo
+  • ad-image
+  • ad-text
+  • added
+  • adunit
+  • adunit-wrapper
+  • banner-container
+  • gsc-adBlock
+  • heading-description
+  • hljs-addition
+  • loader
+  • native-advertisement
+  • premium-ad
+  • top-banner
+
+📂 LAYOUT (6 classes):
+------------------------------
+  • aside-desktop
+  • desktop-floatRight
+  • dummy-desktop-row
+  • only-main-row
+  • partner-slider-logo-row
+  • splide__arrow
+
+📂 TYPOGRAPHY (5 classes):
+------------------------------
+  • bodytext-content-box
+  • font-IBMPlexMono
+  • font-weight-normal
+  • text-center
+  • text-right
+
+📂 COMPONENTS (4 classes):
+------------------------------
+  • company-information
+  • gs-fileFormatType
+  • gsc-input
+  • gsc-search-button
+
+📂 UTILITIES (5 classes):
+------------------------------
+  • bg-blue
+  • bg-teal
+  • bg-yellow
+  • border
+  • border_width_0
+
+📂 OTHER (111 classes):
+------------------------------
+  • article-image
+  • article-social-tags
+  • article-tags
+  • call-to-action
+  • cities
+  • comments
+  • commercial-content
+  • company-league-table
+  • company-league-table-wrapper
+  • copy
+  • cross-site-legend
+  • dual-extra-dual
+  • dummy-article
+  • dummy-aside-content
+  • dummy-byline
+  • dummy-image
+  • dummy-style
+  • dummy-time
+  • dummy-title
+  • facebook-comments
+  • flash
+  • flex-video
+  • footer-content
+  • footer-content-related
+  • footer-content-wrap
+  • front-page
+  • full-bleed
+  • fullWidthTarget
+  • google-search
+  • gs-image
+  • gs-image-box
+  • gs-imageResult
+  • gs-result
+  • gs-snippet
+  • gs-spelling
+  • gs-title
+  • gs-visibleUrl
+  • gs-web-image-box
+  • gs-web-image-box-landscape
+  • gs-webResult
+  • gsc-above-wrapper-area
+  • gsc-control-cse
+  • gsc-cursor-box
+  • gsc-cursor-current-page
+  • gsc-cursor-page
+  • gsc-imageResult
+  • gsc-orderby
+  • gsc-result
+  • gsc-results
+  • gsc-search-box
+  • gsc-search-box-tools
+  • gsc-table-cell-thumbnail
+  • gsc-table-result
+  • gsc-thumbnail
+  • gsc-webResult
+  • has-section-title
+  • hljs
+  • hljs-attr
+  • hljs-built_in
+  • hljs-bullet
+  • hljs-code
+  • hljs-comment
+  • hljs-deletion
+  • hljs-name
+  • hljs-number
+  • hljs-quote
+  • hljs-section
+  • hljs-selector-class
+  • hljs-selector-id
+  • hljs-string
+  • hljs-tag
+  • hljs-template-tag
+  • hljs-title
+  • hljs-type
+  • image-contain
+  • imagezoom
+  • in-article-listing
+  • job
+  • labFn-edit
+  • labFn-empty-placeholder
+  • large-320x250
+  • large-980x300
+  • main-story-with-two-vertical-extra-triple
+  • main-story-with-vertical-list
+  • main-story-with-vertical-list-extra-triple
+  • marquee-container
+  • medium-320x250
+  • navigation
+  • newest-comments
+  • on-fire
+  • panel
+  • partner-slider-logo
+  • partner-slider-title-slogan
+  • partner-tile-wide
+  • png
+  • reverse
+  • section-title
+  • settings-alt-2
+  • shoot
+  • show-for-medium-up
+  • small-320x250
+  • small-5
+  • small-7
+  • social-tag
+  • splide__pagination
+  • top-listing
+  • top-profile
+  • trans
+  • two-col
+  • ukraine
+  • with-ribbon
+
