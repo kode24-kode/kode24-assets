@@ -251,10 +251,7 @@
 
 
 
-        .headline {
-          font-size: 2.4rem;
-          margin: 0;
-        }
+
 
         @media screen and (max-width: 830px) {
           flex: 0 0 80%;
@@ -292,6 +289,7 @@
 
       .headline {
         padding: 0;
+        font-size: 1.6rem;
       }
 
       figure {
@@ -1156,7 +1154,8 @@
 article.column img {
   transition: filter 0.3s ease, transform 0.3s ease;
 }
-.article.column {
+
+article.column {
   .headline {
       span {
         text-decoration: none;
@@ -1187,12 +1186,12 @@ article.column:hover {
         0 0 #0000, 0 0 #0000,
         inset 0 calc(var(--gutter) / 6 * -1) 0 0 var(--v2-label-color-pink);
     }
-    }
+
     &:not(:has(span)) {
-      text-decoration: none;
-      box-shadow: 0 0 #0000, 0 0 #0000,
-          0 0 #0000, 0 0 #0000,
-          inset 0 calc(var(--gutter) / 6 * -1) 0 0 var(--v2-label-color-pink);
+      text-decoration: underline !important;
+      text-decoration-color: var(--v2-label-color-pink-darker) !important;
+
     }
 
+  }
 }
