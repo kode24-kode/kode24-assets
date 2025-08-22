@@ -9,23 +9,24 @@ export interface Listing {
   tags?: string;
   type?: string;
   premium?: boolean;
+  hideFrom?: string;
   location?: [string];
   company: Company;
 }
 
 export interface EasterTask {
-  task: [string],
-  date?: string,
-  progressLength?: number,
-  error?: string,
+  task: [string];
+  date?: string;
+  progressLength?: number;
+  error?: string;
   progress?: [
     {
-      word_index: number,
-      word: string,
-      updated_at: Date,
-      username: string
+      word_index: number;
+      word: string;
+      updated_at: Date;
+      username: string;
     }
-  ]
+  ];
 }
 
 export interface Company {

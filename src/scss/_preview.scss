@@ -49,12 +49,7 @@
     }
   }
 
-  time {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: calc(var(--gutter) / 4);
-  }
+
 
   &:before {
     content: "";

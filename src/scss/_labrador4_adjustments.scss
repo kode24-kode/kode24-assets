@@ -1,23 +1,34 @@
 
 .page-content {
-  .headline {
-    color: var(--v2-card-headline-color);
-    font-family: var(--fontMono);
-    line-height: 1.2;
-    letter-spacing: -1px;
-    font-weight: 500;
-    margin-top: 0.7rem;
-    margin-bottom: 0.7rem;
-    padding: 0;
-  }
-  .floatingText {
+  article.column .content {
     .headline {
-      color: var(--v2-card-always-white)
+      color: var(--v2-card-headline-color);
+      font-family: var(--fontMono);
+      line-height: 1.2;
+      letter-spacing: -1px;
+      font-weight: 600;
+      padding: var(--gutter) 0 var(--gutter) 0;
+      margin: 0;
     }
-  }
-  .subtitle,
-  .kicker {
-    color: var(--v2-card-paragraph-color);
+    .floatingText {
+      .headline {
+        color: var(--v2-card-always-white)
+      }
+    }
+    .bylines {
+      margin: 0;
+      margin-top: 0;
+      padding: 0 0 var(--gutter) 0;
+    }
+    .subtitle,
+    .kicker {
+      color: var(--v2-card-headline-color);
+      margin: 0;
+      padding: var(--gutter) 0 var(--gutter) 0;
+    }
+    .kicker + .headline {
+      padding: 0 0 var(--gutter) 0;
+    }
   }
   .border_width_0 {
     padding: 0;
@@ -120,10 +131,18 @@ article.column .content .flash:before {
   margin-top: 0.7rem;
 }
 
+article:has(.floatingText .headline) {
+  .article-reactions {
+
+    bottom: unset;
+    top: calc(var(--gutter) / 2);
+  }
+}
+
 .article-reactions {
   position: absolute;
-  top: 0rem;
-  right: 0rem;
+  left: calc(var(--gutter) / 2);
+  bottom: calc(var(--gutter) / 2);
   background-color: var(--v2-card-background);
   padding: calc(0.7rem / 2);
   border-radius: var(--border-radius);
@@ -141,8 +160,7 @@ article.column .content .flash:before {
       0 0 30px rgba(255, 0, 0, 0.4);
   }
   @media screen and (min-width: 1024px) {
-    top: -0.4rem;
-    right: -0.4rem;
+
   }
   span {
     display: flex;
@@ -267,8 +285,149 @@ a {
 
 
 
+
+
+
+.kicker {
+  font-family: var(--fontMono);
+  color: var(--v2-card-headline-color);
+}
+
 .content.fullwidthTarget {
   display: flex;
   justify-content: center;
 }
 
+.has-row-header[class*=" bg-"] {
+  background-color: var(--v2-card-background) !important;
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    bottom: 0;
+    background-color: pink;
+    content: "";
+    border-radius: var(--border-radius);
+  }
+
+    &.bg-pink {
+      &:before {
+        background-color: var(--v2-label-color-pink-darker);
+      }
+    }
+    &.bg-purple {
+      &:before {
+        background-color: var(--v2-label-color-purple-darker);
+      }
+    }
+    &.bg-teal {
+      &:before {
+        background-color: var(--v2-label-color-teal-darker);
+      }
+    }
+    &.bg-blue {
+      &:before {
+        background-color: var(--v2-label-color-blue-darker);
+      }
+    }
+    &.bg-yellow {
+      &:before {
+        background-color: var(--v2-label-color-yellow-darker);
+      }
+    }
+    &.bg-gray {
+      &:before {
+        background-color: var(--v2-label-color-gray-darker);
+      }
+    }
+    &.bg-orange {
+      &:before {
+        background-color: var(--v2-label-color-orange-darker);
+      }
+    }
+}
+
+.has-row-header .row_header_text {
+  margin-bottom: var(--gutter);
+}
+
+.has-row-header article figure {
+
+  overflow: hidden;
+}
+
+[class*=image-gradient-bg-] .img:after {
+  background-image: linear-gradient(to bottom, transparent 30%, var(--background-color));
+}
+.large-12 .large-12+.large-12 {
+  margin-top: 0;
+}
+
+// if content has no bg- class add padding
+article.column .content:not(:has(figure)) {
+  padding: var(--gutter);
+  .headline {
+    padding: 0 !important;
+    line-height: 0!important
+  }
+}
+article.column .content:not([class*=" bg-"]) {
+  background-color: var(--v2-card-background);
+  border-radius: var(--border-radius);
+  .fullwidthTarget {
+    // no border-radius at all
+    border-radius: 0;
+
+  }
+  .kicker {
+    padding: var(--gutter) var(--gutter) 0 var(--gutter);
+  }
+  .kicker + .headline {
+    padding: 0 var(--gutter) var(--gutter) var(--gutter);
+  }
+  .headline {
+    margin: 0;
+    padding: var(--gutter);
+  }
+  .headline + .bylines {
+    margin-top: 0;
+    padding: 0 var(--gutter) var(--gutter) 0;
+  }
+}
+
+.headline:has(span + span),
+.headline:has(span + br + span) {
+  line-height: 0!important;
+  span {
+    line-height: normal;
+  }
+}
+
+
+
+.column,
+.columns {
+  padding: 0;
+}
+
+article.column .content .media:last-child figure {
+  margin-top: 0;
+}
+
+.row .column + .column:not(.large-12),
+.row .column + .columns:not(.large-12) {
+  padding-left: calc(var(--gutter));
+}
+
+.row {
+  margin-bottom: 0;
+}
+
+.row>.column {
+  margin-bottom: calc(var(--gutter));
+}
+
+.row.hasContentPadding {
+  padding: calc(var(--gutter)) calc(var(--gutter)) 0 calc(var(--gutter));
+}

@@ -1,10 +1,10 @@
 // draws comments on articles published through labrador
 
+import { Chat2Icon, HeartIcon } from "@navikt/aksel-icons";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Chat2Icon, HeartIcon } from "@navikt/aksel-icons";
 
-import { Article } from "./types";
+import type { Article } from "./types";
 
 export default function FrontComments(latestArticles: Article[]) {
   const articles = document.querySelectorAll(".page-content article");
