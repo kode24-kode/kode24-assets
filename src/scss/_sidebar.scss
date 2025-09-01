@@ -1,6 +1,7 @@
 #desktop-sidemenu-front {
   .preview {
     //background-color: transparent;
+    margin-bottom: var(--gutter);
   }
 }
 
@@ -9,19 +10,21 @@
   &.preview-list {
 
     h3,
-    &.job-list h3
-     {
+    &.job-list h3 {
       background: var(--v2-card-background);
       height: 2rem;
       margin-top: 0;
     }
   }
+
   .preview {
     .article-preview-text {
       width: 100%;
+
       .labels {
         display: block;
         border: 0;
+
         .label {
           height: 1rem;
           background-color: var(--v2-card-background);
@@ -30,12 +33,14 @@
           border: 0;
         }
       }
+
       .headline {
         height: 2rem;
         background-color: var(--v2-card-background);
         border-radius: 10px;
       }
     }
+
     a {
       align-items: stretch;
     }
@@ -46,6 +51,7 @@
       background-color: var(--v2-card-background);
     }
   }
+
   .listing-actions .button {
     min-height: 38px;
   }

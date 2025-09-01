@@ -1,0 +1,8 @@
+# Ignore all HTML files
+*.html
+
+# Ignore other files that shouldn't be formatted
+node_modules/
+dist/
+*.min.js
+*.min.css

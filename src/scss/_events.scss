@@ -63,3 +63,29 @@
     }
   }
 }
+
+.calendar-items-slider-menu {
+  position:absolute;
+  top: 100%;
+  left: 0;
+  right:0;
+  width: 300px;
+  height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--v2-card-background);
+  border-radius: var(--border-radius);
+  padding: var(--gutter);
+  z-index: 1000;
+  display: none;
+  flex-direction: column;
+  gap: var(--gutter);
+  &.open {
+    display: flex;
+  }
+  .calendar-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gutter);
+  }
+}

@@ -5,16 +5,16 @@ import "./scss/main.scss";
 import structuredClone from "@ungap/structured-clone";
 import ArticleContent from "./ArticleContent.tsx";
 import FullEventsList from "./components/FullEventsList.tsx";
-import ListingsApplication from "./components/ListingsApplication.tsx";
-import PatreonsList from "./components/PatreonsList.tsx";
+//import ListingsApplication from "./components/ListingsApplication.tsx";
+//import PatreonsList from "./components/PatreonsList.tsx";
 import PodcastPlayer from "./components/PodcastPlayer.tsx";
 import Search from "./components/Search.tsx";
-import SortByReactions from "./components/SortByReactions.tsx";
+//import SortByReactions from "./components/SortByReactions.tsx";
+import CalendarButton from "./components/CalendarButton.tsx";
 import TopBanner from "./components/TopBanner.tsx";
 import DesktopSidemenuFront from "./DesktopSidemenuFront.tsx";
 import FrontContent from "./FrontContent.tsx";
 import FrontComments from "./frontComments.tsx";
-import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu.ts";
 import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu.ts";
 import { addRibbonClassToTop } from "./functions/addRibbonClassToTop.ts";
 import { adjustLazyImages } from "./functions/adjustLazyImages.ts";
@@ -69,7 +69,16 @@ async function main() {
     FrontContent(structuredClone(FrontpageData) as Frontpage);
   }
 
-  addNumberToEventCounterInTopMenu(FrontpageData.events.upcomingEvents.length);
+  // Hydrate events menu item with CalendarButton component
+  const eventsMenuItem = document.getElementById("events-menu-item");
+  if (eventsMenuItem) {
+    ReactDOM.createRoot(eventsMenuItem).render(
+      <React.StrictMode>
+        <CalendarButton counter={FrontpageData.events.upcomingEvents.length} calendarItems={FrontpageData.events.upcomingEvents} />
+      </React.StrictMode>
+    );
+  }
+
   addNumberToJobCounterInTopMenu(FrontpageData.jobs.length);
 
   const desktopSideMenuFront = document.getElementById(
