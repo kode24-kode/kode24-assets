@@ -12,6 +12,8 @@
   .comment-snippet {
     font-size: 0.8rem;
     line-height: 1.4;
+    word-wrap: break-word;
+    word-break: break-word;
     @media screen and (min-width:1024px) {
       font-size: 1rem;
     }
