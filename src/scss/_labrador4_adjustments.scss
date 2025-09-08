@@ -413,6 +413,12 @@ article.column .content:not(:has(figure)) {
   .fullwidthTarget {
     border-radius: var(--border-radius);
   }
+  .desktop-floatLeft+.headline,
+  .desktop-floatRight+.headlin,
+  .mobile-floatLeft+.headline,
+  .mobile-floatRight+.headline {
+    padding: 0 var(--gutter);
+  }
 }
 
 article.column .content:not([class*=" bg-"]) {
@@ -433,9 +439,9 @@ article.column .content:not([class*=" bg-"]) {
     padding: 0 var(--gutter) var(--gutter) var(--gutter);
   }
 
-  .headline+.bylines {
-    padding: 0 var(--gutter) var(--gutter) var(--gutter);
-  }
+  //.headline+.bylines {
+  //  padding: 0 var(--gutter) var(--gutter) var(--gutter);
+  //}
 
   .headline {
     margin: 0;
@@ -444,6 +450,12 @@ article.column .content:not([class*=" bg-"]) {
 
   .headline+.bylines {
     margin-top: 0;
+    padding: 0 var(--gutter) var(--gutter) var(--gutter);
+  }
+  .desktop-floatLeft+.headline+.bylines,
+  .desktop-floatRight+.headline+.bylines,
+  .mobile-floatLeft+.headline+.bylines,
+  .mobile-floatRight+.headline+.bylines {
     padding: 0 var(--gutter) var(--gutter) 0;
   }
 }
