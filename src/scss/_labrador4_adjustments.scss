@@ -29,6 +29,14 @@
       padding: var(--gutter) 0 var(--gutter) 0;
     }
 
+    .headline+.subtitle {
+      color: var(--v2-card-paragraph-color);
+      margin: 0;
+      padding: 0 var(--gutter) var(--gutter) var(--gutter);
+    }
+
+
+
     .kicker+.headline {
       padding: 0 0 var(--gutter) 0;
     }
@@ -422,6 +430,10 @@ article.column .content:not([class*=" bg-"]) {
   }
 
   .kicker+.headline {
+    padding: 0 var(--gutter) var(--gutter) var(--gutter);
+  }
+
+  .headline+.bylines {
     padding: 0 var(--gutter) var(--gutter) var(--gutter);
   }
 

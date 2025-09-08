@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
     ],
     build: {
       outDir: isLocal ? localOutDir : "dist", // 👈 Her legges det til
+      minify: "esbuild",
       rollupOptions: {
         input: {
           front: resolve(__dirname, "index.html"),

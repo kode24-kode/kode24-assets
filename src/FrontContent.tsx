@@ -11,8 +11,6 @@ import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
 import type {
-  Content,
-  ContentTile,
   Frontpage,
   Listing,
 } from "./types/index.ts";

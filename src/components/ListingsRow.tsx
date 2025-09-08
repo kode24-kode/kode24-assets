@@ -27,7 +27,7 @@ export default function ListingsRow({
         </a>
       </div>
       <div className={getLayoutForCommercialRow(Listings.length)}>
-        {Listings.map((listing: Listing, key: number) => (
+        {Listings.map((listing: Listing) => (
           <ListingTile Listing={listing} key={listing.id} />
         ))}
       </div>

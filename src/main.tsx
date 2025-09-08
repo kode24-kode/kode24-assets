@@ -22,7 +22,7 @@ import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick.t
 import { handleImageExpansionClick } from "./functions/handleImageExpansionClick.ts";
 import { handleSearchButtonClick } from "./functions/handleSearchButtonClick.ts";
 import { handleSourcePointClick } from "./functions/handleSourcePointClick.ts";
-import type { Article, Frontpage } from "./types/index.ts";
+import type { Frontpage } from "./types/index.ts";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
