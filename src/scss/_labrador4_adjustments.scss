@@ -401,6 +401,12 @@ article.column .content:not(:has(figure)) {
   }
 }
 
+.row.hasContentPadding[class*=bg-] article.column .content {
+  .fullwidthTarget {
+    border-radius: var(--border-radius);
+  }
+}
+
 article.column .content:not([class*=" bg-"]) {
   background-color: var(--v2-card-background);
   border-radius: var(--border-radius);

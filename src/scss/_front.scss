@@ -18,7 +18,8 @@
   @media screen and (min-width: 830px) {
     padding: 0 max(var(--gutter), 50vw - 860px);
     grid-template-columns: minmax(160px, 160px) 986px;
-    gap: calc(var(--gutter) * 2);
+    //gap: calc(var(--gutter) * 2);
+    gap: var(--gutter);
 
     &.with-ribbon {
         padding-top: 10rem;
