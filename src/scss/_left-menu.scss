@@ -1,7 +1,7 @@
 #tip-us-call-to-action {
   padding: calc(var(--gutter) / 1.5);
   background-color: var(--v2-card-background);
-  margin-bottom: calc(var(--gutter) * 2);
+  margin-bottom: var(--gutter);
   border-radius: var(--border-radius);
 
   .title {
@@ -161,7 +161,7 @@
   overflow: hidden;
   display: block;
   border-radius: var(--border-radius);
-  margin-bottom: calc(var(--gutter) * 2);
+  margin-bottom: var(--gutter);
 }
 
 #kode24-dagen-banner {

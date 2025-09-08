@@ -236,6 +236,8 @@ article:has(.floatingText .headline) {
   }
 }
 
+
+
 #desktop-sidemenu-front .preview-list {
   background-color: var(--v2-card-background) !important;
 }
@@ -495,4 +497,13 @@ article.column .content .media:last-child figure {
 
 .row.hasContentPadding {
   padding: calc(var(--gutter)) calc(var(--gutter)) 0 calc(var(--gutter));
+}
+
+#front-articles-list .page-content .row:first-child article.column:first-child {
+  @media screen and (max-width: 800px) {
+    padding-top: var(--gutter);
+  }
+  @media screen and (min-width: 800px) {
+    padding-top: 0;
+  }
 }

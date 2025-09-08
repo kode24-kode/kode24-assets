@@ -67,9 +67,15 @@
     margin-right: calc(var(--gutter) / 4);
   }
 }
-
+.desktop-row.card.newest-comments {
+  @media screen and (max-width: 800px) {
+    border: 0;
+  }
+}
 .newest-comments {
   margin-bottom: calc(var(--gutter) * 2);
+  max-width: 100%;
+  overflow: hidden;
   .heading {
     margin-bottom: 0;
   }
@@ -91,8 +97,8 @@
 .newest-comments {
   .newest-comments-list {
     list-style: none;
-    margin-left: calc(var(--gutter) * -2);
-    margin-right: calc(var(--gutter) * -2);
+    margin-left: calc(var(--gutter) * -1);
+    margin-right: calc(var(--gutter) * -1);
     margin-top: var(--gutter);
     padding: calc(var(--gutter) / 2);
     gap: var(--gutter);

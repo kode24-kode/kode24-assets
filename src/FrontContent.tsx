@@ -9,7 +9,9 @@ import Banner from "./components/Banner.tsx";
 import ContentsRow from "./components/ContentsRow.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
+import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
+import CommentsTile from "./components/CommentsTile.tsx";
 import type {
   Frontpage,
   Listing,
@@ -93,11 +95,13 @@ export default function FrontContent(frontpageData: Frontpage) {
         <React.StrictMode>
           <Banner ads={desktopBannerAds} mobileToggle={false} />
           <Banner ads={mobileBannerAds} mobileToggle={true} />
+          {key < 3 && <CommentsTile comments={frontPageDataCopy.newestComments} />}
+          {key >= 3 && key < 6 && <CompanyPartnersTile companyPartners={frontPageDataCopy.companyPartners} />}
         </React.StrictMode>
       );
       row.before(listingNode);
     } else if (
-      patternIndex === 3 &&
+      patternIndex >= 3 &&
       frontPageDataCopy.partnerAdsSanity.length > 0
     ) {
       // After fourth row (and every 4th+3 row): Partner ad
