@@ -124,14 +124,22 @@
           align-items: center;
           padding: 0.8rem 0.6rem;
         }
+        &:hover {
+          .icon {
+              transform: rotate(-10deg);
+          }
+        }
       }
       .icon {
+
         margin-right: 0.6rem;
         width: 27px;
         height: 27px;
+        transition: transform 0.1s ease-in-out;
         * {
           stroke-width: 1.5px;
         }
+
         @media screen and (max-width: 1023px) {
           flex-direction: column;
           width: 28px;
