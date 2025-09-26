@@ -4,17 +4,20 @@ import ReactDOM from "react-dom/client";
 import "./scss/main.scss";
 import structuredClone from "@ungap/structured-clone";
 import ArticleContent from "./ArticleContent.tsx";
-import FullEventsList from "./components/FullEventsList.tsx";
-//import ListingsApplication from "./components/ListingsApplication.tsx";
-//import PatreonsList from "./components/PatreonsList.tsx";
-import PodcastPlayer from "./components/PodcastPlayer.tsx";
-import Search from "./components/Search.tsx";
 //import SortByReactions from "./components/SortByReactions.tsx";
 import CalendarButton from "./components/CalendarButton.tsx";
+import FullEventsList from "./components/FullEventsList.tsx";
+import PodcastPlayer from "./components/PodcastPlayer.tsx";
+import Search from "./components/Search.tsx";
+//import ListingsApplication from "./components/ListingsApplication.tsx";
+//import PatreonsList from "./components/PatreonsList.tsx";
+import SortByReactions from "./components/SortByReactions.tsx";
 import TopBanner from "./components/TopBanner.tsx";
 import DesktopSidemenuFront from "./DesktopSidemenuFront.tsx";
 import FrontContent from "./FrontContent.tsx";
+import FrontContentFeed from "./FrontContentFeed.tsx";
 import FrontComments from "./frontComments.tsx";
+import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu.ts";
 import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu.ts";
 import { addRibbonClassToTop } from "./functions/addRibbonClassToTop.ts";
 import { adjustLazyImages } from "./functions/adjustLazyImages.ts";
@@ -22,7 +25,7 @@ import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick.t
 import { handleImageExpansionClick } from "./functions/handleImageExpansionClick.ts";
 import { handleSearchButtonClick } from "./functions/handleSearchButtonClick.ts";
 import { handleSourcePointClick } from "./functions/handleSourcePointClick.ts";
-import type { Frontpage } from "./types/index.ts";
+import type { Article, Frontpage } from "./types/index.ts";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
 
@@ -69,17 +72,8 @@ async function main() {
     FrontContent(structuredClone(FrontpageData) as Frontpage);
   }
 
-  // Hydrate events menu item with CalendarButton component
-  const eventsMenuItem = document.getElementById("events-menu-item");
-  if (eventsMenuItem) {
-    ReactDOM.createRoot(eventsMenuItem).render(
-      <React.StrictMode>
-        <CalendarButton counter={FrontpageData.events.upcomingEvents.length} calendarItems={FrontpageData.events.upcomingEvents} />
-      </React.StrictMode>
-    );
-  }
-
   addNumberToJobCounterInTopMenu(FrontpageData.jobs.length);
+  addNumberToEventCounterInTopMenu(FrontpageData.events.upcomingEvents.length);
 
   const desktopSideMenuFront = document.getElementById(
     "desktop-sidemenu-front"
@@ -123,6 +117,74 @@ async function main() {
       </React.StrictMode>
     );
   }
+
+  // front content feed
+  function sortLatestArticlesByToggle(sortingToggle = "newest") {
+    /**
+    // grab the DOM-elements for the three content divs for frontendpages
+    const articlesAboveFirstBanner = document.getElementById(
+      'articles-above-first-banner'
+    ) as HTMLElement;
+
+    const articlesBelowFirstBanner = document.getElementById(
+      'articles-below-first-banner'
+    ) as HTMLElement;
+
+    const articlesBelowSecondBanner = document.getElementById(
+      'articles-below-second-banner'
+    ) as HTMLElement;
+     */
+
+    //articlesAboveFirstBanner.innerHTML = '';
+    //articlesBelowFirstBanner.innerHTML = '';
+    //articlesBelowSecondBanner.innerHTML = '';
+
+    if (sortingToggle === "newest") {
+      sortingToggle = "newest";
+      FrontContent(structuredClone(FrontpageData) as Frontpage);
+    }
+    if (sortingToggle === "mostReactions") {
+      sortingToggle = "mostReactions";
+      const frontPageDataSortedByReactions = structuredClone(
+        FrontpageData
+      ) as Frontpage;
+      frontPageDataSortedByReactions.latestArticles =
+        frontPageDataSortedByReactions.latestArticles.sort(
+          (a: Article, b: Article) =>
+            b.reactions.reactions_count - a.reactions.reactions_count
+        );
+      FrontContent(structuredClone(frontPageDataSortedByReactions));
+    }
+    if (sortingToggle === "mostComments") {
+      sortingToggle = "mostComments";
+      const frontPageDataSortedByReactions = structuredClone(
+        FrontpageData
+      ) as Frontpage;
+      frontPageDataSortedByReactions.latestArticles =
+        frontPageDataSortedByReactions.latestArticles.sort(
+          (a: Article, b: Article) =>
+            b.reactions.comments_count - a.reactions.comments_count
+        );
+      FrontContent(structuredClone(frontPageDataSortedByReactions));
+    }
+  }
+
+  const sortingToggle = "newest";
+  if (document.getElementById("articles-above-first-banner")) {
+    const sortByReactionsNode = document.createElement("div");
+    ReactDOM.createRoot(sortByReactionsNode).render(
+      <React.StrictMode>
+        <SortByReactions
+          sortingToggle={sortingToggle}
+          sortBySortingToggle={sortLatestArticlesByToggle}
+        />
+      </React.StrictMode>
+    );
+    document
+      .getElementById("articles-above-first-banner")
+      ?.before(sortByReactionsNode);
+  }
+  FrontContentFeed(structuredClone(FrontpageData) as Frontpage);
 }
 
 main();

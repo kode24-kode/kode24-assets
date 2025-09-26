@@ -6,16 +6,13 @@ import structuredClone from "@ungap/structured-clone";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Banner from "./components/Banner.tsx";
+import CommentsTile from "./components/CommentsTile.tsx";
+import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import ContentsRow from "./components/ContentsRow.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
-import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
-import CommentsTile from "./components/CommentsTile.tsx";
-import type {
-  Frontpage,
-  Listing,
-} from "./types/index.ts";
+import type { Frontpage, Listing } from "./types/index.ts";
 export default function FrontContent(frontpageData: Frontpage) {
   // So we don't mutate the original data
   const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
@@ -32,7 +29,7 @@ export default function FrontContent(frontpageData: Frontpage) {
 
   // draw a listing before each h2
   const rows = document.querySelectorAll(
-    "#front-articles-list .page-content .row:not(:first-child)"
+    "#front-articles-list .page-content .row:not(:first-child):nth-child(2n+1)"
   );
   rows.forEach((row, key: number) => {
     const listingNode = document.createElement("div");
@@ -95,8 +92,14 @@ export default function FrontContent(frontpageData: Frontpage) {
         <React.StrictMode>
           <Banner ads={desktopBannerAds} mobileToggle={false} />
           <Banner ads={mobileBannerAds} mobileToggle={true} />
-          {key < 3 && <CommentsTile comments={frontPageDataCopy.newestComments} />}
-          {key >= 3 && key < 6 && <CompanyPartnersTile companyPartners={frontPageDataCopy.companyPartners} />}
+          {key < 3 && (
+            <CommentsTile comments={frontPageDataCopy.newestComments} />
+          )}
+          {key >= 3 && key < 6 && (
+            <CompanyPartnersTile
+              companyPartners={frontPageDataCopy.companyPartners}
+            />
+          )}
         </React.StrictMode>
       );
       row.before(listingNode);

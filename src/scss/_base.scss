@@ -52,8 +52,6 @@ a {
   }
 }
 
-
-
 .text-center {
   text-align: center;
 }
@@ -71,7 +69,6 @@ a {
     stroke: var(--v2-card-paragraph-color);
     stroke-width: 1px;
   }
-
 }
 .cross-site-legend {
   display: flex;
@@ -81,18 +78,18 @@ a {
 
 @mixin underlined {
   text-decoration: none;
-    cursor: pointer;
-    background-image: linear-gradient(
-      90deg,
-      var(--v2-label-color-pink),
-      var(--v2-label-color-purple),
-    );
-    background-position: 0px 22px;
-    background-repeat: repeat-x;
-    background-size: 100% 1px;
-    overflow: visible;
-    padding-bottom: 6px;
-    color: var(--v2-card-paragraph-color);
+  cursor: pointer;
+  background-image: linear-gradient(
+    90deg,
+    var(--v2-label-color-pink),
+    var(--v2-label-color-purple)
+  );
+  background-position: 0px 22px;
+  background-repeat: repeat-x;
+  background-size: 100% 1px;
+  overflow: visible;
+  padding-bottom: 6px;
+  color: var(--v2-card-paragraph-color);
 }
 
 h1,
@@ -101,12 +98,13 @@ h3,
 h4,
 h5 {
   padding: 0;
-  color: var(--v2-card-headline-color)
+  color: var(--v2-card-headline-color);
 }
 
-
-
-
 .color_mobile_no_bg_color {
-  color: var(--v2-card-headline-color) !important
+  color: var(--v2-card-headline-color) !important;
+}
+
+.resp_fonts .article-entity .bodytext p {
+  color: var(--v2-card-paragraph-color) !important;
 }

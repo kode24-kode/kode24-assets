@@ -4,27 +4,27 @@
  * Its a stupid implementation.
  */
 
-import {
-  Frontpage,
+import structuredClone from "@ungap/structured-clone";
+import React, { useEffect, useState } from "react";
+import ReactDOM from "react-dom/client";
+import ArticlesRow from "./components/ArticlesRow.tsx";
+import Banner from "./components/Banner.tsx";
+import CommentsTile from "./components/CommentsTile.tsx";
+import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
+import ListingsRow from "./components/ListingsRow.tsx";
+import PartnerAdTile from "./components/PartnerAdTile.tsx";
+import { shuffleArray } from "./functions/shuffleArray.ts";
+import LabradorFrontCommercial from "./labradorFrontCommercial.tsx";
+import type {
+  bannerAd,
   Content,
   ContentTile,
   DesktopRow,
-  bannerAd,
+  Frontpage,
 } from "./types/index.ts";
-import React from "react";
-import ReactDOM from "react-dom/client";
-import ArticlesRow from "./components/ArticlesRow.tsx";
-import ListingsRow from "./components/ListingsRow.tsx";
-import { shuffleArray } from "./functions/shuffleArray.ts";
-import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
-import structuredClone from "@ungap/structured-clone";
-import PartnerAdTile from "./components/PartnerAdTile.tsx";
-import Banner from "./components/Banner.tsx";
-import CommentsTile from "./components/CommentsTile.tsx";
-import { useEffect, useState } from "react";
-import LabradorFrontCommercial from "./labradorFrontCommercial.tsx";
 
 export default function FrontContent(frontpageData: Frontpage) {
+  console.log("hello");
   const listView = false;
   // So we don't mutate the original data
   const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
@@ -140,9 +140,9 @@ const FrontPageContent = ({
     <>
       {latestArticlesCopy.map((_, index) => {
         return (
-          <section key={index}>
+          <section key={_.id}>
             {latestArticles.length >= 1 && (
-              <div key={index}>
+              <div>
                 <ArticlesRow
                   DesktopRowData={{
                     layout: "main-story-with-two-vertical",
