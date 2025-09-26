@@ -8,7 +8,7 @@ export default function CommentTile({
   comment: Comment;
   oneLine?: boolean;
 }) {
-  if (comment.bodySnippet == "") return <></>;
+  if (comment.bodySnippet === "") return <></>;
   return (
     <a
       href={comment.url + "#hyvor-talk-view"}
@@ -35,7 +35,7 @@ export default function CommentTile({
           </div>
           <div className="comment-snippet">
             {htmlDecode(comment.bodySnippet)}
-            {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !=
+            {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !==
               "." && "..."}
           </div>
           <div className="comment-article">{comment.articleTitle}</div>
@@ -46,7 +46,7 @@ export default function CommentTile({
 }
 
 export function CommentTileSnippet({ comment }: { comment: Comment }) {
-  if (comment.bodySnippet == "") return <></>;
+  if (comment.bodySnippet === "") return <></>;
   return (
     <a
       href={comment.url + "#hyvor-talk-view"}
@@ -59,7 +59,7 @@ export function CommentTileSnippet({ comment }: { comment: Comment }) {
           <div className="comment-snippet">
             <div className="comment-username-inline">{comment.user.name}</div>
             {htmlDecode(comment.bodySnippet)}
-            {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !=
+            {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !==
               "." && "..."}
           </div>
         </div>

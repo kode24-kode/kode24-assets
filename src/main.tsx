@@ -5,7 +5,7 @@ import "./scss/main.scss";
 import structuredClone from "@ungap/structured-clone";
 import ArticleContent from "./ArticleContent.tsx";
 //import SortByReactions from "./components/SortByReactions.tsx";
-import CalendarButton from "./components/CalendarButton.tsx";
+//import CalendarButton from "./components/CalendarButton.tsx";
 import FullEventsList from "./components/FullEventsList.tsx";
 import PodcastPlayer from "./components/PodcastPlayer.tsx";
 import Search from "./components/Search.tsx";

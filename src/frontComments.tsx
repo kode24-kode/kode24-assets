@@ -38,11 +38,11 @@ function ArticleReactions({ article }: { article: Article }) {
   return (
     <>
       <span>
-        <Chat2Icon />
+        <HeartIcon />
         {article.reactions?.reactions_count || 0}
       </span>
       <span>
-        <HeartIcon />
+        <Chat2Icon />
         {article.reactions?.comments_count || 0}
       </span>
     </>
