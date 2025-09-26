@@ -8,11 +8,11 @@ export default function ArticleTile({
   Article: Article;
   isHot: boolean;
 }) {
-  const articleIsToday =
-    new Date(Article.published).setHours(0, 0, 0, 0) ==
-    new Date().setHours(0, 0, 0, 0)
-      ? true
-      : false;
+  //const articleIsToday =
+  //  new Date(Article.published).setHours(0, 0, 0, 0) ==
+  //  new Date().setHours(0, 0, 0, 0)
+  //    ? true
+  //    : false;
   return (
     <article
       id={`article_${Article.id}`}
