@@ -1,4 +1,4 @@
-import { Article } from "../types";
+import type { Article } from "../types";
 import ArticleTileSocial from "./ArticleTileSocial";
 import { CommentTileSnippet } from "./CommentTile";
 export default function ArticleTile({
@@ -45,26 +45,6 @@ export default function ArticleTile({
         </a>
         <div className="article-preview-text">
           <a itemProp="url" href={Article.published_url}>
-            <time className="published" dateTime={Article.published}>
-              {Article.published && (
-                <>
-                  {articleIsToday
-                    ? `I dag, ${new Intl.DateTimeFormat("no-NB", {
-                        timeStyle: "short",
-                        timeZone: "Europe/Oslo",
-                      }).format(new Date(Article.published))}`
-                    : `
-                    ${new Intl.DateTimeFormat("no-NB", {
-                      weekday: "long",
-                      month: "long",
-                      day: "numeric",
-                      timeZone: "Europe/Oslo",
-                    }).format(new Date(Article.published))}
-                  `}
-                </>
-              )}
-            </time>
-
             <h1 className="headline">
               <span className="headline-title-wrapper">{Article.title}</span>
             </h1>
