@@ -432,12 +432,23 @@ article.column .content:not(:has(figure)) {
   }
 }
 .content[class*=" bg-"] {
+  .mobile-floatLeft + .kicker,
+  .mobile-floatRight + .kicker {
+    @media screen and (max-width: 800px) {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+  }
   .mobile-floatLeft + .headline,
   .mobile-floatRight + .headline {
     @media screen and (max-width: 800px) {
       padding: 0 var(--gutter) !important;
     }
   }
+}
+
+.content {
+  position: relative;
 }
 
 article.column .content:not([class*=" bg-"]) {
