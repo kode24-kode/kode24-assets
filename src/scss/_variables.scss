@@ -1,22 +1,19 @@
 /* 🐥 piip piip kodeordet er datan */
 
 html {
-  content: "🐥 piip piip kodeordet er datan "
+  content: "🐥 piip piip kodeordet er datan ";
 }
-
-
 
 /**
   fetches the user's preferred color scheme
   adds a toggle for block elements that should be hidden according to theme
 */
 
-
 html {
   --vp-tablet: 830px;
   --vp-desktop: 1025px;
   --vp-desktopWide: 1330px;
-  --fontMono: "IBM Plex Mono", monospace;
+  --fontMono: "Roboto Slab", serif;
   --fontRegular: "IBM Plex Sans", sans-serif;
   --gutter: 0.8rem;
 
@@ -27,7 +24,9 @@ html {
   --border-radius: 0.6rem;
   --outer-border-radius: calc(var(--border-radius) + (var(--gutter) / 4));
   --inner-border-radius: calc(var(--border-radius) - (var(--gutter) / 4));
-  --inner-inner-border-radius: calc(var(--inner-border-radius) - (var(--gutter) / 4));
+  --inner-inner-border-radius: calc(
+    var(--inner-border-radius) - (var(--gutter) / 4)
+  );
   // variables used by google ads
   --color-adWrapperTitleColor: var(--v2-card-paragraph-color);
   --color-adWrapperBackground: var(--v2-card-background);

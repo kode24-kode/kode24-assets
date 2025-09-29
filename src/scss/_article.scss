@@ -31,7 +31,6 @@
 }
 
 .article-entity {
-
   max-width: 100%;
   color: var(--v2-card-paragraph-color);
   margin-top: 0;
@@ -56,8 +55,8 @@
     margin: var(--gutter) 0 var(--gutter) 0;
     font-weight: 500;
     @media screen and (min-width: $vp-tablet) {
-        padding: 0;
-      }
+      padding: 0;
+    }
   }
   header.row {
     padding: 0 var(--gutter);
@@ -120,8 +119,8 @@
     }
     figure {
       width: calc(100% + var(--gutter) * 2);
-      margin-left: calc(var(--gutter) *-1);
-      margin-right: calc(var(--gutter) *-1);
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
       position: relative;
       background-color: var(--v2-card-background);
       @media screen and (min-width: $vp-tablet) {
@@ -289,7 +288,7 @@
     background-image: linear-gradient(
       90deg,
       var(--v2-label-color-pink),
-      var(--v2-label-color-purple),
+      var(--v2-label-color-purple)
     );
     background-position: 0px 22px;
     background-repeat: repeat-x;
@@ -308,92 +307,91 @@
     width: 100%;
 
     > h2 {
-    font-size: 1.4rem;
-    margin-bottom: 0.6rem;
-    margin-top: 2.5rem;
-    padding: 0;
-    font-family: var(--fontMono);
-    font-weight: 500;
-    a {
-      background-position: 0 40px;
+      font-size: 1.4rem;
+      margin-bottom: 0.6rem;
+      margin-top: 2.5rem;
+      padding: 0;
+      font-family: var(--fontMono);
+      font-weight: 500;
+      a {
+        background-position: 0 40px;
+      }
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 2rem;
+      }
     }
-    @media screen and (min-width: $vp-tablet) {
-      font-size: 2rem;
-    }
-  }
 
     figure,
-  .large-12>figure,
-  .small-12>figure,
-  .medium-12>figure {
-    margin-left: calc(var(--gutter) *-1);
-    margin-right: calc(var(--gutter) *-1);
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-    position: relative;
-    background-color: var(--v2-card-background);
-    width: calc(100% + var(--gutter) * 2);
-    @media screen and (min-width: $vp-tablet) {
-      font-size: 1.9rem;
-      margin-left: calc(var(--gutter) *-1);
-      margin-right: calc(var(--gutter) *-1);
-      border-radius: 10px;
-      overflow: hidden;
-    }
-
-    figcaption {
-      .toggle {
-        display: none;
-      }
-    }
-
-    &[data-image-lightbox] {
-      cursor: zoom-in;
-      &:before {
-        content: "🔎";
-        display: block;
-        width: 2.4rem;
-        height: 2.4rem;
-        position: absolute;
-        background-color: transparent;
-        text-align: center;
-        line-height: 2.4rem;
-        right: 0;
-        font-size: 1rem;
-      }
-    }
-
-    &[data-image-lightbox].active {
-      cursor: zoom-out;
-      position: fixed;
-      z-index: 1100;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0 !important;
-      background-color: var(--v2-card-always-black);
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
-      margin: 0;
-      &:before {
-        content: "✖";
-        background: var(--v2-label-color-purple);
-      }
-      img {
-        display: none;
+    .large-12 > figure,
+    .small-12 > figure,
+    .medium-12 > figure {
+      margin-left: calc(var(--gutter) * -1);
+      margin-right: calc(var(--gutter) * -1);
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      background-color: var(--v2-card-background);
+      width: calc(100% + var(--gutter) * 2);
+      @media screen and (min-width: $vp-tablet) {
+        font-size: 1.9rem;
+        margin-left: calc(var(--gutter) * -1);
+        margin-right: calc(var(--gutter) * -1);
+        border-radius: 10px;
+        overflow: hidden;
       }
 
       figcaption {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        padding: 0.8rem;
+        .toggle {
+          display: none;
+        }
+      }
+
+      &[data-image-lightbox] {
+        cursor: zoom-in;
+        &:before {
+          content: "🔎";
+          display: block;
+          width: 2.4rem;
+          height: 2.4rem;
+          position: absolute;
+          background-color: transparent;
+          text-align: center;
+          line-height: 2.4rem;
+          right: 0;
+          font-size: 1rem;
+        }
+      }
+
+      &[data-image-lightbox].active {
+        cursor: zoom-out;
+        position: fixed;
+        z-index: 1100;
         width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0 !important;
+        background-color: var(--v2-card-always-black);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        margin: 0;
+        &:before {
+          content: "✖";
+          background: var(--v2-label-color-purple);
+        }
+        img {
+          display: none;
+        }
+
+        figcaption {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          padding: 0.8rem;
+          width: 100%;
+        }
       }
     }
-  }
-
 
     p {
       line-height: 1.6;
@@ -437,7 +435,6 @@
       **/
   }
 
-
   .quotebox {
     position: relative;
     blockquote {
@@ -475,8 +472,6 @@
     width: 100%;
     display: block;
   }
-
-
 
   twitter-widget {
     margin-top: 2.54rem !important;
@@ -553,13 +548,12 @@
   }
 }
 
-
 section.comments #hyvor-talk-view {
   overflow-x: hidden;
   margin: 0 auto;
   padding: 0;
   hyvor-talk-comments {
-    @media screen and (max-width:800px) {
+    @media screen and (max-width: 800px) {
       padding: 0 var(--gutter);
     }
   }
@@ -569,7 +563,6 @@ section.comments #hyvor-talk-view {
 .content.fullWidthTarget {
   display: flex;
   justify-content: center;
-
 }
 
 .quotebox {
@@ -581,9 +574,11 @@ section.comments #hyvor-talk-view {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     font-family: var(--fontMono);
-    background: linear-gradient(45deg,
-        var(--v2-label-color-pink),
-        var(--v2-label-color-purple));
+    background: linear-gradient(
+      45deg,
+      var(--v2-label-color-pink),
+      var(--v2-label-color-purple)
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     &:before {
@@ -591,7 +586,11 @@ section.comments #hyvor-talk-view {
       display: inline-block;
       position: relative;
       margin-right: 0;
-      background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-purple));
+      background: linear-gradient(
+        45deg,
+        var(--v2-label-color-pink),
+        var(--v2-label-color-purple)
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -600,7 +599,11 @@ section.comments #hyvor-talk-view {
       display: inline-block;
       position: relative;
       margin-left: 0;
-      background: linear-gradient(45deg, var(--v2-label-color-pink), var(--v2-label-color-purple));
+      background: linear-gradient(
+        45deg,
+        var(--v2-label-color-pink),
+        var(--v2-label-color-purple)
+      );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       width: auto;
@@ -615,56 +618,48 @@ section.comments #hyvor-talk-view {
 
   .fullwidthTarget {
     flex: 1 1 100%;
-
-
   }
 
   .caption {
     flex: 1 1;
     padding: var(--gutter);
-    background-color: var(--v2-background)
+    background-color: var(--v2-background);
   }
 }
 
-
 .resp_fonts .article-entity {
-
-
-
-
   ul,
-    ol,
-    .factbox ul,
-    .factbox ol,
-    .factbox p {
-      max-width: 670px;
-      margin: 0 auto;
-      padding-inline: 0;
+  ol,
+  .factbox ul,
+  .factbox ol,
+  .factbox p {
+    max-width: 670px;
+    margin: 0 auto;
+    padding-inline: 0;
 
-      @media screen and (min-width: $vp-tablet) {
-        font-size: 1.125rem;
-      }
-
-      li {
-        margin-bottom: 0.8rem;
-
-        &::marker {
-          color: var(--v2-label-color-pink)
-        }
-      }
+    @media screen and (min-width: $vp-tablet) {
+      font-size: 1.125rem;
     }
 
+    li {
+      margin-bottom: 0.8rem;
+
+      &::marker {
+        color: var(--v2-label-color-pink);
+      }
+    }
+  }
 
   margin-bottom: calc(var(--gutter) * 2);
   .headline {
-      font-family: var(--fontMono);
-      color: var(--v2-card-headline-color);
-      padding: 0 var(--gutter) !important;
-      @media screen and (min-width: 1024px) {
-          border-radius: var(--border-radius);
-          padding: 0 !important;
-      }
-
+    font-family: var(--fontMono);
+    color: var(--v2-card-headline-color);
+    padding: 0 var(--gutter) !important;
+    font-weight: bold;
+    @media screen and (min-width: 1024px) {
+      border-radius: var(--border-radius);
+      padding: 0 !important;
+    }
   }
 
   .articleHeader {
@@ -672,8 +667,8 @@ section.comments #hyvor-talk-view {
     margin: 0;
   }
   .bodytext .desktop-row.commercial {
-    margin-left: calc((var(--columns-gutter) + var(--gutter))*-1);
-    width: calc(100% + (var(--columns-gutter) + var(--gutter))*2);
+    margin-left: calc((var(--columns-gutter) + var(--gutter)) * -1);
+    width: calc(100% + (var(--columns-gutter) + var(--gutter)) * 2);
   }
   .desktop-row {
     margin-top: 2.5rem;
@@ -693,20 +688,19 @@ section.comments #hyvor-talk-view {
   }
 
   .headerImage {
-
     overflow: hidden;
     margin-bottom: 0 !important;
     display: block;
     @media screen and (min-width: 1024px) {
-      border-radius: var(--border-radius) var(--border-radius) 0 0 ;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
     }
   }
   .articleHeader .caption {
     margin-top: 0;
     background-color: var(--v2-card-background);
     @media screen and (min-width: 1024px) {
-        border-radius: 0 0 var(--border-radius) var(--border-radius);
-      }
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
   }
 
   .meta {
@@ -718,19 +712,21 @@ section.comments #hyvor-talk-view {
   }
   .bodytext {
     max-width: 100%;
-    p, h2, h3 {
+    p,
+    h2,
+    h3 {
       max-width: 670px;
       margin: 0 auto;
-
     }
     p {
       color: var(--v2-card-paragraph-color);
-      padding: .4em 0 .4em 0;
+      padding: 0.4em 0 0.4em 0;
     }
-    h2,h3 {
+    h2,
+    h3 {
       margin-top: calc(var(--gutter) * 2);
       margin-bottom: calc(var(--gutter) / 2);
-      font-family: var(--fontMono)
+      font-family: var(--fontMono);
     }
   }
   .column {
@@ -747,19 +743,13 @@ section.comments #hyvor-talk-view {
     margin: var(--gutter) auto;
   }
 
-
-
-
-
   .bylines {
     border-bottom: 0;
     font-size: 1.1em;
     @media screen and (min-width: 1024px) {
-
       font-size: 1.3em;
     }
     .content {
-
       display: flex;
       gap: 0.7rem;
       align-items: center;
@@ -785,7 +775,7 @@ section.comments #hyvor-talk-view {
     .fact {
       padding: var(--gutter);
       a {
-        color: var(--v2-card-headline-color)
+        color: var(--v2-card-headline-color);
       }
     }
     .content {
@@ -813,7 +803,6 @@ section.comments #hyvor-talk-view {
     max-height: 100% !important;
   }
   article.column {
-
     border-radius: var(--border-radius);
     //overflow: hidden;
     padding: 0;
@@ -830,7 +819,8 @@ section.comments #hyvor-talk-view {
     .content {
       background-color: var(--v2-card-background) !important;
     }
-    .headline, .subtitle {
+    .headline,
+    .subtitle {
       margin: var(--gutter) var(--gutter) var(--gutter) 0;
       padding: 0;
       font-size: 16px;
@@ -843,7 +833,8 @@ section.comments #hyvor-talk-view {
       gap: var(--gutter);
       align-items: center;
     }
-    .subtitle, kicker {
+    .subtitle,
+    kicker {
       display: none;
     }
     figure {
@@ -851,24 +842,12 @@ section.comments #hyvor-talk-view {
       border-radius: 0;
       margin-right: 0 !important;
     }
-
   }
-
-
-
-
-
-
-
-
-
-
 }
 .frontpage.wide .page-content article,
-.frontpage.wide main>article {
+.frontpage.wide main > article {
   background-color: transparent !important;
   .articleHeader {
-
     .dates .dateLabel {
       display: none;
     }
@@ -881,7 +860,7 @@ section.comments #hyvor-talk-view {
     }
   }
 }
-.front-page.wide article:not([class*=bg-]) {
+.front-page.wide article:not([class*="bg-"]) {
   background-color: transparent !important;
 }
 
@@ -903,7 +882,6 @@ section.comments #hyvor-talk-view {
       border-color: var(--v2-label-color-pink);
     }
   }
-
 }
 
 article .meta .social button:hover,
