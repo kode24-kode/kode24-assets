@@ -11,8 +11,21 @@
     }
 
     .floatingText {
+      color: var(--v2-card-always-white) !important;
       .headline {
-        color: var(--v2-card-always-white);
+        color: var(--v2-card-always-white) !important;
+        span {
+          color: var(--v2-card-always-white) !important;
+        }
+        a {
+          color: var(--v2-card-always-white) !important;
+        }
+      }
+    }
+    .media:has(.floatingText) + .bylines {
+      address,
+      name {
+        color: var(--v2-card-always-white) !important;
       }
     }
 
@@ -164,7 +177,7 @@ article:has(.floatingText .headline) {
 
 .article-reactions {
   position: absolute;
-  left: calc(var(--gutter) / 2);
+  right: calc(var(--gutter) / 2);
   bottom: calc(var(--gutter) / 2);
   background-color: var(--v2-card-background);
   padding: calc(0.7rem / 2);
@@ -248,9 +261,9 @@ a {
 }
 
 .kicker.breaking-white:before {
-  position: relative;
-  top: 0;
-  left: 0;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
   margin-bottom: 0;
   margin-top: 6px;
 }
@@ -418,6 +431,7 @@ article.column .content:not(:has(figure)) {
   .fullwidthTarget {
     border-radius: var(--border-radius);
   }
+
   .desktop-floatLeft + .headline,
   .desktop-floatRight + .headline {
     @media screen and (min-width: 1024px) {
@@ -432,6 +446,11 @@ article.column .content:not(:has(figure)) {
   }
 }
 .content[class*=" bg-"] {
+  padding-bottom: 1rem !important;
+  .headline {
+    padding-bottom: 0 !important;
+  }
+
   .mobile-floatLeft + .kicker,
   .mobile-floatRight + .kicker {
     @media screen and (max-width: 800px) {
