@@ -26,7 +26,7 @@ export default function ListingsRow({
           Se alle
         </a>
       </div>
-      <div className={getLayoutForCommercialRow(Listings.length)}>
+      <div className="triple">
         {Listings.map((listing: Listing) => (
           <ListingTile Listing={listing} key={listing.id} />
         ))}
