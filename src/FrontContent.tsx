@@ -17,12 +17,13 @@ export default function FrontContent(frontpageData: Frontpage) {
   // So we don't mutate the original data
   const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
   /** shuffle content and ads */
-
-  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) =>
-      ad.adFormat === "mobile-banner_320x250" ||
-      ad.adFormat === "mobile-topbanner_320x250"
-  );
+  console.log(frontPageDataCopy?.bannerAds);
+  const mobileBannerAds =
+    frontPageDataCopy?.bannerAds?.filter(
+      (ad) =>
+        ad?.adFormat === "mobile-banner_320x250" ||
+        ad?.adFormat === "mobile-topbanner_320x250"
+    ) || [];
 
   console.log("mobile banner ads", mobileBannerAds);
 

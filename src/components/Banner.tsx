@@ -25,7 +25,7 @@ const Banner = ({
   useEffect(() => {
     if (typeof plausible !== "undefined" && ad && ad?.title) {
       plausible("annonse_visning", {
-        props: { annonse: ad.title },
+        props: { annonse: ad?.title || "ukjent" },
       });
     }
   }, [ad]);
@@ -33,13 +33,13 @@ const Banner = ({
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
     event.preventDefault(); // Prevent the default anchor behavior
-    if (typeof plausible !== "undefined") {
+    if (typeof plausible !== "undefined" && ad && ad?.title) {
       plausible("annonse_klikk", {
-        props: { annonse: ad.title },
+        props: { annonse: ad?.title },
       });
     }
     // Navigate to the ad link after running the function
-    window.location.href = ad.adlink.toString();
+    window.location.href = ad?.adlink.toString();
   };
 
   if (ad) {
