@@ -1043,8 +1043,8 @@
 
       &:not(.single-row) {
         @media screen and (min-width: 1024px) {
-          margin-left: calc((var(--gutter) * 2) * -1);
-          width: calc(100% + var(--gutter) * 4);
+          //margin-left: calc((var(--gutter) * 2) * -1);
+          //width: calc(100% + var(--gutter) * 4);
         }
       }
     }
