@@ -34,16 +34,3 @@ export default function ListingsRow({
     </div>
   );
 }
-
-function getLayoutForCommercialRow(numberOfListings: number) {
-  switch (numberOfListings) {
-    case 1:
-      return "single";
-    case 2:
-      return "dual";
-    case 3:
-      return "triple";
-    default:
-      return "triple";
-  }
-}

@@ -2,15 +2,20 @@
  * Injects job listings and commercial articles into articles on kode24
  */
 
-import { Frontpage, Content, Listing, ContentTile } from "./types/index.ts";
+import structuredClone from "@ungap/structured-clone";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import Banner from "./components/Banner.tsx";
 import ContentsRow from "./components/ContentsRow.tsx";
 import ListingsRow from "./components/ListingsRow";
-import { shuffleArray } from "./functions/shuffleArray.ts";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
-import structuredClone from "@ungap/structured-clone";
-import Banner from "./components/Banner.tsx";
+import { shuffleArray } from "./functions/shuffleArray.ts";
+import type {
+  Content,
+  ContentTile,
+  Frontpage,
+  Listing,
+} from "./types/index.ts";
 export default function FrontContent(frontpageData: Frontpage) {
   setTimeout(() => {
     (window as any).hljs.highlightAll();
@@ -42,7 +47,9 @@ export default function FrontContent(frontpageData: Frontpage) {
     );
 
     const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
-      (ad) => ad.adFormat === "mobile-banner_320x250"
+      (ad) =>
+        ad.adFormat === "mobile-banner_320x250" ||
+        ad.adFormat === "mobile-topbanner_320x250"
     );
 
     // create node for banners and add before #hyvor-talk-view

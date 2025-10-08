@@ -220,7 +220,7 @@
   */
 
     (function handleLightSwitchToggle() {
-      console.log('adjusting light');
+
       let theme = localStorage.getItem('theme');
       setMode(theme);
 
@@ -245,7 +245,7 @@
       }
 
       function setMode(modeString, updateCookie) {
-        console.log("setting mode", modeString);
+
         let HTMLElement = document.documentElement;
 
         if (modeString === 'light') {

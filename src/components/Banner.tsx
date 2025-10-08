@@ -7,10 +7,12 @@
  * )
  *
  */
-import type { bannerAd } from "../types/index";
-import { shuffleArray } from "../functions/shuffleArray";
+
 import { useEffect } from "react";
 import { getImageCacheUrl } from "../functions/getImageCacheUrl";
+import { shuffleArray } from "../functions/shuffleArray";
+import type { bannerAd } from "../types/index";
+
 const Banner = ({
   ads,
   mobileToggle,
@@ -19,8 +21,9 @@ const Banner = ({
   mobileToggle?: boolean;
 }) => {
   const ad = shuffleArray(ads)[0] as bannerAd;
+
   useEffect(() => {
-    if (typeof plausible !== "undefined") {
+    if (typeof plausible !== "undefined" && ad && ad?.title) {
       plausible("annonse_visning", {
         props: { annonse: ad.title },
       });

@@ -20,7 +20,7 @@ export default function CommentsTile({
       <ul className="newest-comments-list">
         {comments.map((comment: Comment) => {
           return (
-            <li className="comment-container" key={comment.url}>
+            <li className="comment-container" key={comment.created_at}>
               <CommentTile comment={comment} oneLine={false} />
             </li>
           );

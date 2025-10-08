@@ -18,13 +18,16 @@ export default function FrontContent(frontpageData: Frontpage) {
   const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
   /** shuffle content and ads */
 
-  console.log(frontPageDataCopy);
-  const desktopBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === "desktop-brandboard_980x600"
+  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) =>
+      ad.adFormat === "mobile-banner_320x250" ||
+      ad.adFormat === "mobile-topbanner_320x250"
   );
 
-  const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === "mobile-banner_320x250"
+  console.log("mobile banner ads", mobileBannerAds);
+
+  const desktopBannerAds = frontPageDataCopy.bannerAds.filter(
+    (ad) => ad.adFormat === "desktop-brandboard_980x600"
   );
 
   // draw a listing before each h2
@@ -39,6 +42,9 @@ export default function FrontContent(frontpageData: Frontpage) {
       // After first row (and every 4th row): Content tile
       ReactDOM.createRoot(listingNode as HTMLElement).render(
         <React.StrictMode>
+          {mobileBannerAds.length > 0 && (
+            <Banner ads={mobileBannerAds} mobileToggle={true} />
+          )}
           <ContentsRow
             Contents={frontPageDataCopy.contentTiles.splice(0, 1)}
             listView={false}
@@ -86,12 +92,16 @@ export default function FrontContent(frontpageData: Frontpage) {
         );
       }
       row.before(listingNode);
-    } else if (patternIndex === 1 && desktopBannerAds.length > 0) {
+    } else if (patternIndex === 1) {
       // After third row (and every 4th+2 row): Banner
       ReactDOM.createRoot(listingNode as HTMLElement).render(
         <React.StrictMode>
-          <Banner ads={desktopBannerAds} mobileToggle={false} />
-          <Banner ads={mobileBannerAds} mobileToggle={true} />
+          {desktopBannerAds.length > 0 && (
+            <Banner ads={desktopBannerAds} mobileToggle={false} />
+          )}
+          {mobileBannerAds.length > 0 && (
+            <Banner ads={mobileBannerAds} mobileToggle={true} />
+          )}
           {key < 3 && (
             <CommentsTile comments={frontPageDataCopy.newestComments} />
           )}

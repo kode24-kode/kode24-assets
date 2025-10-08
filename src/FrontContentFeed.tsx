@@ -24,7 +24,6 @@ import type {
 } from "./types/index.ts";
 
 export default function FrontContent(frontpageData: Frontpage) {
-  console.log("hello");
   const listView = false;
   // So we don't mutate the original data
   const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
