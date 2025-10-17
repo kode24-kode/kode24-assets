@@ -4,15 +4,16 @@
   border-radius: var(--border-radius);
   display: block;
   max-width: 100%;
+  text-align: left;
   .comment-date {
-      color: var(--v2-card-paragraph-color);
-      font-size: 0.8rem;
-      margin-bottom: calc(var(--gutter) / 2)
+    color: var(--v2-card-paragraph-color);
+    font-size: 0.8rem;
+    margin-bottom: calc(var(--gutter) / 2);
   }
   .comment-snippet {
     font-size: 0.8rem;
     line-height: 1.4;
-    @media screen and (min-width:1024px) {
+    @media screen and (min-width: 1024px) {
       font-size: 1rem;
     }
   }
@@ -39,13 +40,12 @@
       align-items: flex-start;
       max-width: 100%;
       .comment-posted {
-        align-items: flex-end;
+        align-items: center;
         display: flex;
         gap: calc(var(--gutter) / 2);
       }
       .comment-username {
         font-weight: bold;
-
       }
 
       .comment-article {
@@ -54,7 +54,6 @@
         font-size: 0.8rem;
         border-radius: var(--border-radius);
       }
-
     }
   }
   .comment-username-inline {
@@ -86,9 +85,10 @@
       width: calc(100% - var(--gutter));
       border: 0;
       cursor: pointer;
-      margin: 0 calc(var(--gutter) / 2) calc(var(--gutter) / 2) calc(var(--gutter) / 2);
+      margin: 0 calc(var(--gutter) / 2) calc(var(--gutter) / 2)
+        calc(var(--gutter) / 2);
       &:hover {
-        background-color: var(--v2-card-background-highlight)
+        background-color: var(--v2-card-background-highlight);
       }
     }
   }
@@ -110,13 +110,12 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
     }
-
   }
 
   &.show-all {
     li {
-        display: block !important;
-      }
+      display: block !important;
+    }
   }
   li {
     flex: 0 0 75%;
@@ -125,12 +124,11 @@
     li {
       flex: 1 1;
     }
-    li:nth-child(n+5) {
+    li:nth-child(n + 5) {
       display: none;
     }
   }
   li a {
     border-bottom: 1px solid var(--v2-background);
-
   }
 }

@@ -17,7 +17,6 @@ export default function FrontContent(frontpageData: Frontpage) {
   // So we don't mutate the original data
   const frontPageDataCopy = structuredClone(frontpageData) as Frontpage;
   /** shuffle content and ads */
-  console.log(frontPageDataCopy?.bannerAds);
   const mobileBannerAds =
     frontPageDataCopy?.bannerAds?.filter(
       (ad) =>
@@ -25,16 +24,16 @@ export default function FrontContent(frontpageData: Frontpage) {
         ad?.adFormat === "mobile-topbanner_320x250"
     ) || [];
 
-  console.log("mobile banner ads", mobileBannerAds);
-
   const desktopBannerAds = frontPageDataCopy.bannerAds.filter(
     (ad) => ad.adFormat === "desktop-brandboard_980x600"
   );
 
   // draw a listing before each h2
+  // iterate and draw listings
   const rows = document.querySelectorAll(
     "#front-articles-list .page-content .row:not(:first-child):nth-child(2n+1)"
   );
+
   rows.forEach((row, key: number) => {
     const listingNode = document.createElement("div");
     const patternIndex = key % 4; // Creates repeating pattern: 0,1,2,3,0,1,2,3...

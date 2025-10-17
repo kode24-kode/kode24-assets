@@ -38,7 +38,9 @@ export default function CommentTile({
             {comment.bodySnippet.charAt(comment.bodySnippet.length - 1) !==
               "." && "..."}
           </div>
-          <div className="comment-article">{comment.articleTitle}</div>
+          {comment.articleTitle && (
+            <div className="comment-article">{comment.articleTitle}</div>
+          )}
         </div>
       </div>
     </a>

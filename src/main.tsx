@@ -7,7 +7,7 @@ import ArticleContent from "./ArticleContent.tsx";
 //import SortByReactions from "./components/SortByReactions.tsx";
 //import CalendarButton from "./components/CalendarButton.tsx";
 import FullEventsList from "./components/FullEventsList.tsx";
-import PodcastPlayer from "./components/PodcastPlayer.tsx";
+//import PodcastPlayer from "./components/PodcastPlayer.tsx";
 import Search from "./components/Search.tsx";
 //import ListingsApplication from "./components/ListingsApplication.tsx";
 //import PatreonsList from "./components/PatreonsList.tsx";
@@ -79,7 +79,8 @@ async function main() {
     "desktop-sidemenu-front"
   ) as HTMLElement;
 
-  /** podcast player component */
+  /**
+  /** podcast player component
   const tipUsCallToAction = document.getElementById("tip-us-call-to-action");
   const podcastPlayerNode = document.createElement("div");
   podcastPlayerNode.classList.add("podcast-player");
@@ -89,6 +90,8 @@ async function main() {
     </React.StrictMode>
   );
   tipUsCallToAction?.after(podcastPlayerNode);
+
+  */
 
   /** draws right sidebar with job ads */
   if (desktopSideMenuFront)
