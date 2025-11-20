@@ -1,13 +1,10 @@
-import { partnerAds, partnerAd } from '../types';
-import { getImageCacheUrl } from '../functions/getImageCacheUrl';
-import { shuffleArray } from '../functions/shuffleArray';
+import { getImageCacheUrl } from "../functions/getImageCacheUrl";
+import { shuffleArray } from "../functions/shuffleArray";
+import type { partnerAd, partnerAds } from "../types";
 
-export default function PartnerTileItem({
-  partner,
-}: {
-  partner: partnerAds;
-}) {
+export default function PartnerTileItem({ partner }: { partner: partnerAds }) {
   if (partner.ads && partner.ads.length > 0) {
+    //const ad = getIdsFromLocalstorage(partner.ads, "partner-ad", "slug");
     const ad = shuffleArray(partner.ads)[0] as partnerAd;
     return (
       <article
@@ -15,7 +12,6 @@ export default function PartnerTileItem({
         itemScope
         itemType="https://schema.org/ListItem"
         itemProp="itemListElement"
-        role="article"
         data-label=""
       >
         <div className="article-content-wrapper">
@@ -44,9 +40,7 @@ export default function PartnerTileItem({
             >
               <p className="company-name">Annonsørinnhold</p>
               <h1 className="headline">
-                <span className="headline-title-wrapper">
-                  {ad.title}
-                </span>
+                <span className="headline-title-wrapper">{ad.title}</span>
               </h1>
             </a>
 
@@ -60,9 +54,7 @@ export default function PartnerTileItem({
                   />
                 </div>
                 <div className="byline-info">
-                  <div className="byline-name">
-                    {partner.company.title}
-                  </div>
+                  <div className="byline-name">{partner.company.title}</div>
                 </div>
               </div>
             </div>

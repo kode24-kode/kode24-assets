@@ -1,5 +1,5 @@
-import { Listing } from '../types';
-import ListingSidebar from './ListingSidebar.tsx';
+import type { Listing } from "../types";
+import ListingSidebar from "./ListingSidebar.tsx";
 export default function PremiumListingsSidebar({
   listings,
   title,
@@ -20,7 +20,7 @@ export default function PremiumListingsSidebar({
           </a>
         </div>
         <div className="listing">
-          {listings.map((listing: Listing, key: number) => (
+          {listings.slice(0, 10).map((listing: Listing, key: number) => (
             <ListingSidebar Listing={listing} key={key} />
           ))}
         </div>

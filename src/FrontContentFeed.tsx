@@ -221,11 +221,7 @@ const FrontPageContent = ({
                 companyPartners={frontPageDataCopy.companyPartners}
               />
             )}
-            <>
-              {jobs.length > 0 && (
-                <ListingsRow Listings={jobs.splice(0, 3)} listView={listView} />
-              )}
-            </>
+            <>{jobs.length > 0 && <ListingsRow Listings={jobs} />}</>
           </section>
         );
       })}

@@ -8,7 +8,8 @@ export default function ListingTile({ Listing }: { Listing: Listing }) {
   return (
     <article
       id={`article_${Listing.id}`}
-      className={`preview columns large-12 small-12 medium-12 compact listing commercial-content ${
+      // preview columns large-12 small-12 medium-12 compact
+      className={`listing commercial-content ${
         Listing.type === "premium" ? "premium" : ""
       }`}
       itemScope
@@ -59,7 +60,7 @@ export default function ListingTile({ Listing }: { Listing: Listing }) {
                 </span>
               </h1>
               <p className="company-name">{Listing.company.name}</p>
-              <p>{Listing.title}</p>
+              {/* <p>{Listing.title}</p> */}
             </div>
             {Listing.hideFrom && (
               <div className="listing-hide-from">

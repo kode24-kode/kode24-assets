@@ -1,9 +1,11 @@
 .banner-container {
+  max-width: 100%;
+  overflow: hidden;
   &.desktop {
     display: none;
     @media screen and (min-width: 1024px) {
       display: flex;
-      margin: var(--gutter) 0 var(--gutter) 0;
+      margin: var(--gutter) 0 calc(var(--gutter) * 2) 0;
     }
   }
   img {
@@ -21,61 +23,79 @@
   justify-content: center;
   width: 100%;
 }
+
+.banner-container .banner-information {
+  border-left: 1px solid var(--v2-card-background);
+  border-right: 1px solid var(--v2-card-background);
+  border-bottom: 1px solid var(--v2-card-background);
+  padding: var(--gutter);
+  background-color: var(--v2-card-background);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  .banner-text {
+    @media screen and (min-width: 1024px) {
+      font-size: 1.4rem;
+    }
+  }
+}
 .banner-listing {
+  &.full-width {
+    width: 100%;
+  }
   &:before {
-      content: 'Annonse';
-      text-transform: uppercase;
-      color: var(--color-adWrapperTitleColor);
-      font-size: 11.2px;
-      text-align: center;
-      display: block;
-      background: var(--color-adWrapperBackground);
-      line-height: 26px;
-      position: relative;
-      top: 0;
-      z-index: inherit;
-      border-top-left-radius: var(--border-radius);
-      border-top-right-radius: var(--border-radius);
+    content: "Annonse";
+    text-transform: uppercase;
+    color: var(--color-adWrapperTitleColor);
+    font-size: 11.2px;
+    text-align: center;
+    display: block;
+    background: var(--color-adWrapperBackground);
+    line-height: 26px;
+    position: relative;
+    top: 0;
+    z-index: inherit;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
   }
 
   display: inline-block;
 }
 #top-bar-ad {
-  display: flex;
-  justify-content: center;
-  grid-auto-flow: column;
-  padding: 0;
-  padding-top: 0;
-  padding: 0 max(var(--gutter), 50vw - 860px);
-  padding-bottom: var(--gutter);
+  margin: 0 auto var(--gutter) auto;
+  .desktop:before,
+  .mobile:before {
+    content: "Annonse";
+    text-transform: uppercase;
+    color: var(--color-adWrapperTitleColor);
+    font-size: 11.2px;
+    text-align: center;
+    display: block;
+    background: var(--color-adWrapperBackground);
+    line-height: 26px;
+    position: relative;
+    top: 0;
+    z-index: inherit;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+  }
+  @media screen and (min-width: 1024px) {
+    width: calc(100% - (var(--gutter) * 2));
+    aspect-ratio: 1920 / 300;
+    background-color: transparent;
+    max-width: 1920px;
+  }
+  max-width: 100%;
 
   position: relative;
-
-
-  .top-bar-ad-content {
-    position: relative;
-    display: block;
-  }
-  .fading-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    &.first {
-      opacity: 0;
-      animation: fadeFirst 8s infinite;
-    }
-    &.second {
-      opacity: 0;
-      animation: fadeSecond 8s infinite;
-    }
-  }
-  &.desktop {
+  .desktop {
     display: none;
     @media screen and (min-width: 1024px) {
       display: block;
     }
   }
-  &.mobile {
+  .mobile {
     display: block;
     @media screen and (min-width: 1024px) {
       display: none;
@@ -144,8 +164,8 @@
   }
   .retro-button {
     background: silver;
-    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff, inset -2px -2px grey, inset 2px 2px #dfdfdf;
-
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #fff,
+      inset -2px -2px grey, inset 2px 2px #dfdfdf;
   }
   .retro-button {
     border: none;

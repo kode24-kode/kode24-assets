@@ -1,10 +1,4 @@
-import { Event } from "../types";
-
-function extractParam(url: string, paramName = "id") {
-  const regex = new RegExp(`[?&]${paramName}=([^&]+)`);
-  const match = url.match(regex);
-  return match ? match[1] : null;
-}
+import type { Event } from "../types";
 
 export default function EventsSidebar({ events }: { events: Array<Event> }) {
   return (
@@ -20,16 +14,16 @@ export default function EventsSidebar({ events }: { events: Array<Event> }) {
           </a>
         </div>
         <div className="listing">
-          {events.map((event: Event, key: number) => {
+          {events.map((event: Event) => {
             const date = new Date(event.startDate);
+
             return (
               <article
                 className="preview calendar"
                 itemScope
                 itemProp="itemListElement"
                 itemType="http://schema.org/ListItem"
-                role="article"
-                key={key}
+                key={event.link}
               >
                 <a itemProp="url" href={event.link}>
                   <div className="preview-calendar-date">
@@ -44,17 +38,6 @@ export default function EventsSidebar({ events }: { events: Array<Event> }) {
                   </div>
 
                   <div className="call-to-action-container">
-                    <figure>
-                      <img
-                        itemProp="image"
-                        alt="logo"
-                        src={`https://lh3.googleusercontent.com/d/${extractParam(
-                          event.photo,
-                          "id"
-                        )}=${extractParam(event.photo, "sz")}?authuser=0`}
-                        loading="lazy"
-                      />
-                    </figure>
                     <div className="article-preview-text">
                       <div className="labels">
                         <span className="label">{event.arrangedBy}</span>

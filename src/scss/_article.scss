@@ -279,10 +279,7 @@
       max-width: 100%;
     }
   }
-  .byline a,
-  p a,
-  ul a,
-  ol a {
+  .byline a {
     text-decoration: none;
     cursor: pointer;
     background-image: linear-gradient(
@@ -296,6 +293,25 @@
     overflow: visible;
     padding-bottom: 6px;
     color: var(--v2-card-paragraph-color);
+  }
+  .bodytext {
+    p a,
+    ul:not(.react-multi-carousel-track) a,
+    ol a {
+      text-decoration: none;
+      cursor: pointer;
+      background-image: linear-gradient(
+        90deg,
+        var(--v2-label-color-pink),
+        var(--v2-label-color-purple)
+      );
+      background-position: 0px 22px;
+      background-repeat: repeat-x;
+      background-size: 100% 1px;
+      overflow: visible;
+      padding-bottom: 6px;
+      color: var(--v2-card-paragraph-color);
+    }
   }
   .row:not(header) {
     display: flex;
@@ -321,7 +337,7 @@
       }
     }
 
-    figure,
+    > figure,
     .large-12 > figure,
     .small-12 > figure,
     .medium-12 > figure {
@@ -521,6 +537,11 @@
     &.commercial-content {
       .headline {
         padding: 0;
+        margin: 0;
+        @media screen and (min-width: 1024px) {
+          font-size: 2rem;
+          margin: 0;
+        }
       }
     }
     @media screen and (min-width: $vp-desktop) {
@@ -712,18 +733,18 @@ section.comments #hyvor-talk-view {
   }
   .bodytext {
     max-width: 100%;
-    p,
-    h2,
-    h3 {
+    > p,
+    > h2,
+    > h3 {
       max-width: 670px;
       margin: 0 auto;
     }
-    p {
+    > p {
       color: var(--v2-card-paragraph-color);
       padding: 0.4em 0 0.4em 0;
     }
-    h2,
-    h3 {
+    > h2,
+    > h3 {
       margin-top: calc(var(--gutter) * 2);
       margin-bottom: calc(var(--gutter) / 2);
       font-family: var(--fontMono);

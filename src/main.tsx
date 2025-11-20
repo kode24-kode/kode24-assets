@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import bind3DHover from "./functions/flip3d";
 import "./scss/main.scss";
 import structuredClone from "@ungap/structured-clone";
 import ArticleContent from "./ArticleContent.tsx";
@@ -15,7 +15,7 @@ import SortByReactions from "./components/SortByReactions.tsx";
 import TopBanner from "./components/TopBanner.tsx";
 import DesktopSidemenuFront from "./DesktopSidemenuFront.tsx";
 import FrontContent from "./FrontContent.tsx";
-import FrontContentFeed from "./FrontContentFeed.tsx";
+//import FrontContentFeed from "./FrontContentFeed.tsx";
 import FrontComments from "./frontComments.tsx";
 import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu.ts";
 import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu.ts";
@@ -32,7 +32,8 @@ import type { Article, Frontpage } from "./types/index.ts";
 /** kode24 runs multiple react applications in one. Here we try to attach all necessarry applications */
 async function main() {
   // the functions below should run regardless.
-
+  const topBarLogo = document.getElementById("top-bar-logo-icon-wrapper");
+  if (topBarLogo) bind3DHover(topBarLogo, 60);
   // only if commercial content
   addRibbonClassToTop();
 
@@ -55,16 +56,15 @@ async function main() {
       (banner) => banner.adFormat === "desktop-topbanner_1540x300"
     ) || [];
 
-  if (topBanners.length > 0) {
-    const topBarAd = document.createElement("div");
-    document.querySelector(".frontpage")?.before(topBarAd);
-    topBarAd.classList.add("top-bar-ad", "desktop");
-    topBarAd.setAttribute("id", "top-bar-ad");
-    ReactDOM.createRoot(topBarAd).render(
-      <React.StrictMode>
-        <TopBanner ads={topBanners} />
-      </React.StrictMode>
-    );
+  if (topBanners.length > 0 && document.getElementById("top-bar-ad")) {
+    const topBarEl = document.getElementById("top-bar-ad");
+    //const topBarAd = document.createElement("div");
+    if (topBarEl)
+      ReactDOM.createRoot(topBarEl).render(
+        <React.StrictMode>
+          <TopBanner ads={topBanners} />
+        </React.StrictMode>
+      );
   }
 
   if (!document.querySelector(".is-editor")) {
@@ -187,7 +187,7 @@ async function main() {
       .getElementById("articles-above-first-banner")
       ?.before(sortByReactionsNode);
   }
-  FrontContentFeed(structuredClone(FrontpageData) as Frontpage);
+  //FrontContentFeed(structuredClone(FrontpageData) as Frontpage);
 }
 
 main();

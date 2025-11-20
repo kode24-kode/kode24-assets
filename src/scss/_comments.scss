@@ -72,7 +72,8 @@
   }
 }
 .newest-comments {
-  margin-bottom: calc(var(--gutter) * 2);
+  margin-top: var(--gutter);
+  margin-bottom: var(--gutter);
   max-width: 100%;
   overflow: hidden;
   .heading {
@@ -100,7 +101,8 @@
     margin-left: calc(var(--gutter) * -1);
     margin-right: calc(var(--gutter) * -1);
     margin-top: var(--gutter);
-    padding: calc(var(--gutter) / 2);
+    padding: calc(var(--gutter) / 2) calc(var(--gutter) / 2)
+      calc(var(--gutter) / 2) calc(var(--gutter));
     gap: var(--gutter);
     overflow-x: auto;
     display: flex;

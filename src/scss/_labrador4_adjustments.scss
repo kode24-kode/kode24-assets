@@ -58,6 +58,9 @@
 
       gap: calc(var(--gutter) / 2);
       align-items: center;
+      @media screen and (min-width: 1024px) {
+        padding: var(--gutter) 0 0 0;
+      }
     }
 
     .kicker {
@@ -116,6 +119,7 @@
       .desktop-floatRight {
         + .kicker {
           padding-top: 0;
+          //padding-left: 0 !important;
         }
         + .kicker[class*=" bg-"] {
           margin-left: 0;
@@ -129,6 +133,7 @@
       .mobile-floatRight {
         + .kicker {
           padding-top: 0;
+          display: block;
         }
         + .kicker[class*=" bg-"] {
           margin-left: 0;
@@ -855,7 +860,9 @@ article.column .content[class*=" bg-"] figure.desktop-floatLeft,
 article.column .content[class*=" bg-"] figure.desktop-floatRight,
 article.column .content.hasContentPadding figure.desktop-floatLeft,
 article.column .content.hasContentPadding figure.desktop-floatRight {
-  margin-bottom: -1rem;
+  @media screen and (min-width: 1024px) {
+    margin-bottom: -1rem;
+  }
 }
 
 article.column .content {
@@ -867,4 +874,29 @@ article.column .content {
 
 .floatingText:not(:has(.headline, .kicker)) {
   display: none;
+}
+
+.bodytext .full-width {
+  padding: 0;
+  overflow: visible;
+}
+
+.bodytext .listing-carousel {
+  max-width: none;
+  margin-left: calc(var(--gutter) * -1) !important;
+  width: calc(100% + var(--gutter) * 2) !important;
+  background-color: transparent !important;
+}
+
+.row.commercial {
+  perspective: 2000px;
+}
+
+.row.commercial .single {
+  /* Enable 3D transforms and smooth transitions for hover effect */
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
+  /* Optional subtle elevation */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }

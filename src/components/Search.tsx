@@ -1,23 +1,23 @@
-import { Article } from '../types';
-import { useState } from 'react';
-import ArticleTile from './ArticleTile.tsx';
-import { toggleSearchComponent } from '../functions/handleSearchButtonClick.ts';
-import LoadingAnimation from './LoadingAnimation.tsx';
+import { useState } from "react";
+import { toggleSearchComponent } from "../functions/handleSearchButtonClick.ts";
+import type { Article } from "../types";
+import ArticleTile from "./ArticleTile.tsx";
+import LoadingAnimation from "./LoadingAnimation.tsx";
 
 export default function Search() {
   const [searchResults, setSearchResults] = useState<Article[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [loadingSearch, setLoadingSearch] = useState(false);
 
-  window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
       resetSearch();
     }
   });
 
   function resetSearch() {
     setSearchResults([]);
-    setSearchQuery('');
+    setSearchQuery("");
     setLoadingSearch(false);
   }
 
@@ -32,7 +32,7 @@ export default function Search() {
       data.map(
         (SearchItem: any) =>
           ({
-            id: '',
+            id: "",
             title: SearchItem.title,
             published: SearchItem.published,
             published_url: SearchItem.published_url,
@@ -41,7 +41,7 @@ export default function Search() {
             byline: {
               name:
                 SearchItem.full_bylines[0]?.firstname +
-                ' ' +
+                " " +
                 SearchItem.full_bylines[0]?.lastname,
               imageUrl: SearchItem.full_bylines[0]?.imageUrl,
             },
@@ -80,6 +80,7 @@ export default function Search() {
     >
       <div id="search-component-buttons">
         <button
+          type="button"
           aria-label="search button"
           title="search button"
           id="search-button"
@@ -101,11 +102,13 @@ export default function Search() {
             strokeLinejoin="round"
             className="icon"
           >
+            <title aria-hidden>Søk</title>
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
         </button>
         <button
+          type="button"
           aria-label="close search button"
           title="close search button"
           id="search-button"
@@ -127,10 +130,7 @@ export default function Search() {
 
       {searchResults.length === 0 && loadingSearch && (
         <div id="article-search-results">
-          <div
-            id="article-search-cover"
-            onClick={() => resetSearch()}
-          ></div>
+          <div id="article-search-cover" onClick={() => resetSearch()}></div>
           <h2 id="article-search-header">
             Søker etter "{searchQuery}"...
             <LoadingAnimation />
@@ -139,10 +139,7 @@ export default function Search() {
       )}
       {searchResults.length > 0 && (
         <div id="article-search-results">
-          <div
-            id="article-search-cover"
-            onClick={() => resetSearch()}
-          ></div>
+          <div id="article-search-cover" onClick={() => resetSearch()}></div>
           <h2 id="article-search-header">
             Søkeresultater {searchQuery}
             <span id="article-search-results-count">

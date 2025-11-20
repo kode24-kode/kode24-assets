@@ -11,6 +11,7 @@
   padding: 0 var(--gutter);
   border-bottom: 1px var(--v2-card-border-background);
 
+  -webkit-transform: translateZ(0);
 
   @media screen and (min-width: 830px) {
     display: flex;
@@ -29,13 +30,13 @@
   border-bottom-color: hsl(200deg 4% 24% / 20%);
 }
 
-
 #top-bar-logo {
   display: flex;
   transition: transform 0.1s ease-in-out;
   cursor: pointer;
   align-items: center;
   gap: 10px;
+  perspective: 1000px;
   img {
     max-width: none;
     width: 32px;
@@ -44,9 +45,13 @@
   #top-bar-logo-icon-wrapper {
     border-radius: 100%;
     padding: 7px;
-    background-color: var(--v2-label-color-pink);
+    background-color: var(--v2-button-background-color);
     width: 40px;
     height: 40px;
+
+    will-change: transform;
+    transition: transform 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
+    /* Optional subtle elevation */
     svg {
       max-width: none;
       width: 32px;
@@ -76,8 +81,6 @@
   stroke-dasharray: 100;
   animation: dash 5s infinite;
 
-
-
   @media screen and (max-width: 1023px) {
     display: none;
   }
@@ -87,6 +90,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   ul {
     list-style: none;
     padding: 0 0 0 0;
@@ -126,12 +130,11 @@
         }
         &:hover {
           .icon {
-              transform: rotate(-10deg);
+            transform: rotate(-10deg);
           }
         }
       }
       .icon {
-
         margin-right: 0.6rem;
         width: 27px;
         height: 27px;
@@ -154,7 +157,7 @@
     position: absolute;
     color: var(--v2-card-always-white);
     padding: 4px 4px;
-    line-height:1;
+    line-height: 1;
     border-radius: 10px;
     font-size: 0.8rem;
     top: 9px;
@@ -165,9 +168,6 @@
     }
   }
 }
-
-
-
 
 #mode-toggle {
   display: flex;
@@ -196,7 +196,6 @@
 
 #light-switch-toggler-icon-right {
   display: var(--showBlockForLight);
-
 }
 
 #nav-top #search-button-mobile,

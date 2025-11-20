@@ -1,5 +1,5 @@
-import { ContentTile } from '../types';
-import ContentTileItem from './ContentTile.tsx';
+import type { ContentTile } from "../types";
+//import ContentTileItem from "./ContentTile.tsx";
 export default function ContentsRow({
   Contents,
   listView,
@@ -10,16 +10,12 @@ export default function ContentsRow({
   return (
     <div
       className={`row desktop-row commercial ${
-        Contents.length === 1 ? 'single-row' : ''
+        Contents.length === 1 ? "single-row" : ""
       }
-      ${listView ? 'list-view' : ''}
+      ${listView ? "list-view" : ""}
         `}
     >
-      <div className={getLayoutForCommercialRow(Contents.length)}>
-        {Contents.map((content: ContentTile, key: number) => (
-          <ContentTileItem Content={content} key={key} />
-        ))}
-      </div>
+      <div className={getLayoutForCommercialRow(Contents.length)}></div>
     </div>
   );
 }
@@ -27,12 +23,12 @@ export default function ContentsRow({
 function getLayoutForCommercialRow(numberOfContents: number) {
   switch (numberOfContents) {
     case 1:
-      return 'single';
+      return "single";
     case 2:
-      return 'dual';
+      return "dual";
     case 3:
-      return 'triple';
+      return "triple";
     default:
-      return 'triple';
+      return "triple";
   }
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <title>Mobil og Desktop Frame</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #container {
+      display: flex;
+      height: 100vh;
+      width: 100vw;
+    }
+    #mobile-frame {
+      width: 380px;
+      min-width: 200px;
+      max-width: 600px;
+      border-right: 2px solid #888;
+      height: 100%;
+      box-sizing: border-box;
+      transition: width 0.1s;
+    }
+    #desktop-frame {
+      flex: 1;
+      height: 100%;
+      border-left: 2px solid #888;
+      box-sizing: border-box;
+    }
+    #divider {
+      width: 8px;
+      cursor: ew-resize;
+      background: #ccc;
+      height: 100%;
+      z-index: 10;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <iframe id="mobile-frame" src="article.html"></iframe>
+    <div id="divider"></div>
+    <iframe id="desktop-frame" src="article.html"></iframe>
+  </div>
+
+</body>
+</html>

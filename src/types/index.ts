@@ -227,5 +227,15 @@ export interface bannerAd {
   adlink: URL;
   adFormat: string;
   banner: URL;
-  bannerVideo?: URL;
+  bannerVideoId?: string | number;
+  bannerAdText?: string;
+  bannerAdButtonText?: string;
+  company: {
+    name: string;
+    logo: string;
+    logoReal?: string;
+    logoRealDark?: string;
+    logoBackgroundLight?: string;
+    logoBackgroundDark?: string;
+  };
 }
