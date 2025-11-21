@@ -11,6 +11,7 @@
   z-index: 100;
   padding: 0 var(--gutter);
   border-bottom: 1px var(--v2-card-border-background);
+  height: 60px;
 
   -webkit-transform: translateZ(0);
 
@@ -138,17 +139,21 @@
         }
         &:hover {
           .icon {
-            transform: rotate(-10deg);
+            animation: jingle 0.4s ease;
           }
         }
       }
       .icon {
-        margin-right: 0.6rem;
+        margin-right: calc(var(--gutter) / 4);
+        transition: transform 0.2s ease-out;
+        //0.6rem
         width: 27px;
         height: 27px;
         transition: transform 0.1s ease-in-out;
         * {
-          stroke-width: 1.5px;
+          stroke-width: 0;
+          fill: var(--v2-card-paragraph-color);
+          opacity: 0.8;
         }
 
         @media screen and (max-width: 1023px) {
@@ -216,7 +221,8 @@
   .icon rect,
   .icon circle,
   .icon line {
-    stroke: var(--v2-card-headline-color);
+    //stroke: var(--v2-card-headline-color);
+    fill: var(--v2-card-paragraph-color);
   }
 }
 
@@ -245,4 +251,25 @@
 
 header .row div {
   width: 100%;
+}
+
+@keyframes jingle {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-12deg) scale(1.1);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-8deg);
+  }
+  80% {
+    transform: rotate(6deg) scale(1);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }

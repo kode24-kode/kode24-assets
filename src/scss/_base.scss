@@ -108,3 +108,14 @@ h5 {
 .resp_fonts .article-entity .bodytext p {
   color: var(--v2-card-paragraph-color) !important;
 }
+
+.no-scroll-mobile {
+  @media screen and (max-width: 1020px) {
+    html,
+    body {
+      width: 100vw;
+      height: 100vw;
+      overflow: hidden;
+    }
+  }
+}
