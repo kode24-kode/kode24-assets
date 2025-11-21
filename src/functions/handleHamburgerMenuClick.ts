@@ -4,18 +4,23 @@
  */
 export function handleHamburgerMenuClick() {
   if (
-    document.getElementById('top-menu-left-menu-link') &&
-    document.getElementById('top-menu-left-menu-link')
-      ?.addEventListener
+    document.getElementById("top-menu-left-menu-link") &&
+    document.getElementById("top-menu-left-menu-link")?.addEventListener
   ) {
     document
-      .getElementById('top-menu-left-menu-link')
-      ?.addEventListener('click', (event) => {
+      .getElementById("top-menu-left-menu-link")
+      ?.addEventListener("click", (event) => {
         event.preventDefault();
         event.stopPropagation();
-        document
-          .getElementById('left-menu')
-          ?.classList.toggle('active');
+        document.getElementById("left-menu")?.classList.toggle("active");
       });
   }
+
+  document
+    ?.getElementById("top-menu-toggle")
+    ?.addEventListener("click", (event) => {
+      event.preventDefault();
+      document?.getElementById("top-menu-toggle")?.classList.toggle("active");
+      document?.getElementById("left-menu")?.classList.toggle("active");
+    });
 }

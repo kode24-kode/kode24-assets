@@ -37,7 +37,7 @@ async function main() {
   // only if commercial content
   addRibbonClassToTop();
 
-  adjustLazyImages();
+  //adjustLazyImages();
 
   handleImageExpansionClick();
   handleHamburgerMenuClick();
@@ -109,7 +109,7 @@ async function main() {
       <Search />
     </React.StrictMode>
   );
-  document.querySelector("#nav-top")?.append(searchNode);
+  document.querySelector("#top-bar-logo")?.after(searchNode);
 
   /** this part only occurs if the div "event-list" is present */
   const eventsList = document.getElementById("events-list");

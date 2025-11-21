@@ -1,0 +1,35 @@
+.toplist {
+  .section {
+    display: none;
+  }
+  ul {
+    padding: 0 var(--gutter);
+  }
+  ul li {
+    border-bottom: 0;
+    border-bottom: 1px solid var(--v2-card-background-highlight);
+    padding: 0;
+  }
+  ul li a {
+    padding: calc(var(--gutter) / 2) 0;
+  }
+  img {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+  .fi-clock::before {
+    display: none;
+  }
+  .text h4 {
+    font-family: var(--fontMono);
+  }
+  &.large-12 .text h4 {
+    @media screen and (min-width: 1024px) {
+      font-size: 1.6rem;
+    }
+  }
+  .fi-clock {
+    color: var(--v2-card-paragraph-color);
+    font-size: 0.8rem;
+  }
+}

@@ -540,7 +540,7 @@ a {
     padding: 0 var(--gutter);
   }
 }
-
+/**
 @media (prefers-color-scheme: dark) {
   #light-switch-toggler-icon-left {
   }
@@ -578,6 +578,7 @@ a {
     }
   }
 }
+  **/
 
 .content.mobile-fullWidth {
   .headline,

@@ -50,7 +50,7 @@ const Banner = ({
       <div
         className={`banner-container ${mobileToggle ? "mobile" : "desktop"}`}
       >
-        <div className={`banner-listing full-width`}>
+        <div className={`banner-listing full-width-container-constrained`}>
           <VimeoPlayer id={ad.bannerVideoId} adLink={ad.adlink.toString()} />
           {ad.bannerAdText && (
             <div className="banner-information">

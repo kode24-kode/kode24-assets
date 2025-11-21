@@ -1,7 +1,7 @@
-import { CompanyPartner } from "../types";
-import { shuffleArray } from "../functions/shuffleArray";
-import { getImageCacheUrl } from "../functions/getImageCacheUrl";
 import Carousel from "react-multi-carousel";
+import { getImageCacheUrl } from "../functions/getImageCacheUrl";
+import { shuffleArray } from "../functions/shuffleArray";
+import type { CompanyPartner } from "../types";
 import "react-multi-carousel/lib/styles.css";
 
 function fixSanityUrl(url: string) {
@@ -97,13 +97,18 @@ export default function CompanyPartnersTile({
   return (
     <div
       id="diamond-partners-list-tile"
-      className="row desktop-row card single-row full-width"
+      className="row desktop-row card single-row full-width-container-constrained"
     >
       <div className="heading constrained">
         <h2 className="heading-title">
           💡 Ny karriere? Bli kjent med våre partnere
         </h2>
-        <a href="https://partner.kode24.no" target="_blank" className="button">
+        <a
+          href="https://partner.kode24.no"
+          target="_blank"
+          className="button"
+          rel="noopener"
+        >
           Finn ut mer
         </a>
       </div>

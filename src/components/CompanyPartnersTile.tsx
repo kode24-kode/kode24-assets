@@ -83,7 +83,7 @@ export default function CompanyPartnersTile({
     <div
       ref={containerRef}
       id="diamond-partners-list-tile"
-      className="row desktop-row card single-row full-width relative overflow-hidden"
+      className="row desktop-row card single-row full-width-container-constrained relative overflow-hidden"
     >
       <div className="heading constrained">
         <h2 className="heading-title">

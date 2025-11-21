@@ -1,5 +1,10 @@
 .frontpage {
-  display: block;
+  --max-width: 1400px;
+  --max-width-articles-container: 986px;
+  --max-width-sidebar: 340px;
+  display: flex;
+  gap: var(--gutter);
+  justify-content: center;
   padding: 0;
   margin: 0 auto 0 auto;
   padding: 0 0 0.6rem 0;
@@ -10,16 +15,35 @@
   }
 
   #main-content {
-    max-width: 986px;
     width: 100%;
-    margin: 0 auto;
+    /** margin: 0 auto; **/
   }
 
   @media screen and (min-width: 986px) {
+    #main-content {
+      max-width: 986px;
+    }
+  }
+
+  // we have space for sidebar
+  @media screen and (min-width: 1300px) {
+    #desktop-sidemenu-front {
+      display: block;
+      max-width: var(--max-width-sidebar);
+    }
+  }
+
+  @media screen and (min-width: 1400px) {
+    #desktop-sidemenu-front {
+      width: var(--max-width-sidebar);
+      min-width: var(--max-width-sidebar);
+    }
+    max-width: var(--max-width);
     &.with-ribbon {
       padding-top: 10rem;
     }
   }
+  /**
   @media screen and (min-width: 1500px) {
     max-width: 1700px;
     grid-template-columns: minmax(160px, 260px) 986px minmax(240px, 310px);
@@ -28,13 +52,6 @@
       width: 220px;
       position: absolute;
       right: var(--gutter);
-      top: 0;
-    }
-    #left-menu {
-      display: block;
-      width: 220px;
-      position: absolute;
-      left: var(--gutter);
       top: 0;
     }
 
@@ -48,20 +65,15 @@
     #desktop-sidemenu-front {
       width: 300px;
     }
-    #left-menu {
-      width: 300px;
-    }
   }
   @media screen and (min-width: 1740px) {
     #desktop-sidemenu-front {
       right: 0;
       top: 0;
     }
-    #left-menu {
-      left: 0;
-      top: 0;
-    }
   }
+
+  **/
 
   img {
     width: 100%;
@@ -73,13 +85,13 @@
   }
 
   &.only-main-row {
-    #left-menu,
-    #desktop-sidemenu-front {
-      display: none;
-    }
     #front-articles-list {
       flex: 0 0 100%;
       max-width: 100%;
     }
   }
+}
+
+.full-width-container-constrained {
+  width: 100%;
 }
