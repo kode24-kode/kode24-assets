@@ -3,6 +3,7 @@
  * and handles interaction
  */
 export function handleHamburgerMenuClick() {
+  console.log("handleHamburgerMenuClick loaded");
   if (
     document.getElementById("top-menu-left-menu-link") &&
     document.getElementById("top-menu-left-menu-link")?.addEventListener

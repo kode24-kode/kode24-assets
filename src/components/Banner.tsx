@@ -36,14 +36,14 @@ const Banner = ({
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
-    event.preventDefault(); // Prevent the default anchor behavior
+    //event.preventDefault(); // Prevent the default anchor behavior
     if (typeof plausible !== "undefined" && ad && ad?.title) {
       plausible("annonse_klikk", {
         props: { annonse: ad?.title },
       });
     }
     // Navigate to the ad link after running the function
-    window.location.href = ad?.adlink.toString();
+    //window.location.href = ad?.adlink.toString();
   };
   if (ad && ad.bannerVideoId)
     return (

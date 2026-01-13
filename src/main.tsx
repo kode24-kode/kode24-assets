@@ -39,6 +39,7 @@ async function main() {
 
   //adjustLazyImages();
 
+  console.log("loading toggles");
   handleImageExpansionClick();
   handleHamburgerMenuClick();
   handleSearchButtonClick();
