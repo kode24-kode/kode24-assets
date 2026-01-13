@@ -20,7 +20,7 @@ import FrontComments from "./frontComments.tsx";
 import { addNumberToEventCounterInTopMenu } from "./functions/addNumberToEventCounterInTopMenu.ts";
 import { addNumberToJobCounterInTopMenu } from "./functions/addNumberToJobCounterInTopMenu.ts";
 import { addRibbonClassToTop } from "./functions/addRibbonClassToTop.ts";
-import { adjustLazyImages } from "./functions/adjustLazyImages.ts";
+//import { adjustLazyImages } from "./functions/adjustLazyImages.ts";
 import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick.ts";
 import { handleImageExpansionClick } from "./functions/handleImageExpansionClick.ts";
 import { handleSearchButtonClick } from "./functions/handleSearchButtonClick.ts";

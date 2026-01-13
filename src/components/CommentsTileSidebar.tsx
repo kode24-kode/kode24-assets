@@ -8,12 +8,11 @@ export default function CommentsTile({
   comments: Array<Comment>;
 }) {
   const [showAll, setShowAll] = useState(false);
-
   return (
     <div
-      className={`newest-comments mobile-only social-component desktop-row card ${
-        showAll ? "show-all" : ""
-      }`}
+      className={`newest-comments comments-sidebar social-component desktop-row card ${
+        showAll ? "full" : ""
+      } ${showAll ? "show-all" : ""}`}
     >
       <div className="heading">
         <h2 className="heading-title">Nyeste kommentarer</h2>
@@ -34,7 +33,7 @@ export default function CommentsTile({
         onClick={() => setShowAll(!showAll)}
       >
         {!showAll && "Vis alle"}
-        {showAll && "Skjul"}
+        {showAll && "Lukk"}
       </button>
     </div>
   );

@@ -1,0 +1,104 @@
+.desktop-row.card.christmas-highscore {
+  padding: calc(var(--gutter) / 2);
+  justify-content: center;
+  margin-top: 0;
+  background-color: var(--v2-card-background);
+  .heading {
+    //padding: 0;
+    border-bottom: 0;
+    margin-bottom: 0 !important;
+    padding-bottom: calc(var(--gutter) / 2) !important;
+    justify-content: center;
+    .heading-title {
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: var(--gutter);
+    }
+    h3 {
+      margin-top: var(--gutter);
+    }
+  }
+  p {
+    font-size: 1rem;
+    margin-bottom: calc(var(--gutter) / 2);
+    text-align: center;
+  }
+  .button {
+    border: 1px solid var(--v2-card-background);
+
+    background-color: #31814d !important;
+    color: white;
+    &:hover {
+      background-color: #54e587 !important;
+      color: black;
+    }
+    &.secondary {
+      margin-top: calc(var(--gutter) / 2);
+      border: 1px solid #31814d;
+      color: var(--v2-card-headline);
+      background: var(--v2-card-background) !important;
+      &:hover {
+        border: 1px solid #54e587;
+        color: var(--v2-card-headline);
+      }
+    }
+  }
+
+  .button + .heading {
+    margin-top: var(--gutter);
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .jingle {
+    display: inline-block;
+    animation: jingle 1s 1s ease infinite;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 100%;
+    background-color: transparent;
+    font-size: 0.8rem;
+    border: 0;
+    thead tr {
+      background-color: var(--v2-background);
+    }
+    tbody tr:nth-child(odd) {
+      background-color: var(--v2-card-background-highlight);
+    }
+    tr th:nth-child(2) {
+      width: 25%;
+    }
+    tbody tr:hover {
+      background-color: var(--v2-background);
+      cursor: pointer;
+    }
+  }
+  .sponsors {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--gutter);
+    margin-top: var(--gutter);
+    p {
+      flex: 0 0 100%;
+      margin: 0;
+    }
+    img {
+      max-height: 40px;
+      width: auto;
+    }
+    .sponsor {
+      flex: 0 0 calc(50% - var--gutter);
+      transition: all ease-in-out 0.1s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -173,7 +173,9 @@ export interface ContentTile {
 
 export interface Frontpage {
   latestArticles: [Article];
+  /**
   frontpage: [DesktopRow];
+   */
   listing: {
     listings: [Listing];
     premiumIds: [string];
@@ -185,21 +187,26 @@ export interface Frontpage {
     previousEvents: [Event];
     premiumEvents: [Event];
   };
+  /**
   partners: {
     goldPatreon: [Patreon];
     silverPatreon: [Patreon];
   };
+   */
   newestComments: [Comment];
   companyPartners: [CompanyPartner];
   contentTiles: [ContentTile];
   jobAdsSanity: [ContentTile];
   partnerAdsSanity: [partnerAds];
+  /**
   easterHighscore?: {
     users: [HighScoreUser];
     teams: [HighscoreTeam];
   };
+   */
   bannerAds: [bannerAd];
-  easter2025: EasterTask;
+  //easter2025: EasterTask;
+  christmas2025Highscore: Christmas2025Highscore;
 }
 
 export interface HighScoreUser {
@@ -238,4 +245,21 @@ export interface bannerAd {
     logoBackgroundLight?: string;
     logoBackgroundDark?: string;
   };
+}
+
+export interface Christmas2025Highscore {
+  team: [
+    {
+      id: number;
+      name: string;
+      totalscore: number;
+    }
+  ];
+  user: [
+    {
+      id: number;
+      username: string;
+      totalscore: number;
+    }
+  ];
 }

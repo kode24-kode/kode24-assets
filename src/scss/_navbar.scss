@@ -115,7 +115,8 @@
       align-items: center;
       position: relative;
       &:hover {
-        background-color: var(--v2-card-background-highlight);
+        //background-color: var(--v2-card-background-highlight);
+        background-color: var(--v2-background);
       }
       .site-title {
         display: inline-block;

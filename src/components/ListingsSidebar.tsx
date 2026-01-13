@@ -13,7 +13,7 @@ export default function PremiumListingsSidebar({
         <div className="preview-list-header">
           <h2 className="highlight">{title}</h2>
           <a
-            href="https://www.kode24.no/annonse/priser-pa-annonser-og-content-pa-kode24/70244826"
+            href="https://www.hsmedia.no/stilling/kode24-stilling"
             className="button action"
           >
             Se priser
@@ -25,7 +25,12 @@ export default function PremiumListingsSidebar({
           ))}
         </div>
         <div className="listing-actions">
-          <a href="/jobb" className="button">
+          <a
+            href="https://www.kodejobb.no/stillinger"
+            className="button"
+            target="_blank"
+            rel="noopener"
+          >
             Vis alle
           </a>
         </div>
