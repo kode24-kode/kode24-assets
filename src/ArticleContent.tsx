@@ -32,13 +32,13 @@ export default function FrontContent(frontpageData: Frontpage) {
       frontPageDataCopy.jobs
         .filter((job) =>
           frontPageDataCopy.jobAdsSanity.some(
-            (ad) => ad.adlink === job.published_url
-          )
+            (ad) => ad.adlink === job.published_url,
+          ),
         )
         .map((job) => ({
           ...job,
           type: "premium",
-        }))
+        })),
     );
 
     const jobAds = shuffleArray(frontPageDataCopy.jobs);
@@ -57,13 +57,13 @@ export default function FrontContent(frontpageData: Frontpage) {
     /** Attempts to add job ads before every odd h2-tag in article */
 
     const bannerAds = frontPageDataCopy.bannerAds.filter(
-      (ad) => ad.adFormat === "desktop-brandboard_980x600"
+      (ad) => ad.adFormat === "desktop-brandboard_980x600",
     );
 
     const mobileBannerAds = frontPageDataCopy.bannerAds.filter(
       (ad) =>
         ad.adFormat === "mobile-banner_320x250" ||
-        ad.adFormat === "mobile-topbanner_320x250"
+        ad.adFormat === "mobile-topbanner_320x250",
     );
 
     // create node for banners and add before #hyvor-talk-view
@@ -92,7 +92,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           />
         )}
         */}
-      </React.StrictMode>
+      </React.StrictMode>,
     );
     //document?.getElementById("hyvor-talk-view")?.before();
     document?.querySelector(".meta")?.append(bannerNode);
@@ -107,7 +107,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               Contents={frontPageDataCopy.contentTiles}
               perspective={true}
             />
-          </React.StrictMode>
+          </React.StrictMode>,
         );
         h2.before(listingNode);
       } else if (key === 1 && premiumJobAds.length > 0) {
@@ -118,17 +118,18 @@ export default function FrontContent(frontpageData: Frontpage) {
               customHeading="Anbefalte ledige stilinger"
               Listings={premiumJobAds as Listing[]}
             />
-          </React.StrictMode>
+          </React.StrictMode>,
         );
         h2.before(listingNode);
       } else {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
+            <div>hallooooooooo</div>
             <PartnerAdTile
               partnerAds={frontPageDataCopy.partnerAdsSanity}
               perspective={true}
             />
-          </React.StrictMode>
+          </React.StrictMode>,
         );
         h2.before(listingNode);
       }
@@ -143,7 +144,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           customHeading="Ledige stilinger"
           Listings={jobAds as Listing[]}
         />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
     document?.getElementById("hyvor-talk-view")?.after(jobCarouselNode);
 
@@ -172,7 +173,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           />
         )}
         */}
-      </React.StrictMode>
+      </React.StrictMode>,
     );
     document?.getElementById("hyvor-talk-view")?.before(bannerBottomNode);
     //h2.before(listingNode);

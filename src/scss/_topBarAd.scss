@@ -25,19 +25,25 @@
 }
 
 .banner-container .banner-information {
-  border-left: 1px solid var(--v2-card-background);
-  border-right: 1px solid var(--v2-card-background);
-  border-bottom: 1px solid var(--v2-card-background);
   padding: var(--gutter);
   background-color: var(--v2-card-background);
   border-bottom-left-radius: var(--border-radius);
   border-bottom-right-radius: var(--border-radius);
-  display: flex;
-  justify-content: space-between;
+  .banner-company-link {
+    display: flex;
+    justify-content: space-between;
+  }
   .banner-text {
     @media screen and (min-width: 1024px) {
       font-size: 1.4rem;
     }
+  }
+  .byline-name {
+    font-size: 0.8rem;
+  }
+
+  .ad-description {
+    padding-top: calc(var(--gutter) / 2);
   }
 }
 .banner-listing {

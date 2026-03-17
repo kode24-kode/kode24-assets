@@ -322,7 +322,7 @@ article:has(.floatingText .headline) {
     display: flex;
     align-items: center;
     gap: calc(0.7rem / 8);
-
+    color: var(--v2-card-headline-color);
     svg {
       font-size: 1.1rem;
     }
@@ -905,4 +905,8 @@ article.column .content {
   transition: transform 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
   /* Optional subtle elevation */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.byline-row {
+  max-width: 100% !important;
 }

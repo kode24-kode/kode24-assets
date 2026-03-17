@@ -12,15 +12,17 @@ export default function PartnerAdTile({
   perspective?: boolean;
 }) {
   const singleRef = useRef<HTMLDivElement | null>(null);
+  console.log("den originale partnerAds", partnerAds);
   const partner = getIdsFromLocalstorage(
     partnerAds,
     "partner-ad",
-    "slug"
+    "slug",
   ) as partnerAds;
+
   const partnerAd = getIdsFromLocalstorage(
     partner.ads,
     "partner-ad-banner",
-    "banner"
+    "banner",
   ) as partnerAd;
   if (!partnerAd) {
     console.log(partner, partnerAd);
