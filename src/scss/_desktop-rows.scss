@@ -881,7 +881,7 @@
 
   .dummy-style {
     background-color: var(--v2-card-background);
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) / 2);
   }
 
   max-width: 100%;
@@ -1112,21 +1112,31 @@
 }
 
 article.column img {
-  transition: filter 0.3s ease, transform 0.3s ease;
+  transition:
+    filter 0.3s ease,
+    transform 0.3s ease;
 }
 
 article.column {
   .headline {
     span {
       text-decoration: none;
-      box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+      box-shadow:
+        0 0 #0000,
+        0 0 #0000,
+        0 0 #0000,
+        0 0 #0000,
         inset 0 0 0 0 transparent;
       transition: box-shadow 0.25s ease-in-out;
     }
 
     &:not(:has(span)) {
       text-decoration: none;
-      box-shadow: 0 0 #0000, 0 0 #0000, 0 0 #0000, 0 0 #0000,
+      box-shadow:
+        0 0 #0000,
+        0 0 #0000,
+        0 0 #0000,
+        0 0 #0000,
         inset 0 0 0 0 transparent;
       transition: box-shadow 0.25s ease-in-out;
     }
@@ -1179,6 +1189,8 @@ article.column:hover {
   }
 
   article {
+    border-radius: calc(var(--border-radius) * 2);
+    overflow: hidden;
     .headline {
       margin: 0;
       @media screen and (min-width: 1024px) {

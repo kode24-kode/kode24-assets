@@ -15,10 +15,10 @@
 
     .floatingText {
       color: var(--v2-card-always-white);
-      .kicker.content:not([class*=" bg-"]) {
+      .kicker:not([class*=" bg-"]) {
         margin-left: calc(1rem + (var(--gutter) / 2));
         padding: calc(var(--gutter) / 2) !important;
-        color: var(--v2-card-always-white);
+        color: var(--v2-card-always-white) !important;
         span {
           color: var(--v2-card-always-white);
         }
@@ -184,7 +184,7 @@
       border-radius: 0;
     }
 
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) / 2);
   }
 }
 
@@ -310,8 +310,12 @@ article:has(.floatingText .headline) {
     animation: flicker 0.15s infinite alternate;
     background: linear-gradient(180deg, #ffcc00, #ff6600, #cc0000);
     background-size: 200% 200%;
-    animation: fireGlow 1.5s infinite alternate, flicker 4s infinite alternate;
-    box-shadow: 0 0 10px rgba(255, 100, 0, 0.8), 0 0 20px rgba(255, 140, 0, 0.6),
+    animation:
+      fireGlow 1.5s infinite alternate,
+      flicker 4s infinite alternate;
+    box-shadow:
+      0 0 10px rgba(255, 100, 0, 0.8),
+      0 0 20px rgba(255, 140, 0, 0.6),
       0 0 30px rgba(255, 0, 0, 0.4);
   }
 
@@ -755,7 +759,7 @@ a:hover {
 
 article.column .content:not([class*=" bg-"]) {
   background-color: var(--v2-card-background);
-  border-radius: var(--border-radius);
+  border-radius: calc(var(--border-radius) / 2);
 
   .fullwidthTarget {
     // no border-radius at all
@@ -817,7 +821,7 @@ article.column .content .media:last-child figure {
 
 .row .column + .column:not(.large-12),
 .row .column + .columns:not(.large-12) {
-  padding-left: calc(var(--gutter));
+  padding-left: calc(var(--gutter) / 1.5);
 }
 
 .row {
@@ -825,7 +829,7 @@ article.column .content .media:last-child figure {
 }
 
 .row > .column {
-  margin-bottom: calc(var(--gutter));
+  margin-bottom: calc(var(--gutter) / 1.5);
 }
 
 .row.hasContentPadding {

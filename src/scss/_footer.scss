@@ -1,10 +1,12 @@
 .main-footer {
   margin-top: 4rem;
   background: var(--v2-card-background);
+  @media screen and (min-width: $vp-desktop) {
+    padding-bottom: 200px;
+  }
   a {
     color: var(--v2-card-headline-color);
   }
-
 
   color: var(--v2-card-headline-color);
   .row {
@@ -13,9 +15,8 @@
     padding: var(--gutter);
     @media screen and (min-width: 830px) {
       display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        gap: var(--gutter);
-
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: var(--gutter);
     }
   }
   .columns {
@@ -82,4 +83,15 @@
 
 .cross-site-legend {
   display: none;
+}
+#physics-footer {
+  display: none;
+  @media screen and (min-width: $vp-desktop) {
+    display: block;
+  }
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  touch-action: auto;
 }

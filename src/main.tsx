@@ -25,6 +25,8 @@ import { handleHamburgerMenuClick } from "./functions/handleHamburgerMenuClick.t
 import { handleImageExpansionClick } from "./functions/handleImageExpansionClick.ts";
 import { handleSearchButtonClick } from "./functions/handleSearchButtonClick.ts";
 import { handleSourcePointClick } from "./functions/handleSourcePointClick.ts";
+import { initFooterPhysics } from "./functions/matterBalls";
+import { ShareButton } from "./functions/shareButton.ts";
 import type { Article, Frontpage } from "./types/index.ts";
 
 //import CompetitionHighscore from './components/CompetitionHighscore.tsx';
@@ -44,6 +46,7 @@ async function main() {
   handleHamburgerMenuClick();
   handleSearchButtonClick();
   handleSourcePointClick();
+  ShareButton();
 
   // fetch frontpage data
   const response = await fetch("https://docs.kode24.no/api/frontpage");
@@ -54,7 +57,7 @@ async function main() {
    */
   const topBanners =
     FrontpageData.bannerAds?.filter(
-      (banner) => banner.adFormat === "desktop-topbanner_1540x300"
+      (banner) => banner.adFormat === "desktop-topbanner_1540x300",
     ) || [];
 
   if (topBanners.length > 0 && document.getElementById("top-bar-ad")) {
@@ -64,7 +67,7 @@ async function main() {
       ReactDOM.createRoot(topBarEl).render(
         <React.StrictMode>
           <TopBanner ads={topBanners} />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
   }
 
@@ -77,7 +80,7 @@ async function main() {
   addNumberToEventCounterInTopMenu(FrontpageData.events.upcomingEvents.length);
 
   const desktopSideMenuFront = document.getElementById(
-    "desktop-sidemenu-front"
+    "desktop-sidemenu-front",
   ) as HTMLElement;
 
   /**
@@ -99,7 +102,7 @@ async function main() {
     ReactDOM.createRoot(desktopSideMenuFront).render(
       <React.StrictMode>
         <DesktopSidemenuFront frontpageData={FrontpageData} />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
 
   /** search component */
@@ -108,7 +111,7 @@ async function main() {
   ReactDOM.createRoot(searchNode as HTMLElement).render(
     <React.StrictMode>
       <Search />
-    </React.StrictMode>
+    </React.StrictMode>,
   );
   document.querySelector("#top-bar-logo")?.after(searchNode);
 
@@ -118,7 +121,7 @@ async function main() {
     ReactDOM.createRoot(eventsList).render(
       <React.StrictMode>
         <FullEventsList events={FrontpageData.events.upcomingEvents} />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
   }
 
@@ -150,24 +153,24 @@ async function main() {
     if (sortingToggle === "mostReactions") {
       sortingToggle = "mostReactions";
       const frontPageDataSortedByReactions = structuredClone(
-        FrontpageData
+        FrontpageData,
       ) as Frontpage;
       frontPageDataSortedByReactions.latestArticles =
         frontPageDataSortedByReactions.latestArticles.sort(
           (a: Article, b: Article) =>
-            b.reactions.reactions_count - a.reactions.reactions_count
+            b.reactions.reactions_count - a.reactions.reactions_count,
         );
       FrontContent(structuredClone(frontPageDataSortedByReactions));
     }
     if (sortingToggle === "mostComments") {
       sortingToggle = "mostComments";
       const frontPageDataSortedByReactions = structuredClone(
-        FrontpageData
+        FrontpageData,
       ) as Frontpage;
       frontPageDataSortedByReactions.latestArticles =
         frontPageDataSortedByReactions.latestArticles.sort(
           (a: Article, b: Article) =>
-            b.reactions.comments_count - a.reactions.comments_count
+            b.reactions.comments_count - a.reactions.comments_count,
         );
       FrontContent(structuredClone(frontPageDataSortedByReactions));
     }
@@ -182,13 +185,19 @@ async function main() {
           sortingToggle={sortingToggle}
           sortBySortingToggle={sortLatestArticlesByToggle}
         />
-      </React.StrictMode>
+      </React.StrictMode>,
     );
     document
       .getElementById("articles-above-first-banner")
       ?.before(sortByReactionsNode);
   }
   //FrontContentFeed(structuredClone(FrontpageData) as Frontpage);
+
+  const footer = document.getElementById("physics-footer");
+
+  if (footer) {
+    initFooterPhysics(footer);
+  }
 }
 
 main();
