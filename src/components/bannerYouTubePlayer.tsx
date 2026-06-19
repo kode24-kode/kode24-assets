@@ -14,7 +14,7 @@ function loadYouTubeIframeAPI(): Promise<void> {
     if (window.YT?.Player) return resolve();
 
     const existing = document.querySelector<HTMLScriptElement>(
-      'script[data-yt-iframe-api="true"]'
+      'script[data-yt-iframe-api="true"]',
     );
     if (existing) {
       const prev = window.onYouTubeIframeAPIReady;
@@ -72,9 +72,7 @@ export default function YouTubeVideo({
       try {
         p.mute(); // må være muted for autoplay
         p.playVideo();
-      } catch (e) {
-        console.log("[YT] play error", e);
-      }
+      } catch (e) {}
     };
 
     const safePause = () => {
@@ -122,19 +120,21 @@ export default function YouTubeVideo({
             // start muted
             try {
               playerRef.current.mute();
-            } catch {}
+            } catch {
+              return;
+            }
 
             // hvis den allerede er i view når ready kommer:
             tryPlayWithRetries();
           },
-          onStateChange: (ev: any) => {
+          onStateChange: () => {
             // 1 = playing, 2 = paused, 5 = cued
             // nyttig å se om den faktisk forsøker
-            console.log("[YT] state", ev?.data);
+            return;
           },
-          onError: (ev: any) => {
+          onError: () => {
             // typisk: 2, 5, 100, 101, 150
-            console.log("[YT] error", ev?.data);
+            return;
           },
         },
       });
@@ -149,7 +149,7 @@ export default function YouTubeVideo({
             }
           });
         },
-        { threshold: 0.4, rootMargin: "200px 0px" }
+        { threshold: 0.4, rootMargin: "200px 0px" },
       );
 
       playObserver.observe(mountRef.current);

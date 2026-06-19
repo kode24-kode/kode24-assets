@@ -121,10 +121,10 @@ export default function FrontContent(frontpageData: Frontpage) {
           </React.StrictMode>,
         );
         h2.before(listingNode);
+        //<div>hallooooooooo</div>
       } else {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
-            <div>hallooooooooo</div>
             <PartnerAdTile
               partnerAds={frontPageDataCopy.partnerAdsSanity}
               perspective={true}

@@ -12,7 +12,7 @@ export default function PartnerAdTile({
   perspective?: boolean;
 }) {
   const singleRef = useRef<HTMLDivElement | null>(null);
-  console.log("den originale partnerAds", partnerAds);
+
   const partner = getIdsFromLocalstorage(
     partnerAds,
     "partner-ad",
@@ -24,15 +24,16 @@ export default function PartnerAdTile({
     "partner-ad-banner",
     "banner",
   ) as partnerAd;
-  if (!partnerAd) {
-    console.log(partner, partnerAd);
-  }
 
   useEffect(() => {
     if (perspective && singleRef.current) {
       bind3DHover(singleRef.current);
     }
   }, [perspective]);
+
+  if (!partnerAd) {
+    return null;
+  }
 
   if (partnerAd)
     return (

@@ -581,7 +581,7 @@ section.comments #hyvor-talk-view {
 }
 /** new stuff */
 
-.content.fullWidthTarget {
+.content.fullWidthTarget:not(.related *) {
   display: flex;
   justify-content: center;
 }
@@ -880,21 +880,6 @@ section.comments #hyvor-talk-view {
       }
     }
   }
-  a {
-    &:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 1px solid white;
-      opacity: 0.05;
-      border-radius: calc(var(--border-radius) / 2);
-      pointer-events: none;
-    }
-  }
 }
 .front-page.wide article:not([class*="bg-"]) {
   background-color: transparent !important;
@@ -964,5 +949,81 @@ article .meta .social a:hover {
   }
   60% {
     transform: translateY(-2px);
+  }
+}
+
+.prefer-google {
+  margin-bottom: 0 !important;
+}
+
+.prefer-google {
+  background-color: var(--v2-card-background);
+  border-radius: var(--border-radius);
+  max-width: 670px;
+  padding: var(--gutter);
+  margin: var(--gutter) auto;
+  div {
+    padding: 0;
+  }
+  h3 {
+    font-family: var(--fontMono);
+  }
+  p {
+    color: var(--v2-card-paragraph-color);
+    margin-bottom: calc(var(--gutter) / 2);
+  }
+}
+.google-button {
+  position: relative;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 12px;
+  width: auto;
+  display: inline-block !important;
+  background-image: none !important;
+  background: var(--v2-card-background);
+  color: var(--v2-card-headline-color);
+  border-radius: var(--border-radius) !important;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.google-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 3px;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    90deg,
+    #4285f4,
+    #34a853,
+    #fbbc05,
+    #ea4335,
+    #4285f4
+  );
+
+  background-size: 300% 300%;
+  animation: borderFlow 4s linear infinite;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+@keyframes borderFlow {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 300% 50%;
   }
 }

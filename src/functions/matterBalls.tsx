@@ -1,5 +1,6 @@
 // src/physics/footerPhysics.ts
 
+declare const Matter: any;
 export function initFooterPhysics(container: HTMLElement) {
   const { Engine, Render, World, Bodies, Mouse, MouseConstraint, Body } =
     Matter;
@@ -108,7 +109,7 @@ export function initFooterPhysics(container: HTMLElement) {
   ]);
 
   // click impulse
-  render.canvas.addEventListener("click", (e) => {
+  render.canvas.addEventListener("click", (e: any) => {
     const rect = render.canvas.getBoundingClientRect();
     const mx = e.clientX - rect.left;
     const my = e.clientY - rect.top;

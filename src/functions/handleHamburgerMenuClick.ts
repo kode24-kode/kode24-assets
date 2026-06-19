@@ -3,7 +3,6 @@
  * and handles interaction
  */
 export function handleHamburgerMenuClick() {
-  console.log("handleHamburgerMenuClick loaded");
   if (
     document.getElementById("top-menu-left-menu-link") &&
     document.getElementById("top-menu-left-menu-link")?.addEventListener
@@ -19,22 +18,12 @@ export function handleHamburgerMenuClick() {
 
   //cconsst isToggled = true;
 
-  console.log(
-    document?.getElementById("top-menu-toggle"),
-    document?.getElementById("top-menu-toggle")?.addEventListener
-  );
-
   document.addEventListener("DOMContentLoaded", () => {
-    //console.log("timeout done");
-    console.log(
-      document?.getElementById("top-menu-toggle"),
-      document?.getElementById("top-menu-toggle")?.addEventListener
-    );
     document
       ?.getElementById("top-menu-toggle")
       ?.addEventListener("click", (event) => {
         event.stopPropagation();
-        console.log("got here");
+
         event.preventDefault();
         document?.getElementById("top-menu-toggle")?.classList.toggle("active");
         document?.getElementById("left-menu")?.classList.toggle("active");
@@ -46,7 +35,6 @@ window.addEventListener("click", () => {
   if (
     document?.getElementById("top-menu-toggle")?.classList.contains("active")
   ) {
-    console.log("yo");
     document?.getElementById("top-menu-toggle")?.classList.toggle("active");
     document?.getElementById("left-menu")?.classList.toggle("active");
   }
@@ -57,7 +45,6 @@ window.addEventListener("keydown", (event) => {
     document?.getElementById("top-menu-toggle")?.classList.contains("active") &&
     event.key.toLowerCase() === "escape"
   ) {
-    console.log("yo");
     document?.getElementById("top-menu-toggle")?.classList.toggle("active");
     document?.getElementById("left-menu")?.classList.toggle("active");
   }
