@@ -932,11 +932,11 @@ article.column .content {
 
 .related {
   max-width: 100%;
-  width: 986px;
+  width: 986px !important;
   margin: 0 auto;
   display: block;
   right: 0;
-  left: 0;
+  left: 0 !important;
 }
 
 .main .row:not([class*="bg-"]),
