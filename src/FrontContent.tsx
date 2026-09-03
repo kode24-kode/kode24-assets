@@ -11,7 +11,7 @@ import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import ContentTile from "./components/ContentTile.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
-
+import { PartnerPage2Banner } from "./components/PartnerPage2Banner.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
 import type { Frontpage, Listing } from "./types/index.ts";
 
@@ -23,30 +23,30 @@ export default function FrontContent(frontpageData: Frontpage) {
     frontPageDataCopy?.bannerAds?.filter(
       (ad) =>
         ad?.adFormat === "mobile-banner_320x250" ||
-        ad?.adFormat === "mobile-topbanner_320x250"
+        ad?.adFormat === "mobile-topbanner_320x250",
     ) || [];
 
   const desktopBannerAds = frontPageDataCopy.bannerAds.filter(
-    (ad) => ad.adFormat === "desktop-brandboard_980x600"
+    (ad) => ad.adFormat === "desktop-brandboard_980x600",
   );
 
   // draw a listing before each h2
   // iterate and draw listings
   const rows = document.querySelectorAll(
-    "#front-articles-list .page-content .row:not(:first-child):nth-child(2n+1)"
+    "#front-articles-list .page-content .row:not(:first-child):nth-child(2n+1)",
   );
 
   const premiumJobAds = shuffleArray(
     frontPageDataCopy.jobs
       .filter((job) =>
         frontPageDataCopy.jobAdsSanity.some(
-          (ad) => ad.adlink === job.published_url
-        )
+          (ad) => ad.adlink === job.published_url,
+        ),
       )
       .map((job) => ({
         ...job,
         type: "premium",
-      }))
+      })),
   );
 
   const jobAds = shuffleArray(frontPageDataCopy.jobs);
@@ -58,8 +58,17 @@ export default function FrontContent(frontpageData: Frontpage) {
 
     // this row is reserved for job ads
     // always try to draw premium job ads that are registered in jobAdsSanity first
-
-    if (key === 2) {
+    console.log("key", key);
+    if (key === 1) {
+      listingNode.classList.add("full-width");
+      ReactDOM.createRoot(listingNode as HTMLElement).render(
+        <React.StrictMode>
+          <PartnerPage2Banner partnerPages2={frontPageDataCopy.partnerPages2} />
+        </React.StrictMode>,
+      );
+      row.before(listingNode);
+      // if we have drawn a row for premium job ads already, draw normal job ads here
+    } else if (key === 2) {
       listingNode.classList.add("full-width");
       ReactDOM.createRoot(listingNode as HTMLElement).render(
         <React.StrictMode>
@@ -75,7 +84,7 @@ export default function FrontContent(frontpageData: Frontpage) {
                 : (jobAds as Listing[])
             }
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
       row.before(listingNode);
       // if we have drawn a row for premium job ads already, draw normal job ads here
@@ -87,7 +96,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             customHeading={"Ledige stillinger"}
             Listings={jobAds as Listing[]}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
       row.before(listingNode);
     }
@@ -99,7 +108,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           <CompanyPartnersTile
             companyPartners={frontPageDataCopy.companyPartners}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
       row.before(listingNode);
     }
@@ -124,7 +133,7 @@ export default function FrontContent(frontpageData: Frontpage) {
           {frontPageDataCopy.contentTiles.length < 0 && (
             <PartnerAdTile partnerAds={frontPageDataCopy.partnerAdsSanity} />
           )}
-        </React.StrictMode>
+        </React.StrictMode>,
       );
       row.before(listingNode);
       // alternate between banners and company partners for the rest of the site
@@ -135,7 +144,7 @@ export default function FrontContent(frontpageData: Frontpage) {
             partnerAds={frontPageDataCopy.partnerAdsSanity}
             perspective={true}
           />
-        </React.StrictMode>
+        </React.StrictMode>,
       );
       row.before(listingNode);
       //return; // skip the rest of the code below for job ad rows
@@ -156,7 +165,7 @@ export default function FrontContent(frontpageData: Frontpage) {
               namespace="mobile-banner"
             />
           )}
-        </React.StrictMode>
+        </React.StrictMode>,
       );
       row.before(listingNode);
     }
@@ -265,7 +274,7 @@ export default function FrontContent(frontpageData: Frontpage) {
   ReactDOM.createRoot(commentNode as HTMLElement).render(
     <React.StrictMode>
       <CommentsTile comments={frontPageDataCopy.newestComments} />
-    </React.StrictMode>
+    </React.StrictMode>,
   );
   document
     .querySelector("#front-articles-list .page-content .row:nth-child(5)")

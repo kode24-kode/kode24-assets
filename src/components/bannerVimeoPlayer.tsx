@@ -9,6 +9,7 @@ export default function VimeoVideo({
   id: string | number;
   adLink: string;
 }) {
+  id = String(id).replace("https://player.vimeo.com/video/", "");
   const mobileQuery = "(max-width: 820px)"; // juster breakpoint etter behov
   const initialPadding =
     typeof window !== "undefined" && window.matchMedia(mobileQuery).matches
@@ -52,7 +53,7 @@ export default function VimeoVideo({
         root: null,
         rootMargin: "300px 0px", // starter 300px før viewport
         threshold: 0,
-      }
+      },
     );
 
     preloadObserver.observe(iframeRef.current);
@@ -69,7 +70,7 @@ export default function VimeoVideo({
       },
       {
         threshold: 0.4, // spiller når ca 40% av videoen er synlig
-      }
+      },
     );
 
     playObserver.observe(iframeRef.current);
@@ -121,7 +122,7 @@ export default function VimeoVideo({
       </a>
       <iframe
         ref={iframeRef}
-        src={`https://player.vimeo.com/video/${id}?muted=1&loop=1&autopause=0&controls=0`}
+        src={`https://player.vimeo.com/video/${id}${id.includes("?") ? "&" : "?"}muted=1&loop=1&autopause=0&controls=0`}
         allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
         style={{
           position: "absolute",

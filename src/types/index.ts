@@ -1,3 +1,5 @@
+import type { PartnerPage2 } from "./partnerpages2";
+
 export interface Listing {
   id: string;
   published_url: string;
@@ -25,7 +27,7 @@ export interface EasterTask {
       word: string;
       updated_at: Date;
       username: string;
-    }
+    },
   ];
 }
 
@@ -205,6 +207,7 @@ export interface Frontpage {
   };
    */
   bannerAds: [bannerAd];
+  partnerPages2: PartnerPage2[];
   //easter2025: EasterTask;
   christmas2025Highscore: Christmas2025Highscore;
 }
@@ -253,13 +256,13 @@ export interface Christmas2025Highscore {
       id: number;
       name: string;
       totalscore: number;
-    }
+    },
   ];
   user: [
     {
       id: number;
       username: string;
       totalscore: number;
-    }
+    },
   ];
 }

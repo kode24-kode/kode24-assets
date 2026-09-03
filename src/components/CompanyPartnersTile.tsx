@@ -26,7 +26,7 @@ export default function CompanyPartnersTile({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const shuffledCompanyPartners = shuffleArray(
-    companyPartners
+    companyPartners,
   ) as Array<CompanyPartner>;
 
   useEffect(() => {
