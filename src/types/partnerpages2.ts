@@ -88,8 +88,8 @@ export interface PartnerExternalJobAdCard {
   salesTitle?: string;
   link?: string;
 
-  jobLocationCity?: Array<Record<string, unknown>>;
-  jobType?: Array<Record<string, unknown>>;
+  jobLocationCity?: Array<{ jobLocationCity: string }>;
+  jobType?: Array<{ Type: string }>;
 
   publishedAt?: string;
   unpublishedAt?: string;

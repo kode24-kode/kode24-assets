@@ -1,3 +1,8 @@
+body:not(.article) {
+  #desktop-sidemenu-front div .row:nth-child(3) {
+    margin-top: 4820px;
+  }
+}
 #desktop-sidemenu-front {
   .preview {
     //background-color: transparent;
@@ -8,7 +13,6 @@
 // dummy styling
 .frontpage .dummy-aside-content {
   &.preview-list {
-
     h3,
     &.job-list h3 {
       background: var(--v2-card-background);

@@ -25,6 +25,7 @@ export default function ListingsRow({
       partialVisibilityGutter: 30,
     },
   };
+  const shouldShowCarouselButtons = Listings.length > responsive.desktop.items;
 
   return (
     <div className="desktop-row commercial listing-carousel">
@@ -61,8 +62,10 @@ export default function ListingsRow({
           containerClass="carousel-container"
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
-          renderButtonGroupOutside={true}
-          customButtonGroup={<CarouselButtonGroup />}
+          renderButtonGroupOutside={shouldShowCarouselButtons}
+          customButtonGroup={
+            shouldShowCarouselButtons ? <CarouselButtonGroup /> : undefined
+          }
         >
           {Listings.map((Listing, key: number) => {
             return <ListingTile Listing={Listing} key={key} />;

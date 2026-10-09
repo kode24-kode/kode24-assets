@@ -11,9 +11,10 @@ import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import ContentTile from "./components/ContentTile.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
-import { PartnerPage2Banner } from "./components/PartnerPage2Banner.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
 import type { Frontpage, Listing } from "./types/index.ts";
+//import React from "react";
+import { PartnerPage2Banner } from "./components/PartnerPage2Banner.tsx";
 
 export default function FrontContent(frontpageData: Frontpage) {
   // So we don't mutate the original data

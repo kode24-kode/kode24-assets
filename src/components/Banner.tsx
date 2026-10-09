@@ -18,10 +18,14 @@ import YouTubePlayer from "./bannerYouTubePlayer";
 
 function getVideoProvider(
   id: string | number,
-  preferred?: "vimeo" | "youtube"
+  preferred?: "vimeo" | "youtube",
 ) {
+  if (id.toString().includes("vimeo")) return "vimeo";
+  if (id.toString().includes("youtube")) return "youtube";
   if (preferred) return preferred;
   return /^\d+$/.test(String(id)) ? "vimeo" : "youtube";
+  //if (preferred) return preferred;
+  //return /^\d+$/.test(String(id)) ? "vimeo" : "youtube";
 }
 
 const Banner = ({
@@ -43,7 +47,7 @@ const Banner = ({
     }
   }, [ad]);
   const handleClick = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ) => {
     event.preventDefault(); // Prevent the default anchor behavior
     if (typeof plausible !== "undefined" && ad && ad?.title) {
@@ -54,6 +58,7 @@ const Banner = ({
     // Navigate to the ad link after running the function
     window.location.href = ad?.adlink.toString();
   };
+  console.log("loading banner: ", ad.bannerVideoId);
   if (ad && ad.bannerVideoId)
     return (
       <div

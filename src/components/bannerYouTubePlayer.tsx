@@ -47,6 +47,7 @@ export default function YouTubeVideo({
   id: string;
   adLink: string;
 }) {
+  id = id.replace("https://www.youtube.com/watch?v=", "");
   const [isMuted, setIsMuted] = useState(true);
   const mobileQuery = "(max-width: 820px)";
   const initialPadding =
