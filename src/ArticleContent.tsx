@@ -17,6 +17,7 @@ import type {
   Frontpage,
   Listing,
 } from "./types/index.ts";
+import { PartnerPage2Banner } from "./components/PartnerPage2Banner.tsx";
 export default function FrontContent(frontpageData: Frontpage) {
   setTimeout(() => {
     (window as any).hljs.highlightAll();
@@ -140,6 +141,7 @@ export default function FrontContent(frontpageData: Frontpage) {
     jobCarouselNode.classList.add("full-width");
     ReactDOM.createRoot(jobCarouselNode as HTMLElement).render(
       <React.StrictMode>
+        <PartnerPage2Banner partnerPages2={frontPageDataCopy.partnerPages2} />
         <ListingsRow
           customHeading="Ledige stilinger"
           Listings={jobAds as Listing[]}

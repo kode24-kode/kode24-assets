@@ -99,7 +99,7 @@ export default function CompanyPartnersTile({
         </a>
       </div>
 
-      <div className="single2">
+      <div className="single2 constrained">
         <ul className="logo-list flex flex-wrap justify-center">
           {shuffledCompanyPartners.map((companyPartner: CompanyPartner) => (
             <li

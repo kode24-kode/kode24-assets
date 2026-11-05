@@ -5,11 +5,13 @@
 }
 
 .light #diamond-partners-list-tile {
-  background-color: white;
+  background-color: var(--v2-card-background);
+  //background-color: white;
 }
 
 .dark #diamond-partners-list-tile {
-  background-color: black;
+  //background-color: black;
+  background-color: var(--v2-card-background);
 }
 
 #diamond-partners-list-tile {

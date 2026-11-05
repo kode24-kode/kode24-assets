@@ -291,7 +291,7 @@
     background-repeat: repeat-x;
     background-size: 100% 1px;
     overflow: visible;
-    padding-bottom: 6px;
+    padding-bottom: 0;
     color: var(--v2-card-paragraph-color);
   }
   .bodytext {
@@ -772,7 +772,7 @@ section.comments #hyvor-talk-view {
     }
     .content {
       display: flex;
-      gap: 0.7rem;
+      gap: calc(var(--gutter) / 4);
       align-items: center;
       picture {
         border-radius: 50%;
