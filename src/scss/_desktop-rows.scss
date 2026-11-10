@@ -1062,7 +1062,7 @@
 }
 
 .commercial-content.premium {
-  border: 2px solid var(--v2-label-color-pink-darker);
+  border: 2px solid var(--v2-button-background-color);
 }
 
 .listing-hide-from {
@@ -1075,6 +1075,39 @@
   padding-bottom: 0;
   border-top: 1px solid var(--v2-card-border-background);
   padding-top: calc(var(--gutter) / 2);
+  justify-content: space-between;
+
+  .listing-deadline {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--gutter) / 4);
+  }
+}
+
+.listing-apply-button {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  padding: 0.4rem 1rem;
+  border-radius: var(--inner-border-radius);
+  font-size: 0.9rem;
+  font-weight: bold;
+  white-space: nowrap;
+  background-color: var(--v2-button-background-color);
+
+  // the generic link colours would otherwise override the white text
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #fff !important;
+    text-decoration: none;
+  }
+
+  &:hover {
+    filter: brightness(1.1);
+  }
 }
 
 .listing {
@@ -1096,6 +1129,27 @@
       justify-content: space-between;
       height: 100%;
     }
+  }
+}
+
+// the deadline row sits below the card link, so the link must not take 100% height
+.listing-carousel article.listing .article-preview-text {
+  display: flex;
+  flex-direction: column;
+
+  > a {
+    flex: 1 1 auto;
+    height: auto;
+  }
+
+  a.listing-apply-button {
+    display: inline-flex;
+    flex-direction: row;
+    height: auto;
+  }
+
+  .listing-hide-from {
+    margin-top: calc(var(--gutter) / 2);
   }
 }
 
@@ -1355,6 +1409,10 @@ article.column:hover {
 
 .single .commercial-content .headline {
   line-height: normal;
+}
+
+.job-content-single {
+  border-color: var(--v2-button-background-color) !important;
 }
 
 .job-content-tile {

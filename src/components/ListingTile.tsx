@@ -66,13 +66,23 @@ export default function ListingTile({ Listing }: { Listing: Listing }) {
               <p className="company-name">{Listing.company.name}</p>
               {/* <p>{Listing.title}</p> */}
             </div>
-            {Listing.hideFrom && !isPromoListing && (
-              <div className="listing-hide-from">
-                <GrCalendar /> Frist:{" "}
-                <TimePostedAgo dateString={Listing.hideFrom} />
-              </div>
-            )}
           </a>
+          {!isPromoListing && (
+            <div className="listing-hide-from">
+              {Listing.hideFrom && (
+                <span className="listing-deadline">
+                  <GrCalendar /> Frist:{" "}
+                  <TimePostedAgo dateString={Listing.hideFrom} />
+                </span>
+              )}
+              <a
+                className="listing-apply-button"
+                href={"https://www.kodejobb.no" + Listing.published_url}
+              >
+                Søk her
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </article>

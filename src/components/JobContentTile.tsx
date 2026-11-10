@@ -25,7 +25,7 @@ export default function JobContentTile({ Jobs }: { Jobs: Listing[] }) {
 
   return (
     <div className="row desktop-row commercial single-row">
-      <div className="single">
+      <div className="single job-content-single">
         <article
           className="preview columns large-12 small-12 medium-12 compact commercial-content job-content-tile"
           itemScope
@@ -89,12 +89,17 @@ export default function JobContentTile({ Jobs }: { Jobs: Listing[] }) {
                     <div className="byline-name">{Job.company.name}</div>
                   </div>
                 </div>
-                {Job.hideFrom && (
-                  <div className="listing-hide-from">
-                    <GrCalendar /> Frist:{" "}
-                    <TimePostedAgo dateString={Job.hideFrom} />
-                  </div>
-                )}
+                <div className="listing-hide-from">
+                  {Job.hideFrom && (
+                    <span className="listing-deadline">
+                      <GrCalendar /> Frist:{" "}
+                      <TimePostedAgo dateString={Job.hideFrom} />
+                    </span>
+                  )}
+                  <a className="listing-apply-button" href={url}>
+                    Søk her
+                  </a>
+                </div>
               </div>
             </div>
           </div>
