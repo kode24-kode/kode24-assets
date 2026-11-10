@@ -7,6 +7,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Banner from "./components/Banner.tsx";
 import CommentsTile from "./components/CommentsTile.tsx";
+import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import ContentTile from "./components/ContentTile.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
@@ -109,6 +110,16 @@ export default function FrontContent(frontpageData: Frontpage) {
         <ListingsRow
           customHeading="Anbefalte ledige stillinger"
           Listings={premiumJobAds as Listing[]}
+        />
+      ),
+    },
+    {
+      // partnerlogoer
+      available: (frontPageDataCopy.companyPartners?.length ?? 0) > 0,
+      fullWidth: true,
+      render: () => (
+        <CompanyPartnersTile
+          companyPartners={frontPageDataCopy.companyPartners}
         />
       ),
     },

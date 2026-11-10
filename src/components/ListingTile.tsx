@@ -10,7 +10,7 @@ export default function ListingTile({ Listing }: { Listing: Listing }) {
       id={`article_${Listing.id}`}
       // preview columns large-12 small-12 medium-12 compact
       className={`listing commercial-content ${
-        Listing.type === "premium" ? "premium" : ""
+        Listing.premiumPlus ? "premium" : ""
       }`}
       itemScope
       itemType="https://schema.org/ListItem"
@@ -30,7 +30,7 @@ export default function ListingTile({ Listing }: { Listing: Listing }) {
             }}
           >
             <div className="listing-badges">
-              {Listing.type === "premium" && (
+              {Listing.premiumPlus && (
                 <div className="listing-badge pink">Anbefalt</div>
               )}
               {isFresh && <div className="listing-badge">Ny</div>}

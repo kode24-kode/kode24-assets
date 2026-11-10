@@ -11,6 +11,7 @@ export interface Listing {
   tags?: string;
   type?: string;
   premium?: boolean;
+  premiumPlus?: boolean;
   hideFrom?: string;
   location?: [string];
   company: Company;
