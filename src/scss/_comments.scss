@@ -182,6 +182,13 @@
   }
 }
 
+// the sidebar decides in JS how many comments fit, so don't cut at 4 in CSS
+.newest-comments.comments-sidebar.fit-comments:not(.show-all)
+  .newest-comments-list
+  li:nth-child(n + 5) {
+  display: block;
+}
+
 .newest-comments {
   .newest-comments-list {
     list-style: none;
