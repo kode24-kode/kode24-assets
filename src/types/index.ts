@@ -12,6 +12,7 @@ export interface Listing {
   type?: string;
   premium?: boolean;
   premiumPlus?: boolean;
+  headerImage?: string;
   hideFrom?: string;
   location?: [string];
   company: Company;

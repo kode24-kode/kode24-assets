@@ -9,6 +9,7 @@ import Banner from "./components/Banner.tsx";
 import CommentsTile from "./components/CommentsTile.tsx";
 import CompanyPartnersTile from "./components/CompanyPartnersTile.tsx";
 import ContentTile from "./components/ContentTile.tsx";
+import JobContentTile from "./components/JobContentTile.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
@@ -51,6 +52,9 @@ export default function FrontContent(frontpageData: Frontpage) {
   );
 
   const jobAds = shuffleArray(frontPageDataCopy.jobs);
+  const premiumPlusJobAds = frontPageDataCopy.jobs.filter(
+    (job) => job.premiumPlus,
+  );
 
   /**
    * Ad types in priority order. An ad slot is drawn for every second row,
@@ -93,6 +97,11 @@ export default function FrontContent(frontpageData: Frontpage) {
           )}
         </>
       ),
+    },
+    {
+      // premium plus stillingsannonse
+      available: premiumPlusJobAds.length > 0,
+      render: () => <JobContentTile Jobs={premiumPlusJobAds as Listing[]} />,
     },
     {
       // portalbanner

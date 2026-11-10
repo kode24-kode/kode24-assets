@@ -8,6 +8,7 @@ import ReactDOM from "react-dom/client";
 import Banner from "./components/Banner.tsx";
 //import ContentsRow from "./components/ContentsRow.tsx";
 import ContentTile from "./components/ContentTile.tsx";
+import JobContentTile from "./components/JobContentTile.tsx";
 import ListingsRow from "./components/ListingsRow";
 import PartnerAdTile from "./components/PartnerAdTile.tsx";
 import { shuffleArray } from "./functions/shuffleArray.ts";
@@ -43,6 +44,9 @@ export default function FrontContent(frontpageData: Frontpage) {
     );
 
     const jobAds = shuffleArray(frontPageDataCopy.jobs);
+    const premiumPlusJobAds = frontPageDataCopy.jobs.filter(
+      (job) => job.premiumPlus,
+    );
     /**
     // get only premium ads and shuffle them
     frontPageDataCopy.listing.listings = shuffleArray(
@@ -101,7 +105,18 @@ export default function FrontContent(frontpageData: Frontpage) {
     const h2s = document.querySelectorAll(".bodytext>h2");
     h2s.forEach((h2, key: number) => {
       const listingNode = document.createElement("div");
-      if (key === 0 && frontPageDataCopy.contentTiles.length) {
+      // premium plus job ads come first, right after the banner ads
+      if (key === 0 && premiumPlusJobAds.length > 0) {
+        ReactDOM.createRoot(listingNode as HTMLElement).render(
+          <React.StrictMode>
+            <JobContentTile Jobs={premiumPlusJobAds as Listing[]} />
+          </React.StrictMode>,
+        );
+        h2.before(listingNode);
+      } else if (
+        key === (premiumPlusJobAds.length > 0 ? 1 : 0) &&
+        frontPageDataCopy.contentTiles.length
+      ) {
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>
             <ContentTile
@@ -111,7 +126,10 @@ export default function FrontContent(frontpageData: Frontpage) {
           </React.StrictMode>,
         );
         h2.before(listingNode);
-      } else if (key === 1 && premiumJobAds.length > 0) {
+      } else if (
+        key === (premiumPlusJobAds.length > 0 ? 2 : 1) &&
+        premiumJobAds.length > 0
+      ) {
         listingNode.classList.add("full-width");
         ReactDOM.createRoot(listingNode as HTMLElement).render(
           <React.StrictMode>

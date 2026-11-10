@@ -1356,3 +1356,48 @@ article.column:hover {
 .single .commercial-content .headline {
   line-height: normal;
 }
+
+.job-content-tile {
+  figure {
+    position: relative;
+    min-width: 0;
+  }
+
+  // always show the whole logo in width
+  figure.logo {
+    overflow: hidden;
+
+    // the generic .single img rules use object-fit: cover and min-height: 100%,
+    // which crops wide logos
+    img {
+      box-sizing: border-box;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: 100% !important;
+      object-fit: contain !important;
+    }
+  }
+
+  // small company logo next to the name: keep its natural width
+  .byline-profile-image {
+    width: auto !important;
+    flex: 0 0 auto !important;
+
+    img {
+      width: auto !important;
+      max-width: none !important;
+      min-height: 0 !important;
+      object-fit: contain !important;
+    }
+  }
+
+  .job-content-subtitle {
+    font-size: 1.1rem;
+    font-weight: normal;
+    line-height: 1.3;
+    color: var(--v2-card-paragraph-color);
+    margin: calc(var(--gutter) / 2) 0 0 0;
+  }
+}
