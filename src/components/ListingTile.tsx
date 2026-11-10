@@ -2,9 +2,13 @@ import { GrCalendar } from "react-icons/gr";
 import { getImageCacheUrl } from "../functions/getImageCacheUrl";
 import type { Listing } from "../types";
 import TimePostedAgo from "./TimePostedAgo";
+const PROMO_LISTING_ID = "da5bd76e-e847-4e71-b562-381905fb2006";
+
 export default function ListingTile({ Listing }: { Listing: Listing }) {
   const isFresh =
     new Date(Listing.published).getTime() > new Date().getTime() - 604800000;
+  // "Lys ut stilling på kodejobb.no" is always on display and has no real deadline
+  const isPromoListing = Listing.id === PROMO_LISTING_ID;
   return (
     <article
       id={`article_${Listing.id}`}
@@ -62,7 +66,7 @@ export default function ListingTile({ Listing }: { Listing: Listing }) {
               <p className="company-name">{Listing.company.name}</p>
               {/* <p>{Listing.title}</p> */}
             </div>
-            {Listing.hideFrom && (
+            {Listing.hideFrom && !isPromoListing && (
               <div className="listing-hide-from">
                 <GrCalendar /> Frist:{" "}
                 <TimePostedAgo dateString={Listing.hideFrom} />
