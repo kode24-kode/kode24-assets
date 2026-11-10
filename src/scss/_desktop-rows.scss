@@ -1081,6 +1081,11 @@
     display: flex;
     align-items: center;
     gap: calc(var(--gutter) / 4);
+
+    // article styles hide time elements inside .preview
+    time {
+      display: inline !important;
+    }
   }
 }
 
@@ -1088,7 +1093,8 @@
   display: inline-flex;
   align-items: center;
   margin-left: auto;
-  padding: 0.4rem 1rem;
+  // !important since article styles reset padding on links inside .preview
+  padding: 0.4rem 1rem !important;
   border-radius: var(--inner-border-radius);
   font-size: 0.9rem;
   font-weight: bold;
